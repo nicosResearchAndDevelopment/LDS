@@ -1,39 +1,46 @@
     ## region upper concepts
 ## order ALPHA
-@prefix dct:   <http://purl.org/dc/terms/> .
-@prefix fno:   <https://w3id.org/function/ontology#> .
-@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-@prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
-@prefix org:   <http://www.w3.org/ns/org#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix qudt:  <http://qudt.org/schema/qudt/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
-@prefix time:  <http://www.w3.org/2006/time#>.
-@prefix unit:  <http://qudt.org/vocab/unit/> .
-@prefix vann:  <http://purl.org/vocab/vann/> .
-@prefix voaf:  <http://purl.org/vocommons/voaf#> .
-@prefix void:  <http://rdfs.org/ns/void#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:            <http://purl.org/dc/terms/> .
+@prefix fno:            <https://w3id.org/function/ontology#> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:           <http://www.w3.org/ns/odrl/2/> .
+@prefix org:            <http://www.w3.org/ns/org#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prof:           <http://www.w3.org/ns/dx/prof/> .
+@prefix qudt:           <http://qudt.org/schema/qudt/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:           <http://www.w3.org/2006/time#>.
+@prefix unit:           <http://qudt.org/vocab/unit/> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix voaf:           <http://purl.org/vocommons/voaf#> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
 lds:DataSpace
     a                owl:Class ;
+    rdfs:subClassOf  prof:Profile ;
+    skos:notation    "DataSpace"^^xsd:string ;
+    skos:prefLabel   "DataSpace"^^xsd:string ;
     rdfs:label       "Data Space"@en ;
     dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 
-lds:dataSpace
+lds:trustedDataSpace
     a                owl:ObjectProperty ;
-    skos:notation    "Data Space"^^xsd:string ;
-    skos:prefLabel   "dataSpace"^^xsd:string ;
-    rdfs:label       "Data Space"@en ;
-    dct:description  """Arbitrary property to bind a given Data Space."""@en ;
-    rdfs:range       lds:DataSpaces ;
+    skos:notation    "trustedDataSpace"^^xsd:string ;
+    skos:prefLabel   "Trusted Data Space"^^xsd:string ;
+    rdfs:label       "Trusted Data Space"@en ;
+    rdfs:label       "Datenraum mit Vertrauensstellung"@en ;
+    dct:description  """Arbitrary property to bind a given Trusted Data Space."""@en ;
+    rdfs:domain      lds:DataSpace ;
+    rdfs:range       lds:DataSpace ;
+    rdfs:comment     """Data Space Instance holding 'lds:trustedDataSpace' and populating it with Instances of 'lds:DataSpace' states that those Instances are trusted."""@en ;
     rdfs:isDefinedBy lds: .
 
 ## EOF lds.DataSpace.ttl

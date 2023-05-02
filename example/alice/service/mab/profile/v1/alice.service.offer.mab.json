@@ -1,0 +1,108 @@
+{
+  "@context": [
+    {
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+      "dct": "http://purl.org/dc/terms/",
+      "description": "http://purl.org/dc/terms/description",
+      "alice-org": "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl"
+    }
+  ],
+  "@graph": [
+    {
+      "@context": "http://www.w3.org/ns/odrl.jsonld",
+      "@type": "odrl:Offer",
+      "uid": "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/alice.service.offer.mab.json",
+      "// COMMENT: 'odrl:profile'": "Given ODRL Profile, provided by Alice.",
+      "odrl:profile": "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/odrl/profile/first.ttl",
+      "assigner": "alice-org",
+      "permission": [
+        {
+          "target": {
+            "@type": "AssetCollection",
+            "source": "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/instance/",
+            "TODO_refinement": []
+          },
+          "action": "odrl:use",
+          "// COMMENT: 'odrl:constraint'": "Offer is valid for given interval: 2023-04-32 < dateTime < 2012-08-01.",
+          "odrl:constraint": [
+            {
+              "type": "odrl:Constraint",
+              "uid": "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/1000000001",
+              "leftOperand": "odrl:dateTime",
+              "operator": "gt",
+              "rightOperand": {
+                "@value": "2023-04-31",
+                "@type": "xsd:date"
+              }
+            },
+            {
+              "type": "odrl:Constraint",
+              "uid": "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/1000000002",
+              "leftOperand": "odrl:dateTime",
+              "operator": "lt",
+              "rightOperand": {
+                "@value": "2023-08-01",
+                "@type": "xsd:date"
+              }
+            }
+          ]
+        }
+      ],
+      "duty": [
+        {
+          "action": [
+            {
+              "rdf:value": {
+                "@id": "odrl:compensate",
+                "odrl:informedParty": {
+                  "@id": "Deutsche Bank"
+                }
+              },
+              "refinement": [
+                {
+                  "type": "odrl:Constraint",
+                  "leftOperand": "payAmount",
+                  "operator": "eq",
+                  "rightOperand": {
+                    "@type": "xsd:decimal",
+                    "@value": "5.00"
+                  },
+                  "unit": "http://dbpedia.org/resource/Euro"
+                }
+              ]
+            },
+            {
+              "rdf:value": {
+                "@id": "odrl:inform",
+                "odrl:informedParty": {
+                  "@id": "https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/instance/log.html",
+                  "comment": [
+                    "'/log/instance:8081' is a Service Instance itself, so described by given Service Profile 'lds:ServiceProfile'. And it uses path '/log' for specific method.",
+                    "Given Assignee has to use this with its own credentials, so it will be allowed to write a log-message to 'MAPL' (the example marketplace).",
+                    "Given format of log-message will be defined by 'MAPL'."
+                  ]
+                }
+              },
+              "refinement": [
+                {
+                  "type": "odrl:Constraint",
+                  "description": "Assignee has to do some logging-stuff... here: any 'request' and any 'response'!",
+                  "leftOperand": "odrl:purpose",
+                  "operator": "odrl:isAnyOf",
+                  "rightOperand": {
+                    "@type": "xsd:AnyUri",
+                    "@value": [
+                      "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/purpose#request",
+                      "https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/purpose#response"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

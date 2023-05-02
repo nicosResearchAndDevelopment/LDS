@@ -1,0 +1,98 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:                   <http://purl.org/dc/terms/> .
+@prefix fno:                   <https://w3id.org/function/ontology#> .
+@prefix foaf:                  <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                  <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                   <http://www.w3.org/ns/org#> .
+@prefix owl:                   <http://www.w3.org/2002/07/owl#> .
+@prefix prof:                  <http://www.w3.org/ns/dx/prof/> .
+@prefix role:                  <http://www.w3.org/ns/dx/prof/role/> .
+@prefix qudt:                  <http://qudt.org/schema/qudt/> .
+@prefix rdf:                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:                    <http://www.w3.org/ns/shacl#> .
+@prefix skos:                  <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:                  <http://www.w3.org/2006/time#>.
+@prefix unit:                  <http://qudt.org/vocab/unit/> .
+@prefix vann:                  <http://purl.org/vocab/vann/> .
+@prefix voaf:                  <http://purl.org/vocommons/voaf#> .
+@prefix void:                  <http://rdfs.org/ns/void#> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
+
+@prefix dave:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/DataVerse/>.
+
+@prefix reg-ds:                <https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/dave.service.profile.register.dataSpace.ttl>.
+
+reg-ds:
+    a                lds:ServiceProfile ;             ## REM: profile!!!
+    rdfs:label       "Registering a DataSpace"@en ;
+    dct:description  """Profile of Service Registering a DataSpace in DAVE."""@en ;
+    ## region profile
+    dct:publisher    dave: ;
+    ## TODO: prof:isProfileOf <> ;
+    prof:hasResource
+                     <https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/guidance/> ;
+    ## endregion profile
+    rdfs:isDefinedBy dave: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/guidance/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Guidance for Registering a DataSpace" ;
+    dct:description  """."""@en ;
+    prof:hasRole     role:guidance ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/GUIDANCE.md> ;
+    rdfs:isDefinedBy dave: .
+#
+#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification/>
+#    a                prof:ResourceDescriptor ;
+#    rdfs:label       "Make-All-Better Specification" ;
+#    dct:description  """Specification for Make-All-Better."""@en ;
+#    prof:hasRole     role:specification ;
+#    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification.md> ;
+#    rdfs:isDefinedBy alice-ds: .
+#
+#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/faq/>
+#    a                prof:ResourceDescriptor ;
+#    rdfs:label       "Make-All-Better FAQ" ;
+#    dct:description  """Frequently asked Questions for Make-All-Better."""@en ;
+#    prof:hasRole     lds:faq_profile-role ;
+#    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/faq.md> ;
+#    rdfs:isDefinedBy alice-ds: .
+#
+#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary/>
+#    a                prof:ResourceDescriptor ;
+#    rdfs:label       "Make-All-Better Glossary" ;
+#    dct:description  """Glossary for Make-All-Better."""@en ;
+#    prof:hasRole     lds:glossary_profile-role ;
+#    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary.md> ;
+#    rdfs:isDefinedBy alice-ds: .
+#
+#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/service/mab/profile/v1/vocabulary/>
+#    a                prof:ResourceDescriptor ;
+#    rdfs:label       "Make-All-Better Vocabulary" ;
+#    dct:description  """Defines terms used in the profile specification."""@en ;
+#    prof:hasRole     role:vocabulary ;
+##    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
+#    dct:format       <https://w3id.org/mediatypes/text/turtle> ;
+#    prof:hasArtifact <http://www.example.com/some-fancy-architecture/model/ontology.ttl> ; ## REM: **NOT** Alice's one!!!
+#    rdfs:isDefinedBy alice-ds: .
+#
+#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/service/mab/profile/v1/offer/>
+#    a                prof:ResourceDescriptor ;
+#    rdfs:label       "Make-All-Better Offer" ;
+#    dct:description  """Defines terms to express a machine-readable Service Offer."""@en ;
+#    prof:hasRole     lds:service-offer_profile-role ;
+##    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
+#    dct:format       <https://w3id.org/mediatypes/application/ld+json> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/alice.service.offer.mab.json> ;
+#    rdfs:isDefinedBy alice-ds: .
+
+## EOF alice.service.profile.mab.ttl

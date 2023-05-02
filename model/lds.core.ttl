@@ -23,8 +23,164 @@
 
 lds:Registry
     a                owl:Class ;
-    rdfs:label "Registry"@en;
-    dct:description """."""@en ;
+    rdfs:label       "Registry"@en ;
+    dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
+
+## region range
+
+lds:Range
+    a                owl:Class ;
+    rdfs:isDefinedBy lds: .
+
+lds:from
+    a                owl:DatatypeProperty ;
+    rdfs:domain      lds:Range ;
+    rdfs:isDefinedBy lds: .
+
+lds:to
+    a                owl:DatatypeProperty ;
+    rdfs:domain      lds:Range ;
+    rdfs:isDefinedBy lds: .
+
+lds:unit
+    a                owl:ObjectProperty ;
+    rdfs:domain      lds:Range ;
+    rdfs:isDefinedBy lds: .
+
+lds:numericType
+    rdfs:subPropertyOf rdfs:Datatype ;
+    rdfs:domain        lds:Range ;
+    rdfs:range         xsd:short ;
+    rdfs:range         xsd:integer ;
+    rdfs:range         xsd:int ;
+    rdfs:range         xsd:long ;
+    rdfs:range         xsd:positiveInteger ;
+    rdfs:range         xsd:nonPositiveInteger ;
+    rdfs:range         xsd:nonNegativeInteger ;
+    rdfs:range         xsd:float ;
+    rdfs:range         xsd:double ;
+    rdfs:isDefinedBy   lds: .
+
+lds:Range_XSD_unsignedByte_nonNegative
+    a                lds:Range ;
+    lds:numericType  xsd:unsignedByte ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "255"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedByte
+    a                lds:Range ;
+    lds:numericType  xsd:byte ;
+    lds:from         "-128"^^xsd:nonNegativeInteger ;
+    lds:to           "127"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedByte_nonNegative
+    a                lds:Range ;
+    lds:numericType  xsd:byte ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "127"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedByte_nonPositive
+    a                lds:Range ;
+    lds:numericType  xsd:byte ;
+    lds:from         "-128"^^xsd:nonPositiveInteger ;
+    lds:to           "0"^^xsd:nonPositiveInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_unsignedShort
+    a                lds:Range ;
+    lds:numericType  xsd:unsignedShort ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "65535"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedShort
+    a                lds:Range ;
+    lds:numericType  xsd:short ;
+    lds:from         "-32768"^^xsd:nonNegativeInteger ;
+    lds:to           "32767"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedShort_nonNegative
+    a                lds:Range ;
+    lds:numericType  xsd:short ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "32767"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedShort_nonPositive
+    a                lds:Range ;
+    lds:numericType  xsd:short ;
+    lds:from         "-32768"^^xsd:nonPositiveInteger ;
+    lds:to           "0"^^xsd:nonPositiveInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_unsignedLong
+    a                lds:Range ;
+    lds:numericType  xsd:long ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "4294967295"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedInt
+    a                lds:Range ;
+    lds:numericType  xsd:int ;
+    lds:from         "-2147483648"^^xsd:nonPositiveInteger ;
+    lds:to           "2147483647"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedInt_nonNegative
+    a                lds:Range ;
+    lds:numericType  xsd:int ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "2147483647"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedInt_nonPositive
+    a                lds:Range ;
+    lds:numericType  xsd:int ;
+    lds:from         "-2147483648"^^xsd:nonPositiveInteger ;
+    lds:to           "0"^^xsd:nonPositiveInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedLong
+    a                lds:Range ;
+    lds:numericType  xsd:long ;
+    lds:from         "-9223372036854775808"^^xsd:nonPositiveInteger ;
+    lds:to           "9223372036854775807"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedLong_nonNegative
+    a                lds:Range ;
+    lds:numericType  xsd:long ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "9223372036854775807"^^xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy lds: .
+
+lds:Range_XSD_signedLong_nonPositive
+    a                lds:Range ;
+    lds:numericType  xsd:long ;
+    lds:from         "-9223372036854775808"^^xsd:nonPositiveInteger ;
+    lds:to           "0"^^xsd:nonPositiveInteger ;
+    rdfs:isDefinedBy lds: .
+
+## region EXAMPLE ## TODO: delete
+
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+lds:storage_range_0-5_GigaBYTE
+    a                lds:Range ;
+    lds:numericType  xsd:long ;
+    lds:from         "0"^^xsd:nonPositiveInteger ;
+    lds:to           "5"^^xsd:nonPositiveInteger ;
+    lds:unit         unit:GigaBYTE ;
+    rdfs:isDefinedBy lds: .
+
+## endregion EXAMPLE
+
+## endregion range
 
 ## EOF lds.core.ttl

@@ -22,25 +22,16 @@
 
 @prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-lds:Domain
-    a                owl:Class ;
-    rdfs:subClassOf  lds:Registry ;
-    rdfs:subClassOf  prof:Profile ;
-    skos:notation    "Domain"^^xsd:string ;
-    skos:prefLabel   "Domain"^^xsd:string ;
-    rdfs:label       "Domain"@en ;
-    rdfs:label       "Domäne"@de ;
-    dct:description  """."""@en ;
-    rdfs:isDefinedBy lds: .
-
-lds:domain
+lds:function
     a                owl:ObjectProperty ;
-    skos:notation    "Domain"^^xsd:string ;
-    skos:prefLabel   "domain"^^xsd:string ;
-    rdfs:label       "Domain"@en ;
-    dct:description  """Property to bind a given Domain."""@en ;
-    rdfs:domain      lds:DataSpace ;
-    rdfs:range       lds:Domain ;
+    skos:notation    "function"^^xsd:string ;
+    skos:prefLabel   "Function"^^xsd:string ;
+    rdfs:label       "Function"@en ;
+    rdfs:label       "Funktion"@en ;
+    dct:description  """Arbitrary property to bind a given Function."""@en ;
+    rdfs:domain      lds:Service ;
+    rdfs:range       rdfs:Resource ;
+    rdfs:comment     """A Function-Instance held by 'lds:function' has to be understood on protocol level, **NOT** on API-level."""@en ;
     rdfs:isDefinedBy lds: .
 
-## EOF lds.Domain.ttl
+## EOF lds.Function.ttl

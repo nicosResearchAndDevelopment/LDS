@@ -1,0 +1,55 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:                   <http://purl.org/dc/terms/> .
+@prefix fno:                   <https://w3id.org/function/ontology#> .
+@prefix foaf:                  <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                  <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                   <http://www.w3.org/ns/org#> .
+@prefix owl:                   <http://www.w3.org/2002/07/owl#> .
+@prefix prof:                  <http://www.w3.org/ns/dx/prof/> .
+@prefix role:                  <http://www.w3.org/ns/dx/prof/role/> .
+@prefix qudt:                  <http://qudt.org/schema/qudt/> .
+@prefix rdf:                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:                    <http://www.w3.org/ns/shacl#> .
+@prefix skos:                  <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:                  <http://www.w3.org/2006/time#>.
+@prefix unit:                  <http://qudt.org/vocab/unit/> .
+@prefix vann:                  <http://purl.org/vocab/vann/> .
+@prefix voaf:                  <http://purl.org/vocommons/voaf#> .
+@prefix void:                  <http://rdfs.org/ns/void#> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
+
+@prefix MAPL:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/mapl.ttl>.
+
+@prefix log:                   <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/mapl.service.profile.log.ttl>.
+
+log:
+    a                lds:ServiceProfile ;             ## REM: profile!!!
+    rdfs:label       "MAPL logging-service"@en ;
+    dct:description  """Profile of Log-Service in MAPL."""@en ;
+    ## region profile
+    dct:publisher    MAPL: ;
+    lds:concept      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/conzept/service/log/> ;
+    ## TODO: prof:isProfileOf <> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/> ;
+    ## endregion profile
+    rdfs:isDefinedBy MAPL: .
+
+## region profile
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Guidance for Log-Service in MAPL" ;
+    dct:description  """."""@en ;
+    prof:hasRole     role:guidance ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/GUIDANCE.md> ;
+    rdfs:isDefinedBy MAPL: .
+
+## endregion profile
+
+## EOF mapl.service.profile.log.ttl

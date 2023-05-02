@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message make_better_input {
+  string prompt = 1;
+}
+
+message make_better_output {
+  string answer = 1;
+}
+
+service make {
+  rpc better(make_better_input) returns (make_better_output) {};
+}
+
+// EOF: make.proto

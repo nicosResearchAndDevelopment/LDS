@@ -1,0 +1,36 @@
+########################################
+# 'make/' is a sub-path of given instance, collection all methods, like 'better'
+########################################
+
+GET https://localhost:80/make/better
+
+########################################
+## will response with method make/better-SelfDescription
+########################################
+# http-GET-response:
+#
+# {
+#   "input": { "prompt": { "@type": "xsd:string" } },
+#   "output": { "answer": { "@type": "xsd:string" } }
+# }
+########################################
+
+
+###
+
+POST https://localhost:80/make/better
+Content-Type: application/json
+
+{
+  "prompt": "How to make things better?"
+}
+
+########################################
+# http-POST-response:
+#
+# {
+#   "answer": "This is the way!"
+# }
+########################################
+
+###

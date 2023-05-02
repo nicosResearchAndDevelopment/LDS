@@ -1,0 +1,90 @@
+@prefix dct:                <http://purl.org/dc/terms/> .
+@prefix dcat:               <http://www.w3.org/ns/dcat#> .
+@prefix fno:                <https://w3id.org/function/ontology#> .
+@prefix foaf:               <http://xmlns.com/foaf/0.1/> .
+@prefix org:                <http://www.w3.org/ns/org#> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix alice:              <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl> .
+@prefix function:           <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/function#> .
+
+## region make
+## region make_better
+
+function:make_better
+    ## region fno
+    a                fno:Function ;
+    fno:name         "The 'better' function"^^xsd:string ;
+    fno:solves       function:make_better_problem ;
+    fno:implements   function:make_better_algorithm ;
+    fno:expects      ( function:make_better_parameter_prompt ) ;
+    fno:returns      ( function:make_better_output ) ;
+    # endregion fno
+    dct:description  """"""@en ;
+    rdfs:isDefinedBy alice: .
+
+function:make_better_problem
+    a                fno:Problem ;
+    fno:name         "The problem to make things better"^^xsd:string ;
+    dct:description  """."""@en ;
+    rdfs:isDefinedBy alice: .
+
+function:make_better_algorithm
+    a                fno:Algorithm ;
+    fno:name         """The 'better' algorithm"""^^xsd:string ;
+    dct:description  """."""@en ;
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy alice: .
+
+function:prompt
+    a                owl:DatatypeProperty ;
+    rdfs:label       "prompt"^^xsd:string ;
+    rdfs:domain      [ rdf:type    owl:Class ;
+                       owl:unionOf ( fno:Execution ) ] ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy alice: .
+
+function:make_better_parameter_prompt
+    a                fno:Parameter ;
+    fno:predicate    function:prompt ;
+    fno:type         xsd:string ;
+    fno:required     "true"^^xsd:boolean ; ;
+    rdfs:isDefinedBy alice: .
+
+function:answer
+    a                owl:DatatypeProperty ;
+    rdfs:label       "answer"^^xsd:string ;
+    rdfs:domain      [ rdf:type    owl:Class ;
+                       owl:unionOf ( fno:Execution ) ] ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy alice: .
+
+function:make_better_output
+    a                fno:Output ;
+    fno:predicate    function:answer ;
+    fno:type         xsd:string ;
+    fno:required     "true"^^xsd:boolean ;
+    rdfs:isDefinedBy alice: .
+
+## REM : call
+<https://www.example.com/MAKEBETTER_execution_EXAMPLE_CALL-42>
+    a                fno:Execution ;
+    fno:executes     function:make_better ;
+    function:prompt  "How to make things better?"^^xsd:string ;        ## REM : optional
+    ## REM : given Consumer/Requester
+    rdfs:isDefinedBy <https://www.example.com/consumer> .
+
+## REM : result
+<https://www.example.com/MAKEBETTER_execution_EXAMPLE_CALL-42>
+    a                fno:Execution ;
+    function:answer  "This is the way!"^^xsd:string ;
+    rdfs:isDefinedBy alice: .
+
+## endregion make_better
+## endregion make
+
+## EOF: alice.service.mab.v1.function.ttl

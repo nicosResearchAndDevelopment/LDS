@@ -1,0 +1,214 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix fno:      <https://w3id.org/function/ontology#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:     <http://www.w3.org/ns/odrl/2/> .
+@prefix org:      <http://www.w3.org/ns/org#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prof:     <http://www.w3.org/ns/dx/prof/> .
+@prefix role:     <http://www.w3.org/ns/dx/prof/role/> .
+@prefix qudt:     <http://qudt.org/schema/qudt/> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:     <http://www.w3.org/2006/time#>.
+@prefix unit:     <http://qudt.org/vocab/unit/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix voaf:     <http://purl.org/vocommons/voaf#> .
+@prefix void:     <http://rdfs.org/ns/void#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+## endregion upper concepts
+
+@prefix lds:      <https://github.com/nicosResearchAndDevelopment/LDS#> .
+
+@prefix alice:    <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl> .
+@prefix mab:      <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/alice.service.profile.mab.ttl> .
+
+@prefix model:    <https://www.example.org/model/> .
+@prefix jott:     <https://www.nicos-ag.com/jlangkau/> .
+
+mab:
+    a                lds:ServiceProfile ;    ## REM: profile!!!
+    rdfs:label       "Make-All-Better"@en ;
+    dct:description  """Alice's Make-All-Better ('MAB') Service Profile."""@en ;
+    ## region profile
+    dct:publisher    alice: ;
+    prof:isProfileOf <http://www.example.com/some-fancy-architecture/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/landingpage/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/guidance/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/function/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/http/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/gRPC/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/vocabulary/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/schema/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/example/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/offer/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/onboarding/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/contact/> ;
+    ## endregion profile
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/landingpage/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Landing Page"@en ;
+    rdfs:label       "Make-All-Better Startseite"@en ;
+    dct:description  """Starter of Make-All-Better."""@en ;
+    dct:description  """Startseite von Make-All-Better."""@de ;
+    prof:hasRole     lds:landingpage_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/README.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/guidance/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Guidance for users"@en ;
+    rdfs:label       "Make-All-Better Anleitung für Benutzer"@de ;
+    dct:description  """User-manual for Make-All-Better."""@en ;
+    dct:description  """Gebrauchsanleitung für Make-All-Better Benutzer."""@de ;
+    prof:hasRole     role:guidance ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/guidance.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Specification"@en ;
+    rdfs:label       "Make-All-Better Spezifikation"@en ;
+    dct:description  """Specification for Make-All-Better."""@en ;
+    dct:description  """Spezifikation Make-All-Better."""@de ;
+    prof:hasRole     role:specification ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/function/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Service Functions"@en ;
+    rdfs:label       "Make-All-Better Service Funktionen"@de ;
+    dct:description  """Functions provided by Make-All-Better."""@en ;
+    dct:description  """Funktionen von Make-All-Better."""@de ;
+    prof:hasRole     lds:function_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/turtle> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/function/alice.service.mab.function.ttl> ;
+    rdfs:seeAlso     <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/http/> ;
+    rdfs:seeAlso     <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/gRPC/> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/http/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better 'HTTP Application Programming Interface'"@en ;
+    rdfs:label       "Make-All-Better 'HTTP Application Programming Interface'"@de ;
+    dct:description  """HTTP API provided by Make-All-Better."""@en ;
+    dct:description  """HTTP API von Make-All-Better."""@de ;
+    prof:hasRole     lds:api_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/html/alice.service.mab.api.html.md> ;
+    rdfs:seeAlso     <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/function/> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/gRPC/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Remote Procedure Call 'gRPC Interface'"@en ;
+    rdfs:label       "Make-All-Better Remote Procedure Call 'gRPC Interface'"@de ;
+    dct:description  """gRPC API provided by Make-All-Better."""@en ;
+    dct:description  """gRPC API von Make-All-Better."""@de ;
+    prof:hasRole     lds:api_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/api/grpc/alice.service.mab.api.gRPC.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/faq/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "FAQ Make-All-Better"@en ;
+    rdfs:label       "FAQ Make-All-Better"@de ;
+    dct:description  """Frequently Asked Questions to Make-All-Better."""@en ;
+    dct:description  """Häufig gestellte Fragen an Make-All-Better."""@en ;
+    prof:hasRole     lds:faq_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/faq.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Glossary"@en ;
+    rdfs:label       "Make-All-Better Glossar"@de ;
+    dct:description  """Glossary for Make-All-Better."""@en ;
+    dct:description  """Glossar für Make-All-Better."""@de ;
+    prof:hasRole     lds:glossary_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/vocabulary/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Vocabulary"@en ;
+    rdfs:label       "Make-All-Better Vokabular"@de ;
+    dct:description  """Defines all terms used in the profile Make-All-Better."""@en ;
+    prof:hasRole     role:vocabulary ;
+#    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
+    dct:format       <https://w3id.org/mediatypes/text/turtle> ;
+    prof:hasArtifact <http://www.example.com/some-fancy-architecture/model/ontology.ttl> ; ## REM: **NOT** Alice's one!!!
+    ## TODO: prof:hasArtifact <http://www.example.com/some-fancy-architecture/model/ontology.json> ; ## REM: **NOT** Alice's one!!!
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/schema/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Schema" ;
+    dct:description  """Defines data-terms used in the profile Make-All-Better."""@en ;
+    prof:hasRole     role:schema ;
+#    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
+    dct:format       <https://w3id.org/mediatypes/text/turtle> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/alice.service.offer.mab.schema.ttl> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/example/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Example"@en ;
+    rdfs:label       "Make-All-Better Beispiel"@de ;
+    dct:description  """Shows examples for Make_All-Better."""@en ;
+    prof:hasRole     lds:example-profile-role ;
+#    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
+    dct:format       <https://w3id.org/mediatypes/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/example/README.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/offer/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Offer"@en ;
+    rdfs:label       "Make-All-Better Angebot"@de ;
+    dct:description  """Defines terms to express a machine-readable Service Offer of Make_All-Better."""@en ;
+    prof:hasRole     lds:service-offer_profile-role ;
+#    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
+    dct:format       <https://w3id.org/mediatypes/application/ld+json> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/alice.service.offer.mab.json> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/onboarding/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Make-All-Better Onboarding" ;
+    dct:description  """Onboarding for Service Make-All-Better."""@en ;
+    dct:description  """Onboarding für Service Make-All-Better."""@de ;
+    prof:hasRole     lds:onboarding_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/onboarding.en.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/onboarding.de.md> ;
+    rdfs:isDefinedBy alice: .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/contact/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Contact Make-All-Better"@en ;
+    rdfs:label       "Kontakt Make-All-Better"@de ;
+    dct:description  """Contact for Service Make-All-Better."""@en ;
+    dct:description  """Kontakt für Service Make-All-Better."""@de ;
+    prof:hasRole     lds:contact_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/contact.en.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/contact.de.md> ;
+    rdfs:isDefinedBy alice: .
+
+## EOF alice.service.profile.mab.ttl

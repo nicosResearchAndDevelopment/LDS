@@ -22,25 +22,34 @@
 
 @prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-lds:Domain
+lds:Participant
     a                owl:Class ;
-    rdfs:subClassOf  lds:Registry ;
-    rdfs:subClassOf  prof:Profile ;
-    skos:notation    "Domain"^^xsd:string ;
-    skos:prefLabel   "Domain"^^xsd:string ;
-    rdfs:label       "Domain"@en ;
-    rdfs:label       "Domäne"@de ;
+    skos:notation    "Participant"^^xsd:string ;
+    skos:prefLabel   "Participant"^^xsd:string ;
+    rdfs:label       "Participant"@en ;
+    rdfs:label       "Teilnehmer"@de ;
     dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 
-lds:domain
+lds:participant
     a                owl:ObjectProperty ;
-    skos:notation    "Domain"^^xsd:string ;
-    skos:prefLabel   "domain"^^xsd:string ;
-    rdfs:label       "Domain"@en ;
-    dct:description  """Property to bind a given Domain."""@en ;
+    skos:notation    "participant"^^xsd:string ;
+    skos:prefLabel   "participant"^^xsd:string ;
+    rdfs:label       "Participant"@en ;
+    dct:description  """Property to bind a given Participant."""@en ;
     rdfs:domain      lds:DataSpace ;
-    rdfs:range       lds:Domain ;
+    rdfs:range       lds:Participant ;
     rdfs:isDefinedBy lds: .
 
-## EOF lds.Domain.ttl
+lds:trustedParticipant
+    a                owl:ObjectProperty ;
+    skos:notation    "trustedParticipant"^^xsd:string ;
+    skos:prefLabel   "trustedParticipant"^^xsd:string ;
+    rdfs:label       "Trusted Participant"@en ;
+    dct:description  """Property to bind a given Trusted Participant, leading to a List of Trusted Participants."""@en ;
+    rdfs:domain      lds:DataSpace ;
+    rdfs:range       lds:Participant ;
+    rdfs:comment     """All participants, held by 'lds:trustedParticipant."""@en ;
+    rdfs:isDefinedBy lds: .
+
+## EOF lds.participant.ttl

@@ -21,13 +21,30 @@
 
 @prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/DataVerse.ttl>
-    a                lds:LinkedDataSpaces ;
-    rdfs:label       "DataVerse"@en ;
-    ## region lds:dataSpace
-    lds:dataSpace    <https://ds.alice.org/> ;
-    lds:dataSpace    <https://ds.bob.org/> ;
-    ## endregion lds:dataSpace
+lds:DataSpaceLinker
+    a                owl:Class ;
+    rdfs:label       "Linker for Data Spaces"@en ;
+    dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 
-## EOF DataVerse.ttl
+lds:dataSpaceLinker
+    a                owl:ObjectProperty ;
+    skos:notation    "dataSpaceLinker"^^xsd:string ;
+    skos:prefLabel   "Data Space Linker"^^xsd:string ;
+    rdfs:label       "Data Space Linker"@en ;
+    dct:description  """Arbitrary property to bind a given Data Space Linker to an instance of 'lds:DataSpaceLinker'."""@en ;
+    rdfs:domain      lds:DataSpaceLinker ;
+    ## REM: cardinality :: [0..n]
+    rdfs:range       lds:DataSpaceLinker ;
+    rdfs:isDefinedBy lds: .
+
+lds:dataSpace
+    a                owl:ObjectProperty ;
+    skos:notation    "dataSpace"^^xsd:string ;
+    skos:prefLabel   "Data Space"^^xsd:string ;
+    rdfs:label       "Data Space"@en ;
+    dct:description  """Arbitrary property to bind a given Data Space."""@en ;
+    rdfs:range       lds:DataSpace ;
+    rdfs:isDefinedBy lds: .
+
+## EOF lds.DataSpaceLinker.ttl

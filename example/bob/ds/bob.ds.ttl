@@ -1,28 +1,31 @@
     ## region upper concepts
 ## order ALPHA
-@prefix dct:   <http://purl.org/dc/terms/> .
-@prefix fno:   <https://w3id.org/function/ontology#> .
-@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-@prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
-@prefix org:   <http://www.w3.org/ns/org#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix qudt:  <http://qudt.org/schema/qudt/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
-@prefix time:  <http://www.w3.org/2006/time#>.
-@prefix unit:  <http://qudt.org/vocab/unit/> .
-@prefix vann:  <http://purl.org/vocab/vann/> .
-@prefix voaf:  <http://purl.org/vocommons/voaf#> .
-@prefix void:  <http://rdfs.org/ns/void#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:            <http://purl.org/dc/terms/> .
+@prefix fno:            <https://w3id.org/function/ontology#> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:           <http://www.w3.org/ns/odrl/2/> .
+@prefix org:            <http://www.w3.org/ns/org#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prof:           <http://www.w3.org/ns/dx/prof/> .
+@prefix qudt:           <http://qudt.org/schema/qudt/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:           <http://www.w3.org/2006/time#>.
+@prefix unit:           <http://qudt.org/vocab/unit/> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix voaf:           <http://purl.org/vocommons/voaf#> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-<https://ds.bob.org/>
-    a                lds:DataSpace ;
+@prefix bob-ds:         <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/ds/>.
+
+bob-ds:
+    a                lds:DataSpace ;                        ## REM: a Profile!
     rdfs:label       "Bob's Data Space"@en ;
     lds:domain       <https://www.bob.org/domain/> ;
     rdfs:isDefinedBy <https://www.bob.org/> .
