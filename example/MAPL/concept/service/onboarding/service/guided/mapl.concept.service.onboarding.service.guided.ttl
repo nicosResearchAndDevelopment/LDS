@@ -23,16 +23,15 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> .
+@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-mapl:ServiceConcept_LOG
+mapl:ServiceConcept_ONBOARDING_SERVICE_GUIDED
     a                    owl:Class ;
-    rdfs:rdfs:subClassOf lds:ServiceConcept ;                          ## REM: skos:Concept
-    rdfs:label           "MAPL's Service Concept for Log"@en ;
-    rdfs:label           "MAPL's Service Konzept für Logging"@de ;
-    skos:inScheme        mapl:Service ;
-    skos:broader         lds:ServiceConcept ;
+    rdfs:rdfs:subClassOf mapl:ServiceConcept_ONBOARDING_SERVICE ;
+    rdfs:label           "MAPL's Service Concept for MAPL Guided Service Onboarding"@en ;
+    rdfs:label           "MAPL's Service Konzept für MAPL begleitetes Service Onboarding"@de ;
+    skos:broader         mapl:ServiceConcept_ONBOARDING_SERVICE ;
     dct:description      """."""@en ;
     rdfs:isDefinedBy     mapl:MAPL .
 
-## EOF mapl.concept.service.log.ttl
+## EOF mapl.concept.service.onboarding.service.guided.ttl

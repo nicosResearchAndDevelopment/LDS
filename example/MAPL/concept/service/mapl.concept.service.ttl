@@ -23,21 +23,31 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix MAPL:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/mapl.ttl>.
+@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-MAPL:Service
-    a                lds:Service ; ## REM: skos:ConceptScheme
-    rdfs:label       "MAPL's Service Concept Scheme"@en ;
-    rdfs:label       "MAPL's Service Konzept Schema"@de ;
-    dct:description  """."""@en ;
-    rdfs:isDefinedBy lds: .
+mapl:Service
+    a                  lds:Service ;                          ## REM: skos:ConceptScheme
+    rdfs:label         "MAPL's Service Concept Scheme"@en ;
+    rdfs:label         "MAPL's Service Konzept Schema"@de ;
+    ## region skos:hasTopConcept, order ALPHA
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_ACCESS ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_CONSTRUCTING ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_CONSULTING ;
+    skos:hasTopConcept mapl:ServiceConcept_LOG ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_MANAGED ;
+    skos:hasTopConcept mapl:ServiceConcept_ONBOARDING ;
+    skos:hasTopConcept mapl:ServiceConcept_STORAGE ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_WEB ;
+    ## endregion skos:hasTopConcept
+    dct:description    """."""@en ;
+    rdfs:isDefinedBy   lds: .
 
-MAPL:ServiceConcept
+mapl:ServiceConcept
     a                owl:Class ;
+    a                skos:Concept ;
     rdfs:subClassOf  lds:ServiceConcept ; ## REM: skos:Concept
     rdfs:label       "MAPL's Service Concept"@en ;
-    rdfs:label       "MAPL's Service Konzept"@de ;
-    skos:inScheme    MAPL:Service ;
+    rdfs:label       "MAPL's Servicekonzept"@de ;
     dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 

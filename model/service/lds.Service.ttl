@@ -36,8 +36,9 @@ lds:Service
     rdfs:comment     """."""@en ;
     rdfs:isDefinedBy lds: .
 
-lds:ServiceConcept
+lds:ServiceConcept                          ## REM: abstract
     a                owl:Class ;
+    a                skos:Concept ;
     rdf:subClassOf   skos:Concept ;
     ## region skos
 #    skos:notation    "ServiceConcept"^^xsd:string ;
@@ -49,8 +50,9 @@ lds:ServiceConcept
     dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 
-lds:ServiceProfile
+lds:ServiceProfile                          ## REM: abstract
     a                owl:Class ;
+    a                skos:Concept ;
     rdfs:subClassOf  prof:Profile ;
     rdfs:subClassOf  skos:ServiceConcept ;
     ## region skos
@@ -186,7 +188,7 @@ lds:whitepaper-offer_profile-role
 ## endregion Profile Role Extensions
 
 ## region ServiceInstance
-lds:ServiceInstance
+lds:ServiceInstance                         ## REM: abstract
     a                owl:Class ;
     ## region skos
 #    a                skos:Concept ;
@@ -208,7 +210,7 @@ lds:serviceInstance
     rdfs:range       lds:ServiceInstance ;
     rdfs:isDefinedBy lds: .
 
-lds:ServiceConfiguration
+lds:ServiceConfiguration                    ## REM: abstract
     a                owl:Class ;
     skos:notation    "ServiceConfiguration"^^xsd:string ;
     skos:prefLabel   "Service Configuration"^^xsd:string ;

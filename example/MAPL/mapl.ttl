@@ -31,9 +31,9 @@
 @prefix bob-ds:         <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/ds/bob.ds.ttl> .
 ## endregion Trusted Data Space
 
-@prefix MAPL:           <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/mapl.ttl> .
+@prefix mapl:           <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> .
 
-MAPL:
+mapl:MAPL
     a                    lds:DataSpaceLinker ;
     a                    lds:DataSpace ;                        ## REM: so, a Profile!
     rdfs:label           "Market Place"@en ;
@@ -57,6 +57,6 @@ MAPL:
     ## endregion dataSpace
     ## endregion Data Spaces Linker related
 
-    rdfs:isDefinedBy     MAPL: .
+    rdfs:isDefinedBy     mapl:MAPL .
 
 ## EOF mapl.ttl

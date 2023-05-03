@@ -23,7 +23,7 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix MAPL:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/mapl.ttl>.
+@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
 @prefix log:                   <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/mapl.service.profile.log.ttl>.
 
@@ -32,12 +32,12 @@ log:
     rdfs:label       "MAPL logging-service"@en ;
     dct:description  """Profile of Log-Service in MAPL."""@en ;
     ## region profile
-    dct:publisher    MAPL: ;
+    dct:publisher    mapl:MAPL ;
     lds:concept      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/conzept/service/log/> ;
     ## TODO: prof:isProfileOf <> ;
     prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/> ;
     ## endregion profile
-    rdfs:isDefinedBy MAPL: .
+    rdfs:isDefinedBy mapl:MAPL .
 
 ## region profile
 
@@ -48,7 +48,7 @@ log:
     prof:hasRole     role:guidance ;
     dct:format       <https://w3id.org/mediatype/text/markdown> ;
     prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/GUIDANCE.md> ;
-    rdfs:isDefinedBy MAPL: .
+    rdfs:isDefinedBy mapl:MAPL .
 
 ## endregion profile
 

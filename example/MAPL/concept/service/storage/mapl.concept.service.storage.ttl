@@ -23,17 +23,19 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix MAPL:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/mapl.ttl>.
+@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-MAPL:ServiceStorageConcept
-    a                MAPL:ServiceConcept ;                          ## REM: skos:Concept
-    rdfs:label       "MAPL's Service Concept for Storage"@en ;
-    rdfs:label       "MAPL's Service Konzept für Storage"@de ;
-    skos:inScheme    MAPL:Service ;
-    skos:broader     MAPL:ServiceConcept ;
-    skos:narrower    MAPL:ServiceStorageConcept_DB ;
-    skos:narrower    MAPL:ServiceStorageConcept_FTP ;
-    dct:description  """."""@en ;
-    rdfs:isDefinedBy lds: .
+mapl:ServiceConcept_STORAGE
+    a                    owl:Class ;
+    a                    skos:Concept ;
+    rdfs:rdfs:subClassOf mapl:ServiceConcept ;                          ## REM: skos:Concept
+    rdfs:label           "MAPL's Service Concept for Storage"@en ;
+    rdfs:label           "MAPL's Service Konzept für Storage"@de ;
+    skos:inScheme        mapl:Service ;
+    skos:broader         mapl:ServiceConcept ;
+    skos:narrower        mapl:ServiceConcept_STORAGE_DB ;
+    skos:narrower        mapl:ServiceConcept_STORAGE_FTP ;
+    dct:description      """."""@en ;
+    rdfs:isDefinedBy     mapl:MAPL .
 
 ## EOF mapl.concept.service.storage.ttl

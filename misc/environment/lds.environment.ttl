@@ -1,0 +1,220 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:            <http://purl.org/dc/terms/> .
+@prefix fno:            <https://w3id.org/function/ontology#> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:           <http://www.w3.org/ns/odrl/2/> .
+@prefix org:            <http://www.w3.org/ns/org#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prof:           <http://www.w3.org/ns/dx/prof/> .
+@prefix qudt:           <http://qudt.org/schema/qudt/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:           <http://www.w3.org/2006/time#>.
+@prefix unit:           <http://qudt.org/vocab/unit/> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix voaf:           <http://purl.org/vocommons/voaf#> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
+
+lds:resource
+    a                owl:ObjectProperty ;
+    skos:notation    "resource"^^xsd:string ;
+    skos:prefLabel   "Resource"^^xsd:string ;
+    rdfs:label       "Resource"@en ;
+    dct:description  """."""@en ;
+#    rdfs:domain      lds:Environment ;
+    rdfs:range       rdfs:Resource ;                     ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy lds: .
+
+lds:authoritative
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf lds:direct ;
+    skos:notation      "authoritative"^^xsd:string ;
+    skos:prefLabel     "Authoritative"^^xsd:string ;
+    rdfs:label         "Autoritativ"@en ;
+    dct:description    """."""@en ;
+    rdfs:domain        rdfs:Resource ;                     ## REM: the Subject
+    rdfs:range         rdfs:Resource ;                  ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy   lds: .
+
+lds:direct
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf lds:resource ;
+    skos:notation      "direct"^^xsd:string ;
+    skos:prefLabel     "direct"^^xsd:string ;
+    rdfs:label         "direct"@en ;
+    rdfs:label         "direkt"@en ;
+    dct:description    """."""@en ;
+    rdfs:domain        rdfs:Resource ;                  ## REM: the Subject
+    rdfs:range         rdfs:Resource ;                  ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy   lds: .
+
+lds:indirect
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf lds:resource ;
+    skos:notation      "indirect"^^xsd:string ;
+    skos:prefLabel     "indirect"^^xsd:string ;
+    rdfs:label         "indirect"@en ;
+    rdfs:label         "indirekt"@en ;
+    dct:description    """."""@en ;
+    rdfs:domain        rdfs:Resource ;                  ## REM: the Subject
+    rdfs:range         rdfs:Resource ;                  ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy   lds: .
+
+lds:unclassified
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf lds:resource ;
+    skos:notation      "unclassified"^^xsd:string ;
+    skos:prefLabel     "unclassified"^^xsd:string ;
+    rdfs:label         "unclassified"@en ;
+    rdfs:label         "nicht klassifiziert"@en ;
+    dct:description    """."""@en ;
+    rdfs:domain        rdfs:Resource ;                  ## REM: the Subject
+    rdfs:range         skos:Concept ;                   ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy   lds: .
+
+lds:Environment
+    a                owl:Class ;
+    skos:notation    "Environment"^^xsd:string ;
+    skos:prefLabel   "Environment"^^xsd:string ;
+    rdfs:label       "Environment"@en ;
+    rdfs:label       "Umgebung"@de ;
+    dct:description  """."""@en ;
+    rdfs:isDefinedBy lds: .
+
+lds:environment
+    a                owl:ObjectProperty ;
+    skos:notation    "environment"^^xsd:string ;
+    skos:prefLabel   "Environment"^^xsd:string ;
+    rdfs:label       "Environment"@en ;
+    dct:description  """."""@en ;
+    rdfs:domain      rdfs:Resource ;
+    rdfs:range       lds:Environment ;                  ## REM: cardinality :: {0..1}
+    rdfs:isDefinedBy lds: .
+
+lds:hasContext
+    a                owl:ObjectProperty ;
+    skos:notation    "hasContext"^^xsd:string ;
+    skos:prefLabel   "Has Context"^^xsd:string ;
+    rdfs:label       "Has Context"@en ;
+    rdfs:label       "Hat Context"@en ;
+    dct:description  """Property to bind a given Context 'lds:Context' to a Resource 'rdfs:Resource'."""@en ;
+    rdfs:domain      rdfs:Resource ;
+    rdfs:range       lds:Context ;                      ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy lds: .
+
+lds:Context
+    a                owl:Class ;
+    skos:notation    "Context"^^xsd:string ;
+    skos:prefLabel   "Context"^^xsd:string ;
+    rdfs:label       "Context"@en ;
+    rdfs:label       "Context"@de ;
+    dct:description  """."""@en ;
+    rdfs:isDefinedBy lds: .
+
+
+lds:OuterContext
+    a                owl:Class ;
+    rdfs:subClassOf  skos:Collection ;
+    skos:notation    "OuterContext"^^xsd:string ;
+    skos:prefLabel   "Outer Context"^^xsd:string ;
+    rdfs:label       "OuterContext"@en ;
+    rdfs:label       "Outer Context"@de ;
+    dct:description  """."""@en ;
+    rdfs:isDefinedBy lds: .
+
+lds:hasOuterContext
+    a                owl:ObjectProperty ;
+    skos:notation    "hasOuterContext"^^xsd:string ;
+    skos:prefLabel   "Has Outer Context"^^xsd:string ;
+    rdfs:label       "Has Outer Context"@en ;
+    rdfs:label       "Hat Outer Context"@en ;
+    dct:description  """Property to bind a given Outer-Context 'lds:OuterContext' to an Environment 'lds:Evironment'."""@en ;
+    rdfs:domain      rdfs:Resource ;
+    rdfs:range       lds:OuterContext ;                      ## REM: cardinality :: {0..1}
+    rdfs:isDefinedBy lds: .
+
+## region EXAMPLE
+#@prefix schema: <http://schema.org/> .
+#
+#<https://www.example.org/employee/jlangkau#>
+#    a                   rdfs:Resource ;
+#    a                   foaf:Person ;                                                      ## REM: as Subject
+#    ## region Subject
+#    ## region Subject :: lds:authoritative
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#self> ;                ## REM: most of the time :-/
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#temperature> ;
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#arm-left> ;
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#arm-left-wrist> ;
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#wrist-watch> ;
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#wrist-watch-time> ;    ## REM: mechanic watch
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#mobile-phone> ;
+#    lds:authoritative   <https://www.example.org/employee/jlangkau#office-door-key> ;
+#    ## endregion Subject :: lds:authoritative
+#    ## endregion Subject
+#    ## region Environment
+#    lds:environment     [ a            lds:Environment ;
+#                          lds:resource <https://www.example.org/employee/jlangkau#office> ;
+#                          lds:resource <https://www.example.org/employee/jlangkau#office-door> ;
+#                          lds:resource <https://www.example.org/employee/jlangkau#office-cup> ;
+#                          lds:resource <https://www.example.org/employee/jlangkau#mobile-phone-time> ;
+#                          lds:resource <https://www.example.org/employee/jlangkau#office-local-printer-multi> ; ] ;
+#    ## region Environment :: lds:direct
+#    lds:direct          <https://www.example.org/employee/jlangkau#office> ;
+#    lds:direct          <https://www.example.org/employee/jlangkau#office-door> ;
+#    lds:direct          <https://www.example.org/employee/jlangkau#office-cup> ;
+#    lds:direct          <https://www.example.org/employee/jlangkau#mobile-phone-time> ;
+#    lds:direct          <https://www.example.org/employee/jlangkau#office-local-printer-multi> ;
+#    ## endregion Environment :: lds:direct
+#    ## endregion Environment
+#    ## region Context
+#    lds:hasContext      <https://www.example.org/intra/net#> ;
+#    lds:hasContext      <https://www.wolframalpha.com/> ;
+#    ## region Context :: lds:indirect
+#    lds:indirect        <https://www.example.org/intra/net#printer-multi-first-floor> ;
+#    lds:indirect        <https://www.wolframalpha.com/input?i=time+now> ;
+#    ## endregion Context :: lds:indirect
+#    ## endregion Context
+#    ## region Outer Context
+#    lds:hasOuterContext [ a                lds:OuterContext ;
+#                          skos:member      <https://www.example.org/employee/jlangkau/concept-wife> ;
+#                          skos:member      <https://www.example.org/employee/jlangkau/concept-solar-system> ;
+#                          skos:member      <https://www.example.org/employee/jlangkau#concept-printer-multi-first-floor> ;
+#                          rdfs:isDefinedBy <https://www.example.org/employee/jlangkau#> ; ] ;
+#    ## region Outer Context :: lds:unclassified
+#    lds:unclassified    <https://www.example.org/employee/jlangkau/concept-wife> ;
+#    lds:unclassified    <https://www.example.org/employee/jlangkau/concept-solar-system> ;
+#    lds:unclassified    <https://www.example.org/employee/jlangkau#concept-printer-multi-first-floor> ;
+#    ## endregion Outer Context :: lds:unclassified
+#    ## endregion Outer Context
+#    rdfs:isDefinedBy    <https://www.example.org/> .
+#
+#<https://www.example.org/employee/jlangkau#concept-printer-multi-first-floor>
+#    a                skos:Concept ;
+#    odrl:purpose     "copy" ;
+#    odrl:purpose     "print paper" ;
+#    odrl:purpose     "print PDF" ;
+#    schema:location  [ a               schema:Place ;
+#                       dct:description """First floor, room 42"""@en ; ] ;
+#    rdfs:isDefinedBy <https://www.example.org/employee/jlangkau#> .
+#
+#<https://www.example.org/intra/net#>
+#    a                lds:Context ;
+#    lds:resource     <https://www.example.org/domain/user#jlangkau> ;
+#    lds:resource     <https://www.example.org/intra/net#printer-multi-first-floor> ;
+#    rdfs:isDefinedBy <https://www.example.org/> .
+#
+#<https://www.wolframalpha.com/>
+#    a                lds:Context ;
+#    lds:resource     <https://www.wolframalpha.com/input?i=time+now> ;
+#    rdfs:isDefinedBy <https://www.wolframalpha.com/> ;
+#.
+## endregion EXAMPLE
+
+## EOF lds.environment.ttl
