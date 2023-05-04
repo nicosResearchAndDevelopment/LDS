@@ -1,0 +1,167 @@
+    ## Definition of used or common namespaces
+## TODO: clean up unused...
+
+@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:       <http://www.w3.org/2006/time#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix schema:     <http://schema.org/> .
+@prefix cc:         <http://creativecommons.org/ns#> .
+
+@base <https://github.com/nicosResearchAndDevelopment/LDS/misc/odrl/guess/> .
+@prefix :           <https://github.com/nicosResearchAndDevelopment/LDS/misc/odrl/guess/> .
+@prefix guess:      <https://github.com/nicosResearchAndDevelopment/LDS/misc/odrl/guess/> .
+
+## Definition of the Usage Control Profile as OWL Ontology
+guess:
+    a               owl:Ontology ;
+    rdfs:label      "ODRL Guess and Assumption Profile 'guess'"@en ;
+    owl:versionInfo "0.1" ;
+    dct:creator     "Jörg Langkau, nicos AG" ;
+    dct:contributor "nicos AG" ;
+    dct:description """."""@en ;
+    rdfs:comment    """."""@en ;
+    ## TODO: license
+#    dct:license      <http://creativecommons.org/licenses/by/4.0/> ;
+.
+
+guess:Guess
+    a                rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:subClassOf  odrl:Offer ;
+    rdfs:label       "Guess"@en ;
+    skos:note        "An Guess Policy MUST contain at least one Permission or Prohibition rule and a Party with Assumer function (in the same Permission or Prohibition). The Guess Policy MAY contain a Party with Assignee function, but MUST grant only one privileg (guess:consider) to given Assignee."@en ;
+    rdfs:isDefinedBy guess: .
+
+guess:guesser
+    a                  rdf:Property, owl:ObjectProperty, skos:Concept ;
+    rdfs:subPropertyOf odrl:assigner ;
+    rdfs:label         "Guesser"@en ;
+    skos:definition    "The Party guessing something is the issuer of the Rule."@en ;
+    rdfs:domain        [ a           owl:Class ;
+                         owl:unionOf ( odrl:Rule guess:Guess ) ; ] ;
+    rdfs:range         odrl:Party ;
+    rdfs:isDefinedBy   guess: .
+
+guess:consider
+    a                odrl:Action, skos:Concept ;
+    rdfs:label       "Consider"@en ;
+    rdfs:label       "abwägen"@de ;
+    skos:definition  "."@en ;
+    skos:note        "."@en ;
+    odrl:includedIn  odrl:use ;
+    skos:scopeNote   "Non-Normative"@en ;
+    rdfs:isDefinedBy guess: .
+
+guess:solve
+    a                odrl:Action, skos:Concept ;
+    rdfs:label       "Solve"@en ;
+    rdfs:label       "lösen"@de ;
+    skos:definition  "Solving something like a problem or dispute."@en ;
+    skos:note        "."@en ;
+    odrl:includedIn  odrl:use ;
+    skos:scopeNote   "Non-Normative"@en ;
+    rdfs:isDefinedBy guess: .
+
+guess:Assumption
+    a                rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:subClassOf  odrl:Constraint ;
+    rdfs:label       "Assumption"@en ;
+    skos:definition  "."@en ;
+    rdfs:isDefinedBy guess: .
+
+### region EXAMPLE
+
+### region operator in guess:Assumption
+# operator(leftOperand, rightOperand) === true
+# operator(undefined, rightOperand) === false
+# operator(leftOperand, undefined) === false
+# operator(undefined, value) === false
+### endregion operator in guess:Assumption
+
+#<https://www.example.org/project/leader/advice#do-not-go>
+#    a                odrl:Action, skos:Concept ;
+#    rdfs:label       "DO NOT GO"@en ;
+#    rdfs:label       "GEHE NICHT"@de ;
+#    skos:definition  "Informing given Assignee **NOT** to go (home)."@en ;
+#    skos:note        "."@en ;
+#    odrl:includedIn  odrl:inform ;
+#    skos:scopeNote   "Normative"@en ;
+#    rdfs:isDefinedBy <https://www.example.org/project/leader/> .
+#
+#<https://www.example.org/project/leader/project#start>
+#    a                odrl:Constraint, skos:Concept ;
+#    rdfs:label       "Project Start"@en ;
+#    rdfs:label       "Projektbeginn"@de ;
+#    odrl:leftoperand odrl:dateTime ;
+#    odrl:operator    odrl:gt ;
+#    odrl:leftoperand "2023-01-01"^^xsd:date ;
+#    skos:scopeNote   "Normative"@en ;
+#    rdfs:isDefinedBy <https://www.example.org/project/board/> .
+#
+#<https://www.example.org/project/leader/project#end>
+#    a                odrl:Constraint, skos:Concept ;
+#    rdfs:label       "Project End"@en ;
+#    rdfs:label       "Projektende"@de ;
+#    odrl:leftoperand odrl:dateTime ;
+#    odrl:operator    odrl:lt ;
+#    odrl:leftoperand "2024-03-01"^^xsd:date ;
+#    skos:scopeNote   "Normative"@en ;
+#    rdfs:isDefinedBy <https://www.example.org/project/board/> .
+#
+#<https://www.example.org/project/leader/guess/what-if#>
+#    a                guess:Guess ;
+#    guess:guesser    <https://www.example.org/project/leader/> ;
+#    odrl:assignee    <https://www.example.org/project/developer/dude-for-everything#> ;
+#    odrl:obligation  ( [ a           odrl:Duty ;
+#                         odrl:target [ a               odrl:AssetCollection ;
+#                                       odrl:source     <https://www.example.org/project/problems/> ;
+#                                       odrl:refinement [ a                 guess:Assumption ;
+#                                                         odrl:leftOperand  <https://www.example.org/project/problem#status> ;
+#                                                         odrl:operator     odrl:lteq ;
+#                                                         odrl:rightOperand "minor-problem" ; ] ; ] ;
+#                         odrl:action guess:consider ; ]
+#                       [ a               odrl:Duty ;
+#                         odrl:target     [ a               odrl:AssetCollection ;
+#                                           odrl:source     <https://www.example.org/project/problems/> ;
+#                                           odrl:refinement [ a                 guess:Assumption ;
+#                                                             odrl:leftOperand  <https://www.example.org/project/problem#status> ;
+#                                                             odrl:operator     odrl:eq ;
+#                                                             odrl:rightOperand "biggest-problem-ever" ; ] ; ] ;
+#                         odrl:action     guess:solve ;
+#                         odrl:constraint <https://www.example.org/project/leader/project#start> ; ## REM: open end :-/
+#                           # odrl:constraint <https://www.example.org/project/leader/project#end> ;
+#                       ] ) ;
+#    odrl:prohibition ( [ a           odrl:Prohibition ;
+#                         odrl:target [ a               odrl:AssetCollection ;
+#                                       odrl:source     <https://www.example.org/project/problems/> ;
+#                                       odrl:refinement [ a                 guess:Assumption ;
+#                                                         odrl:leftOperand  "solved" ;
+#                                                         odrl:operator     odrl:neq ;
+#                                                         odrl:rightOperand "YES" ; ] ; ] ;
+#                         odrl:action odrl:delete ; ] ) ;
+#    odrl:permission  ( [ a               odrl:Permission ;
+#                         guess:guesser   <https://www.example.org/project/leader/> ;
+#                         odrl:target     [ a               odrl:AssetCollection ;
+#                                           odrl:source     <https://www.example.org/project/problems/> ;
+#                                           odrl:refinement [ a                 guess:Assumption ;
+#                                                             odrl:leftOperand  "solved" ;
+#                                                             odrl:operator     odrl:neq ;
+#                                                             odrl:rightOperand "YES, YES, YES!!!" ; ] ; ] ;
+#                         guess:adssignee <https://www.example.org/project/leader/> ;
+#                         odrl:constraint <https://www.example.org/project/leader/project#start> ; ## REM: open end :-/
+#        # odrl:constraint <https://www.example.org/project/leader/project#end> ;
+#                         odrl:action     ( [ rdf:value odrl:inform ;
+#                                             odrl:informedParty
+#                                                       <https://www.example.org/project/developer/dude-for-everything#> ; ]
+#                                           [ rdf:value <https://www.example.org/project/leader/advice#do-not-go> ;
+#                                             odrl:informedParty
+#                                                       <https://www.example.org/project/developer/dude-for-everything#> ; ] ) ; ] ) ;
+#    rdfs:isDefinedBy <https://www.example.org/project/leader/> .
+
+### endregion EXAMPLE
+
+## EOF: odrl:profile.guess.ttl
