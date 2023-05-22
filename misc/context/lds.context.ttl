@@ -28,7 +28,8 @@ lds:resource
     skos:prefLabel   "Resource"^^xsd:string ;
     rdfs:label       "Resource"@en ;
     dct:description  """."""@en ;
-#    rdfs:domain      lds:Environment ;
+    rdfs:domain      lds:Environment ;
+    rdfs:domain      lds:Context ;
     rdfs:range       rdfs:Resource ;                     ## REM: cardinality :: {0..n}
     rdfs:isDefinedBy lds: .
 
@@ -94,19 +95,9 @@ lds:environment
     skos:prefLabel   "Environment"^^xsd:string ;
     rdfs:label       "Environment"@en ;
     dct:description  """."""@en ;
-    rdfs:domain      rdfs:Resource ;
-    rdfs:range       lds:Environment ;                  ## REM: cardinality :: {0..1}
-    rdfs:isDefinedBy lds: .
-
-lds:hasContext
-    a                owl:ObjectProperty ;
-    skos:notation    "hasContext"^^xsd:string ;
-    skos:prefLabel   "Has Context"^^xsd:string ;
-    rdfs:label       "Has Context"@en ;
-    rdfs:label       "Hat Context"@en ;
-    dct:description  """Property to bind a given Context 'lds:Context' to a Resource 'rdfs:Resource'."""@en ;
-    rdfs:domain      rdfs:Resource ;
-    rdfs:range       lds:Context ;                      ## REM: cardinality :: {0..n}
+    rdfs:domain      rdfs:Resource ;                    ## REM: the Subject
+    ## TODO: TBC: rdfs:domain      xyz:Subject ;
+    rdfs:range       lds:Environment ;                  ## REM: cardinality :: {0..1 (!!!)}
     rdfs:isDefinedBy lds: .
 
 lds:Context
@@ -118,6 +109,17 @@ lds:Context
     dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 
+lds:hasContext
+    a                owl:ObjectProperty ;
+    skos:notation    "hasContext"^^xsd:string ;
+    skos:prefLabel   "Has Context"^^xsd:string ;
+    rdfs:label       "Has Context"@en ;
+    rdfs:label       "Hat Context"@en ;
+    dct:description  """Property to bind a given Context 'lds:Context' to a Resource 'rdfs:Resource'."""@en ;
+    rdfs:domain      rdfs:Resource ;                    ## REM: the Subject
+    ## TODO: TBC: rdfs:domain      xyz:Subject ;
+    rdfs:range       lds:Context ;                      ## REM: cardinality :: {0..n}
+    rdfs:isDefinedBy lds: .
 
 lds:OuterContext
     a                owl:Class ;
@@ -126,7 +128,7 @@ lds:OuterContext
     skos:prefLabel   "Outer Context"^^xsd:string ;
     rdfs:label       "OuterContext"@en ;
     rdfs:label       "Outer Context"@de ;
-    dct:description  """."""@en ;
+    dct:description  """The Outer Context is populated by Concepts - 'Guesses' based on assumptions and guessed by given Subject."""@en ;
     rdfs:isDefinedBy lds: .
 
 lds:hasOuterContext
@@ -136,8 +138,9 @@ lds:hasOuterContext
     rdfs:label       "Has Outer Context"@en ;
     rdfs:label       "Hat Outer Context"@en ;
     dct:description  """Property to bind a given Outer-Context 'lds:OuterContext' to an Environment 'lds:Evironment'."""@en ;
-    rdfs:domain      rdfs:Resource ;
-    rdfs:range       lds:OuterContext ;                      ## REM: cardinality :: {0..1}
+    rdfs:domain      rdfs:Resource ;                        ## REM: the Subject
+    ## TODO: TBC: rdfs:domain      xyz:Subject ;
+    rdfs:range       lds:OuterContext ;                     ## REM: cardinality :: {0..1}
     rdfs:isDefinedBy lds: .
 
 ## region EXAMPLE
