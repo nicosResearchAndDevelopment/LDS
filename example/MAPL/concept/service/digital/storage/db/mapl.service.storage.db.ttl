@@ -25,31 +25,15 @@
 
 @prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-@prefix log:                   <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/mapl.service.profile.log.ttl>.
-
-log:
-    a                lds:ServiceProfile ;             ## REM: profile!!!
-    rdfs:label       "MAPL logging-service"@en ;
-    dct:description  """Profile of Log-Service in MAPL."""@en ;
-    ## region profile
-    dct:publisher    mapl:MAPL ;
-    lds:concept      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/conzept/service/log/> ;
-    ## TODO: prof:isProfileOf <> ;
-    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/> ;
-    ## endregion profile
+mapl:Service_STORAGE_DB
+    a                owl:Class ;
+    rdfs:subClassOf  mapl:Service_STORAGE ;
+    rdfs:label       "MAPL's Service for Database"@en ;
+    rdfs:label       "MAPL's Service für Datenbanken"@de ;
+    rdfs:subClassOf  lds:ServiceConcept_STORAGE ;
+    a                skos:Concept ;
+    skos:inScheme    mapl:Service ;
+    skos:broader     mapl:ServiceConcept_STORAGE ;
     rdfs:isDefinedBy mapl:MAPL .
 
-## region profile
-
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/>
-    a                prof:ResourceDescriptor ;
-    rdfs:label       "Guidance for Log-Service in MAPL" ;
-    dct:description  """."""@en ;
-    prof:hasRole     role:guidance ;
-    dct:format       <https://w3id.org/mediatype/text/markdown> ;
-    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/GUIDANCE.md> ;
-    rdfs:isDefinedBy mapl:MAPL .
-
-## endregion profile
-
-## EOF mapl.service.profile.log.ttl
+## EOF mapl.service.storage.db.ttl

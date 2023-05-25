@@ -1,0 +1,81 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:            <http://purl.org/dc/terms/> .
+@prefix fno:            <https://w3id.org/function/ontology#> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:           <http://www.w3.org/ns/odrl/2/> .
+@prefix org:            <http://www.w3.org/ns/org#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prof:           <http://www.w3.org/ns/dx/prof/> .
+@prefix role:           <http://www.w3.org/ns/dx/prof/role/> .
+@prefix qudt:           <http://qudt.org/schema/qudt/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:           <http://www.w3.org/2006/time#>.
+@prefix unit:           <http://qudt.org/vocab/unit/> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix voaf:           <http://purl.org/vocommons/voaf#> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
+
+lds:ServiceInstance                         ## REM: abstract
+    a                owl:Class ;
+    rdfs:label       "Service Instance"@en ;
+    rdfs:label       "Service Instanz"@de ;
+    ## region skos
+    a                skos:Concept ;
+    skos:notation    "ServiceInstance"^^xsd:string ;
+    skos:prefLabel   "Service Instance"^^xsd:string ;
+    skos:inScheme    lds:Service ;
+    skos:related     lds:ServiceConfiguration ;
+    ## endregion skos
+    rdfs:isDefinedBy lds: .
+
+lds:serviceInstance
+    a                owl:ObjectProperty ;
+    rdfs:label       "Service Instanz"@en ;
+    dct:description  """Property to bind a given Service Instance, 'lds:ServiceInstance'."""@en ;
+    skos:notation    "serviceInstance"^^xsd:string ;
+    skos:prefLabel   "Service Instance"^^xsd:string ;
+    rdfs:range       lds:ServiceInstance ;
+    rdfs:isDefinedBy lds: .
+
+lds:ServiceConfiguration                    ## REM: abstract
+    a                owl:Class ;
+    rdfs:label       "Service Configuration"@en ;
+    rdfs:label       "Service Konfiguration"@de ;
+    ## region skos
+    a                skos:Concept ;
+    skos:notation    "ServiceConfiguration"^^xsd:string ;
+    skos:prefLabel   "Service Configuration"^^xsd:string ;
+    skos:related     lds:ServiceInstance ;
+    ## endregion skos
+    rdfs:isDefinedBy lds: .
+
+lds:serviceConfiguration
+    a                owl:ObjectProperty ;
+    rdfs:label       "Service Konfiguration"@en ;
+    dct:description  """Property to bind a given Service Configuration , 'lds:ServiceConfiguration' to a given Service Instance 'lds:ServiceInstance'."""@en ;
+    skos:notation    "serviceConfiguration"^^xsd:string ;
+    skos:prefLabel   "Service Configuration"^^xsd:string ;
+    rdfs:range       lds:ServiceInstance ;
+    rdfs:isDefinedBy lds: .
+
+lds:agreementPolicy
+    a                owl:ObjectProperty ;
+    rdfs:label       "Agreement"@en ;
+    ## region skos
+    dct:description  """Property to bind a given Agreement , 'odrl:Agreement' to a given Service Configuration 'lds:ServiceConfiguration'."""@en ;
+    skos:notation    "agreementPolicy"^^xsd:string ;
+    skos:prefLabel   "Policy of Agreement"^^xsd:string ;
+    ## endregion skos
+    rdfs:domain      lds:ServiceConfiguration ;
+    rdfs:range       odrl:Agreement ;
+    rdfs:isDefinedBy lds: .
+
+## EOF lds.service.instance.ttl

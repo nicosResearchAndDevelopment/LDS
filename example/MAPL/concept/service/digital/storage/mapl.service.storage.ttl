@@ -23,17 +23,18 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> .
+@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-mapl:ServiceConcept_STORAGE_FTP
+mapl:Service_STORAGE
     a                owl:Class ;
+    rdfs:subClassOf  mapl:Service ;
+    rdfs:label       "MAPL's Service for Storage"@en ;
+    rdfs:label       "MAPL's Service für Storage"@de ;
     a                skos:Concept ;
-    rdfs:subClassOf  lds:ServiceConcept_STORAGE ;
-    rdfs:label       "MAPL's Service Concept for Storage FTP"@en ;
-    rdfs:label       "MAPL's Service Konzept für Storage FTP"@de ;
     skos:inScheme    mapl:Service ;
-    skos:broader     mapl:ServiceConcept_STORAGE ;
-    dct:description  """File Transport Protocol."""@en ;
+    skos:broader     mapl:Service ;
+    skos:narrower    mapl:Service_STORAGE_DB ;
+    skos:narrower    mapl:Service_STORAGE_FILE ;
     rdfs:isDefinedBy mapl:MAPL .
 
-## EOF mapl.concept.service.storage.ftp.ttl
+## EOF mapl.service.storage.ttl

@@ -1,0 +1,138 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:            <http://purl.org/dc/terms/> .
+@prefix fno:            <https://w3id.org/function/ontology#> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:           <http://www.w3.org/ns/odrl/2/> .
+@prefix org:            <http://www.w3.org/ns/org#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prof:           <http://www.w3.org/ns/dx/prof/> .
+@prefix role:           <http://www.w3.org/ns/dx/prof/role/> .
+@prefix qudt:           <http://qudt.org/schema/qudt/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:           <http://www.w3.org/2006/time#>.
+@prefix unit:           <http://qudt.org/vocab/unit/> .
+@prefix vann:           <http://purl.org/vocab/vann/> .
+@prefix voaf:           <http://purl.org/vocommons/voaf#> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
+
+lds:ServiceProfile                          ## REM: abstract
+    a                owl:Class ;
+    rdfs:subClassOf  prof:Profile ;
+    rdfs:label "Service Profile"@en ;
+    rdfs:label "Service-Profil"@de ;
+    ## region skos
+    a                skos:Concept ;
+#    skos:notation    "ServiceProfile"^^xsd:string ;
+#    skos:prefLabel   "ServiceProfile"^^xsd:string ;
+#    skos:inScheme    lds:Service ;
+    ## endregion skos
+    rdfs:comment     """An individual (so: instance) of 'lds:ServiceProfile', leading to some kind of Service-SelfDescription. Given individual is **NOT** a Service Instance (lds:ServiceInstance')!"""@en ;
+    rdfs:isDefinedBy lds: .
+
+lds:serviceProfile
+    a                owl:ObjectProperty ;
+    rdfs:label       "Service-Profil"@en ;
+    dct:description  """Property to bind a given Service Profile, 'lds:ServiceProfile'."""@en ;
+    skos:notation    "serviceProfile"^^xsd:string ;
+    skos:prefLabel   "Service Profile"^^xsd:string ;
+    rdfs:range       lds:ServiceProfile ;
+    rdfs:isDefinedBy lds: .
+
+## region Profile Role Extensions :: ORDER ALPHA
+
+lds:api_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Application Programming Interface"@en ;
+    skos:altLabel     "Application Programming Interface"@en ;
+    skos:definition   "Application Programming Interface reference."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:architecture_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Architecture"@en ;
+    skos:altLabel     "Architecture of given Service"@en ;
+    skos:definition   "A Set of questions and answers defined by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:contact_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Contact"@en ;
+    skos:altLabel     "Contact for given Service"@de ;
+    skos:definition   "A contact defined by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:example_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Example"@en ;
+    skos:altLabel     "Example for given Service"@de ;
+    skos:definition   "A example presented by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:faq_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "FAQ"@en ;
+    skos:altLabel     "Frequently Asked Questions"@en ;
+    skos:definition   "A Set of questions and answers defined by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:function_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Function"@en ;
+    skos:altLabel     "Function on protocol-level"@en ;
+    skos:definition   "Service Functions on protocol-level."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:glossary_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Glossary"@en ;
+    skos:definition   "A Glossary defined by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:landingpage_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Landing Page"@en ;
+    skos:altLabel     "Landing Page"@en ;
+    skos:altLabel     "Startseite"@en ;
+    skos:definition   "Entry Point for all Information, Tabel of Content, etc."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:onboarding_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Service Onboarding"@en ;
+    skos:definition   "A Service Onboarding defined by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:service-offer_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Service Offer"@en ;
+    skos:definition   "A Service Offer defined by the profile."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+lds:whitepaper-offer_profile-role
+    a                 owl:NamedIndividual, skos:Concept, prof:ResourceRole ;
+    skos:prefLabel    "Whitepaper"@en ;
+    skos:definition   "A Whitepaper introducing given profile on high-level."@en ;
+    skos:topConceptOf lds: ;
+    rdfs:isDefinedBy  lds: .
+
+## endregion Profile Role Extensions
+
+## EOF lds.service.profile.ttl

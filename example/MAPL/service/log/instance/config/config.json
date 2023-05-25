@@ -1,3 +1,6 @@
 {
-  "port": "8081"
+  "@context": "",
+  "@type": "lds:ServiceConfiguration",
+  "port": "8081",
+  "lds:agreementPolicy": "https://some.where.else/policy/#42"
 }

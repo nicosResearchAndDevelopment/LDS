@@ -25,18 +25,16 @@
 
 @prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-mapl:ServiceConcept_ONBOARDING
-    a                    owl:Class ;
-    a                    skos:Concept ;
-    a                    lds:Process ;
-    rdfs:rdfs:subClassOf mapl:ServiceConcept ;                          ## REM: skos:Concept
-    rdfs:label           "MAPL's Service Concept for Onboarding"@en ;
-    rdfs:label           "MAPL's Service Konzept für Onboarding"@de ;
-    skos:inScheme        mapl:Service ;
-    skos:broader         mapl:ServiceConcept ;
-    skos:narrower        mapl:ServiceConcept_ONBOARDING_PARTICIPANT ;
-    skos:narrower        mapl:ServiceConcept_ONBOARDING_SERVICE ;
-    dct:description      """."""@en ;
-    rdfs:isDefinedBy     mapl:MAPL .
+mapl:Service_ONBOARDING
+    a                owl:Class ;
+    rdfs:subClassOf  lds:Process ;
+    rdfs:label       "MAPL's Service Concept for Onboarding"@en ;
+    rdfs:label       "MAPL's Service Konzept für Onboarding"@de ;
+    a                skos:Concept ;
+    skos:inScheme    mapl:Service ;
+    skos:broader     mapl:ServiceConcept ;
+    skos:narrower    mapl:ServiceConcept_ONBOARDING_PARTICIPANT ;
+    skos:narrower    mapl:ServiceConcept_ONBOARDING_SERVICE ;
+    rdfs:isDefinedBy mapl:MAPL .
 
 ## EOF mapl.concept.service.onboarding.ttl

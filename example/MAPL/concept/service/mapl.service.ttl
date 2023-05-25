@@ -25,15 +25,21 @@
 
 @prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-mapl:ServiceConcept_STORAGE_DB
-    a                owl:Class ;
-    a                skos:Concept ;
-    rdfs:subClassOf  lds:ServiceConcept_STORAGE ;
-    rdfs:label       "MAPL's Service Concept for Database"@en ;
-    rdfs:label       "MAPL's Service Konzept für Datenbanken"@de ;
-    skos:inScheme    mapl:Service ;
-    skos:broader     mapl:ServiceConcept_STORAGE ;
-    dct:description  """Data Base."""@en ;
-    rdfs:isDefinedBy mapl:MAPL .
+mapl:Service
+    a                  owl:Class ;
+    rdfs:subClassOf    lds:Service ;
+    rdfs:label         "MAPL's Service "@en ;
+    rdfs:label         "MAPL's Service "@de ;
+    ## region skos:hasTopConcept, order ALPHA
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_ACCESS ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_CONSTRUCTING ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_CONSULTING ;
+    skos:hasTopConcept mapl:Service_LOG ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_MANAGED ;
+    skos:hasTopConcept mapl:Service_ONBOARDING ;
+    skos:hasTopConcept mapl:Service_STORAGE ;
+    ## TODO:    skos:hasTopConcept mapl:ServiceConcept_WEB ;
+    ## endregion skos:hasTopConcept
+    rdfs:isDefinedBy   lds: .
 
-## EOF mapl.concept.service.storage.db.ttl
+## EOF mapl.service.ttl

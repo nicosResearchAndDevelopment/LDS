@@ -25,17 +25,32 @@
 
 @prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
-mapl:ServiceConcept_STORAGE
-    a                    owl:Class ;
-    a                    skos:Concept ;
-    rdfs:rdfs:subClassOf mapl:ServiceConcept ;                          ## REM: skos:Concept
-    rdfs:label           "MAPL's Service Concept for Storage"@en ;
-    rdfs:label           "MAPL's Service Konzept für Storage"@de ;
-    skos:inScheme        mapl:Service ;
-    skos:broader         mapl:ServiceConcept ;
-    skos:narrower        mapl:ServiceConcept_STORAGE_DB ;
-    skos:narrower        mapl:ServiceConcept_STORAGE_FTP ;
-    dct:description      """."""@en ;
-    rdfs:isDefinedBy     mapl:MAPL .
+@prefix log:                   <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/mapl.service.profile.log.ttl>.
 
-## EOF mapl.concept.service.storage.ttl
+log:
+    a                mapl:Service_LOG ;
+    a                lds:ServiceProfile ;                           ## REM: PROFILE!!!
+    rdfs:label       "MAPL logging-service"@en ;
+    dct:description  """Profile of Log-Service in MAPL."""@en ;
+    ## region profile
+    dct:publisher    mapl:MAPL ;
+    lds:concept      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/concept/service/digital/log/> ;
+    ## TODO: prof:isProfileOf <> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/> ;
+    ## endregion profile
+    rdfs:isDefinedBy mapl:MAPL .
+
+## region profile
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Guidance for Log-Service in MAPL" ;
+    dct:description  """."""@en ;
+    prof:hasRole     role:guidance ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/GUIDANCE.md> ;
+    rdfs:isDefinedBy mapl:MAPL .
+
+## endregion profile
+
+## EOF mapl.service.profile.log.ttl

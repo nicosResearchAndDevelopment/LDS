@@ -25,14 +25,14 @@
 
 @prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> .
 
-mapl:ServiceConcept_LOG
-    a                    owl:Class ;
-    rdfs:rdfs:subClassOf lds:ServiceConcept ;                          ## REM: skos:Concept
-    rdfs:label           "MAPL's Service Concept for Log"@en ;
-    rdfs:label           "MAPL's Service Konzept für Logging"@de ;
-    skos:inScheme        mapl:Service ;
-    skos:broader         lds:ServiceConcept ;
-    dct:description      """."""@en ;
-    rdfs:isDefinedBy     mapl:MAPL .
+mapl:Service_STORAGE_FILE
+    a                owl:Class ;
+    rdfs:subClassOf  mapl:Service_STORAGE ;
+    rdfs:label       "MAPL's Service  for File Storage"@en ;
+    rdfs:label       "MAPL's Service für Datei Storage"@de ;
+    a                skos:Concept ;
+    skos:inScheme    mapl:Service ;
+    skos:broader     mapl:Service_STORAGE ;
+    rdfs:isDefinedBy mapl:MAPL .
 
-## EOF mapl.concept.service.log.ttl
+## EOF mapl.service.storage.ftp.ttl
