@@ -48,37 +48,4 @@ lds:ServiceConcept                          ## REM: abstract
     dct:description  """."""@en ;
     rdfs:isDefinedBy lds: .
 
-lds:ServiceProfile                          ## REM: abstract
-    a                owl:Class ;
-    a                skos:Concept ;
-    ## region skos
-    rdfs:subClassOf  prof:Profile ;
-#    skos:notation    "ServiceProfile"^^xsd:string ;
-#    skos:prefLabel   "ServiceProfile"^^xsd:string ;
-#    skos:inScheme    lds:Service ;
-    ## endregion skos
-    rdfs:label       "Service Profile"@en ;
-    rdfs:label       "Service-Profil"@de ;
-    rdfs:comment     """An individual (so: instance) of 'lds:ServiceProfile', leading to some kind of Service-SelfDescription. Given individual is **NOT** a Service Instance (lds:ServiceInstance')!"""@en ;
-    rdfs:isDefinedBy lds: .
-
-lds:concept
-    a                owl:ObjectProperty ;
-    skos:notation    "concept"^^xsd:string ;
-    skos:prefLabel   "Concept"^^xsd:string ;
-    rdfs:label       "Profil Concept"@en ;
-    dct:description  """Property to bind a given SKOS Concept."""@en ;
-    rdfs:domain      lds:ServiceProfile ;
-    rdfs:range       skos:Concept ;         ## REM: cardinality [1..n]
-    rdfs:isDefinedBy lds: .
-
-lds:serviceProfile
-    a                owl:ObjectProperty ;
-    skos:notation    "serviceProfile"^^xsd:string ;
-    skos:prefLabel   "Service Profile"^^xsd:string ;
-    rdfs:label       "Service-Profil"@en ;
-    dct:description  """Property to bind a given Service Profile, 'lds:ServiceProfile'."""@en ;
-    rdfs:range       lds:ServiceProfile ;
-    rdfs:isDefinedBy lds: .
-
 ## EOF lds.service.ttl

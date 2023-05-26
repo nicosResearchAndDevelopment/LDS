@@ -42,6 +42,15 @@ log:
 
 ## region profile
 
+<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/landingpage/>
+    a                prof:ResourceDescriptor ;
+    rdfs:label       "Homepage for Log-Service in MAPL" ;
+    dct:description  """."""@en ;
+    prof:hasRole     lds:landingpage_profile-role ;
+    dct:format       <https://w3id.org/mediatype/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/README.md> ;
+    rdfs:isDefinedBy mapl:MAPL .
+
 <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/service/log/profile/v1/guidance/>
     a                prof:ResourceDescriptor ;
     rdfs:label       "Guidance for Log-Service in MAPL" ;

@@ -26,7 +26,7 @@
 @prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
 
 mapl:Service_STORAGE
-    a                owl:Class ;
+    a                owl:Class ;                        ## REM: abstract
     rdfs:subClassOf  mapl:Service ;
     rdfs:label       "MAPL's Service for Storage"@en ;
     rdfs:label       "MAPL's Service für Storage"@de ;

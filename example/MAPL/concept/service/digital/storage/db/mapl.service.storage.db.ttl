@@ -30,10 +30,8 @@ mapl:Service_STORAGE_DB
     rdfs:subClassOf  mapl:Service_STORAGE ;
     rdfs:label       "MAPL's Service for Database"@en ;
     rdfs:label       "MAPL's Service für Datenbanken"@de ;
-    rdfs:subClassOf  lds:ServiceConcept_STORAGE ;
     a                skos:Concept ;
     skos:inScheme    mapl:Service ;
-    skos:broader     mapl:ServiceConcept_STORAGE ;
     rdfs:isDefinedBy mapl:MAPL .
 
 ## EOF mapl.service.storage.db.ttl

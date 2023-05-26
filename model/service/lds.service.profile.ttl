@@ -26,8 +26,8 @@
 lds:ServiceProfile                          ## REM: abstract
     a                owl:Class ;
     rdfs:subClassOf  prof:Profile ;
-    rdfs:label "Service Profile"@en ;
-    rdfs:label "Service-Profil"@de ;
+    rdfs:label       "Service Profile"@en ;
+    rdfs:label       "Service-Profil"@de ;
     ## region skos
     a                skos:Concept ;
 #    skos:notation    "ServiceProfile"^^xsd:string ;
@@ -43,6 +43,7 @@ lds:serviceProfile
     dct:description  """Property to bind a given Service Profile, 'lds:ServiceProfile'."""@en ;
     skos:notation    "serviceProfile"^^xsd:string ;
     skos:prefLabel   "Service Profile"^^xsd:string ;
+    rdfs:domain      lds:ServiceInstance ;
     rdfs:range       lds:ServiceProfile ;
     rdfs:isDefinedBy lds: .
 

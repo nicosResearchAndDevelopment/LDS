@@ -38,7 +38,7 @@ Prefixes used in all examples:
 
 ### Cons
 
-- Definition Language
+- Flexible Definition Language
 
 ### For Managers
 
@@ -86,6 +86,7 @@ ex:numeric_constraint
     odrl:leftOperand  "36"^^xsd:integer ;
     odrl:operator     odrl:lt ;
     odrl:rightOperand "42"^^xsd:integer ;
+    odrl:dataType xsd:string ;
 .
 ```
 
@@ -110,7 +111,8 @@ Same information, using `ld+json`:
             "odrl:rightOperand": {
                                         "@value": "42",
                                         "@type": "xsd:integer"
-            }           
+            },
+            "odrl:dataType": "xsd:string"           
         }
     ]            
 }
@@ -394,6 +396,8 @@ ex:obligation
 ### xstring
 
 - Regular expression
+- begins with
+- ends with
 
 ### xnum
 
@@ -402,9 +406,11 @@ ex:obligation
 ### xtime
 
 - before
+- after
 
 ### xorg
 
-- Has Membership
+- member
+- has Membership
 
 ---
