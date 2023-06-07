@@ -1,0 +1,84 @@
+@prefix odrl:                      <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:                       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                      <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:                      <http://www.w3.org/2006/time#> .
+@prefix owl:                       <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:                       <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:                       <http://purl.org/dc/terms/> .
+@prefix schema:                    <http://schema.org/> .
+@prefix cc:                        <http://creativecommons.org/ns#> .
+
+@prefix cred:                      <https://www.w3.org/2018/credentials#> .
+
+@prefix elsi:                      <http://localhost:8080/elsi/model/> .
+@prefix xeidas:                    <https://github.com/nicosResearchAndDevelopment/LDS/misc/credentials/x-eidas#> .
+
+@prefix mapl:                      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
+@prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1> .
+
+# https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1/mapl.odrl.profile.ttl
+
+<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/policy#the-very-first>
+    a                odrl:Set ;
+    odrl:uid         <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/policy#the-very-first> ;
+    odrl:profile     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1/mapl.odrl.profile.ttl> ;
+    dct:creator      "MAPL" ;
+    dct:issued       "2023-06-06"^^xsd:date ;
+    odrl:permission  [ a               odrl:Rule ;
+                       a               odrl:Permission ;
+                       odrl:assigner   <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> ;
+                       odrl:target     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/process#onboarding> ;
+                       odrl:assignee   [ a               odrl:PartyCollection ;
+                                         odrl:source     ( <did:coy:john> ) ;
+                                         odrl:refinement ( [ a                 odrl:Constraint ;
+                                                             odrl:leftOperand  cred:issuer ;
+                                                             odrl:operator     odrl:eq ;
+                                                             odrl:rightOperand "http://localhost:8080/coy/"^^xsd:anyURI ; ]
+                                                           [ a                 odrl:Constraint ;
+                                                             odrl:leftOperand  rdf:type ;
+                                                             odrl:operator     odrl:isAnyOf ;
+                                                             odrl:rightOperand elsi:LEARCredential ; ]
+                                                           [ a                 odrl:Constraint ;
+                                                             odrl:leftOperand  cred:validFrom ;
+                                                             odrl:operator     odrl:lt ;
+                                                             odrl:rightOperand elsi:LEARCredential ; ]
+                                                           [ a                 odrl:Constraint ;
+                                                             odrl:leftOperand  vocab:cs_FirstName ;
+                                                             odrl:operator     odrl:eq ;
+                                                             odrl:rightOperand "John"^^xsd:string ; ]
+                                                           [ a                odrl:Constraint ;
+                                                             odrl:leftOperand vocab:cs_PersonIdentifier ;
+                                                             odrl:operator    odrl:eq ;
+                                                             odrl:rightOperand
+                                                                              "from certificate : 012323247923479"^^xsd:string ; ]
+                                                           [ a                odrl:Constraint ;
+                                                             odrl:leftOperand vocab:cs_LegalPersonIdentifier ;
+                                                             odrl:operator    elsi:conformsTo ;
+                                                             odrl:rightOperand
+                                                                              ""^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ; ]
+                                                           [ a                odrl:Constraint ;
+                                                             odrl:leftOperand vocab:cs_LegalPersonIdentifier ;
+                                                             odrl:operator    odrl:eq ;
+                                                             odrl:rightOperand
+                                                                              "VATDE-coY"^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ; ]
+                                                           [ a                 odrl:Constraint ;
+                                                             odrl:leftOperand  vocab:cs_role ;
+                                                             odrl:operator     odrl:isAnyOf ;
+                                                             odrl:rightOperand mapl:onboarder ; ]
+                                                           [ a                 odrl:Constraint ;
+                                                             odrl:leftOperand  vocab:cs_onboarder ;
+                                                             odrl:operator     odrl:eq ;
+                                                             odrl:rightOperand "true"^^xsd:boolean ; ] ) ; ] ;
+                       odrl:constraint ( [ a                 odrl:Constraint ;
+                                           odrl:leftOperand  odrl:dateTime ;
+                                           odrl:operator     odrl:gt ;
+                                           odrl:rightOperand "2022-12-31"^^xsd:date ; ]
+                                         [ a                 odrl:Constraint ;
+                                           odrl:leftOperand  odrl:dateTime ;
+                                           odrl:operator     odrl:lt ;
+                                           odrl:rightOperand "2024-01-01"^^xsd:date ; ] ) ;
+                       odrl:action     odrl:use ; ] ;
+    rdfs:isDefinedBy mapl: .
+
+## EOF: example.ttl

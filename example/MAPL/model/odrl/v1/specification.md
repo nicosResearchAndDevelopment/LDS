@@ -1,0 +1,3 @@
+# MAPL ODRL Specification
+
+---

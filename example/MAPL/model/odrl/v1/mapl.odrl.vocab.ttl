@@ -1,0 +1,14 @@
+    ## Definition of used or common namespaces
+@prefix dc:                               <http://purl.org/dc/elements/1.1/> .
+@prefix dct:                              <http://purl.org/dc/terms/> .
+@prefix odrl:                             <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:                              <http://www.w3.org/2002/07/owl#> .
+@prefix profile:                          <http://www.w3.org/ns/dx/prof/> .
+@prefix rdfs:                             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:                             <http://www.w3.org/ns/dx/prof/role/> .
+@prefix xsd:                              <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix mapl:                             <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
+@prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1> .
+
+## EOF: mapl.odrl.ttl
