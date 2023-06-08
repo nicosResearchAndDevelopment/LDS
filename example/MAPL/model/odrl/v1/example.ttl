@@ -42,7 +42,7 @@
                                                            [ a                 odrl:Constraint ;
                                                              odrl:leftOperand  cred:validFrom ;
                                                              odrl:operator     odrl:lt ;
-                                                             odrl:rightOperand elsi:LEARCredential ; ]
+                                                             odrl:rightOperand "" ; ]
                                                            [ a                 odrl:Constraint ;
                                                              odrl:leftOperand  vocab:cs_FirstName ;
                                                              odrl:operator     odrl:eq ;
