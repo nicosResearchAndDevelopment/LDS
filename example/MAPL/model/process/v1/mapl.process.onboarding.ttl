@@ -16,7 +16,7 @@
 
 mapl-process:Onboarding
     a                owl:Class ;
-    rdfs:subClassOf  mapl:Process ;
+    rdfs:subClassOf  mapl:Process ;         ## REM: rdfs:subClassOf  prov:Activity ;
     skos:related     mapl-process:OnboardingProfile ;
     rdfs:isDefinedBy mapl:MAPL .
 
@@ -43,17 +43,24 @@ mapl-process:OnboardingProfile
 ## region EXAMPLE
 
 @prefix prov:                     <http://www.w3.org/ns/prov#> .
+@prefix elsi:                     <https://hesusruiz.github.io/did-method-elsi/model/> .
+@prefix xeidas:                   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/x-eidas#> .
 
 <did:key:john>
-    a                    prov:Agent ;
-    a                    prov:Person ;
-    foaf:givenName       "John"^^xsd:string ;
-    foaf:mbox            <mailto:john.doe@company-y.org> ;
-    prov:actedOnBehalfOf <did:elsi:VATDE-12345>
+    a                                  prov:Agent ;
+    a                                  prov:Person ;
+    a                                  elsi:LEARCredential ;
+    <http://oid-info.com/get/2.5.4.5>  "42-42-42-42-42-42"^^xsd:string ;
+    foaf:givenName                     "John"^^xsd:string ;
+    <http://oid-info.com/get/2.5.4.42> "John"^^xsd:string ;
+    foaf:mbox                          <mailto:john.doe@company-y.org> ;
+    prov:actedOnBehalfOf               <did:elsi:VATDE-12345> ;                 ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    <http://oid-info.com/get/2.5.4.97> "VATDE-12345"^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+    mapl:legalRepresentative           <did:elsi:VATDE-12345> ;
 .
 
 <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/process#42-42-42-42-42-42-42>
-    a                         mapl-process:Onboarding ;
+    a                         mapl-process:Onboarding ;                     ## REM: prov:Activity
     prov:startedAtTime        "2023-05-31T11:44:33Z"^^xsd:dateTimeStamp ;
     prov:startedAtTime        "2023-06-04T17:01:03Z"^^xsd:dateTimeStamp ;
     prov:wasAssociatedWith    <did:key:john> ;
@@ -68,7 +75,8 @@ mapl-process:OnboardingProfile
 .
 
 <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/participant#99-99-99-99>
-    prov:wasGeneratedBy  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/process#42-42-42-42-42-42-42> ;
+    prov:wasGeneratedBy
+                         <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/process#42-42-42-42-42-42-42> ;
     prov:wasAttributedTo <did:key:john> ;
 .
 
