@@ -12,9 +12,9 @@
 @prefix schema:     <http://schema.org/> .
 @prefix cc:         <http://creativecommons.org/ns#> .
 
-@base <https://github.com/nicosResearchAndDevelopment/LDS/misc/odrl/guess/> .
-@prefix :           <https://github.com/nicosResearchAndDevelopment/LDS/misc/odrl/guess/> .
-@prefix guess:      <https://github.com/nicosResearchAndDevelopment/LDS/misc/odrl/guess/> .
+@base <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/odrl/guess/> .
+@prefix :           <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/odrl/guess/> .
+@prefix guess:      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/odrl/guess/> .
 
 ## Definition of the Usage Control Profile as OWL Ontology
 guess:

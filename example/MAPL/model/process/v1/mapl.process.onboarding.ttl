@@ -11,8 +11,8 @@
 @prefix void:         <http://rdfs.org/ns/void#> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix mapl:         <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
-@prefix mapl-process: <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/process/v1#> .
+@prefix mapl:         <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
+@prefix mapl-process: <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/process/v1#> .
 
 mapl-process:Onboarding
     a                owl:Class ;
@@ -25,11 +25,11 @@ mapl-process:OnboardingProfile
     a                owl:NamedIndividual ;
     skos:related     mapl-process:Onboarding ;
     ## region profile
-    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/onboarding/guidance/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/onboarding/guidance/> ;
     ## endregion profile
     rdfs:isDefinedBy mapl:MAPL .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/onboarding/guidance/>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/onboarding/guidance/>
     a                prof:ResourceDescriptor ;
     rdfs:label       "Onboarding Process Guidance for users"@en ;
     rdfs:label       "Onboarding Prozess Anleitung für Benutzer"@de ;
@@ -37,7 +37,7 @@ mapl-process:OnboardingProfile
     dct:description  """Gebrauchsanleitung für Onboarding Prozess Benutzer."""@de ;
     prof:hasRole     role:guidance ;
     dct:format       <https://w3id.org/mediatype/text/markdown> ;
-    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/process/v1/mapl.role.onboarding.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/process/v1/mapl.role.onboarding.md> ;
     rdfs:isDefinedBy mapl:MAPL .
 
 ## region EXAMPLE
@@ -52,7 +52,7 @@ mapl-process:OnboardingProfile
     prov:actedOnBehalfOf <did:elsi:VATDE-12345>
 .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/process#42-42-42-42-42-42-42>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/process#42-42-42-42-42-42-42>
     a                         mapl-process:Onboarding ;
     prov:startedAtTime        "2023-05-31T11:44:33Z"^^xsd:dateTimeStamp ;
     prov:startedAtTime        "2023-06-04T17:01:03Z"^^xsd:dateTimeStamp ;
@@ -60,15 +60,15 @@ mapl-process:OnboardingProfile
     prov:qualifiedAssociation [ a          prov:Association ;
                                 prov:agent <did:key:john> ;
                                 prov:hadRole
-                                           <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1#Onboarder> ] ;
+                                           <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1#Onboarder> ] ;
     prov:qualifiedUsage       [ a           prov:Usage ;
                                 prov:entity <did:elsi:VATDE-12345> ;
                                 prov:hadRole
-                                            <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1#Onboarder> ] ;
+                                            <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1#Onboarder> ] ;
 .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/participant#99-99-99-99>
-    prov:wasGeneratedBy  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/process#42-42-42-42-42-42-42> ;
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/participant#99-99-99-99>
+    prov:wasGeneratedBy  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/process#42-42-42-42-42-42-42> ;
     prov:wasAttributedTo <did:key:john> ;
 .
 

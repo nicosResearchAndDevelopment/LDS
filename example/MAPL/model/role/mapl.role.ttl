@@ -11,7 +11,7 @@
 @prefix void:                     <http://rdfs.org/ns/void#> .
 @prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix mapl:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
+@prefix mapl:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
 
 mapl:Role
     a                owl:Class ;        ## REM: abstract

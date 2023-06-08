@@ -8,7 +8,7 @@
 @prefix role:                             <http://www.w3.org/ns/dx/prof/role/> .
 @prefix xsd:                              <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix mapl:                             <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
-@prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1> .
+@prefix mapl:                             <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
+@prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1> .
 
 ## EOF: mapl.odrl.ttl

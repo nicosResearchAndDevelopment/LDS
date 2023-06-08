@@ -11,8 +11,8 @@
 @prefix void:                          <http://rdfs.org/ns/void#> .
 @prefix xsd:                           <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix mapl:                          <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
-@prefix mapl-role:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1#> .
+@prefix mapl:                          <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
+@prefix mapl-role:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1#> .
 
 mapl-role:Maintainer
     a                mapl:Role ;
@@ -21,11 +21,11 @@ mapl-role:Maintainer
     skos:related     mapl:LEARCredential ;
     skos:related     mapl:LERCredential ;
     ## region profile
-    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/maintainer/guidance/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/maintainer/guidance/> ;
     ## endregion profile
     rdfs:isDefinedBy mapl:MAPL .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/maintainer/guidance/>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/maintainer/guidance/>
     a                prof:ResourceDescriptor ;
     rdfs:label       "Maintainer Role Guidance for users"@en ;
     rdfs:label       "Maintainer Role Anleitung für Benutzer"@de ;
@@ -33,7 +33,7 @@ mapl-role:Maintainer
     dct:description  """Gebrauchsanleitung für Maintainer Role Benutzer."""@de ;
     prof:hasRole     role:guidance ;
     dct:format       <https://w3id.org/mediatype/text/markdown> ;
-    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/mapl.role.maintainer.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/mapl.role.maintainer.md> ;
     rdfs:isDefinedBy mapl:MAPL .
 
 ## EOF mapl.role.maintainer.ttl

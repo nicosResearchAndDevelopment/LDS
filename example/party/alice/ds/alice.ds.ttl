@@ -22,7 +22,7 @@
 
 @prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix alice-ds:       <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/ds/>.
+@prefix alice-ds:       <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/ds/>.
 
 alice-ds:
     a                lds:DataSpace ;                            ## REM: a Profile!

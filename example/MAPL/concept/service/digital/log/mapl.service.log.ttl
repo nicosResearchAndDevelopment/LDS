@@ -23,7 +23,7 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> .
+@prefix mapl:                  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/> .
 
 mapl:Service_LOG
     a                owl:Class ;

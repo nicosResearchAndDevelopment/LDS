@@ -11,8 +11,8 @@
 @prefix void:                          <http://rdfs.org/ns/void#> .
 @prefix xsd:                           <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix mapl:                          <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
-@prefix mapl-role:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1#> .
+@prefix mapl:                          <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
+@prefix mapl-role:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1#> .
 
 mapl-role:Onboarder
     a                mapl:Role ;
@@ -22,12 +22,12 @@ mapl-role:Onboarder
     skos:related     mapl:LEARCredential ;
     skos:related     mapl:LERCredential ;
     ## region profile
-    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/onboarder/guidance/> ;
-    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/onboarder/duty/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/onboarder/guidance/> ;
+    prof:hasResource <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/onboarder/duty/> ;
     ## endregion profile
     rdfs:isDefinedBy mapl:MAPL .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/onboarder/guidance/>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/onboarder/guidance/>
     a                prof:ResourceDescriptor ;
     rdfs:label       "MAPL Onboarder Role Guidance for users"@en ;
     rdfs:label       "MAPL Onboarder Role Anleitung für Benutzer"@de ;
@@ -35,10 +35,10 @@ mapl-role:Onboarder
     dct:description  """Gebrauchsanleitung für Onboarder Role Benutzer in MAPL."""@de ;
     prof:hasRole     role:guidance ;
     dct:format       <https://w3id.org/mediatype/text/markdown> ;
-    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/mapl.role.onboarder.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/mapl.role.onboarder.md> ;
     rdfs:isDefinedBy mapl:MAPL .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/onboarder/duty/>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/onboarder/duty/>
     a                prof:ResourceDescriptor ;
     rdfs:label       "MAPL Onboarder Role duties"@en ;
     rdfs:label       "MAPL Onboarder Role Verpflichtungen"@de ;
@@ -46,7 +46,7 @@ mapl-role:Onboarder
     ## TODO: this might be a good place to introduce a new role "mapl:duty
     prof:hasRole     role:guidance ;
     dct:format       <https://w3id.org/mediatype/text/markdown> ;
-    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/role/v1/mapl.role.onboarder.duty.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/role/v1/mapl.role.onboarder.duty.md> ;
     rdfs:isDefinedBy mapl:MAPL .
 
 ## EOF mapl.role.onboarder.ttl

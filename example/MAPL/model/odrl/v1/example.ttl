@@ -12,23 +12,23 @@
 @prefix cred:                      <https://www.w3.org/2018/credentials#> .
 
 @prefix elsi:                      <http://localhost:8080/elsi/model/> .
-@prefix xeidas:                    <https://github.com/nicosResearchAndDevelopment/LDS/misc/credentials/x-eidas#> .
+@prefix xeidas:                    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/x-eidas#> .
 
-@prefix mapl:                      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
-@prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1> .
+@prefix mapl:                      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
+@prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1> .
 
-# https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1/mapl.odrl.profile.ttl
+# https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1/mapl.odrl.profile.ttl
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/policy#the-very-first>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/policy#the-very-first>
     a                odrl:Set ;
-    odrl:uid         <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/policy#the-very-first> ;
-    odrl:profile     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1/mapl.odrl.profile.ttl> ;
+    odrl:uid         <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/policy#the-very-first> ;
+    odrl:profile     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1/mapl.odrl.profile.ttl> ;
     dct:creator      "MAPL" ;
     dct:issued       "2023-06-06"^^xsd:date ;
     odrl:permission  [ a               odrl:Rule ;
                        a               odrl:Permission ;
-                       odrl:assigner   <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/> ;
-                       odrl:target     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/process#onboarding> ;
+                       odrl:assigner   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/> ;
+                       odrl:target     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/process#onboarding> ;
                        odrl:assignee   [ a               odrl:PartyCollection ;
                                          odrl:source     ( <did:coy:john> ) ;
                                          odrl:refinement ( [ a                 odrl:Constraint ;

@@ -23,9 +23,9 @@
 
 @prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix dave:                  <https://github.com/nicosResearchAndDevelopment/LDS/example/DataVerse/>.
+@prefix dave:                  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DataVerse/>.
 
-@prefix reg-ds:                <https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/dave.service.profile.register.dataSpace.ttl>.
+@prefix reg-ds:                <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DAVE/service/register/dataSpace/profile/v1/dave.service.profile.register.dataSpace.ttl>.
 
 reg-ds:
     a                lds:ServiceProfile ;             ## REM: profile!!!
@@ -35,47 +35,47 @@ reg-ds:
     dct:publisher    dave: ;
     ## TODO: prof:isProfileOf <> ;
     prof:hasResource
-                     <https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/guidance/> ;
+                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DAVE/service/register/dataSpace/profile/v1/guidance/> ;
     ## endregion profile
     rdfs:isDefinedBy dave: .
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/guidance/>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DAVE/service/register/dataSpace/profile/v1/guidance/>
     a                prof:ResourceDescriptor ;
     rdfs:label       "Guidance for Registering a DataSpace" ;
     dct:description  """."""@en ;
     prof:hasRole     role:guidance ;
     dct:format       <https://w3id.org/mediatype/text/markdown> ;
-    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/DAVE/service/register/dataSpace/profile/v1/GUIDANCE.md> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DAVE/service/register/dataSpace/profile/v1/GUIDANCE.md> ;
     rdfs:isDefinedBy dave: .
 #
-#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification/>
+#<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/specification/>
 #    a                prof:ResourceDescriptor ;
 #    rdfs:label       "Make-All-Better Specification" ;
 #    dct:description  """Specification for Make-All-Better."""@en ;
 #    prof:hasRole     role:specification ;
 #    dct:format       <https://w3id.org/mediatype/text/markdown> ;
-#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/specification.md> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/specification.md> ;
 #    rdfs:isDefinedBy alice-ds: .
 #
-#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/faq/>
+#<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/faq/>
 #    a                prof:ResourceDescriptor ;
 #    rdfs:label       "Make-All-Better FAQ" ;
 #    dct:description  """Frequently asked Questions for Make-All-Better."""@en ;
 #    prof:hasRole     lds:faq_profile-role ;
 #    dct:format       <https://w3id.org/mediatype/text/markdown> ;
-#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/faq.md> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/faq.md> ;
 #    rdfs:isDefinedBy alice-ds: .
 #
-#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary/>
+#<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/glossary/>
 #    a                prof:ResourceDescriptor ;
 #    rdfs:label       "Make-All-Better Glossary" ;
 #    dct:description  """Glossary for Make-All-Better."""@en ;
 #    prof:hasRole     lds:glossary_profile-role ;
 #    dct:format       <https://w3id.org/mediatype/text/markdown> ;
-#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/glossary.md> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/glossary.md> ;
 #    rdfs:isDefinedBy alice-ds: .
 #
-#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/service/mab/profile/v1/vocabulary/>
+#<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/service/mab/profile/v1/vocabulary/>
 #    a                prof:ResourceDescriptor ;
 #    rdfs:label       "Make-All-Better Vocabulary" ;
 #    dct:description  """Defines terms used in the profile specification."""@en ;
@@ -85,14 +85,14 @@ reg-ds:
 #    prof:hasArtifact <http://www.example.com/some-fancy-architecture/model/ontology.ttl> ; ## REM: **NOT** Alice's one!!!
 #    rdfs:isDefinedBy alice-ds: .
 #
-#<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/service/mab/profile/v1/offer/>
+#<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/service/mab/profile/v1/offer/>
 #    a                prof:ResourceDescriptor ;
 #    rdfs:label       "Make-All-Better Offer" ;
 #    dct:description  """Defines terms to express a machine-readable Service Offer."""@en ;
 #    prof:hasRole     lds:service-offer_profile-role ;
 ##    dct:conformsTo <https://www.w3.org/TR/owl2-rdf-based-semantics/> , <https://www.w3.org/TR/rdf-schema/> ;
 #    dct:format       <https://w3id.org/mediatypes/application/ld+json> ;
-#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/alice.service.offer.mab.json> ;
+#    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/alice.service.offer.mab.json> ;
 #    rdfs:isDefinedBy alice-ds: .
 
 ## EOF alice.service.profile.mab.ttl

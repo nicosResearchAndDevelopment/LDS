@@ -23,15 +23,15 @@
 @prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
 ## region Data Space Linker
-@prefix DAVE:           <https://github.com/nicosResearchAndDevelopment/LDS/example/DataVerse/> .
+@prefix DAVE:           <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DataVerse/> .
 ## endregion Data Space Linker
 
 ## region Trusted Data Space
-@prefix alice-ds:       <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/ds/alice.ds.ttl> .
-@prefix bob-ds:         <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/ds/bob.ds.ttl> .
+@prefix alice-ds:       <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/ds/alice.ds.ttl> .
+@prefix bob-ds:         <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/ds/bob.ds.ttl> .
 ## endregion Trusted Data Space
 
-@prefix mapl:           <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
+@prefix mapl:           <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
 
 mapl:
     a                             voaf:Vocabulary ;
@@ -46,7 +46,7 @@ mapl:
     dct:created                   "2023-05-31"^^xsd:date ;
     dct:modified                  "2023-05-31"^^xsd:date ;
     owl:versionInfo               "0.0.1" ;
-    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/" ;
     vann:preferredNamespacePrefix "mapl:" ;
     void:vocabulary               vann:, void:, voaf:, dct: ;
     rdfs:comment                  """"""@en ;

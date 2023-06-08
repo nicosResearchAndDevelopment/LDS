@@ -9,8 +9,8 @@
 @prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix alice:              <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl> .
-@prefix function:           <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/service/mab/profile/v1/function#> .
+@prefix alice:              <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/alice.org.ttl> .
+@prefix function:           <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/function#> .
 
 ## region make
 ## region make_better

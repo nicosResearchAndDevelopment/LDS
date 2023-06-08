@@ -22,7 +22,7 @@
 
 @prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix bob-ds:         <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/ds/>.
+@prefix bob-ds:         <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/ds/>.
 
 bob-ds:
     a                lds:DataSpace ;                        ## REM: a Profile!

@@ -8,8 +8,8 @@
 @prefix role:                             <http://www.w3.org/ns/dx/prof/role/> .
 @prefix xsd:                              <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix mapl:                             <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/> .
-@prefix mapl-profile:                     <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1> .
+@prefix mapl:                             <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
+@prefix mapl-profile:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1> .
 
 ## region Declaration of ODRL Core Profile artifacts
 
@@ -56,7 +56,7 @@ mapl-profile:
 mapl-profile:ProfileSpecification-md
     a                   profile:ResourceDescriptor ;
     profile:hasRole     role:specification ;
-    profile:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1/specification.md> ;
+    profile:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1/specification.md> ;
     dct:title           "MAPL Profile Specification version 1.0.0" ;
     owl:versionInfo     "1.0.0"^^xsd:string ;
     dct:issued          "2023-06-03"^^xsd:date ;
@@ -67,7 +67,7 @@ mapl-profile:ProfileSpecification-md
 mapl-profile:ProfileVocabulary-ttl
     a                   profile:ResourceDescriptor ;
     profile:hasRole     role:vocabulary ;
-    profile:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/model/odrl/v1/mapl.odrl.ttl> ;
+    profile:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1/mapl.odrl.ttl> ;
     dct:title           "MAPL Vocabulary version 1.0.0" ;
     owl:versionInfo     "1.0.0"^^xsd:string ;
     dct:issued          "2023-06-03"^^xsd:date ;

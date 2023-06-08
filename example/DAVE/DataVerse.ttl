@@ -20,16 +20,16 @@
 ## endregion upper concepts
 
 ## region Linked Data Spaces
-@prefix MAPL:      <https://github.com/nicosResearchAndDevelopment/LDS/example/MAPL/>.
+@prefix MAPL:      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/>.
 ## endregion Linked Data Spaces
 ## region Data Space
-@prefix alice-ds:  <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/>.
-@prefix bob-ds:    <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/>.
+@prefix alice-ds:  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/>.
+@prefix bob-ds:    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/>.
 ## endregion Data Space
 
 @prefix lds:       <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix DAVE:      <https://github.com/nicosResearchAndDevelopment/LDS/example/DataVerse/>.
+@prefix DAVE:      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DataVerse/>.
 
 DAVE:
     a                   lds:DataSpaceLinker ;

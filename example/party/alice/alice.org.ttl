@@ -21,16 +21,16 @@
 
 @prefix lds:       <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix alice-org: <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl>.
+@prefix alice-org: <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/alice.org.ttl>.
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/alice.org.ttl>
     a                org:Organization ;
     rdfs:label       "Alice"@en ;
     owl:sameAs       <https://www.alice.org/> ;
     rdfs:isDefinedBy alice-org: .
 
 <https://www.alice.org/>
-    owl:sameAs       <https://github.com/nicosResearchAndDevelopment/LDS/example/alice/alice.org.ttl> ;
+    owl:sameAs       <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/alice.org.ttl> ;
     rdfs:isDefinedBy alice-org: .
 
 ## EOF alice.org.ttl

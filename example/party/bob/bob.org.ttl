@@ -21,17 +21,17 @@
 
 @prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS#> .
 
-@prefix bob-org: <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/bob.org.ttl> .
+@prefix bob-org: <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/bob.org.ttl> .
 
 
-<https://github.com/nicosResearchAndDevelopment/LDS/example/bob/bob.org.ttl>
+<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/bob.org.ttl>
     a                org:Organization ;
     rdfs:label       "Bob"@en ;
     owl:sameAs       <https://www.bob.org/> ;
     rdfs:isDefinedBy bob-org: .
 
 <https://www.bob.org/>
-    owl:sameAs       <https://github.com/nicosResearchAndDevelopment/LDS/example/bob/bob.org.ttl> ;
+    owl:sameAs       <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/bob.org.ttl> ;
     rdfs:isDefinedBy bob-org: .
 
 ## EOF bob.org.ttl
