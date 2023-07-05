@@ -68,6 +68,7 @@ Authentication of an *identified* Object.
 
 - **Internal**: like *User and Password*.
 - **External**: a verification of given Third-Party-Object-Token
+  - *Enrichment*: given *identified* Object is enriched with *external* claims, stating some reliable information given Subject will work with.
 
 Positive: Object is *authenticated*.
 
@@ -79,6 +80,7 @@ Authorization of *authenticated* Object.
 
 - **Requested**: Object will be provided with Authorization-Token.
 - **Internal**: detection of Authorization of *authenticated* Object.
+    - **Negative**: the *authenticated* Object is **NOT** in active state, like "Account expired", etc.
 
 Positive: Object is *authorized*.
 
