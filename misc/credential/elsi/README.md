@@ -1,22 +1,14 @@
-#
+# ELSI
 
-## QuoVadis
+- prefix: `elsi`
+- uri: "elsi"
+- did method `elsi`
 
-```text
-CN = QuoVadis Belgium Issuing CA G2
-O = QuoVadis Trustlink BVBA
-2.5.4.97 = NTRBE-0537698318
-C = BE
-```
 
-## European Commission
+## Version
 
-```text
-CN = European Commission
-O = COMMISSION DE L'UNION EUROPEENNE - COMMISSIE VAN DE EUROPESE UNIE
-2.5.4.97 = NTRBE-0949383342
-OU = Directorate-General for Informatics
-C = BE
-```
+### v1
+
+[The `elsi`-model, version 1 (v1)](./v1)
 
 ---
