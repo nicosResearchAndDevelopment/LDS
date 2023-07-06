@@ -8,9 +8,12 @@
 
 *Overview of "elsi"*
 
+## Protocol
+
+[here](./protocol/).
+
 ## Purpose
 
-[here](./purpose/)
-
+[here](./purpose/).
 
 ---

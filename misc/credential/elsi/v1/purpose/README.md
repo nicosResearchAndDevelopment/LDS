@@ -1,5 +1,8 @@
 # ELSI Purpose
 
-[Model an Individuals (ttl)](./elsi.purpose.ttl).
+[Model (ttl)](./elsi.purpose.ttl).
+
+- [Onboarding](./onboarding/).
+- [Offboarding](./offboarding/).
 
 ---
