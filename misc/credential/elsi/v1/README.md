@@ -4,10 +4,13 @@
 - uri: "elsi"
 - did method `elsi`
 
+![image](./image/elsi.png)
+
+*Overview of "elsi"*
 
 ## Purpose
 
-[here](./porpose)
+[here](./purpose/)
 
 
 ---
