@@ -4,9 +4,18 @@
 - uri: "elsi"
 - did method `elsi`
 
+
+## Version 1
+
 ![image](./image/elsi.png)
 
-*Overview of "elsi"*
+*Overview of "elsi v1"*
+
+## Version 2
+
+![image](./image/elsi.v2.png)
+
+*Overview of "elsi v2"*
 
 ## Protocol
 
