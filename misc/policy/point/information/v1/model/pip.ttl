@@ -1,0 +1,103 @@
+@prefix dct:                      <http://purl.org/dc/terms/> .
+@prefix foaf:                     <http://xmlns.com/foaf/0.1/> .
+@prefix org:                      <http://www.w3.org/ns/org#> .
+@prefix owl:                      <http://www.w3.org/2002/07/owl#> .
+@prefix prof:                     <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:                     <http://www.w3.org/ns/prov#> .
+@prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:                     <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:                     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:                     <http://purl.org/vocab/vann/> .
+@prefix voaf:                     <http://purl.org/vocommons/voaf#> .
+@prefix void:                     <http://rdfs.org/ns/void#> .
+@prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix cred:                     <https://w3.org/2018/credentials#> .
+@prefix sec:                      <https://w3id.org/security#> .
+
+@prefix pip:                      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/policy/information/point/> .
+
+pip:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "The Policy Information Point Ontology, version 1"^^xsd:string ;
+    rdfs:label                    "Policy Information Point Ontology (v1)"@en ;
+    dct:title                     "Model for Policy Information Point"@en ;
+    dct:description               """."""@en ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:created                   "2023-07-03"^^xsd:date ;
+    dct:modified                  "2023-07-13"^^xsd:date ;
+    owl:versionInfo               "0.0.1" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/policy/information/point/" ;
+    vann:preferredNamespacePrefix "pip:" ;
+    void:vocabulary               vann:, void:, voaf:, dct: ;
+    rdfs:comment                  """"""@en ;
+    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+
+pip:Information
+    a                owl:Class ;
+    a                skos:Concept ;
+    rdfs:isDefinedBy pip: .
+
+pip:informationSubjectType
+    a                owl:ObjectProperty ;
+    rdfs:domain      pip:Information ;
+    ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
+    rdfs:range       pip:InformationSubjectType ;    ## REM: [1..1]
+    rdfs:isDefinedBy pip: .
+
+pip:informationSubject
+    a                rdf:Property ;
+    rdfs:domain      pip:Information ;
+    ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
+    rdfs:range       rdfs:Resource ;    ## REM: cardinality [0..n]
+    rdfs:isDefinedBy pip: .
+
+pip:unit
+    a                rdf:Property ;
+    rdfs:domain      pip:Information ;
+    ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
+    rdfs:range       rdfs:Resource ;    ## REM: cardinality [0..n]
+    rdfs:seeAlso     "http://www.openphacts.org/specs/2013/WD-units-20130913/" ; ## ALERT: unsafe!!!!!!!!!!!!!!!!!!
+    rdfs:isDefinedBy pip: .
+
+pip:InformationSubjectType
+    a                owl:Class ;
+    a                skos:Concept ;
+    rdfs:isDefinedBy pip: .
+
+## region individuals
+## region individuals :: InformationSubjectType
+
+pip:ObjectType
+    a                pip:InformationSubjectType ;
+    a                owl:NamedIndividual ;
+    a                skos:Concept ;
+    rdfs:isDefinedBy pip: .
+
+pip:DataType
+    a                pip:InformationSubjectType ;
+    a                owl:NamedIndividual ;
+    a                skos:Concept ;
+    rdfs:isDefinedBy pip: .
+
+## region individuals :: InformationSubjectType
+## endregion individuals
+
+## region example
+<https://www.example.com/weather/temperature#424242424242424>
+    a                          pip:Information ;
+    pip:informationSubjectType pip:DataType ;
+#    qudt:unit
+#    pip:informationSubject     <http://www.example.com/this/> a pip:Information .;
+#    pip:informationSubject     [ rdf:type  xsd:decimal ;
+#                                 rdf:value "42.24", "55,44" ; ] ;
+#    pip:informationSubject     [ rdf:type pip:Information ; ], [ a pip:Information ; ] ;
+    rdfs:isDefinedBy           <https://www.example.com/> .
+
+## endregion example
+
+## EOF: pip.ttl
