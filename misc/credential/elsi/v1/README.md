@@ -32,7 +32,6 @@ J. Langkau
     - Jörg Langkau (nicos AG)
 
 - ["Extending Actor Models in Data Spaces", (2023)](https://www.researchgate.net/publication/370414004_Extending_Actor_Models_in_Data_Spaces)).
-
     - zum Felde
     - Bellebaum
     - Brost
