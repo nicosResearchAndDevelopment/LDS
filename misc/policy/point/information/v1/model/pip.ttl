@@ -16,6 +16,9 @@
 @prefix cred:                     <https://w3.org/2018/credentials#> .
 @prefix sec:                      <https://w3id.org/security#> .
 
+@prefix qudt:                     <http://qudt.org/schema/qudt/>.
+@prefix unit:                     <http://qudt.org/vocab/unit/>.
+
 @prefix pip:                      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/policy/information/point/> .
 
 pip:
@@ -39,17 +42,12 @@ pip:
 
 pip:Information
     a                owl:Class ;
+    rdfs:subClassOf  prov:Entity ;
     a                skos:Concept ;
     rdfs:isDefinedBy pip: .
 
-pip:informationSubjectType
-    a                owl:ObjectProperty ;
-    rdfs:domain      pip:Information ;
-    ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
-    rdfs:range       pip:InformationSubjectType ;    ## REM: [1..1]
-    rdfs:isDefinedBy pip: .
 
-pip:informationSubject
+pip:value
     a                rdf:Property ;
     rdfs:domain      pip:Information ;
     ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
@@ -57,47 +55,121 @@ pip:informationSubject
     rdfs:isDefinedBy pip: .
 
 pip:unit
-    a                rdf:Property ;
+    a                owl:ObjectProperty ;
     rdfs:domain      pip:Information ;
-    ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
-    rdfs:range       rdfs:Resource ;    ## REM: cardinality [0..n]
-    rdfs:seeAlso     "http://www.openphacts.org/specs/2013/WD-units-20130913/" ; ## ALERT: unsafe!!!!!!!!!!!!!!!!!!
+    ## REM: intentionally left open - **OR**
+    rdfs:range       rdfs:Resource ;
+    ## REM: ... **OR**
+#    rdfs:range       <http://qudt.org/schema/qudt/DerivedUnit> ;    ## REM: cardinality [0..1]
+#    rdfs:range       <http://qudt.org/schema/qudt/Unit> ;
     rdfs:isDefinedBy pip: .
 
-pip:InformationSubjectType
+pip:unit
+    a                owl:ObjectProperty ;
+    rdfs:domain      pip:Information ;
+    ## REM: intentionally left open - **OR**
+    rdfs:range       rdfs:Resource ;
+    ## REM: ... **OR**
+#    rdfs:range       <http://qudt.org/schema/qudt/DerivedUnit> ;    ## REM: cardinality [0..1]
+#    rdfs:range       <http://qudt.org/schema/qudt/Unit> ;
+    rdfs:isDefinedBy pip: .
+
+
+pip:validFrom
+    a                owl:DatatypeProperty ;
+    rdfs:domain      pip:Information ;
+    rdfs:range       xsd:dateTime ;
+    rdfs:isDefinedBy pip: .
+
+pip:validUntil
+    a                owl:DatatypeProperty ;
+    rdfs:domain      pip:Information ;
+    rdfs:range       xsd:dateTime ;
+    rdfs:isDefinedBy pip: .
+
+pip:InformationGenerationProcess
     a                owl:Class ;
+    rdfs:subClassOf  prov:Activity ;
     a                skos:Concept ;
     rdfs:isDefinedBy pip: .
-
-## region individuals
-## region individuals :: InformationSubjectType
-
-pip:ObjectType
-    a                pip:InformationSubjectType ;
-    a                owl:NamedIndividual ;
-    a                skos:Concept ;
-    rdfs:isDefinedBy pip: .
-
-pip:DataType
-    a                pip:InformationSubjectType ;
-    a                owl:NamedIndividual ;
-    a                skos:Concept ;
-    rdfs:isDefinedBy pip: .
-
-## region individuals :: InformationSubjectType
-## endregion individuals
 
 ## region example
-<https://www.example.com/weather/temperature#424242424242424>
-    a                          pip:Information ;
-    pip:informationSubjectType pip:DataType ;
-#    qudt:unit
-#    pip:informationSubject     <http://www.example.com/this/> a pip:Information .;
-#    pip:informationSubject     [ rdf:type  xsd:decimal ;
-#                                 rdf:value "42.24", "55,44" ; ] ;
-#    pip:informationSubject     [ rdf:type pip:Information ; ], [ a pip:Information ; ] ;
-    rdfs:isDefinedBy           <https://www.example.com/> .
+## region example :: Weather
+## region example :: Weather :: data-type-value
+## region example :: Weather :: data-type-value :: SINGLE
+## GET https://weather.example.com/station/germany/muenster/ws-42/temperature
+<https://weather.example.com/activity/informing#654321-abcd-7890-efgh>
+    a                  pip:InformationGenerationProcess ;                    ## REM: a prov:Activity
+    prov:startedAtTime "2023-07-19T19:23:59.942Z"^^xsd:dateTime ;
+    prov:endedAtTime   "2023-07-19T19:23:59.999Z"^^xsd:dateTime ;
+    prov:used          <https://weather.example.com/root/de/ms/ws-42#temperature> ;
+    rdfs:isDefinedBy   <https://www.example.com/> .
 
+<https://weather.example.com/station/germany/muenster/ws-42/temperature#424242424242424>
+    a                    pip:Information ;                    ## REM: a prov:Entity
+    prov:wasGeneratedBy  <https://weather.example.com/activity/informing#654321-abcd-7890-efgh> ;
+    prov:generatedAtTime "2023-07-19T19:24:00Z"^^xsd:dateTime ;
+    pip:validFrom        "2023-07-19T19:24:00Z"^^xsd:dateTime ;
+    pip:validUntil       "2023-07-19T19:42:00Z"^^xsd:dateTime ;
+#    pip:value                  "24.42"^^xsd:decimal ;
+    pip:value            [ rdf:type  xsd:decimal ;
+                           rdf:value "24.42" ] ;
+#    pip:unit                   <https://dbpedia.org/page/Celsius> ;
+    pip:unit             unit:DEG_C ;
+    rdfs:isDefinedBy     <https://www.example.com/> .
+## endregion example :: Weather :: data-type-value :: SINGLE
+## endregion example :: Weather :: data-type-value
+
+## region example :: Weather :: object-type-value
+## region example :: Weather :: object-type-value :: SINGLE
+## GET https://weather.example.com/station/germany/muenster/ws-42/
+<https://weather.example.com/activity/informing#2222222-xxxxxx-7777777>
+    a                  pip:InformationGenerationProcess ;                    ## REM: a prov:Activity
+    prov:startedAtTime "2023-07-19T19:23:59.942Z"^^xsd:dateTime ;
+    prov:endedAtTime   "2023-07-19T19:23:59.999Z"^^xsd:dateTime ;
+    prov:used          <https://weather.example.com/root/de/ms/> ;
+    rdfs:isDefinedBy   <https://www.example.com/> .
+
+<https://weather.example.com/station/germany/muenster#69696969696966969>
+    a                    pip:Information ;                    ## REM: a prov:Entity
+    prov:wasGeneratedBy  <https://weather.example.com/activity/informing#2222222-xxxxxx-7777777> ;
+    prov:generatedAtTime "2023-07-19T19:24:00Z"^^xsd:dateTime ;
+    pip:validFrom        "2023-07-19T19:24:00Z"^^xsd:dateTime ;
+    pip:validUntil       "2023-07-19T19:42:00Z"^^xsd:dateTime ;
+    pip:value            <https://weather.example.com/station/germany/muenster/ws-42/> ; ## END: pip:value
+    rdfs:isDefinedBy     <https://www.example.com/> .
+## endregion example :: Weather :: object-type-value  :: SINGLE
+
+## region example :: Weather :: object-type-value :: MULTI
+## GET https://weather.example.com/station/germany/muenster/
+<https://weather.example.com/activity/informing#777777777-ggggggggg-99999999999>
+    a                  pip:InformationGenerationProcess ;                    ## REM: a prov:Activity
+    prov:startedAtTime "2023-07-19T19:23:59.942Z"^^xsd:dateTime ;
+    prov:endedAtTime   "2023-07-19T19:23:59.999Z"^^xsd:dateTime ;
+    prov:used          <https://weather.example.com/root/de/ms/> ;
+    rdfs:isDefinedBy   <https://www.example.com/> .
+
+<https://weather.example.com/station/germany/muenster#434343434343434343>
+    a                    pip:Information ;                    ## REM: a prov:Entity
+    prov:wasGeneratedBy  <https://weather.example.com/activity/informing#777777777-ggggggggg-99999999999> ;
+    prov:generatedAtTime "2023-07-19T19:24:00Z"^^xsd:dateTime ;
+    pip:validFrom        "2023-07-19T19:24:00Z"^^xsd:dateTime ;
+    pip:validUntil       "2023-07-19T19:42:00Z"^^xsd:dateTime ;
+    pip:value            <https://weather.example.com/station/germany/muenster/ws-42/>,
+                         <https://weather.example.com/station/germany/muenster/ws-43/>,
+                         <https://weather.example.com/station/germany/muenster/ws-44/> ; ## END: pip:value
+    rdfs:isDefinedBy     <https://www.example.com/> .
+## endregion example :: Weather :: object-type-value  :: MULTI
+<https://weather.example.com/station/germany/muenster/ws-42/>
+    rdfs:isDefinedBy <https://www.example.com/> .
+
+<https://weather.example.com/station/germany/muenster/ws-43/>
+    rdfs:isDefinedBy <https://www.example.com/> .
+
+<https://weather.example.com/station/germany/muenster/ws-44/>
+    rdfs:isDefinedBy <https://www.example.com/> .
+## endregion example :: Weather :: object-type-value
+## endregion example :: Weather
 ## endregion example
 
 ## EOF: pip.ttl
