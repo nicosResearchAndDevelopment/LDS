@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This document describes the architecture of a Policy Information Point (**PIP**, as concept) and PIP Data Model [PIP-DM].
+This document describes the architecture of a Policy Information Point (**PIP**, as concept) and given PIP Data Model [PIP-DM].
 
 
 ## Table of Content
@@ -53,14 +53,50 @@ Dispite of posed simplicity - even the smallest piece of information, only one t
 The concept of **PIP**
 
 - is not - exept for *linked-data*, *semantic web* - related to any technology or existing implementation (of **PEP**, for example), aiming a broader audience.
-- and here, it's main topic, *The Information* is underlaid with provenance-tracking features, utilising [PROV](#prov].
+- and here, its main topic, *The Information* is underlaid with provenance-tracking features, utilising [PROV](#prov].
 - leaves the process of authorisation open, intentional.
 - seperates its own [Protocol](#protocol) and [Binding](#binding)s to - those done by more or less well-known transfer/transport protocols.
-- is focused on its main topic: *information*, senseful, hardened data.
+- is focused on its main topic: *The Information*, senseful, hardened data.
 - is prepared for [*Verifiable Information*](#verifiable-information), aligned to W3C's *Verifiable Credentials* [VC](#verifiable-credential).
 
 Despite of the latter statements, **PIP** is willing to introduce examples (for hopefully better understanding) on given bindings and offers proposals, to be discussed and clarified in the future.
 
+---
+
+## Prologue
+
+The **PIP**, literally speaking:
+
+> A *Policy*, as subject of this story, computed by an agent, the Policy Decision Point (**PDP**), needs some *Information* as input to given constraints (utilized by given rules) and gets it from a *Point*, the Policy Information Point (**PIP**).
+
+To be precise, three types of **PIP**s can be identified:
+
+### internal
+
+### direct
+
+### indirect
+
+
+Even *internal* and *direct* are willing to work on proposed model (offered here), but the main addressee is the *indirect* Policy Information Point.
+
+This proposal has no preference to any transfer/transport protocol. Saying so, we have to understand, that given examples are shown to clarify and make it easy to use. All examples are all aligned to all other bindings. Saying so, we are sure we are able to adopt to any...
+
+Using a commen protocol and data-model leads to faster and robust implementation.
+
+---
+
+## What is the Information?
+
+The Information needed by a **PDP** (and Policy) and provided by a **PIP**:
+
+### Data Information
+
+### Object Information
+
+### Future: Boolean Information
+
+---
 
 ## Terminology
 
@@ -70,7 +106,7 @@ The concept of Policy Information Point (**PIP**).
 
 ### Pip
 
-A Service Instance of given class `pip:ServiceInstance`.
+A Policy Information Point Service Instance. A intance of given class `pip:ServiceInstance`.
 
 ### pip
 
@@ -78,7 +114,20 @@ A Service Instance of given class `pip:ServiceInstance`.
 
 ### PipCo
 
-The **PIP** Client is - as a Consumer of given **Pip** (the Information Provider as a Service Instance) - an instance of given class `pip:Client`, handing out retrieved information to **PDP**, the main matter.
+The **PIP** Client is - as a Consumer of given **Pip** (the Policy Information Provider as a Service Instance) - an instance of given class `pip:Client`, handing out retrieved information to **Pdp**, the main matter.
+
+### PDP
+
+The concept of Policy Decision Point (**PDP**).
+
+### Pdp
+
+A Policy Decision Point Instance, as an agent used by application's Policy Enforcement Point (**Pep**, based on given concept **PEP**, for the sake of completeness).
+
+### PEP
+
+The concept of Policy Enforcement Point (**PEP**).
+
 
 ## Information
 
@@ -94,11 +143,38 @@ Sensful data, presented to given recipient in a understandable pattern.
 
 Vocabulary is unfolded [TODO: here](./model/VOCABULARY.md).
 
-PIP-DM is assessable and is provided in turtle and json-ld.
+[PIP-DM] is assessable and is provided in turtle and json-ld.
 
 - [pip, turtle](./model/pip.ttl)
 
 > TODO: json-ld REM: will be done, if ttl is finalized
+
+### Metadata
+
+### Value
+
+The content of this, hold by `pip:value`, is the heart of the matter. Given information is needed and computed by up-and-running **Pdp**.
+
+We have to distiguish two flavors of **Value**'s content: *data-typed* and *object*.
+
+#### data-typed
+
+
+#### object
+
+
+### Unit
+
+Only used for datatyped-values.
+
+### Durability
+
+The content of **Value** is reliable ("best") for a period of time. Or, in a more restrictive definition: computed/used outside given period is dangerous, bad, not suitable.
+
+### Terms Of Use
+
+
+---
 
 ## Protocol
 
@@ -108,13 +184,15 @@ PIP-DM is assessable and is provided in turtle and json-ld.
 
 ### Instance
 
-The PIP Service Instance (**PipSi**) behaves as an up-and-running application, providing information and acting *on behalf of* well-known agent. PipSi referres to given PIP service Profile and 
-
-## Protocol
-
-## Server
+The Policy Information Point Service Instance (**PipSi**) behaves as an up-and-running application, providing information and acting *on behalf of* well-known agent. PipSi referres to given PIP Service Profile.
 
 ## Client
+
+The Policy Information Point Client (**PipCo**) as given *Information* Consumer resides inside a **PDP** and requests Information, especially the nested [Value](#value) utilized by Constraint.
+
+Even this proposal left authorisation open, it is worth to mention, that in most of the case there will be one, eco-system/domain dependend.
+
+---
 
 ## Authorisation
 
@@ -122,7 +200,12 @@ Authorisation is intentional left open and defind by given mechanics, revealed b
 
 ## Binding
 
-Whether or not given binding is secure (execpt idscp2 or tls) those bindings will provide given methods and work on top of given protocol functions.
+Whether or not a given binding is secure (execpt idscp2 or tls), those bindings will provide *methods* and work on top of given protocol *functions*.
+
+This proposal will focus on two bindings (in the beginning): http and websocket. The former because it is easy to understand and widely spread, the latter because of its nature: faciliting realtime-performance on permanent connection, anticipating faster computation/Policy Enforcements. 
+
+Understanding the usage of websocket here will guide to other bindings, like tls, http2 or gRPC, that will be introduced in future extensions of this proposal.
+
 
 ### http
 
