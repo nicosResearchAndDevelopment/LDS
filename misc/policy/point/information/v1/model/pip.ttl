@@ -4,6 +4,9 @@
 @prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:                     <http://www.w3.org/2004/02/skos
+@prefix vann:                     <http://purl.org/vocab/vann/> .
+@prefix voaf:                     <http://purl.org/vocommons/voaf#> .
+@prefix void:                     <http://rdfs.org/ns/void#> .
 @prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix cred:                     <https://w3.org/2018/credentials#> .
@@ -47,7 +50,7 @@ pip:informationSubject
     rdfs:domain      pip:Information ;
     ## TODO: TBC: 'rdfs:range       rdfs:Resource' :: make it more crisp?!?
     rdfs:range       rdfs:Resource ;    ## REM: cardinality [0..n]
-	## TODO: sameAs credentialSubject
+    ## TODO: sameAs credentialSubject
     rdfs:isDefinedBy pip: .
 
 pip:unit
@@ -58,7 +61,7 @@ pip:unit
     rdfs:seeAlso     "http://www.openphacts.org/specs/2013/WD-units-20130913/" ; ## ALERT: unsafe!!!!!!!!!!!!!!!!!!
     rdfs:isDefinedBy pip: .
 
-	
+
 ## region header
 ## region header :: client
 
