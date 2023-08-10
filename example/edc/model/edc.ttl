@@ -1,0 +1,98 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:               <http://purl.org/dc/terms/> .
+@prefix fno:               <https://w3id.org/function/ontology#> .
+@prefix foaf:              <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:              <http://www.w3.org/ns/odrl/2/> .
+@prefix org:               <http://www.w3.org/ns/org#> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prof:              <http://www.w3.org/ns/dx/prof/> .
+@prefix qudt:              <http://qudt.org/schema/qudt/> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:                <http://www.w3.org/ns/shacl#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:              <http://www.w3.org/2006/time#>.
+@prefix unit:              <http://qudt.org/vocab/unit/> .
+@prefix vann:              <http://purl.org/vocab/vann/> .
+@prefix voaf:              <http://purl.org/vocommons/voaf#> .
+@prefix void:              <http://rdfs.org/ns/void#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix me:                <https:jottomat.solidweb.org/profile/card#me>.
+
+@prefix dspace:            <https://github.com/nicosResearchAndDevelopment/edc/model#> .
+
+dspace:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "The DSPACE Ontology"^^xsd:string ;
+    rdfs:label                    "The DSPACE Ontology"@en ;
+    dct:title                     "Model for v"@en ;
+    dct:description               """."""@en ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:created                   "2023-05-21"^^xsd:date ;
+    dct:modified                  "2023-06-21"^^xsd:date ;
+    owl:versionInfo               "0.0.1" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/edc/model#" ;
+    vann:preferredNamespacePrefix "dspace:" ;
+    void:vocabulary               vann:, void:, voaf:, dct: ;
+    rdfs:comment                  """"""@en ;
+    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+
+dspace:callbackAddress
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    skos:notation    "callbackAddress"^^xsd:string ;
+    skos:prefLabel   "Callback Address"^^xsd:string ;
+    rdfs:range       xsd:anyURI ;      ## REM: cardinality :: [1..1]
+    rdfs:isDefinedBy me: .
+
+dspace:agreementId
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    skos:notation    "agreementId"^^xsd:string ;
+    skos:prefLabel   "Agreement Identifier"^^xsd:string ;
+    rdfs:range       xsd:anyURI ;      ## REM: cardinality :: [0..1] :: TODO: TBD: ???
+    rdfs:isDefinedBy me: .
+
+dspace:dataAddress
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    skos:notation    "dataAddress"^^xsd:string ;
+    skos:prefLabel   "Data Address"^^xsd:string ;
+    rdfs:range       xsd:anyURI ;      ## REM: cardinality :: [0..n] :: TODO: TBD: ???
+    rdfs:isDefinedBy me: .
+
+dspace:Request
+    a                owl:Class ;        ## REM: abstract
+    a                skos:Concept ;
+    skos:notation    "R" ;
+    rdfs:isDefinedBy me: .
+
+dspace:Message
+    a                owl:Class ;        ## REM: abstract
+    a                skos:Concept ;
+    skos:notation    "M" ;
+    rdfs:isDefinedBy me: .
+
+dspace:Process
+    a                owl:Class ;        ## REM: abstract
+    a                skos:Concept ;
+    skos:notation    "P" ;
+    rdfs:isDefinedBy me: .
+
+dspace:processId
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    skos:notation    "processId"^^xsd:string ;
+    skos:prefLabel   "Process Identifier"^^xsd:string ;
+
+    ## REM: cardinality :: [0..1]
+    rdfs:range       xsd:anyURI ;
+    rdfs:isDefinedBy me: .
+
+## EOF edc.ttl

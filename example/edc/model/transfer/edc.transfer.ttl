@@ -1,0 +1,172 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:               <http://purl.org/dc/terms/> .
+@prefix cred:              <https://w3.org/2018/credentials#> .
+@prefix fno:               <https://w3id.org/function/ontology#> .
+@prefix foaf:              <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:              <http://www.w3.org/ns/odrl/2/> .
+@prefix org:               <http://www.w3.org/ns/org#> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prof:              <http://www.w3.org/ns/dx/prof/> .
+@prefix qudt:              <http://qudt.org/schema/qudt/> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:                <http://www.w3.org/ns/shacl#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:              <http://www.w3.org/2006/time#>.
+@prefix unit:              <http://qudt.org/vocab/unit/> .
+@prefix vann:              <http://purl.org/vocab/vann/> .
+@prefix voaf:              <http://purl.org/vocommons/voaf#> .
+@prefix void:              <http://rdfs.org/ns/void#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix me:                <https:jottomat.solidweb.org/profile/card#me>.
+
+@prefix dspace:            <https://github.com/nicosResearchAndDevelopment/edc/model#> .
+
+
+dspace:Transfer
+    a                owl:Class ;        ## REM: abstract
+    a                skos:Concept ;
+    skos:notation    "T" ;
+    rdfs:isDefinedBy me: .
+
+dspace:TransferState
+    a                owl:Class ;
+    a                skos:Concept ;
+    skos:notation    "TS" ;
+    rdfs:isDefinedBy me: .
+
+dspace:transferState
+    a                owl:ObjectProperty ;
+    a                skos:Concept ;
+    skos:notation    "transferState"^^xsd:string ;
+    skos:prefLabel   "Transfer State"^^xsd:string ;
+    ## REM: cardinality :: [1..1]
+    rdfs:range       dspace:TransferState ;
+    rdfs:isDefinedBy me: .
+
+## region TransferState Individuals
+dspace:REQUESTED
+    a                dspace:TransferState ;
+    a                owl:NamedIndividual ;
+    a                skos:Concept ;
+    skos:notation    "REQUESTED" ;
+    skos:prefLabel   "REQUESTED"^^xsd:string ;
+    rdfs:isDefinedBy me: .
+
+## endregion TransferState Individuals
+
+dspace:TransferProcess
+    a                owl:Class ;        ## REM: abstract
+    rdfs:subClassOf  dspace:Transfer ;
+    rdfs:subClassOf  dspace:Process ;
+    a                skos:Concept ;
+    skos:notation    "TP" ;
+    rdfs:isDefinedBy me: .
+
+dspace:TransferRequestMessage
+    a                owl:Class ;
+    rdfs:subClassOf  dspace:Transfer ;
+    rdfs:subClassOf  dspace:Request ;
+    rdfs:subClassOf  dspace:Message ;
+    a                skos:Concept ;
+    skos:notation    "TRM" ;
+    rdfs:isDefinedBy me: .
+
+## region EXAMPLE
+
+@prefix alice:                      <https://alice.example.com/> .
+@prefix bob:                        <https://bob.example.com/> .
+@prefix alice_transfers:            <https://alice.example.com/transfers/> .
+
+## region >>> BOB requests (GET) a well known TransferProcess
+# GET https://alice.example.com//transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16
+# Authorization     "BEARER BOB"
+# Content_Type      "application/turtle"
+# Accept            "application/turtle"
+#
+# RESPONSE (from ALICE):
+#
+@prefix dspace:                     <https://github.com/nicosResearchAndDevelopment/edc/model#> .
+@prefix rdfs:                       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:                        <http://www.w3.org/2001/XMLSchema#> .
+
+<https://alice.example.com/transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16>
+    a                     dspace:TransferProcess ;
+    dspace:processId      "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f"^^xsd:anyURI ;
+    dspace:transferState: dspace:REQUESTED ;
+    rdfs:isDefinedBy      <https://alice.example.com/> .
+
+## endregion
+
+## region >>> BOB requests (POST) given TransferProcess
+#
+# POST https://alice.example.com//transfers/request
+# Authorization     "BEARER BOB"
+# Content_Type      "application/turtle"
+# Accept            "application/turtle"
+#
+# BODY :
+@prefix dspace:            <https://github.com/nicosResearchAndDevelopment/edc/model#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+<https://alice.example.com/transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16>
+    a                      dspace:TransferRequestMessage ;
+    dspace:agreementId     "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44"^^xsd:anyURI ;
+    dspace:dataAddress     "urn:uuid:some-very-special-data"^^xsd:anyURI ;
+    dspace:callbackAddress "https://bob.example.com/transfers/callback/"^^xsd:anyURI ;
+    rdfs:isDefinedBy       <https://bob.example.com/> .
+#
+# RESPONSE (from ALICE) :
+# HTTP 201 (Created)
+# TODO: TBD: so, we can drop <Location: /transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16>. JLA: "Yes!"
+@prefix dspace:            <https://github.com/nicosResearchAndDevelopment/edc/model#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+<https://alice.example.com/transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16>
+    a                     dspace:TransferProcess ;
+    dspace:processId      "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f"^^xsd:anyURI ;
+    dspace:transferState: dspace:REQUESTED ;
+    rdfs:isDefinedBy      <https://alice.example.com/> .
+
+## endregion
+
+## region ALICE POSTs a TransferStartMessage to BO
+# POST https://bob.example.com//transfers/URL-ENCODED::<https://alice.example.com/transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16>/start
+# Authorization     "BEARER ALICE"
+# Content_Type      "application/turtle"
+# Accept            "application/turtle"
+#
+# BODY : empty
+# RESPONSE (from BOB) :
+# HTTP 200 (OK)
+
+
+## region ALICE POSTs data to BOB
+# POST https://bob.example.com//transfers/response
+# Authorization     "BEARER ALICE"
+# Content_Type      "application/turtle"
+# Accept            "application/turtle"
+#
+# BODY
+@prefix cred:              <https://w3.org/2018/credentials#> .
+@prefix foaf:              <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:uuid:some-very-special-data>
+    a                foaf:Person ;
+    foaf:givenName   "Jörg"^^xsd:string ;
+    foaf:familyName  "Langkau"^^xsd:string ;
+    cred:termsOfUse  [ a odrl:Policy ] ;
+    rdfs:isDefinedBy <https://alice.example.com/> .
+# RESPONSE (from BOB) :
+# HTTP 200 (OK)
+
+## endregion EXAMPLE
+
+## EOF edc.transfer.ttl
