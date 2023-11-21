@@ -19,7 +19,7 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS/> .
 
 lds:Registry
     a                owl:Class ;
@@ -48,6 +48,10 @@ lds:unit
     rdfs:domain      lds:Range ;
     rdfs:isDefinedBy lds: .
 
+lds:member
+    a                rdf:Property ;
+    rdfs:isDefinedBy lds: .
+
 lds:numericType
     rdfs:subPropertyOf rdfs:Datatype ;
     rdfs:domain        lds:Range ;
@@ -72,7 +76,7 @@ lds:Range_XSD_unsignedByte_nonNegative
 lds:Range_XSD_signedByte
     a                lds:Range ;
     lds:numericType  xsd:byte ;
-    lds:from         "-128"^^xsd:nonNegativeInteger ;
+    lds:from         "-128"^^xsd:integer ;
     lds:to           "127"^^xsd:nonNegativeInteger ;
     rdfs:isDefinedBy lds: .
 
@@ -100,7 +104,7 @@ lds:Range_XSD_unsignedShort
 lds:Range_XSD_signedShort
     a                lds:Range ;
     lds:numericType  xsd:short ;
-    lds:from         "-32768"^^xsd:nonNegativeInteger ;
+    lds:from         "-32768"^^xsd:integer ;
     lds:to           "32767"^^xsd:nonNegativeInteger ;
     rdfs:isDefinedBy lds: .
 
@@ -174,8 +178,8 @@ lds:Range_XSD_signedLong_nonPositive
 lds:storage_range_0-5_GigaBYTE
     a                lds:Range ;
     lds:numericType  xsd:long ;
-    lds:from         "0"^^xsd:nonPositiveInteger ;
-    lds:to           "5"^^xsd:nonPositiveInteger ;
+    lds:from         "0"^^xsd:nonNegativeInteger ;
+    lds:to           "5"^^xsd:nonNegativeInteger ;
     lds:unit         unit:GigaBYTE ;
     rdfs:isDefinedBy lds: .
 

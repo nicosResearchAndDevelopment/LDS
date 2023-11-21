@@ -22,7 +22,7 @@
 
 ## endregion upper concepts
 
-@prefix lds:      <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:      <https://github.com/nicosResearchAndDevelopment/LDS/> .
 
 @prefix alice:    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/alice.org.ttl> .
 @prefix mab:      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/alice/service/mab/profile/v1/alice.service.profile.mab.ttl> .

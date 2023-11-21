@@ -1,0 +1,474 @@
+@prefix dct:                      <http://purl.org/dc/terms/> .
+@prefix foaf:                     <http://xmlns.com/foaf/0.1/> . ## REM: hold **ONLY** for organization
+@prefix org:                      <http://www.w3.org/ns/org#> .  ## REM: hold **ONLY** for organization
+@prefix owl:                      <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                     <http://www.w3.org/ns/prov#> . ## REM: hold **ONLY** for organization
+@prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:                     <http://purl.org/vocab/vann/> .
+@prefix voaf:                     <http://purl.org/vocommons/voaf#> .
+@prefix void:                     <http://rdfs.org/ns/void#> .
+@prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix oidref:                   <https://oidref.com/> .
+@prefix xoid:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xoid#> .
+
+
+xoid:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "The Ontology 'xoid' fetching oids"^^xsd:string ;
+    rdfs:label                    "The Ontology 'xoid' fetching oids"@en ;
+    dct:title                     "Model for XOID"@en ;
+    dct:description               """."""@en ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:created                   "2023-11-02"^^xsd:date ;
+    dct:modified                  "2023-11-19"^^xsd:date ; ## {{date.now}}
+    owl:versionInfo               "0.0.1" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xoid#" ;
+    vann:preferredNamespacePrefix "xoid:" ;
+    void:vocabulary               vann:, void:, voaf:, dct: ;
+    rdfs:comment                  """"""@en ;
+    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+
+## region property
+
+## region property :: commonName
+xoid:cn
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    owl:sameAs       xoid:commonName ;
+    owl:sameAs       xoid:2.5.4.3 ;
+    owl:sameAs       oidref:2.5.4.3 ;
+    a                skos:Concept ;
+    skos:notation    "cn"^^xsd:string ;
+    skos:prefLabel   "cn"^^xsd:string ;
+    skos:related     xoid:commonName ;
+    skos:related     xoid:2.5.4.3 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
+    rdfs:comment     """Naming Attribute."""@en ;
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.3> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:commonName
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:cn ;
+    owl:sameAs       xoid:2.5.4.3 ;
+    owl:sameAs       oidref:2.5.4.3 ;
+    a                skos:Concept ;
+    skos:notation    "commonName"^^xsd:string ;
+    skos:prefLabel   "cn"^^xsd:string ;
+    skos:related     xoid:cn ;
+    skos:related     xoid:2.5.4.3 ;
+    skos:related     oidref:2.5.4.3 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.3> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.3
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:cn ;
+    owl:sameAs       xoid:commonName ;
+    owl:sameAs       oidref:2.5.4.3 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.3"^^xsd:string ;
+    skos:prefLabel   "cn"^^xsd:string ;
+    skos:related     xoid:cn ;
+    skos:related     xoid:commonName ;
+    skos:related     oidref:2.5.4.3 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.3> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: commonName
+
+## region property :: labeledURI
+xoid:labeledURI
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:cn ;
+    owl:sameAs       xoid:1.3.6.1.4.1.250.1.57 ;
+    owl:sameAs       oidref:1.3.6.1.4.1.250.1.57 ;
+    a                skos:Concept ;
+    skos:notation    "labeledURI"^^xsd:string ;
+    skos:prefLabel   "labeledURI"^^xsd:string ;
+    skos:related     xoid:1.3.6.1.4.1.250.1.57 ;
+    skos:related     oidref:1.3.6.1.4.1.250.1.57 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.4.1.250.1.57> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:1.3.6.1.4.1.250.1.57
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:labeledURI ;
+    owl:sameAs       oidref:1.3.6.1.4.1.250.1.57 ;
+    a                skos:Concept ;
+    skos:notation    "1.3.6.1.4.1.250.1.57"^^xsd:string ;
+    skos:prefLabel   "labeledURI"^^xsd:string ;
+    skos:related     xoid:labeledURI ;
+    skos:related     oidref:1.3.6.1.4.1.250.1.57 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.4.1.250.1.57> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: labeledURI
+
+## region  property :: serialNumber
+xoid:serialNumber
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:2.5.4.5 ;
+    owl:sameAs       oidref:2.5.4.5 ;
+    ## TODO: TBC: subPropertyOf 'oidref:2.5.4.5' (if 'xetsi-esi:id-etsi-qcs-SemanticsId-Natural' is chosen?!?)
+    a                skos:Concept ;
+    skos:notation    "serialNumber"^^xsd:string ;
+    skos:prefLabel   "serialNumber"^^xsd:string ;
+    skos:related     xoid:2.5.4.5 ;
+    skos:related     oidref:2.5.4.5 ;
+    ## TODO: TBC: skos:broader     oidref:2.5.4.5 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.5> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.5
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:serialNumber ;
+    ## TODO: TBC: subPropertyOf 'oidref:2.5.4.5' (if 'xetsi-esi:id-etsi-qcs-SemanticsId-Natural' is chosen?!?)
+    a                skos:Concept ;
+    skos:notation    "2.5.4.5"^^xsd:string ;
+    skos:prefLabel   "serialNumber"^^xsd:string ;
+    skos:related     xoid:serialNumber ;
+    skos:related     oidref:2.5.4.5 ;
+    ## TODO: TBC: skos:broader     oidref:2.5.4.5 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.5> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: serialNumber
+
+## region  property :: description (NP, SI)
+xoid:description
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:2.5.4.13 ;
+    owl:sameAs       oidref:2.5.4.13 ;
+    a                skos:Concept ;
+    skos:notation    "description"^^xsd:string ;
+    skos:prefLabel   "description"^^xsd:string ;
+    skos:related     xoid:2.5.4.13 ;
+    skos:related     oidref:2.5.4.13 ;
+    # REM: used in 'VerifiableNP' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:domain      xoid:ArtificialAgent ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.13> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.13
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:description ;
+    owl:sameAs       oidref:2.5.4.13 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.13"^^xsd:string ;
+    skos:prefLabel   "description"^^xsd:string ;
+    skos:related     xoid:description ;
+    skos:related     oidref:2.5.4.13 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.13> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: description
+## region  property :: surname (NP)
+xoid:sn
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    owl:sameAs       xoid:surname ;
+    owl:sameAs       xoid:2.5.4.4 ;
+    owl:sameAs       oidref:2.5.4.4 ;
+    a                skos:Concept ;
+    skos:notation    "sn"^^xsd:string ;
+    skos:prefLabel   "surname"^^xsd:string ;
+    skos:related     xoid:surname ;
+    skos:related     xoid:2.5.4.4 ;
+    skos:related     oidref:2.5.4.4 ;
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
+    rdfs:comment     """Naming Attribute."""@en ;
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.4> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:surname
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:sn ;
+    owl:sameAs       xoid:2.5.4.4 ;
+    owl:sameAs       oidref:2.5.4.4 ;
+    a                skos:Concept ;
+    skos:notation    "surname"^^xsd:string ;
+    skos:prefLabel   "surname"^^xsd:string ;
+    skos:related     xoid:sn ;
+    skos:related     xoid:2.5.4.4 ;
+    skos:related     oidref:2.5.4.4 ;
+    # REM: used in 'VerifiableNP' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.4> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.4
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:sn ;
+    owl:sameAs       xoid:surname ;
+    owl:sameAs       oidref:2.5.4.4 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.4"^^xsd:string ;
+    skos:prefLabel   "surname"^^xsd:string ;
+    skos:related     xoid:sn ;
+    skos:related     xoid:surname ;
+    skos:related     oidref:2.5.4.4 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.4> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: surname
+## region  property :: givenName  (NP)
+xoid:givenName
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:2.5.4.42 ;
+    owl:sameAs       oidref:2.5.4.42 ;
+    a                skos:Concept ;
+    skos:notation    "givenName"^^xsd:string ;
+    skos:prefLabel   "givenName"^^xsd:string ;
+    skos:related     xoid:2.5.4.42 ;
+    skos:related     oidref:2.5.4.42 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.42> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.42
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:sn ;
+    owl:sameAs       xoid:surname ;
+    owl:sameAs       oidref:2.5.4.42 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.42"^^xsd:string ;
+    skos:prefLabel   "givenName"^^xsd:string ;
+    skos:related     xoid:givenName ;
+    skos:related     oidref:2.5.4.42 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.42> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: givenName
+## region  property :: dateOfBirth  (NP)
+xoid:dateOfBirth
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:1.3.6.1.5.5.7.9.1 ;
+    owl:sameAs       oidref:1.3.6.1.5.5.7.9.1 ;
+    a                skos:Concept ;
+    skos:notation    "dateOfBirth"^^xsd:string ;
+    skos:prefLabel   "dateOfBirth"^^xsd:string ;
+    skos:related     xoid:1.3.6.1.5.5.7.9.1 ;
+    skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.5.5.7.9.1> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:1.3.6.1.5.5.7.9.1
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:dateOfBirth ;
+    owl:sameAs       xoid:1.3.6.1.5.5.7.9.1 ;
+    a                skos:Concept ;
+    skos:notation    "1.3.6.1.5.5.7.9.1"^^xsd:string ;
+    skos:prefLabel   "dateOfBirth"^^xsd:string ;
+    skos:related     xoid:description ;
+    skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.5.5.7.9.1> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: dateOfBirth
+## region  property :: countryName (NP, SI)
+xoid:c
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    owl:sameAs       xoid:countryName ;
+    owl:sameAs       xoid:2.5.4.6 ;
+    owl:sameAs       oidref:2.5.4.6 ;
+    a                skos:Concept ;
+    skos:notation    "c"^^xsd:string ;
+    skos:prefLabel   "countryName"^^xsd:string ;
+    skos:related     xoid:countryName ;
+    skos:related     xoid:2.5.4.6 ;
+    skos:related     oidref:2.5.4.6 ;
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:domain      xoid:ArtificialAgent ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
+    rdfs:comment     """Naming Attribute."""@en ;
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.6> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:countryName
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:c ;
+    owl:sameAs       xoid:2.5.4.6 ;
+    owl:sameAs       oidref:2.5.4.6 ;
+    a                skos:Concept ;
+    skos:notation    "countryName"^^xsd:string ;
+    skos:prefLabel   "countryName"^^xsd:string ;
+    skos:related     xoid:c ;
+    skos:related     xoid:2.5.4.6 ;
+    skos:related     oidref:2.5.4.6 ;
+    # REM: used in 'VerifiableNP' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:domain      xoid:ArtificialAgent ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.6> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.6
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:c ;
+    owl:sameAs       xoid:countryName ;
+    owl:sameAs       oidref:2.5.4.6 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.6"^^xsd:string ;
+    skos:prefLabel   "countryName"^^xsd:string ;
+    skos:related     xoid:c ;
+    skos:related     xoid:countryName ;
+    skos:related     oidref:2.5.4.6 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.6> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: countryName
+## region  property :: organizationIdentifier (NP, SI)
+xoid:organizationIdentifier
+    a                  owl:DatatypeProperty ;
+    rdfs:subPropertyOf oidref:2.5.4.97 ;
+    owl:sameAs         xoid:2.5.4.97 ;
+    dct:description    """
+'xoid:organizationIdentifier' is a sub-property of 'oidref:2.5.4.97' with given data-type 'xetsi-esi:id-etsi-qcs-SemanticsId-Legal'
+definition of 'oidref:2.5.4.97' ::
+organizationIdentifier ATTRIBUTE ::= {
+WITH SYNTAX UnboundedDirectoryString
+EQUALITY MATCHING RULE caseIgnoreMatch
+SUBSTRINGS MATCHING RULE caseIgnoreSubstringsMatch
+SINGLE VALUE TRUE
+LDAP-SYNTAX directoryString.&id
+LDAP-NAME {"organizationIdentifier"}
+ID id-at-organizationIdentifier}
+    """^^xsd:string ;
+    a                  skos:Concept ;
+    skos:notation      "organizationIdentifier"^^xsd:string ;
+    skos:prefLabel     "organizationIdentifier"^^xsd:string ;
+    skos:broader       oidref:2.5.4.97 ;
+    skos:related       xoid:2.5.4.97 ;
+    rdfs:seeAlso       <http://oid-info.com/get/2.5.4.97> ;
+    rdfs:seeAlso       <https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.01_60/en_31941201v010401p.pdf#5.1.4> ;
+    rdfs:isDefinedBy   xoid: .
+
+xoid:2.5.4.97
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:organizationIdentifier ;
+    owl:sameAs       oidref:2.5.4.97 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.97"^^xsd:string ;
+    skos:prefLabel   "organizationIdentifier"^^xsd:string ;
+    skos:broader     oidref:2.5.4.97 ;
+    skos:related     xoid:organizationIdentifier ;
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.97> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: organizationIdentifier
+## region  property :: organizationName (NP, SI)
+xoid:o
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    owl:sameAs       xoid:organizationName ;
+    owl:sameAs       xoid:2.5.4.10 ;
+    owl:sameAs       oidref:2.5.4.10 ;
+    a                skos:Concept ;
+    skos:notation    "o"^^xsd:string ;
+    skos:prefLabel   "organizationName"^^xsd:string ;
+    skos:related     xoid:organizationName ;
+    skos:related     xoid:2.5.4.10 ;
+    skos:related     oidref:2.5.4.10 ;
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:domain      xoid:ArtificialAgent ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
+    rdfs:comment     """Naming Attribute."""@en ;
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.10> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:organizationName
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:o ;
+    owl:sameAs       xoid:2.5.4.10 ;
+    owl:sameAs       oidref:2.5.4.10 ;
+    a                skos:Concept ;
+    skos:notation    "organizationName"^^xsd:string ;
+    skos:prefLabel   "organizationName"^^xsd:string ;
+    skos:related     xoid:o ;
+    skos:related     xoid:2.5.4.10 ;
+    skos:related     oidref:2.5.4.10 ;
+    rdfs:domain      xoid:NaturalPerson ;
+    rdfs:domain      xoid:ArtificialAgent ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.10> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.10
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:o ;
+    owl:sameAs       xoid:organizationName ;
+    owl:sameAs       oidref:2.5.4.10 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.10"^^xsd:string ;
+    skos:prefLabel   "organizationName"^^xsd:string ;
+    skos:related     xoid:o ;
+    skos:related     xoid:organizationName ;
+    skos:related     oidref:2.5.4.10 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.10> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: organizationName
+## region  property :: organizationUnitName (NP, SI)
+xoid:ou
+    a                owl:DatatypeProperty ;
+    a                skos:Concept ;
+    owl:sameAs       xoid:organizationUnitName ;
+    owl:sameAs       xoid:2.5.4.11 ;
+    owl:sameAs       oidref:2.5.4.11 ;
+    a                skos:Concept ;
+    skos:notation    "o"^^xsd:string ;
+    skos:prefLabel   "organizationUnitName"^^xsd:string ;
+    skos:related     xoid:organizationUnitName ;
+    skos:related     xoid:2.5.4.11 ;
+    skos:related     oidref:2.5.4.11 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
+    rdfs:comment     """Naming Attribute."""@en ;
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.11> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:organizationUnitName
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:ou ;
+    owl:sameAs       xoid:2.5.4.11 ;
+    owl:sameAs       oidref:2.5.4.11 ;
+    a                skos:Concept ;
+    skos:notation    "organizationUnitName"^^xsd:string ;
+    skos:prefLabel   "organizationUnitName"^^xsd:string ;
+    skos:related     xoid:ou ;
+    skos:related     xoid:2.5.4.11 ;
+    skos:related     oidref:2.5.4.11 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.11> ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:2.5.4.11
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:ou ;
+    owl:sameAs       xoid:organizationUnitName ;
+    owl:sameAs       oidref:2.5.4.11 ;
+    a                skos:Concept ;
+    skos:notation    "2.5.4.11"^^xsd:string ;
+    skos:prefLabel   "organizationUnitName"^^xsd:string ;
+    skos:related     xoid:ou ;
+    skos:related     xoid:organizationUnitName ;
+    skos:related     oidref:2.5.4.11 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.11> ;
+    rdfs:isDefinedBy xoid: .
+## endregion  property :: organizationUnitName
+## endregion  property

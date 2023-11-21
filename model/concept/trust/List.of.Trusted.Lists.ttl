@@ -1,0 +1,36 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
+
+trust:ListOfTrustedLists
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:TrustList ;
+    skos:notation    "trust:ListOfTrustedLists"^^xsd:string ;
+    skos:prefLabel   "List of Trusted Lists"@en ;
+    skos:prefLabel   "Liste vertrauender Listen"@de ;
+    rdfs:isDefinedBy lds: .
+
+trust:listOfTrustedLists
+    a                owl:ObjectProperty ;
+    skos:notation    "trust:listOfTrustedLists"^^xsd:string ;
+    skos:prefLabel   "List of Trusted Lists"@en ;
+    skos:prefLabel   "Liste vertrauender Listen"@de ;
+    rdfs:range       trust:ListOfTrustedLists ; ## CARD: cardinality :: [0..1]
+    rdfs:isDefinedBy lds: .
+
+lds:member
+    rdfs:domain      trust:ListOfTrustedLists ;
+    rdfs:range       trust:TrustList ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:ListOfTrustedLists .
+
+lds:AllConcepts
+    skos:member trust:ListOfTrustedLists .

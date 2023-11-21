@@ -1,0 +1,30 @@
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prov:           <http://www.w3.org/ns/prov#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+
+lds:Representative
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  rdfs:Resource ;
+    skos:notation    "Representative"^^xsd:string ;
+    skos:prefLabel   "Representative"@en ;
+    skos:prefLabel   "Repräsentant"@de ;
+    rdfs:isDefinedBy lds: .
+
+lds:represented
+    a                rdf:Property ;
+    skos:notation    "represented"^^xsd:string ;
+    skos:prefLabel   "represented"^^xsd:string ;
+    rdfs:label       "represented entity"@en ;
+    rdfs:domain      lds:Representative ;
+    ## rdfs:range       ILO (intentionally left open) ;
+    rdfs:isDefinedBy lds: .
+
+lds:RepresentativeConcepts
+    skos:member lds:Representative .
+
+lds:AllConcepts
+    skos:member lds:Representative .

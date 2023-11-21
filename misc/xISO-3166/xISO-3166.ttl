@@ -1,0 +1,166 @@
+@prefix dct:                             <http://purl.org/dc/terms/> .
+@prefix foaf:                            <http://xmlns.com/foaf/0.1/> . ## REM: hold **ONLY** for organization
+@prefix org:                             <http://www.w3.org/ns/org#> .  ## REM: hold **ONLY** for organization
+@prefix owl:                             <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                            <http://www.w3.org/ns/prov#> . ## REM: hold **ONLY** for organization
+@prefix rdf:                             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                            <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                            <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:                            <http://purl.org/vocab/vann/> .
+@prefix voaf:                            <http://purl.org/vocommons/voaf#> .
+@prefix void:                            <http://rdfs.org/ns/void#> .
+@prefix xsd:                             <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix xISO-3166:                       <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xISO-3166/> .
+@prefix xISO-3166-1:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xISO-3166/1#> .
+@prefix xISO-3166-2:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xISO-3166/2#> .
+
+
+xISO-3166:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "The Ontology 'xISO-3166', extension for ISO-3166"^^xsd:string ;
+    rdfs:label                    "The Ontology 'xISO-3166', extension for ISO-3166"@en ;
+    dct:title                     "Model for xISO-3166"@en ;
+    dct:description               """."""@en ;
+    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:created                   "2023-11-02"^^xsd:date ;
+    dct:modified                  "2023-11-19"^^xsd:date ; ## {{date.now}}
+    owl:versionInfo               "0.0.1" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xISO-3166/" ;
+    vann:preferredNamespacePrefix "xoid:" ;
+    void:vocabulary               vann:, void:, voaf:, dct: ;
+    rdfs:comment                  """"""@en ;
+    rdfs:seeAlso                  <https://de.wikipedia.org/wiki/ISO_3166> ;
+#    xISO-3166-1:ALPHA-codeList
+    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+
+## region xISO-3166-1
+
+
+xISO-3166-1:id-ISO-3166-1-SemanticsId-ALPHA-2
+    a                rdfs:Datatype ;
+    a                skos:Concept ;
+    skos:notation    "id-ISO-3166-1-SemanticsId-ALPHA-2"^^xsd:string ;
+    skos:prefLabel   "ISO-3166-1 Country ALPHA-2 identifier semantics"^^xsd:string ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-1:id-ISO-3166-1-SemanticsId-ALPHA-3
+    a                rdfs:Datatype ;
+    a                skos:Concept ;
+    skos:notation    "id-ISO-3166-1-SemanticsId-ALPHA-3"^^xsd:string ;
+    skos:prefLabel   "ISO-3166-1 Country ALPHA-3 identifier semantics"^^xsd:string ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166:localShortName
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166:entry
+    a                owl:ObjectProperty ;
+    rdfs:range       xISO-3166-1:Entry ; ## TODO: SHACL :: cardinality [0..1]
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166:tld
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:string ; ## TODO: SHACL :: cardinality [0..1]
+    rdfs:seeAlso     <https://de.wikipedia.org/wiki/Top-Level-Domain> ;
+    rdfs:seeAlso     <https://en.wikipedia.org/wiki/Top-level_domain> ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-1:Entry
+    a                owl:Class ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-1:ALPHA-2-code
+    a                owl:DatatypeProperty ;
+    rdfs:range       xISO-3166-1:id-ISO-3166-1-SemanticsId-ALPHA-2 ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-1:ALPHA-3-code
+    a                owl:DatatypeProperty ;
+    rdfs:range       xISO-3166-1:id-ISO-3166-1-SemanticsId-ALPHA-3 ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-1:numeric
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:string ; ## TODO : make it semantic ... three digits
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-1:ALPHA-codeList
+    a                owl:ObjectProperty ;
+    rdfs:range       xISO-3166-1:Entry ;
+    rdfs:domain      xISO-3166: ;
+    rdfs:isDefinedBy xISO-3166: .
+
+
+xISO-3166-2:subDivisionList
+    a                owl:ObjectProperty ;
+    rdfs:range       xISO-3166-2:SubDivision ;
+    rdfs:domain      xISO-3166-1:Entry ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-2:SubDivision
+    a                owl:Class ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-2:SubDivisionCategory
+    a                owl:Class ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-2:subDivisionCategory
+    a                owl:ObjectProperty ;
+    rdfs:range       xISO-3166-2:SubDivisionCategory ;
+    rdfs:domain      xISO-3166-2:SubDivision ;
+    rdfs:isDefinedBy xISO-3166: .
+
+xISO-3166-2:subDivisionName
+    a                owl:ObjectProperty ;
+    rdfs:range       xsd:string ;
+    rdfs:domain      xISO-3166-2:SubDivision ;
+    rdfs:isDefinedBy xISO-3166: .
+
+## region codes
+## region codes :: DE
+
+xISO-3166-1:DE
+    a                        xISO-3166-1:Entry ;
+    xISO-3166:localShortName "Deutschland"^^xsd:string ;
+    xISO-3166-1:ALPHA-2-code "DE"^^xISO-3166-1:id-ISO-3166-1-SemanticsId-ALPHA-2 ;
+    xISO-3166-1:ALPHA-3-code "DEU"^^xISO-3166-1:id-ISO-3166-1-SemanticsId-ALPHA-3 ;
+    xISO-3166:numeric        "276"^^xsd:string ;
+    xISO-3166:tld            ".de"^^xsd:string ;
+    ## xISO-3166-2:subDivisionList xISO-3166-2:DE-NW ;
+    skos:relatedMatch        <https://www.iso.org/obp/ui/#iso:code:3166:DE> ;
+    rdfs:isDefinedBy         xISO-3166: .
+
+## region codes :: DE :: SubDivision
+xISO-3166-2:SDC_Land
+    a                xISO-3166-2:SubDivisionCategory ;
+    skos:prefLabel   "Land"@de ;
+    skos:prefLabel   "land"@fr ;
+    skos:prefLabel   "Land"@en ;
+    rdfs:isDefinedBy xISO-3166-1:DE .
+
+xISO-3166-2:DE-NW
+    a                               xISO-3166-2:SubDivision ;
+    xISO-3166-2:subDivisionName     "Nordrhein-Westfalen" ;
+    skos:prefLabel                  "Nordrhein-Westfalen"@de ;
+    skos:prefLabel                  "North Rhine-Westphalia"@en ;
+    xISO-3166-2:subDivisionCategory xISO-3166-2:SDC_Land ;
+    rdfs:isDefinedBy                xISO-3166-1:DE .
+
+xISO-3166-1:DE
+    xISO-3166-2:subDivisionList xISO-3166-2:DE-NW .
+
+## endregion codes :: DE :: SubDivision
+
+xISO-3166:
+    xISO-3166-1:ALPHA-codeList xISO-3166-2:DE .
+
+## endregion codes :: DE
+
+
+## endregion codes

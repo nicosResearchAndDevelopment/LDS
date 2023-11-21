@@ -1,0 +1,60 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS/> .
+
+lds:
+    a                skos:Concept ;
+    rdfs:isDefinedBy <https://www.nicos-rd.com/> .
+
+lds:AllConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:IdentifierConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:EntityConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:PurposeConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:PersonConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:PersonConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:NaturalConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:AppointmentConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:RepresentativeConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:FunctionConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+## region Process
+
+lds:ProcessConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+## endregion Process

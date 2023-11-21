@@ -27,7 +27,7 @@
 @prefix bob-ds:    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/bob/>.
 ## endregion Data Space
 
-@prefix lds:       <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:       <https://github.com/nicosResearchAndDevelopment/LDS/> .
 
 @prefix DAVE:      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/DataVerse/>.
 

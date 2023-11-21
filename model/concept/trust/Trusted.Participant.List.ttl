@@ -1,0 +1,35 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
+
+trust:TrustedParticipantList
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  trust:TrustedEntityList ;
+    skos:notation    "trust:TrustedParticipantList"^^xsd:string ;
+    skos:prefLabel   "List of trusted Participants"@en ;
+    skos:prefLabel   "Liste der vertrauenswürdigen Teilnehmer"@de ;
+    skos:broader     lds:Trust ;
+    skos:broader     lds:Participant ;
+    skos:broader     lds:List ;
+    skos:broader     trust:TrustedEntityList ;
+    rdfs:isDefinedBy lds: .
+
+lds:member
+    rdfs:range       lds:Participant ;
+    rdfs:isDefinedBy lds: .
+
+trust:trustedParticipantList
+    rdfs:range       trust:TrustedParticipantList ;
+    rdfs:isDefinedBy trust:TrustedParticipantList .
+
+lds:TrustConcepts
+    skos:member trust:TrustedParticipantList .
+
+lds:AllConcepts
+    skos:member trust:TrustedParticipantList .

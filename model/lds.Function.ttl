@@ -20,7 +20,7 @@
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS/> .
 
 lds:function
     a                owl:ObjectProperty ;

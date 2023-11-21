@@ -20,7 +20,7 @@
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS#> .
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS/> .
 
 lds:Participant
     a                owl:Class ;
@@ -36,6 +36,7 @@ lds:participant
     skos:notation    "participant"^^xsd:string ;
     skos:prefLabel   "participant"^^xsd:string ;
     rdfs:label       "Participant"@en ;
+    rdfs:label       "Teilnehmer"@de ;
     dct:description  """Property to bind a given Participant."""@en ;
     rdfs:domain      lds:DataSpace ;
     rdfs:range       lds:Participant ;

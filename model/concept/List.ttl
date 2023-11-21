@@ -1,0 +1,23 @@
+@prefix lds:  <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+lds:List
+    a                owl:Class, skos:Concept ;
+    skos:notation    "List"^^xsd:string ;
+    skos:prefLabel   "List"@en ;
+    skos:prefLabel   "Liste"@de ;
+    rdfs:isDefinedBy lds: .
+
+lds:member
+    rdfs:domain      lds:List ;
+    rdfs:isDefinedBy lds: .
+
+lds:AllConcepts
+    skos:member lds:List .

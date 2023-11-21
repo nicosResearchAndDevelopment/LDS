@@ -11,7 +11,7 @@ Ontologies used in **Linked Data Space** in alphabetic order:
 | dct    | [http://purl.org/dc/terms/](http://purl.org/dc/terms/)                                                            |
 | fno    | [https://w3id.org/function/ontology#](https://w3id.org/function/ontology#)                                        |
 | foaf   | [http://xmlns.com/foaf/0.1/](http://xmlns.com/foaf/0.1/)                                                          |
-| lds    | [https://github.com/nicosResearchAndDevelopment/LDS#](https://github.com/nicosResearchAndDevelopment/LDS/lds.ttl) |
+| lds    | [https://github.com/nicosResearchAndDevelopment/LDS/](https://github.com/nicosResearchAndDevelopment/LDS/lds.ttl) |
 | odrl   | [http://www.w3.org/ns/odrl/2/](http://www.w3.org/ns/odrl/2/)                                                      |
 | org    | [http://www.w3.org/ns/org#](http://www.w3.org/ns/org#)                                                            |
 | owl    | [http://www.w3.org/2002/07/owl#](http://www.w3.org/2002/07/owl#)                                                  |
