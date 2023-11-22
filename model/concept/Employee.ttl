@@ -6,24 +6,21 @@
 @prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
-lds:Function
+lds:Employee
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  rdfs:Resource ;
-    skos:notation    "Function"^^xsd:string ;
-    skos:prefLabel   "Function"@en ;
-    skos:prefLabel   "Funktion"@de ;
+    skos:notation    "Employee"^^xsd:string ;
+    skos:prefLabel   "Employee"@en ;
+    skos:prefLabel   "Mitarbeiter"@de ;
     rdfs:isDefinedBy lds: .
 
-lds:function
+lds:employee
     a                owl:ObjectProperty ;
-    skos:notation    "function"^^xsd:string ;
-    skos:prefLabel   "Function"^^xsd:string ;
-    rdfs:label       "Funktion"@en ;
-    rdfs:range       lds:Function ;
+    skos:notation    "employee"^^xsd:string ;
+    skos:prefLabel   "Employee"^^xsd:string ;
+    rdfs:label       "Mitarbeiter"@en ;
+    rdfs:range       lds:Employee ;
     rdfs:isDefinedBy lds: .
-
-lds:FunctionConcepts
-    skos:member lds:Function .
 
 lds:AllConcepts
-    skos:member lds:Function .
+    skos:member lds:Employee .

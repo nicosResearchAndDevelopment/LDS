@@ -6,24 +6,21 @@
 @prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
-lds:Function
+lds:Profile ## abstract
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  rdfs:Resource ;
-    skos:notation    "Function"^^xsd:string ;
-    skos:prefLabel   "Function"@en ;
-    skos:prefLabel   "Funktion"@de ;
+    skos:notation    "Profile"^^xsd:string ;
+    skos:prefLabel   "Profile"@en ;
+    skos:prefLabel   "Profil"@de ;
     rdfs:isDefinedBy lds: .
 
-lds:function
+lds:profile
     a                owl:ObjectProperty ;
-    skos:notation    "function"^^xsd:string ;
-    skos:prefLabel   "Function"^^xsd:string ;
-    rdfs:label       "Funktion"@en ;
-    rdfs:range       lds:Function ;
+    skos:notation    "profile"^^xsd:string ;
+    skos:prefLabel   "Profile"^^xsd:string ;
+    rdfs:label       "Profile"@en ;
+    rdfs:label       "Profil"@de ;
+    rdfs:range       lds:Profile ;
     rdfs:isDefinedBy lds: .
-
-lds:FunctionConcepts
-    skos:member lds:Function .
 
 lds:AllConcepts
-    skos:member lds:Function .
+    skos:member lds:Profile .

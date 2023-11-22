@@ -1,0 +1,62 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix fno:     <https://w3id.org/function/ontology#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:    <http://www.w3.org/2006/time#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-pdp: <https://github.com/nicosResearchAndDevelopment/LDS/PDP/> .
+
+lds-pdp:Agent
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Component ;
+    rdfs:subClassOf  prov:Agent ;
+    skos:broader     lds:Component ;
+    rdfs:isDefinedBy lds-pdp: .
+
+lds:Function
+    rdfs:subClassOf  fno:Function ;
+    rdfs:isDefinedBy lds-pdp: .
+
+lds:function
+    rdfs:domain      lds-pdp:Agent ;
+    rdfs:isDefinedBy lds-pdp: .
+
+lds-pdp:agent
+    a                owl:ObjectProperty ;
+    skos:notation    "lds-pdp:agent"^^xsd:string ;
+    skos:prefLabel   "Agent"^^xsd:string ;
+    rdfs:label       "Agent"@en ;
+    rdfs:domain      lds-pdp:Service ;
+    rdfs:range       lds-pdp:Agent ;
+    rdfs:isDefinedBy lds-pdp: .
+
+## region Functions
+lds-pdp:Function_DECIDE
+    a                lds:Function ;
+    fno:name         "decide"^^xsd:string ;
+#    dct:description  """"""@en ;
+#    fno:solves       <problem> ;
+#    fno:implements   <algorithm> ;
+#    fno:expects      ( <DatRequest_parameter_MANDATORY> ) ;
+#    fno:returns      ( <output> ) ;
+    rdfs:isDefinedBy lds-pdp: .
+
+lds-pdp:decide
+    a                owl:ObjectProperty ;
+    skos:notation    "lds-pdp:decide"^^xsd:string ;
+    skos:prefLabel   "Decide"^^xsd:string ;
+    rdfs:label       "Entscheide"@en ;
+    rdfs:domain      lds-pdp:Agent ;
+    rdfs:range       lds-pdp:Function_DECIDE ; ## TODO: CARD: [1..1]
+    rdfs:isDefinedBy lds-pdp: .
+
+## endregion Functions

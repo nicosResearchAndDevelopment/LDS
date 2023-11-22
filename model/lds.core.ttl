@@ -48,8 +48,34 @@ lds:unit
     rdfs:domain      lds:Range ;
     rdfs:isDefinedBy lds: .
 
-lds:member
+lds:issuer
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:anyURI ;
+    rdfs:isDefinedBy lds: .
+
+lds:issued
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:dateTimeStamp ;
+    rdfs:isDefinedBy lds: .
+
+lds:validFrom
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:dateTimeStamp ;
+    rdfs:isDefinedBy lds: .
+
+lds:validTo
+    a                owl:DatatypeProperty ;
+    rdfs:range       xsd:dateTimeStamp ;
+    rdfs:isDefinedBy lds: .
+
+lds:hasMember
     a                rdf:Property ;
+    owl:inverseOf    lds:memberOf ;
+    rdfs:isDefinedBy lds: .
+
+lds:memberOf
+    a                rdf:Property ;
+    owl:inverseOf    lds:hasMember ;
     rdfs:isDefinedBy lds: .
 
 lds:numericType

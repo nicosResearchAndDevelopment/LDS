@@ -11,6 +11,10 @@ lds:AllConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:VerifiableConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:IdentifierConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
@@ -20,6 +24,10 @@ lds:EntityConcepts
     rdfs:isDefinedBy lds: .
 
 lds:TrustConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:CredentialConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 

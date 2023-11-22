@@ -1,16 +1,19 @@
-@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
-@prefix owl:                <http://www.w3.org/2002/07/owl#> .
-@prefix prov:               <http://www.w3.org/ns/prov#> .
-@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+@prefix lds:      <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prof:     <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:     <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/purpose/> .
+@prefix purpose:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/purpose/> .
 
 purpose:Purpose
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  lds:Purpose ;
+    rdfs:subClassOf  prof:Profile ;
     skos:notation    "purpose:Purpose"^^xsd:string ;
     skos:prefLabel   "Purpose"@en ;
     skos:prefLabel   "Ziel"@de ;
@@ -26,8 +29,40 @@ purpose:purpose
     rdfs:range       purpose:Purpose ;
     rdfs:isDefinedBy lds: .
 
+purpose:target
+    a                rdf:Property ;
+    skos:notation    "purpose:target"^^xsd:string ;
+    skos:prefLabel   "Target"^^xsd:string ;
+    rdfs:label       "Target"@en ;
+    rdfs:label       "Ziel"@de ;
+    ## ILO: rdfs:domain       (intentionally left open)  ;
+    ## ILO: rdfs:range        (intentionally left open)  ;
+    ## TODO: das target ist **NICHT** an 'Purpose' gebunden, da somit ebenfalls übergeordente Ziele definiert werden können, die von Dritten (die sich darauf geeinigt haben, eben dieses Ziel gemeinshcaftlich zu verstehen) genutzt werden können... somit: es könnte so etwas wie einen "TrustedPurposeProvider" geben, ein Intermediär, der von Verständingen genutzt werden kann (siehe auch dpv)
+    rdfs:isDefinedBy lds: .
+
+purpose:Membership
+    a                owl:Class, skos:Concept ;
+    skos:notation    "purpose:Membership"^^xsd:string ;
+    skos:prefLabel   "Purpose"@en ;
+    skos:prefLabel   "Ziel"@de ;
+    rdfs:isDefinedBy lds: .
+
+lds:hasMember
+    rdfs:domain      purpose:Membership ;
+    rdfs:isDefinedBy lds: .
+
+purpose:purpose
+    rdfs:domain      purpose:Membership ;
+    rdfs:isDefinedBy lds: .
+
+purpose:purpose
+    rdfs:domain      purpose:Membership ;
+    rdfs:isDefinedBy lds: .
+
 lds:PurposeConcepts
-    skos:member purpose:Purpose .
+    skos:member purpose:Purpose ;
+    skos:member purpose:Membership .
 
 lds:AllConcepts
-    skos:member purpose:Purpose .
+    skos:member purpose:Purpose ;
+    skos:member purpose:Membership .

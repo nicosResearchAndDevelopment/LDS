@@ -10,11 +10,13 @@
 
 lds:Purpose
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  prof:Profile ;
     skos:notation    "Purpose"^^xsd:string ;
     skos:prefLabel   "Purpose"@en ;
     skos:prefLabel   "Ziel"@de ;
     rdfs:isDefinedBy lds: .
+
+lds:PurposeConcepts
+    skos:member lds:Purpose .
 
 lds:AllConcepts
     skos:member lds:Purpose .

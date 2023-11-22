@@ -10,7 +10,7 @@
 
 trust:ListOfTrustedLists
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds:TrustList ;
+    rdfs:subClassOf  trust:TrustList ;
     skos:notation    "trust:ListOfTrustedLists"^^xsd:string ;
     skos:prefLabel   "List of Trusted Lists"@en ;
     skos:prefLabel   "Liste vertrauender Listen"@de ;
@@ -24,7 +24,7 @@ trust:listOfTrustedLists
     rdfs:range       trust:ListOfTrustedLists ; ## CARD: cardinality :: [0..1]
     rdfs:isDefinedBy lds: .
 
-lds:member
+lds:hasMember
     rdfs:domain      trust:ListOfTrustedLists ;
     rdfs:range       trust:TrustList ;
     rdfs:isDefinedBy lds: .

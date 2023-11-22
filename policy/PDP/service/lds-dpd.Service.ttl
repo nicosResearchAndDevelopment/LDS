@@ -1,0 +1,43 @@
+    ## region upper concepts
+## order ALPHA
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix fno:     <https://w3id.org/function/ontology#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prof:    <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:    <http://www.w3.org/2006/time#>.
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-pdp: <https://github.com/nicosResearchAndDevelopment/LDS/PDP/> .
+
+lds-pdp:Service
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Service ;
+    rdfs:subClassOf  prov:SoftwareAgent ;
+    ## TODO: lds:actOnBehalf ;
+    skos:broader     lds:Component ;
+    rdfs:isDefinedBy lds-pdp: .
+
+lds-pdp:ServiceProfile
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Service ;
+    rdfs:subClassOf  prof:Profile ;
+    ## TODO: lds:actOnBehalf ;
+    skos:broader     lds:Service ;
+    skos:broader     lds:Profile ;
+    rdfs:isDefinedBy lds-pdp: .
+
+lds-pdp:serviceProfile
+    a                owl:ObjectProperty ;
+    skos:notation    "lds-pdp:serviceProfile"^^xsd:string ;
+    skos:prefLabel   "Service Profile"^^xsd:string ;
+    rdfs:label       "Serviceprofil"@en ;
+    rdfs:domain      lds-pdp:Service ;
+    rdfs:isDefinedBy lds-pdp: .

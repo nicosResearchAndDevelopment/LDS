@@ -1,13 +1,13 @@
-@prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS/> .
-@prefix owl:                   <http://www.w3.org/2002/07/owl#> .
-@prefix prov:                  <http://www.w3.org/ns/prov#> .
-@prefix rdf:                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:                  <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
+@prefix lds:        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix identifier:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/identifier/> .
-@prefix trust:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
+@prefix identifier: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/identifier/> .
+@prefix trust:      <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
 
 identifier:Identifier
     a                owl:Class, skos:Concept ;
@@ -25,39 +25,46 @@ identifier:identifier
 
 identifier:targetClass
     a                rdf:Property ;
-    rdfs:label       "target class of Identifier"@en ;
+    rdfs:label       "Target Class of Identifier"@en ;
+    skos:notation    "identifier:targetClass"^^xsd:string ;
     rdfs:domain      identifier:Identifier ;
     rdfs:range       rdfs:Class ;
     rdfs:isDefinedBy lds: .
 
 identifier:PropertyShape
     a                rdfs:Class ;
-    rdfs:label       "Identifier Property shape"@en ;
+    rdfs:label       "Identifier Property Shape"@en ;
+    skos:notation    "identifier:PropertyShape"^^xsd:string ;
     rdfs:isDefinedBy lds: .
 
 identifier:property
     a                rdf:Property ;
-    rdfs:label       "property"@en ;
+    rdfs:label       "Property"@en ;
+    skos:notation    "identifier:property"^^xsd:string ;
     rdfs:domain      identifier:Identifier ;
     rdfs:range       identifier:PropertyShape ;
     rdfs:isDefinedBy lds: .
 
 identifier:path
     a                rdf:Property ;
-    rdfs:label       "path"@en ;
+    rdfs:label       "Path"@en ;
+    skos:notation    "identifier:path"^^xsd:string ;
     rdfs:domain      identifier:PropertyShape ;
-    rdfs:range       rdfs:Resource ;
+    rdfs:range       rdf:Property ;
+    rdfs:range       xsd:string ;
     rdfs:isDefinedBy lds: .
 
 identifier:datatype
     a                rdf:Property ;
-    rdfs:label       "datatype"@en ;
+    rdfs:label       "Datatype"@en ;
+    skos:notation    "identifier:datatype"^^xsd:string ;
     rdfs:range       rdfs:Datatype ;
     rdfs:isDefinedBy lds: .
 
 identifier:value
     a                rdf:Property ;
-    rdfs:label       "value"@en ;
+    rdfs:label       "Value"@en ;
+    skos:notation    "identifier:value"^^xsd:string ;
     rdfs:range       xsd:string ; ## cardinality :: [1..1]
     rdfs:range       xsd:anyURI ;
     rdfs:isDefinedBy lds: .
@@ -67,34 +74,47 @@ lds:IdentifierConcepts
 
 lds:AllConcepts
     skos:member identifier:Identifier .
-#
-#@prefix ex:                        <https://www.example.org/> .
-#@prefix odrl:                      <http://www.w3.org/ns/odrl/2/> .
-#@prefix xeidas:                    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
-#@prefix xetsi-esi:                 <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-etsi#> .
+
+#@prefix ex:         <https://www.example.org/> .
+#@prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
+#@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
+#@prefix xeidas:     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
+#@prefix xetsi-esi:  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-etsi#> .
+#@prefix x-psd2:     <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32015L2366/lds-extension/> .
 #
 #ex:
-#    a                     lds:LegalEntity ;
-#    identifier:identifier [ a                      identifier:Identifier ;
-#                            identifier:targetClass odrl:Party ;
-#                            identifier:property    [ a                   identifier:PropertyShape ;
-#                                                     identifier:path     odrl:uid ;
-#                                                     identifier:datatype xsd:string ;
-#                                                     identifier:value    "https://www.example.org/"^^xsd:anyURI ; ] ; ] ;
-#    identifier:identifier [ a                      identifier:Identifier ;
-#                            identifier:targetClass ex:Credential ;
-#                            identifier:property    [ a                   identifier:PropertyShape ;
-#                                                     identifier:path     xeidas:LegalPersonIdentifier ;
-#                                                     identifier:datatype xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
-#                                                     identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ; ] ;
+#    a          lds:LegalEntity ;
+#    ## REM: 'ordl:uid' to 'odrl:Party'
+#    identifier:identifier [ a           identifier:Identifier ;
+#      identifier:targetClass odrl:Party ;
+#      identifier:property    [ a        identifier:PropertyShape ;
+#         identifier:path     odrl:uid ;
+#         identifier:datatype xsd:string ;
+#         identifier:value    "https://www.example.org/"^^xsd:anyURI ; ] ; ] ;
+#    ## REM: 'xeidas:LegalPersonIdentifier' to 'ex:Credential'
+#    identifier:identifier [ a           identifier:Identifier ;
+#      identifier:targetClass ex:Credential ;
+#      identifier:property    [ a        identifier:PropertyShape ;
+#         identifier:path     xeidas:LegalPersonIdentifier ;
+#         identifier:datatype xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+#         identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ; ] ;
+#    ## REM: 'xeidas:LegalPersonIdentifier' to 'ex:Credential'
+#    ## REM: this LegalEntity seems to be an National Banking Authority (NCA, under PSD)
+#    identifier:identifier [ a           identifier:Identifier ;
+#      identifier:targetClass x-psd2:NCA ;
+#      identifier:property    [ a        identifier:PropertyShape ;
+#         identifier:path     x-psd2:codeNCA ;
+#         identifier:datatype x-psd2:id-SemanticsId-codeNCA ;
+#         identifier:value    "DE-BAFIN"^^xsd:string ; ] ; ] ;
 #    identifier:identifier <https://www.example.org/identifier/CERT> ;
+#    lds:country           country:DE ;
 #    rdfs:isDefinedBy      ex: .
 #
 #<https://www.example.org/identifier/CERT>
-#    a                      identifier:Identifier ;
+#    a           identifier:Identifier ;
 #    identifier:targetClass ex:Subject ;
-#    identifier:property    [ a                   identifier:PropertyShape ;
-#                             identifier:path     xetsi-esi:organizationIdentifier ;
-#                             identifier:datatype xetsi-esi:id-etsi-qcs-SemanticsId-Legal ;
-#                             identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ;
+#    identifier:property    [ a        identifier:PropertyShape ;
+#       identifier:path     xetsi-esi:organizationIdentifier ;
+#       identifier:datatype xetsi-esi:id-etsi-qcs-SemanticsId-Legal ;
+#       identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ;
 #.

@@ -8,23 +8,27 @@
 
 @prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
 
-trust:TrustList
+trust:TrustedParticipantList
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds:Trust ;
-    rdfs:subClassOf  lds:List ;
-    skos:notation    "trust:TrustList"^^xsd:string ;
-    skos:prefLabel   "List of Trusts"@en ;
-    skos:prefLabel   "Liste der Vertrauenstellungen"@de ;
-    skos:broader     lds:Trust ;
-    skos:broader     lds:List ;
+    rdfs:subClassOf  trust:TrustedPartyList ;
+    skos:notation    "trust:TrustedParticipantList"^^xsd:string ;
+    skos:prefLabel   "Trusted Participants"@en ;
+    skos:prefLabel   "Vertrauenswürdige Teilnehmer"@de ;
+    skos:broader     trust:TrustPartyList ;
+    skos:broader     lds:Participant ;
     rdfs:isDefinedBy lds: .
 
 lds:hasMember
-    rdfs:range       trust:Trust ;
+    rdfs:range       lds:Participant ;
     rdfs:isDefinedBy lds: .
 
+trust:trustedParticipantList
+    a                owl:ObjectProperty ;
+    rdfs:range       trust:TrustedParticipantList ;
+    rdfs:isDefinedBy trust:TrustedParticipantList .
+
 lds:TrustConcepts
-    skos:member trust:TrustList .
+    skos:member trust:TrustedParticipantList .
 
 lds:AllConcepts
-    skos:member trust:TrustList .
+    skos:member trust:TrustedParticipantList .

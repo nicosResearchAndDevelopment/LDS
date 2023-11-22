@@ -1,0 +1,53 @@
+    ## region upper concepts
+## order ALPHA
+@prefix fno:                          <https://w3id.org/function/ontology#> .
+@prefix odrl:                         <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:                          <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                         <http://www.w3.org/ns/prov#> .
+@prefix rdf:                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                         <http://www.w3.org/2004/02/skos/core#> .
+@prefix time:                         <http://www.w3.org/2006/time#>.
+@prefix xsd:                          <http://www.w3.org/2001/XMLSchema#> .
+## endregion upper concepts
+
+@prefix lds:                          <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-pdp:                      <https://github.com/nicosResearchAndDevelopment/LDS/PDP/> .
+@prefix decide:                       <https://github.com/nicosResearchAndDevelopment/LDS/PDP/decide> .
+
+@prefix ex:                           <https://www.example.org/> .
+@prefix ex-pdp-agent:                 <https://www.example.org/pdp/agent/> .
+@prefix ex-pdp-service-instance-http: <https://pdp.example.org:80/decide/> .
+@prefix ex-pdp-service-instance-grpc: <https://pdp.example.org:80/> .
+
+ex-pdp-agent:
+    ## REM: We have to keep in mind: this here 'ex-pdp-agent:' is the instantiated component,
+    ## REM: ...waiting for decide-request by its topping services...
+    a                lds-pdp:Agent ;
+    lds:function     lds-pdp:Function_DECIDE ; ## REM: all functions [1..n]
+    decide:          lds-pdp:Function_DECIDE ; ## REM: [1..1]
+    rdfs:isDefinedBy ex: .
+
+ex-pdp-service-instance-http:
+    ## REM: We have to keep in mind: this here 'ex-pdp-service-instance-http:' is the up-and-running Service Instance!
+    a                      lds-pdp:Service ;
+    a                      lds:Instance ;
+    ## TODO lds:actOnBehalf ex: ;
+    lds-pdp:serviceProfile <ex-pdp-service-http:profile> ;
+    lds-pdp:agent          ex-pdp-agent: ;
+    rdfs:isDefinedBy       ex: .
+
+<ex-pdp-service-http:profile>
+    a                lds-pdp:ServiceProfile ;
+    rdfs:isDefinedBy ex: .
+
+ex-pdp-service-instance-grpc:
+    a                      lds-pdp:Service ;
+    ## TODO lds:actOnBehalf ex: ;
+    lds-pdp:serviceProfile <ex-pdp-service-grpc:profile> ;
+    lds-pdp:agent          ex-pdp-agent: ;
+    rdfs:isDefinedBy       ex: .
+
+<ex-pdp-service-grpc:profile>
+    a                lds-pdp:ServiceProfile ;
+    rdfs:isDefinedBy ex: .
