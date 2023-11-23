@@ -1,0 +1,51 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+
+entity:AppointedRepresentative
+    a                owl:Class, skos:Concept ;
+    ## TODO : SHACL
+    rdfs:subClassOf  entity:Appointment ;
+    rdfs:subClassOf  entity:Representative ;
+    skos:notation    "entity:AppointedRepresentative"^^xsd:string ;
+    skos:prefLabel   "Appointed Representative"@en ;
+    skos:prefLabel   "Ernannter Repräsentant"@de ;
+    skos:broader     entity:Appointment ;
+    skos:broader     entity:Representative ;
+    rdfs:isDefinedBy lds: .
+
+entity:appointedRepresentative
+    a                rdf:Property ;
+    skos:notation    "entity:appointedRepresentative"^^xsd:string ;
+    skos:prefLabel   "Appointed Representative"^^xsd:string ;
+    rdfs:label       "Appointed  Representative"@en ;
+    rdfs:label       "Ernannter Repräsentant"@de ;
+    ## ILO: rdfs:domain       (intentionally left open)  ;
+    rdfs:range       entity:AppointedRepresentative ;
+    rdfs:isDefinedBy lds: .
+
+entity:actOnBehalf
+    rdfs:domain      entity:Representative ;
+    rdfs:range       entity:Entity ;
+    rdfs:isDefinedBy lds: .
+
+lds:EntityConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:LegalConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:AppointmentConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:RepresentativeConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:AllConcepts
+    skos:member entity:LegalEntityRepresentative .

@@ -1,0 +1,27 @@
+@prefix lds:      <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prof:     <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:     <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix service:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/service/> .
+
+service:Service ## REM abstract
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Service ;
+    skos:notation    "service:Service"^^xsd:string ;
+    skos:prefLabel   "Service"^^xsd:string ;
+    rdfs:label       "Service"@en ;
+    rdfs:label       "Service"@de ;
+    skos:broader     lds:Service ;
+    rdfs:isDefinedBy lds: .
+
+lds:ServiceConcepts
+    skos:member service:Service .
+
+lds:AllConcepts
+    skos:member service:Service .

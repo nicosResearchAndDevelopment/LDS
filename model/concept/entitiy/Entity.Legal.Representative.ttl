@@ -1,0 +1,56 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+
+entity:LegalEntityRepresentative
+    a                owl:Class, skos:Concept ;
+    ## TODO : SHACL
+#    rdfs:subClassOf  entity:Entity ;
+#    rdfs:subClassOf  lds:Legal ;
+    rdfs:subClassOf  entity:Representative ;
+    rdfs:subClassOf  entity:NaturalPerson ;
+    skos:altLabel    "LER"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "LER"^^xsd:string'
+    skos:notation    "entity:LegalEntityRepresentative"^^xsd:string ;
+    skos:prefLabel   "Legal Entity Representative"@en ;
+    skos:prefLabel   "Repräsentant der legalen Entität"@de ;
+    skos:broader     legal:Legal ;
+    skos:broader     entity:LegalEntity ;
+    skos:broader     entity:NaturalPerson ;
+    skos:broader     entity:Representative ;
+    skos:narrower    entity:AppointedRepresentative ;
+    rdfs:comment     """We have to keep in mind: if given **Legal Basis** will fully accept Artificial Intelligence, then 'rdfs:subClassOf entity:NaturalPerson' has to be fixed somehow ;-) ..."""@en ;
+    rdfs:isDefinedBy lds: .
+
+entity:legalRepresentative
+    a                rdf:Property ;
+    skos:notation    "entity:legalRepresentative"^^xsd:string ;
+    skos:prefLabel   "Legal Representative"^^xsd:string ;
+    rdfs:label       "Legal  Representative"@en ;
+    rdfs:label       "Legaler Repräsentant"@de ;
+    rdfs:domain      entity:LegalEntity ;
+    rdfs:range       entity:LegalEntityRepresentative ;
+    rdfs:isDefinedBy lds: .
+
+entity:actOnBehalf
+    rdfs:domain      entity:Representative ;
+    rdfs:range       entity:LegalEntity ;
+    rdfs:isDefinedBy lds: .
+
+lds:EntityConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:LegalConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:RepresentativeConcepts
+    skos:member entity:LegalEntityRepresentative .
+
+lds:AllConcepts
+    skos:member entity:LegalEntityRepresentative .

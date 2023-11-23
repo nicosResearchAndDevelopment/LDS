@@ -23,7 +23,7 @@
 
 @prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS/> .
 
-lds:Service
+lds:Service ## REM: abstract
     a                owl:Class ;
     rdfs:label       "Service"@en ;
     rdfs:label       "Service"@de ;
@@ -35,17 +35,8 @@ lds:Service
     ## endregion skos
     rdfs:isDefinedBy lds: .
 
-lds:ServiceConcept                          ## REM: abstract
-    a                owl:Class ;
-    ## region skos
-    a                skos:Concept ;
-#    skos:notation    "ServiceConcept"^^xsd:string ;
-#    skos:prefLabel   "Service Concept"^^xsd:string ;
-#    skos:inScheme    lds:Service ;
-    ## endregion skos
-    rdfs:label       "Service Concept"@en ;
-    rdfs:label       "Service Konzept"@de ;
-    dct:description  """."""@en ;
-    rdfs:isDefinedBy lds: .
+lds:ServiceConcepts
+    skos:member lds:Service .
 
-## EOF lds.service.ttl
+lds:AllConcepts
+    skos:member lds:Service .

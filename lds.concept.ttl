@@ -39,7 +39,7 @@ lds:PersonConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
-lds:PersonConcepts
+lds:LegalConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
@@ -51,7 +51,19 @@ lds:AppointmentConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:AuthorizationConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:RepresentativeConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:ServiceConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:InstanceConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 

@@ -1,0 +1,29 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+
+entity:Person
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  entity:Entity ;
+    skos:notation    "entity:Person"^^xsd:string ;
+    skos:prefLabel   "Person"@en ;
+    skos:prefLabel   "Person"@de ;
+    skos:broader     entity:Entity ;
+    skos:narrower    entity:NaturalPerson ;
+    skos:narrower    entity:LegalPerson ;
+    rdfs:isDefinedBy lds: .
+
+lds:PersonConcepts
+    skos:member entity:Person .
+
+lds:EntityConcepts
+    skos:member entity:Person .
+
+lds:AllConcepts
+    skos:member entity:Person .

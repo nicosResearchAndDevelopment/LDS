@@ -1,0 +1,32 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix purpose:           <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+
+entity:Authorization
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Authorization ;
+    skos:notation    "entity:Authorization"^^xsd:string ;
+    skos:prefLabel   "Authorization"@en ;
+    skos:prefLabel   "Authorization"@de ;
+    skos:broader     lds:Authorization ;
+    skos:narrower    entity:Appointment ;
+    rdfs:isDefinedBy lds: .
+
+purpose:purpose
+    rdfs:domain entity:Authorization .
+
+purpose:target
+    rdfs:domain entity:Authorization .
+
+lds:AuthorizationConcepts
+    skos:member entity:Authorization .
+
+lds:AllConcepts
+    skos:member entity:Authorization .

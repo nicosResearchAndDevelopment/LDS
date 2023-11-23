@@ -4,8 +4,8 @@
 @prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix process:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/process/> .
+@prefix process:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/process/> .
 
-process:Identification
+process:Authorization
     rdfs:subClassOf  lds:Process ;
     rdfs:isDefinedBy lds: .

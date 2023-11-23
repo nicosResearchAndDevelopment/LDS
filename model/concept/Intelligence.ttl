@@ -5,15 +5,12 @@
 @prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
-lds:Legal
+lds:Intelligence
     a                owl:Class, skos:Concept ;
-    skos:notation    "Legal"^^xsd:string ;
-    skos:prefLabel   "Legal"@en ;
-    skos:prefLabel   "Legal"@de ;
+    skos:notation    "Intelligence"^^xsd:string ;
+    skos:prefLabel   "Intelligence"@en ;
+    skos:prefLabel   "Intelligenz"@de ;
     rdfs:isDefinedBy lds: .
 
-lds:LegalConcepts
-    skos:member lds:Legal .
-
 lds:AllConcepts
-    skos:member lds:Legal .
+    skos:member lds:Intelligence .
