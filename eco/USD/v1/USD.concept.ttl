@@ -1,0 +1,24 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix usd:        <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/> .
+
+usd:
+    a                skos:Concept ;
+    rdfs:isDefinedBy <https://www.nicos-rd.com/> .
+
+usd:AllConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy usd: .
+
+## region Purpose
+
+usd:PurposeConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy usd: .
+
+usd:PurposeBoardingConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy usd: .
+
+## endregion Purpose

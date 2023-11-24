@@ -1,0 +1,60 @@
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prof:       <http://www.w3.org/ns/dx/prof/> .
+@prefix role:       <http://www.w3.org/ns/dx/prof/role/> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix usd:        <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/> .
+@prefix purpose:    <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/purpose/> .
+
+purpose:OnBoarding
+    a                owl:NamedIndividual, skos:Concept ;
+    a                prof:Profile ;
+    rdfs:subClassOf  usd:Purpose ;
+    ## TODO: TBC: profile:isProfileOf ??? ;
+    prof:hasResource purpose:OnBoarding-spec-en-md ;
+    prof:hasResource purpose:OnBoarding-duties-en-md ;
+    skos:notation    "usd:purpose:OnBoarding"^^xsd:string ;
+    skos:prefLabel   "Onboarding"@en ;
+    skos:prefLabel   "Eintreten"@de ;
+    skos:related     purpose:OnBoarding ;
+    skos:broader     usd:Purpose ;
+    rdfs:isDefinedBy usd: .
+
+## region Profile
+
+purpose:OnBoarding-spec-en-md
+    a                prof:ResourceDescriptor ;
+    dct:title        "USD Purpose 'OnBoarding' Specification"@en ;
+    dct:title        "USD Purpose 'OnBoarding' Spezifikationen (englische Version)"@en ;
+    dct:issued       "2023-11-24"^^xsd:date ;
+    owl:versionInfo  "1.0.0"^^xsd:string ;
+    prof:hasRole     role:specification ;
+    dct:format       <https://www.iana.org/assignments/media-types/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/purpose/Boarding_ON_EN.md> ;
+    dct:publisher    usd: .
+
+purpose:OnBoarding-duties-en-md
+    a                prof:ResourceDescriptor ;
+    dct:title        "USD Purpose 'OnBoarding' Duties"@en ;
+    dct:title        "USD Purpose 'OnBoarding' Pflichten (englische Version)"@de ;
+    dct:issued       "2023-11-24"^^xsd:date ;
+    owl:versionInfo  "1.0.0"^^xsd:string ;
+    prof:hasRole     role:specification ;
+    dct:format       <https://www.iana.org/assignments/media-types/text/markdown> ;
+    prof:hasArtifact <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/purpose/Boarding_ON_EN.md#duties> ;
+    dct:publisher    usd: .
+
+## endregion Profile
+
+usd:PurposeBoardingConcepts
+    skos:member purpose:OnBoarding .
+
+usd:PurposeConcepts
+    skos:member purpose:OnBoarding .
+
+usd:AllConcepts
+    skos:member purpose:OnBoarding .

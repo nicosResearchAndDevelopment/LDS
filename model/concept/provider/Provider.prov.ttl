@@ -1,0 +1,10 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix provider:          <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/provider/> .
+
+provider:Provider
+    rdfs:subClassOf prov:Agent .

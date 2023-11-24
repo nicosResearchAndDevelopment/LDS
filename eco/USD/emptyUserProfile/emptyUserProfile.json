@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "usd": "https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/"
+  },
+  "@id": "https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/EMPTY_USER_PROFILE",
+  "@type": "rdfs:Resource",
+  "rdfs:comment": {
+    "@type": "xsd:string",
+    "@value": "EMPTY_USER_PROFILE"
+  },
+  "usd:purpose": {
+    "@id": "uri:REQUESTED_PURPOSE_URI",
+    "@type": "usd:Purpose",
+    "rdfs:comment": "'usd:purpose' WILL BE OVERWRITTEN BY PURPOSE USER WITH REQUESTED PURPOSE URI!!!"
+  },
+  "rdfs:isDefinedBy": "https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/"
+}

@@ -1,0 +1,9 @@
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix usd:              <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/> .
+
+@prefix dpv:              <https://w3id.org/dpv#>.
+
+dpv:Purpose
+    rdfs:subClassOf usd:Purpose ;
+.

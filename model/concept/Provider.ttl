@@ -13,7 +13,7 @@ lds:Provider
     rdfs:subClassOf  lds:Party  ;
     skos:notation    "Provider"^^xsd:string ;
     skos:prefLabel   "Provider"@en ;
-    skos:prefLabel   "Bereitsteller"@de ;
+    skos:prefLabel   "Anbieter"@de ;
     rdfs:isDefinedBy lds: .
 
 lds:AllConcepts

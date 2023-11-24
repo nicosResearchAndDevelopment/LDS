@@ -63,6 +63,10 @@ lds:ServiceConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:ProviderConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:InstanceConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .

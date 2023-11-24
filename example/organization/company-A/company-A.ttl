@@ -184,24 +184,20 @@ purposeMembership:jim_company-B_MAINTAINER_PRODUCT
 ## endregion purpose
 
 ## region work
-
-## region work :: Bob as company-B-Onboarder
+## region work :: Credential
+## region work :: Credential :: Bob as company-B-Onboarder
 
 ########################################
-## REM: Bob wants to make the onboarding (of its own company-A) to place it in company-B (a digital marketplace) als a participant.
-## REM: Bob makes a Credential-request, os its own company (company-A) will issue some, that facilitates wanted power...
+## REM: Bob, being constrained to make the onboarding (of its own company-A) to place it in company-B als a participant.
+## REM: Bob makes a Credential-request, so its own company-A will issue some, that facilitates wanted power...
 ########################################
 
 ## REM: 0. Generic Credential for Bob, containing all known (by Company-A) authorisations...
+##      'company-A' makes a look up, if 'company-B' supports a user profile for given purpose 'OnBoarding', hosted by 'company-P'
+##      >>> http request :: https://www.company-B.com/usd/userprofile/?purpose=https://www.company-P.de/usd/usp/purpose/OnBoarding>
 
 ## REM: 1. Bob sees his currently working set of possible empowerment
 ## REM:    and selects 'purposeMembership:company-B-ONBOARDING', agrees and gets
-
-## REM: 2. Generation (Process) of Bob's Credential Subject, on-the-fly ('/42-42-42-43/' is very unique...)
-<https://www.company-A.com/credential/subject/42-42-42-43/>
-    a                credential:Subject ;
-    foaf:firstName   "Bob"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
 
 <https://www.company-A.com/credential/99-99-99-99>
     a                  credential:Credential ;        ## REM: subClassOf 'purpose:Purpose'
@@ -217,11 +213,13 @@ purposeMembership:jim_company-B_MAINTAINER_PRODUCT
     #    time:hasXSDDuration "P1D"^^xsd:duration ;
     #    time:hasEnd       [ a                       time:Instant ;
     #                        time:inXSDDateTimeStamp "2023-11-19T00:00:00Z"^^xsd:dateTimeStamp ; ] ;
-    purpose:purpose    <https://www.company-B.com/purpose/onboarding/> ;
+    purpose:purpose    "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
     purpose:target     "https://www.company-B.com/"^^xsd:anyURI ;
-    credential:subject <https://www.company-A.com/credential/subject/42-42-42-43/> ;
+    credential:subject [ a               credential:Subject ;
+                         foaf:firstName  "Bob"^^xsd:string ;
+                         purpose:purpose "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
+                         purpose:target  "https://www.company-B.com/"^^xsd:anyURI ; ] ;
     rdfs:isDefinedBy   company-A: .
-
-## endregion work :: Bob as company-B-Onboarder
-
+## endregion work :: Credential :: Bob as company-B-Onboarder
+## endregion work :: Credential
 ## endregion work

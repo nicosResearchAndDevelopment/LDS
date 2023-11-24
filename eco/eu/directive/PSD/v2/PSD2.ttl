@@ -13,6 +13,7 @@
 
 @prefix org:        <http://www.w3.org/ns/org#> .
 @prefix lds:        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 @prefix identifier: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/identifier/> .
 @prefix trust:      <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
 @prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
@@ -72,7 +73,7 @@ x-psd2:id-SemanticsId-authorisationNumber ## TODO: etsi
     a                skos:Concept ;
     rdfs:comment     """
 - "PSD"
-- 2 character coutry code (NC country)
+- 2 character country code (NC country)
 - "-"
 - 2-8 character NCA identifier
 - "-"
@@ -83,7 +84,7 @@ x-psd2:id-SemanticsId-authorisationNumber ## TODO: etsi
 x-psd2:authorisationNumber
     a                owl:DatatypeProperty ;
     rdfs:subClassOf  rdfs:Literal ;
-    rdfs:label       "Payment Service semantics identifier Data Type"@en ;
+    rdfs:label       "Payment Service Identifier"@en ;
     a                skos:Concept ;
     rdfs:range       x-psd2:id-SemanticsId-authorisationNumber ;
     rdfs:isDefinedBy x-psd2: .
@@ -159,7 +160,7 @@ x-psd2:NCA
     a                owl:Class ;
     rdfs:subClassOf  lds:Authority ;    ## REM: abstract
     rdfs:subClassOf  lds:Party ;        ## REM: abstract
-    rdfs:subClassOf  lds:LegalEntity ;  ## REM: abstract
+    rdfs:subClassOf  entity:LegalEntity ;  ## REM: abstract
     rdfs:label       "National Competent Authority"@en ;
     ## TODO: >>> PUBLIC REGISTER
     rdfs:isDefinedBy x-psd2: .
@@ -185,7 +186,6 @@ x-psd2:id-SemanticsId-codeNCA ## TODO: etsi
     a                skos:Concept ;
     ## TODO: see comment '?-?'
     rdfs:comment     """
-- "PSD"
 - 2 character country code (NC country)
 - "-"
 - ?-? character NCA code
@@ -208,7 +208,7 @@ x-psd2:ncaList
     a                     org:Organization ;
     a                     lds:Organization ;
     a                     lds:Party ;
-    a                     lds:LegalEntity ;      ## REM: already done by 'lds:Organization'...
+    a                     entity:LegalEntity ;      ## REM: already done by 'lds:Organization'...
     x-psd2:codeNCA        "DE-BAFIN"^^x-psd2:id-SemanticsId-codeNCA ;
     #    x-psd2:nameNCA   "Bundesanstalt für Finanzdienstleistungsaufsicht"@de ;
     x-psd2:nameNCA        "Federal Financial Supervisory Authority"^^xsd:string ;
@@ -225,13 +225,13 @@ x-psd2:ncaList
 
 <https://www.bafin.de/data/psd2/list/aisp/>
     a                trust:TrustedPartyList ;
-    lds:hasMember       <https://www.bafin.de/data/psd2/entity/aisp/PSDDE-BAFIN-12345678> ;
-    rdfs:isDefinedBy x-psd2:EBA .
+    lds:hasMember    <https://www.bafin.de/data/psd2/entity/aisp/PSDDE-BAFIN-12345670> ;
+    rdfs:isDefinedBy <https://www.bafin.de/> .
 
-<https://www.bafin.de/data2/psd/entity/aisp/PSDDE-BAFIN-12345678>
+<https://www.bafin.de/data/psd/entity/aisp/PSDDE-BAFIN-12345670>
     a                          x-psd2:AISP ;
-    x-psd2:authorisationNumber "PSDDE-BAFIN-1234567890"^^x-psd2:id-SemanticsId-authorisationNumber ;
-    rdfs:isDefinedBy           x-psd2:EBA .
+    x-psd2:authorisationNumber "PSDDE-BAFIN-12345670"^^x-psd2:id-SemanticsId-authorisationNumber ;
+    rdfs:isDefinedBy           <https://www.bafin.de/> .
 
 ## endregion NCA :: Individuals :: bafin :: psd
 ## endregion NCA :: Individuals :: bafin
@@ -243,7 +243,7 @@ x-psd2:ncaList
     a                     org:Organization ;
     a                     lds:Organization ;
     a                     lds:Party ;
-    a                     lds:LegalEntity ;      ## REM: already done by 'lds:Organization'...
+    a                     entity:LegalEntity ;      ## REM: already done by 'lds:Organization'...
     x-psd2:codeNCA        "FR-ACPR"^^x-psd2:id-SemanticsId-codeNCA ;
     x-psd2:nameNCA        "Prudential Supervisory and Resolution Authority"^^xsd:string ;
     identifier:identifier [ a                      identifier:Identifier ;
@@ -257,13 +257,13 @@ x-psd2:ncaList
 ## region NCA :: Individuals :: banque-france :: psd
 <https://acpr.banque-france.fr/data/psd2/list/aisp/>
     a                trust:TrustedPartyList ;
-    lds:hasMember       <https://acpr.banque-france.fr/data/psd2/entity/aisp/PSDFR-ACPR-12345678> ;
-    rdfs:isDefinedBy x-psd2:EBA .
+    lds:hasMember    <https://acpr.banque-france.fr/data/psd2/entity/aisp/PSDFR-ACPR-42424242> ;
+    rdfs:isDefinedBy <https://acpr.banque-france.fr/> .
 
-<https://acpr.banque-france.fr/data/psd2/entity/aisp/PSDFR-ACPR-12345678>
+<https://acpr.banque-france.fr/data/psd2/entity/aisp/PSDFR-ACPR-42424242>
     a                          x-psd2:AISP ;
     x-psd2:authorisationNumber "PSDFR-ACPR-42424242"^^x-psd2:id-SemanticsId-authorisationNumber ;
-    rdfs:isDefinedBy           x-psd2:EBA .
+    rdfs:isDefinedBy           <https://acpr.banque-france.fr/> .
 ## endregion NCA :: Individuals :: banque-france :: psd
 ## endregion NCA :: Individuals :: banque-france
 ## endregion NCA :: Individuals
@@ -273,7 +273,7 @@ x-psd2:ncaList
 
 x-psd2:EBA
     a                rdfs:Class ;
-    rdfs:subClassOf  lds:LegalEntity ;      ## REM: already done by 'lds:Organization'...
+    rdfs:subClassOf  entity:LegalEntity ;      ## REM: already done by 'lds:Organization'...
     rdfs:subClassOf  lds:Authority ;        ## REM: this **IS** an instance!!!
     rdfs:isDefinedBy x-psd2: .
 
@@ -286,7 +286,7 @@ x-psd2:EBA
     ## TODO: >>> PSD2 REGISTER / CREDIT INSTITUTION REGISTER
     trust:trustedParticipantList <did:eba:EBA/data/trustedParticipantList> ;
     x-psd2:ncaList               <did:eba:EBA/data/ncaList> ;
-    trust:listOfTrustedLists     [ a          trust:ListOfTrustedLists ;
+    trust:listOfTrustedLists     [ a             trust:ListOfTrustedLists ;
                                    lds:hasMember <https://www.bafin.de/data/psd2/list/aisp/> ;
                                    lds:hasMember <https://acpr.banque-france.fr/data/psd2/list/aisp/> ; ] ;
     rdfs:seeAlso                 <https://www.eba.europa.eu/> ;
@@ -296,7 +296,7 @@ x-psd2:EBA
 
 <did:eba:EBA/data/trustedParticipantList>
     a                trust:TrustedParticipantList ;
-    lds:hasMember       <did:eba:DE-BAFIN> ;
+    lds:hasMember    <did:eba:DE-BAFIN> ;
     rdfs:isDefinedBy x-psd2:EBA .
 
 ## endregion EBA :: trustedParticipantList
@@ -305,7 +305,7 @@ x-psd2:EBA
 
 <did:eba:EBA/data/ncaList>
     a                trust:TrustedEntityList ;
-    lds:hasMember       <did:eba:DE-BAFIN> ;
+    lds:hasMember    <did:eba:DE-BAFIN> ;
     rdfs:seeAlso     <https://www.eba.europa.eu/consumer-corner/national-competent-authorities-for-consumer-protection> ;
     rdfs:isDefinedBy x-psd2:EBA .
 
@@ -342,10 +342,10 @@ x-psd2:EBA
     rdfs:isDefinedBy x-psd2:EBA .
 
 <did:eba:EBA/data/ncaList>
-    lds:hasMember       <did:eba:DE-BAFIN> ;
-    lds:hasMember       <did:eba:DE-BMF> ;
-    lds:hasMember       <did:eba:DE-BMJV> ;
-    lds:hasMember       <did:eba:DE-BMWI> ;
+    lds:hasMember    <did:eba:DE-BAFIN> ;
+    lds:hasMember    <did:eba:DE-BMF> ;
+    lds:hasMember    <did:eba:DE-BMJV> ;
+    lds:hasMember    <did:eba:DE-BMWI> ;
     rdfs:isDefinedBy x-psd2:EBA .
 
 ## endregion EBA :: ncaList entries :: DE
@@ -360,7 +360,7 @@ x-psd2:EBA
     rdfs:isDefinedBy x-psd2:EBA .
 
 <did:eba:EBA/data/ncaList>
-    lds:hasMember       <did:eba:FR-ACPR> ;
+    lds:hasMember    <did:eba:FR-ACPR> ;
     rdfs:isDefinedBy x-psd2:EBA .
 
 ## endregion EBA :: ncaList entries :: FR

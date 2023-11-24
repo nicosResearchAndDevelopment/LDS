@@ -1,0 +1,362 @@
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prof:       <http://www.w3.org/ns/dx/prof/> .
+@prefix role:       <http://www.w3.org/ns/dx/prof/role/> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:       <http://purl.org/vocab/vann/> .
+@prefix voaf:       <http://purl.org/vocommons/voaf#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix org:        <http://www.w3.org/ns/org#> .
+@prefix lds:        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix identifier: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/identifier/> .
+@prefix entity:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+@prefix provider:   <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/provider/> .
+@prefix trust:      <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
+@prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
+@prefix purpose:    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+
+@prefix usd:        <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/> .
+
+usd:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "Purpose Service Directive (USD), Version 1"^^xsd:string ;
+    rdfs:label                    "Purpose Service Directive (USD), Version 1"@en ;
+    dct:title                     "Purpose Service Directive (USD), Version 1"@en ;
+    dct:description               """Purpose Service Directive (USD), Version 1."""@en ;
+    dct:creator                   <https://github.com/jlangkau> ;
+    dct:creator                   <https://jlangkau.solidweb.org/> ;
+    dct:publisher                 <https://www.nicos-rd.com/> ;
+    dct:created                   "2023-11-24"^^xsd:date ;
+    dct:modified                  "2023-11-24"^^xsd:date ;
+    owl:versionInfo               "1.0.0" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/" ;
+    vann:preferredNamespacePrefix "usd:" ;
+    ## TODO: dct:modified                  {{now.date}} ;
+#    rdfs:seeAlso     <> ;
+    rdfs:isDefinedBy              lds: .
+
+usd:USP
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  provider:ServiceProvider ;
+    rdfs:label       "Purpose Service Provider"@en ;
+    rdfs:label       "Purpose Service Provider"@de ;
+    skos:notation    "usd:USP"^^xsd:string ;
+    skos:prefLabel   "USP"^^xsd:string ;
+    skos:broader     provider:ServiceProvider ;
+    rdfs:isDefinedBy usd: .
+
+usd:id-SemanticsId-authorisationNumber
+    a                rdfs:Datatype ;
+    rdfs:subClassOf  rdfs:Literal ;
+    rdfs:label       "Purpose Service semantics identifier Data Type"@en ;
+    a                skos:Concept ;
+    rdfs:comment     """
+- "USD"
+- 2 character country code (NC country)
+- "-"
+- 2-8 character NCA identifier
+- "-"
+- USP identifier - authorisation number
+EXAMPLE: USDDE-BAFIN-42424242 (<https://www.Company-P.org/>)
+"""@en ;
+    rdfs:isDefinedBy usd: .
+
+usd:authorisationNumber
+    a                owl:DatatypeProperty ;
+    rdfs:subClassOf  rdfs:Literal ;
+    rdfs:label       "Purpose Service Identifier"@en ;
+    a                skos:Concept ;
+    rdfs:range       usd:id-SemanticsId-authorisationNumber ;
+    rdfs:isDefinedBy usd: .
+
+## region Purpose
+
+usd:Purpose
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  prof:Profile ;
+    rdfs:subClassOf  purpose:Purpose ;
+    rdfs:label       "USD Purpose"@en ;
+    skos:notation    "usd:Purpose"^^xsd:string ;
+    skos:broader     purpose:Purpose ;
+    rdfs:isDefinedBy usd: .
+
+usd:userProfile
+    a                rdf:Property ;
+    rdfs:label       "User Profil"@en ;
+    rdfs:label       "Benutzerprofil"@en ;
+    rdfs:domain      usd:Purpose ;
+    rdfs:range       rdfs:Resource ; ## CARD: [0.1]
+    rdfs:comment     """
+Given Purpose User (**Credential Issuer**) is allowed to put anything (xsd:string, xsd:anyURI, a prof:Profile...),
+Purpose Acceptor (**Purpose Target**) has to understand it:
+this will be based on given 'Credential Issuer/Purpose Target-Negotiation'.
+EXAMPLE:
+- Company-A aims to onboard in Company-B's domain
+- Company-A equip Employee Bob with needed credential
+- given credential has a purpose
+- purpose: 'usd:purpose "https://www.company-P.com/uds"'"""@en ;
+    rdfs:isDefinedBy usd: .
+
+usd:purpose
+    a                owl:ObjectProperty ;
+    rdfs:label       "Purpose"@en ;
+    rdfs:label       "Ziel"@en ;
+    rdfs:range       usd:Purpose ;
+    rdfs:isDefinedBy usd: .
+
+usd:PurposeList
+    a                owl:Class ;
+    rdfs:subClassOf  lds:List ; ## REM: lsd:hasMember
+    rdfs:isDefinedBy usd: .
+
+usd:purposeList
+    a                owl:ObjectProperty ;
+    rdfs:label       "Purpose List"@en ;
+    rdfs:label       "Liste von Zielen"@en ;
+    rdfs:domain      usd:USP ;
+    rdfs:range       usd:PurposeList ;
+    rdfs:isDefinedBy usd: .
+
+usd:listOfPurposeLists
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:listOfTrustedLists ;
+    rdfs:domain        usd:NCA ;
+    rdfs:range         usd:PurposeList ;
+    rdfs:isDefinedBy   usd: .
+
+## endregion Purpose
+
+## region NCA
+
+usd:NCA
+    a                owl:Class ;
+    rdfs:subClassOf  lds:Authority ;    ## REM: abstract
+    rdfs:subClassOf  lds:Party ;        ## REM: abstract
+    rdfs:subClassOf  entity:LegalEntity ;  ## REM: abstract
+    rdfs:label       "National Competent Authority"@en ;
+    ## TODO: >>> PUBLIC REGISTER
+    rdfs:isDefinedBy usd: .
+
+usd:nameNCA
+    a                owl:DatatypeProperty ;
+    rdfs:label       "Name of NCA"@en ;
+    rdfs:domain      usd:NCA ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy usd: .
+
+usd:codeNCA
+    a                owl:DatatypeProperty ;
+    rdfs:label       "Code of NCA"@en ;
+    rdfs:domain      usd:NCA ;
+    rdfs:range       usd:id-SemanticsId-codeNCA ; ## TODO: semantic?!?
+    rdfs:isDefinedBy usd: .
+
+usd:id-SemanticsId-codeNCA ## TODO: etsi
+    a                rdfs:Datatype ;
+    rdfs:subClassOf  rdfs:Literal ;
+    rdfs:label       "NCA code semantics identifier Data Type"@en ;
+    a                skos:Concept ;
+    ## TODO: see comment '?-?'
+    rdfs:comment     """
+- 2 character country code (NC country)
+- "-"
+- ?-? character NCA code
+"""@en ;
+    rdfs:isDefinedBy usd: .
+
+usd:ncaList
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:trustedPartyList ;
+    rdfs:label         "List of National Competent Authorities"@en ;
+    rdfs:range         trust:TrustedPartyList ;
+    rdfs:isDefinedBy   usd: .
+
+usd:trustedPurposeProvider
+    a                owl:ObjectProperty ;
+    rdfs:domain      usd:NCA ;
+    rdfs:range       trust:TrustedPartyList ;
+    rdfs:isDefinedBy usd: .
+
+
+## region NCA :: Individuals
+## region NCA :: Individuals :: bafin
+
+<https://www.bafin.de/>
+    a                          usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    a                          foaf:Organization ;
+    a                          org:Organization ;
+    a                          lds:Organization ;
+    a                          lds:Party ;
+    a                          entity:LegalEntity ;      ## REM: already done by 'lds:Organization'...
+    usd:codeNCA                "DE-BAFIN"^^usd:id-SemanticsId-codeNCA ;
+    #    usd:nameNCA   "Bundesanstalt für Finanzdienstleistungsaufsicht"@de ;
+    usd:nameNCA                "Federal Financial Supervisory Authority"^^xsd:string ;
+    identifier:identifier      [ a                      identifier:Identifier ;
+                                 identifier:targetClass usd:NCA ;
+                                 identifier:property    [ a                   identifier:PropertyShape ;
+                                                          identifier:path     usd:codeNCA ;
+                                                          identifier:datatype usd:id-SemanticsId-codeNCA ;
+                                                          identifier:value    "DE-BAFIN"^^xsd:string ; ] ; ] ;
+    lds:country                country:DE ;
+    usd:trustedPurposeProvider <https://www.bafin.de/data/usd/list/usp/> ;
+    usd:listOfPurposeLists     <https://www.bafin.de/data/usd/list/usp/list-of-trusted-purpose-lists/> ;
+    rdfs:isDefinedBy           <https://www.bafin.de/> .
+
+## region NCA :: Individuals :: bafin :: usd
+
+<https://www.bafin.de/data/usd/list/usp/list-of-trusted-purpose-lists/>
+    a                trust:ListOfTrustedLists ;
+    lds:hasMember    <https://www.company-P.de/usd/usp/list/purpose/> ;
+    rdfs:isDefinedBy <https://www.bafin.de/> .
+
+<https://www.bafin.de/data/usd/list/usp/>
+    a                trust:TrustedPartyList ;
+    lds:hasMember    <https://www.bafin.de/data/usd/entity/usp/USDDE-BAFIN-12345671> ;
+    rdfs:isDefinedBy <https://www.bafin.de/> .
+
+<https://www.bafin.de/data/usd/entity/usp/USDDE-BAFIN-12345671>
+    a                       usd:USP ;
+    usd:authorisationNumber "USDDE-BAFIN-12345671"^^usd:id-SemanticsId-authorisationNumber ;
+    rdfs:seeAlso            <https://www.company-P.de/> ;
+    rdfs:isDefinedBy        <https://www.bafin.de/> .
+
+## endregion NCA :: Individuals :: bafin :: usd
+## endregion NCA :: Individuals :: bafin
+
+## region NCA :: Individuals :: banque-france
+<https://acpr.banque-france.fr/>
+    a                     usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    a                     foaf:Organization ;
+    a                     org:Organization ;
+    a                     lds:Organization ;
+    a                     lds:Party ;
+    a                     entity:LegalEntity ;      ## REM: already done by 'lds:Organization'...
+    usd:codeNCA           "FR-ACPR"^^usd:id-SemanticsId-codeNCA ;
+    usd:nameNCA           "Prudential Supervisory and Resolution Authority"^^xsd:string ;
+    identifier:identifier [ a                      identifier:Identifier ;
+                            identifier:targetClass usd:NCA ;
+                            identifier:property    [ a                   identifier:PropertyShape ;
+                                                     identifier:path     usd:codeNCA ;
+                                                     identifier:datatype usd:id-SemanticsId-codeNCA ;
+                                                     identifier:value    "FR-ACPR"^^xsd:string ; ] ; ] ;
+    rdfs:isDefinedBy      <https://acpr.banque-france.fr/> .
+
+## region NCA :: Individuals :: banque-france :: usd
+<https://acpr.banque-france.fr/data/usd/list/usp/>
+    a                trust:TrustedPartyList ;
+    lds:hasMember    <https://acpr.banque-france.fr/data/usd/entity/usp/USDFR-ACPR-42424242> ;
+    rdfs:isDefinedBy <https://acpr.banque-france.fr/> .
+
+<https://acpr.banque-france.fr/data/usd/entity/usp/USDFR-ACPR-42424242>
+    a                       usd:USP ;
+    usd:authorisationNumber "USDFR-ACPR-42424242"^^usd:id-SemanticsId-authorisationNumber ;
+    rdfs:isDefinedBy        <https://acpr.banque-france.fr/> .
+## endregion NCA :: Individuals :: banque-france :: usd
+## endregion NCA :: Individuals :: banque-france
+## endregion NCA :: Individuals
+## endregion NCA
+
+## region WUA
+
+usd:WUA
+    a                rdfs:Class ;
+    rdfs:subClassOf  lds:Authority ;
+    rdfs:subClassOf  entity:LegalEntity ;
+    rdfs:isDefinedBy usd: .
+
+<did:wua:WUA>
+    a                            usd:WUA ;           ## REM: lds:LegalEntity, lds:Authority
+    a                            foaf:Organization ;
+    a                            org:Organization ;
+    a                            lds:Organization ;
+    rdfs:label                   "World Purpose Authority"@en ;
+    trust:trustedParticipantList <did:wua:WUA/data/trustedParticipantList> ;
+    usd:ncaList                  <did:wua:WUA/data/ncaList> ;
+    trust:listOfTrustedLists     [ a             trust:ListOfTrustedLists ;
+                                   lds:hasMember <https://www.bafin.de/data/usd/list/usp/> ;
+                                   lds:hasMember <https://acpr.banque-france.fr/data/usd/list/usp/> ; ] ;
+    rdfs:isDefinedBy             usd: .
+
+## region WUA :: trustedParticipantList
+
+<did:wua:WUA/data/trustedParticipantList>
+    a                trust:TrustedParticipantList ;
+    lds:hasMember    <did:wua:DE-BAFIN> ;
+    rdfs:isDefinedBy usd:WUA .
+
+## endregion WUA :: trustedParticipantList
+
+## region WUA :: ncaList
+
+<did:wua:WUA/data/ncaList>
+    a                trust:TrustedEntityList ;
+    lds:hasMember    <did:wua:DE-BAFIN> ;
+    rdfs:isDefinedBy usd:WUA .
+
+## region WUA :: ncaList entries
+
+## region WUA :: ncaList entries :: DE
+## region WUA :: ncaList entries :: DE :: Finance
+
+<did:wua:DE-BAFIN>
+    a                usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    usd:codeNCA      "DE-BAFIN"^^usd:id-SemanticsId-codeNCA ;
+    usd:nameNCA      "Federal Financial Supervisory Authority"^^xsd:string ;
+    rdfs:seeAlso     <https://www.bafin.de/> ;
+    rdfs:isDefinedBy usd:WUA .
+
+<did:wua:DE-BMF> ## TODO: TBC: shortcut
+    a                usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    usd:codeNCA      "DE-BMF"^^usd:id-SemanticsId-codeNCA ;
+    usd:nameNCA      "Federal Ministry of Finance"^^xsd:string ;
+    rdfs:seeAlso     <https://www.bundesfinanzministerium.de/> ;
+    rdfs:isDefinedBy usd:WUA .
+
+<did:wua:DE-BMJV> ## TODO: TBC: shortcut
+    a                usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    usd:codeNCA      "DE-BMJV"^^usd:id-SemanticsId-codeNCA ;
+    usd:nameNCA      "Federal Ministry of Justice and Consumer Protection"^^xsd:string ;
+    rdfs:seeAlso     <https://www.bmjv.de/> ; ## REM: this site is not working correctly (2023-11)
+    rdfs:isDefinedBy usd:WUA .
+
+<did:wua:DE-BMWI> ## TODO: TBC: shortcut
+    a                usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    usd:codeNCA      "DE-BMWI"^^usd:id-SemanticsId-codeNCA ;
+    usd:nameNCA      "Federal Ministry of Economics and Technology"^^xsd:string ;
+    rdfs:seeAlso     <http://www.bmwi.de/EN/Topics/economy.html> ;
+    rdfs:isDefinedBy usd:WUA .
+
+<did:wua:WUA/data/ncaList>
+    lds:hasMember    <did:wua:DE-BAFIN> ;
+    lds:hasMember    <did:wua:DE-BMF> ;
+    lds:hasMember    <did:wua:DE-BMJV> ;
+    lds:hasMember    <did:wua:DE-BMWI> ;
+    rdfs:isDefinedBy usd:WUA .
+## endregion WUA :: ncaList entries :: DE :: Finance
+## endregion WUA :: ncaList entries :: DE
+
+## region WUA :: ncaList entries :: FR
+## region WUA :: ncaList entries :: FR :: Finance
+
+<did:wua:FR-ACPR>
+    a                usd:NCA ;           ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    usd:codeNCA      "FR-ACPR"^^usd:id-SemanticsId-codeNCA ;
+    usd:nameNCA      "Prudential Supervisory and Resolution Authority"^^xsd:string ;
+    rdfs:seeAlso     <https://acpr.banque-france.fr/> ;
+    rdfs:isDefinedBy usd:WUA .
+
+<did:wua:WUA/data/ncaList>
+    lds:hasMember    <did:wua:FR-ACPR> ;
+    rdfs:isDefinedBy usd:WUA .
+
+## endregion WUA :: ncaList entries :: FR :: Finance
+## endregion WUA :: ncaList entries :: FR
+## endregion WUA :: ncaList entries
+## endregion WUA :: ncaList
+## endregion WUA

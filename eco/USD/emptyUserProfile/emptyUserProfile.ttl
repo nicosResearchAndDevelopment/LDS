@@ -1,0 +1,9 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix usd:        <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/> .
+
+<https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/EMPTY_USER_PROFILE>
+    a                rdfs:Resource ;
+    rdfs:comment     "EMPTY_USER_PROFILE"^^xsd:string ;
+    ## usd:purpose ILO, set at runtime by service using given purpose
+    rdfs:isDefinedBy usd: .
