@@ -1,0 +1,7 @@
+@prefix rdfs:                   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:                   <http://www.w3.org/ns/odrl/2/> .
+
+@prefix usd:                    <https://github.com/nicosResearchAndDevelopment/LDS/eco/USD/v1/> .
+
+usd:Purpose
+    rdfs:subClassOf odrl:Policy .

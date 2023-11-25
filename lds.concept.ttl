@@ -75,6 +75,18 @@ lds:FunctionConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:SubjectConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:ObjectConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:PresentationConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 ## region Process
 
 lds:ProcessConcepts

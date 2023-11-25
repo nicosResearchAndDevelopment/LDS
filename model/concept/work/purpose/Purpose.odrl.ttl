@@ -1,0 +1,16 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix odrl:               <http://www.w3.org/ns/odrl/2/> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+
+purpose:Purpose
+    rdfs:subClassOf odrl:Assertion ;
+    rdfs:comment    """'rdfs:subClassOf odrl:Assertion' :: it seems to natural to use 'odrl:Assertion', See 'skos:note' on given definition..."""@en .
+
+purpose:profile
+    rdfs:subPropertyOf odrl:profile ;
+    rdfs:comment       """'rdfs:subPropertyOf odrl:profile' :: usage of 'odrl:profile' :: the **class** 'purpose:Purpose' is a profile. An instantiation of 'purpose:Purpose' can use 'purpose:profile' to bind any customers (here: some sort of issuer...) profile to elaborate and refine the purpose (but does **NOT** override it!), enriching the base profile. We have to keep in mind: ODRL-core is a profile, too!!!)"""@en .

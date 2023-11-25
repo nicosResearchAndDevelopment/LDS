@@ -24,11 +24,10 @@
 @prefix usp-p-dpv: <https://www.company-P.de/usd/usp/purpose/dpv/>.
 
 usp-p-dpv:Marketing
-    a                usd:Purpose ;    ## REM: this is mandatory !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    a                dpv:Purpose ;
-    skos:broader     dpv:Marketing ;
-    a                owl:NamedIndividual, skos:Concept ;
+    a                owl:Class, skos:Concept ;
     a                prof:Profile ;
+    rdfs:subClassOf  usd:Purpose ;
+    rdfs:subClassOf  dpv:Purpose ;
     rdfs:label       "Marketing"@en ;
     rdfs:label       "Marketing"@de ;
     ## TODO: TBC: profile:isProfileOf ??? ;
@@ -37,6 +36,7 @@ usp-p-dpv:Marketing
     skos:notation    "usp-p:Marketing"^^xsd:string ;
     skos:prefLabel   "Marketing"@en ;
     skos:prefLabel   "Marketing"@de ;
+    skos:broader     dpv:Marketing ;                    ## REM: dvp
     skos:broader     usd:Purpose ;
     rdfs:isDefinedBy usd: .
 

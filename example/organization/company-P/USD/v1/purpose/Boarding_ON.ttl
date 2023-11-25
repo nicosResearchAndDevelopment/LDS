@@ -24,12 +24,12 @@
 @prefix usp-p:     <https://www.company-P.de/usd/usp/purpose/>.
 
 usp-p:OnBoarding
-    a                owl:NamedIndividual, skos:Concept ;
+    a                owl:Class, skos:Concept ;
     a                prof:Profile ;
     rdfs:subClassOf  usd:Purpose ;
     ## TODO: TBC: profile:isProfileOf ??? ;
-    prof:hasResource purpose:OnBoarding-spec-en-md ;
-    prof:hasResource purpose:OnBoarding-duties-en-md ;
+    prof:hasResource usp-p:OnBoarding-spec-en-md ;
+    prof:hasResource usp-p:OnBoarding-duties-en-md ;
     skos:notation    "usp-p:OnBoarding"^^xsd:string ;
     skos:prefLabel   "Onboarding"@en ;
     skos:prefLabel   "Eintreten"@de ;

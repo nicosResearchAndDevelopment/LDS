@@ -19,6 +19,16 @@ purpose:Purpose
     skos:prefLabel   "Ziel"@de ;
     rdfs:isDefinedBy lds: .
 
+purpose:profile
+    a                rdf:Property ;
+    skos:notation    "purpose:profile"^^xsd:string ;
+    skos:prefLabel   "Profile"^^xsd:string ;
+    rdfs:label       "Profile"@en ;
+    rdfs:label       "Profil"@de ;
+    ## ILO: rdfs:domain       (intentionally left open)  ;
+    rdfs:range       prof:Profile ;
+    rdfs:isDefinedBy lds: .
+
 purpose:purpose
     a                rdf:Property ;
     skos:notation    "purpose:purpose"^^xsd:string ;

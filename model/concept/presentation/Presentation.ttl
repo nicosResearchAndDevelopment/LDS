@@ -1,0 +1,55 @@
+@prefix lds:                     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                     <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                    <http://www.w3.org/ns/prov#> .
+@prefix rdf:                     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                     <http://www.w3.org/2001/XMLSchema#> .
+
+#@prefix purpose:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+@prefix presentation:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/Presentation/> .
+
+presentation:Presentation
+    a                owl:Class, skos:Concept ;
+    skos:notation    "presentation:Presentation"^^xsd:string ;
+    skos:prefLabel   "Presentation"@en ;
+    skos:prefLabel   "Präsentation"@de ;
+    rdfs:isDefinedBy lds: .
+
+presentation:presentation
+    a                rdf:Property ;
+    skos:notation    "presentation:presentation"^^xsd:string ;
+    skos:prefLabel   "Presentation"^^xsd:string ;
+    rdfs:label       "Presentation"@en ;
+    rdfs:label       "Präsentation"@de ;
+    ## ILO: rdfs:domain       (intentionally left open)  ;
+    rdfs:range       presentation:Presentation ;
+    rdfs:isDefinedBy lds: .
+
+presentation:Object
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Object ;
+    skos:notation    "presentation:Object"^^xsd:string ;
+    skos:prefLabel   "Object"@en ;
+    skos:prefLabel   "Objekt"@de ;
+    skos:broader     lds:Subject ;
+    rdfs:isDefinedBy lds: .
+
+presentation:object
+    a                owl:ObjectProperty ;
+    skos:notation    "presentation:object"^^xsd:string ;
+    skos:prefLabel   "Object"^^xsd:string ;
+    rdfs:label       "Object"@en ;
+    rdfs:label       "Objekt"@de ;
+    rdfs:domain      presentation:Presentation ;
+    rdfs:range       presentation:Object ;
+    rdfs:isDefinedBy lds: .
+
+lds:PresentationConcepts
+    skos:member presentation:Presentation .
+
+lds:ObjectConcepts
+    skos:member presentation:Object .
+
+lds:AllConcepts
+    skos:member presentation:Presentation .
