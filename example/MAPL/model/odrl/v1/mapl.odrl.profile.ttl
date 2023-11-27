@@ -76,4 +76,4 @@ mapl-profile:ProfileVocabulary-ttl
     dct:conformsTo      <https://www.w3.org/TR/turtle/> ;
     rdfs:isDefinedBy    <https://github.com/jlangkau> .
 
-## EOF: mapl.odrl.profile.ttl
+## EOF: mapl.odrl.purpose.profile.ttl

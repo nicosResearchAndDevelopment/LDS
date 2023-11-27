@@ -17,16 +17,6 @@ entity:Representative
     skos:broader     lds:Representative ;
     rdfs:isDefinedBy lds: .
 
-entity:actOnBehalf
-    a                owl:ObjectProperty ;
-    skos:notation    "entity:actOnBehalf"^^xsd:string ;
-    skos:prefLabel   "Act on behalf of"^^xsd:string ;
-    rdfs:label       "Act on behalf of"@en ;
-    rdfs:label       "Agiert im Auftrag von"@de ;
-    rdfs:domain      entity:Representative ;
-    ## rdfs:range       ILO (intentionally left open) ;
-    rdfs:isDefinedBy lds: .
-
 entity:representative
     a                owl:ObjectProperty ;
     skos:notation    "entity:representative"^^xsd:string ;
@@ -37,6 +27,15 @@ entity:representative
     rdfs:range       entity:Representative ;
     rdfs:isDefinedBy lds: .
 
+entity:represent
+    a                owl:ObjectProperty ;
+    skos:notation    "entity:representative"^^xsd:string ;
+    skos:prefLabel   "Representative"^^xsd:string ;
+    rdfs:label       "Representative"@en ;
+    rdfs:label       "Repräsentant"@de ;
+    rdfs:domain      entity:Representative ;
+    ## ILO: rdfs:range       (intentionally left open)  ;
+    rdfs:isDefinedBy lds: .
 
 lds:RepresentativeConcepts
     skos:member entity:Representative .

@@ -136,4 +136,4 @@ lds:whitepaper-offer_profile-role
 
 ## endregion Profile Role Extensions
 
-## EOF lds.service.profile.ttl
+## EOF lds.service.purpose.profile.ttl

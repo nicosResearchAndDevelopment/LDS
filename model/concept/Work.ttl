@@ -16,5 +16,8 @@ lds:Work
     skos:prefLabel   "Arbeit"@de ;
     rdfs:isDefinedBy lds: .
 
+lds:WorkConcepts
+    skos:member lds:Work .
+
 lds:AllConcepts
     skos:member lds:Work .

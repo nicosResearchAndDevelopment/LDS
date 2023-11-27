@@ -1,0 +1,92 @@
+@prefix foaf:                     <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                     <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                      <http://www.w3.org/ns/org#> .
+@prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                      <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:                   <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+@prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+@prefix credential:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
+
+@prefix company-A:                <https://www.company-A.com/> .
+@prefix Bob:                      <https://www.company-A.com/employee/bob/> .
+@prefix Jim:                      <https://www.company-A.com/employee/jim/> .
+
+@prefix company-B:                <https://www.company-B.com/> .
+@prefix Alice:                    <https://www.company-B.com/employee/alice/> .
+
+## region company
+## region company :: Company-A
+
+company-A:
+    a                lds:Organization ; ## REM: subClassOf lds:LegalEntity
+    a                org:Organization ;
+    org:member       <https://www.company-A.com/#member> ;
+    lds:employee     Bob: ;
+    lds:employee     Jim: ;
+    rdfs:isDefinedBy company-A: .
+
+Bob:
+    a                foaf:Person ;
+    foaf:firstName   "Bob"^^xsd:string ;
+    foaf:surname     "Bobness"^^xsd:string ;
+    foaf:birthday    "1998-05-09"^^xsd:string ; ## REM: literal by `foaf:`!
+    rdfs:isDefinedBy company-A: .
+
+Jim:
+    a                foaf:Person ;
+    foaf:firstName   "Jim"^^xsd:string ;
+    foaf:surname     "Steinman"^^xsd:string ;
+    rdfs:isDefinedBy company-A: .
+
+<https://www.company-A.com/#member>
+    rdf:type         xsd:anyURI ;
+    rdf:value        "https://www.company-A.com/employee/bob/"^^xsd:string,
+                     "https://www.company-A.com/employee/jim/"^^xsd:string ;
+    rdfs:isDefinedBy company-A: .
+
+<https://www.company-A.com/member/>
+    rdf:type         foaf:Agent ;
+    rdf:value        <https://www.company-A.com/employee/bob/>, <https://www.company-A.com/employee/jim/> ;
+    rdfs:isDefinedBy company-A: .
+
+company-A:
+    a                entity:Organisation ;
+    rdfs:isDefinedBy company-A: .
+
+## endregion company :: Company-A
+
+## region company :: Company-B
+company-B:
+    a                lds:Organization ; ## REM: subClassOf lds:LegalEntity
+    a                org:Organization ;
+    org:member       <https://www.company-B.com/member/> ;
+    lds:employee     Alice: ;
+    rdfs:isDefinedBy company-B: .
+
+Alice:
+    a                foaf:Person ;
+    foaf:firstName   "Alice"^^xsd:string ;
+    foaf:surname     "Mirror"^^xsd:string ;
+    rdfs:isDefinedBy company-B: .
+
+<https://www.company-B.com/#member>
+    rdf:type         xsd:anyURI ;
+    rdf:value        "https://www.company-A.com/employee/alice/"^^xsd:string ;
+    rdfs:isDefinedBy company-B: .
+
+<https://www.company-B.com/member/>
+    rdf:type         foaf:Agent ;
+    rdf:value        <https://www.company-B.com/employee/alice/> ;
+    rdfs:isDefinedBy company-A: .
+
+company-B:
+    a                entity:Organisation ;
+    rdfs:isDefinedBy company-B: .
+
+## endregion company :: Company-B
+## endregion company
+
+##

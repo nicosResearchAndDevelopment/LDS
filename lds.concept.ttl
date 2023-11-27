@@ -5,7 +5,7 @@
 
 lds:
     a                skos:Concept ;
-    rdfs:isDefinedBy <https://www.nicos-rd.com/> .
+    rdfs:isDefinedBy lds: .
 
 lds:AllConcepts
     a                skos:Collection ;
@@ -59,6 +59,10 @@ lds:RepresentativeConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:ProfileConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:ServiceConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
@@ -89,8 +93,13 @@ lds:PresentationConcepts
 
 ## region Process
 
+lds:WorkConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:ProcessConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
+
 
 ## endregion Process

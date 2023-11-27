@@ -7,7 +7,7 @@
 @prefix xsd:                     <http://www.w3.org/2001/XMLSchema#> .
 
 #@prefix purpose:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
-@prefix presentation:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/Presentation/> .
+@prefix presentation:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/presentation/> .
 
 presentation:Presentation
     a                owl:Class, skos:Concept ;

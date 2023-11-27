@@ -21,19 +21,22 @@ entity:AppointedRepresentative
     rdfs:isDefinedBy lds: .
 
 entity:appointedRepresentative
-    a                rdf:Property ;
-    skos:notation    "entity:appointedRepresentative"^^xsd:string ;
-    skos:prefLabel   "Appointed Representative"^^xsd:string ;
-    rdfs:label       "Appointed  Representative"@en ;
-    rdfs:label       "Ernannter Repräsentant"@de ;
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf entity:representative ;
+    skos:notation      "entity:appointedRepresentative"^^xsd:string ;
+    skos:prefLabel     "Appointed Representative"^^xsd:string ;
+    rdfs:label         "Appointed  Representative"@en ;
+    rdfs:label         "Ernannter Repräsentant"@de ;
     ## ILO: rdfs:domain       (intentionally left open)  ;
-    rdfs:range       entity:AppointedRepresentative ;
-    rdfs:isDefinedBy lds: .
+    rdfs:range         entity:AppointedRepresentative ;
+    rdfs:isDefinedBy   lds: .
 
 entity:actOnBehalf
-    rdfs:domain      entity:Representative ;
-    rdfs:range       entity:Entity ;
-    rdfs:isDefinedBy lds: .
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf entity:appointedRepresentative ;
+    rdfs:domain        entity:AppointedRepresentative ;
+    rdfs:range         entity:LegalEntity ;               ## REM: very strong, indeed!!! `entity:LegalPerson` or `entity:Organisation`.
+    rdfs:isDefinedBy   lds: .
 
 lds:EntityConcepts
     skos:member entity:LegalEntityRepresentative .

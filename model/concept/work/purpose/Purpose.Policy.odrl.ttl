@@ -7,10 +7,12 @@
 
 @prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 
-purpose:Purpose
+purpose:PurposePolicy
     rdfs:subClassOf odrl:Assertion ;
     rdfs:comment    """'rdfs:subClassOf odrl:Assertion' :: it seems to natural to use 'odrl:Assertion', See 'skos:note' on given definition..."""@en .
 
 purpose:profile
     rdfs:subPropertyOf odrl:profile ;
-    rdfs:comment       """'rdfs:subPropertyOf odrl:profile' :: usage of 'odrl:profile' :: the **class** 'purpose:Purpose' is a profile. An instantiation of 'purpose:Purpose' can use 'purpose:profile' to bind any customers (here: some sort of issuer...) profile to elaborate and refine the purpose (but does **NOT** override it!), enriching the base profile. We have to keep in mind: ODRL-core is a profile, too!!!)"""@en .
+    rdfs:comment       """'rdfs:subPropertyOf odrl:profile' :: usage of 'odrl:profile' :: the **class** 'purpose:PurposePolicy' is already a profile ('prof:Profile')! An instantiation of 'purpose:PurposePolicy' can use 'purpose:profile' to bind any customers (here: some sort of issuer...) profile to elaborate and refine the purpose (but does **NOT** override it!), enriching the base profile. We have to keep in mind: ODRL-core is a 'prof:Profile', too!!!)"""@en .
+
+##

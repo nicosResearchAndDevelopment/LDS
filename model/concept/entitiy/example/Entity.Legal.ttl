@@ -1,0 +1,101 @@
+@prefix foaf:                          <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                          <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                           <http://www.w3.org/ns/org#> .
+@prefix rdf:                           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:                          <http://www.w3.org/2006/time#>.
+@prefix xsd:                           <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                           <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:                        <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+@prefix purpose:                       <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+@prefix credential:                    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
+
+@prefix company-A:                     <https://www.company-A.com/> .
+@prefix Arthur:                        <https://www.company-A.com/employee/arthur/> .
+
+@prefix company-B:                     <https://www.company-B.com/> .
+@prefix Samanta:                       <https://www.company-B.com/employee/samanta/> .
+
+## region company
+## region company :: Company-A
+
+company-A:
+    a                entity:LegalEntity ;
+    rdfs:isDefinedBy company-A: .
+
+Arthur:
+    a                foaf:Person ;
+    a                entity:LegalEntityRepresentative ; ## REM: LER
+    foaf:firstName   "Arthur"^^xsd:string ;
+    foaf:surname     "Smith"^^xsd:string ;
+    org:headOf       company-A: ;
+    org:memberOf     <https://www.company-A.com/roleMemberShip/#42-42-42-43> ;
+    rdfs:isDefinedBy company-A: .
+
+<https://www.company-A.com/roleMemberShip/#42-42-42-43> ## REM: Jim's employee-membership
+    a                   org:Membership ;
+    a                   time:Interval ;
+    time:hasBeginning   [ a                       time:Instant ;
+                          time:inXSDDateTimeStamp "2021-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
+    ## REM: 'time:hasEnd' :: seems to be dated
+    time:hasXSDDuration "P4Y"^^xsd:duration ;
+    time:hasEnd         [ a                       time:Instant ;
+                          time:inXSDDateTimeStamp "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
+    org:role            org:Head ;
+    org:hasMember       <https://www.company-A.com/employee/arthur/> ;
+    rdfs:isDefinedBy    company-A: .
+
+<https://www.company-A.com/#member>
+    rdf:type         xsd:anyURI ;
+    rdf:value        "https://www.company-A.com/employee/arthur/"^^xsd:string ;
+    rdfs:isDefinedBy company-A: .
+
+<https://www.company-A.com/member/>
+    rdf:type         foaf:Agent ;
+    rdf:value        <https://www.company-A.com/employee/arthur/> ;
+    rdfs:isDefinedBy company-A: .
+
+## endregion company :: Company-A
+
+## region company :: Company-B
+company-B:
+    a                entity:LegalEntity ;
+    rdfs:isDefinedBy company-B: .
+
+Samanta:
+    a                foaf:Person ;
+    a                entity:LegalEntityRepresentative ; ## REM: LER
+    foaf:firstName   "Samanta"^^xsd:string ;
+    foaf:surname     "Blackbelt"^^xsd:string ;
+    org:headOf       company-B: ;
+    org:memberOf     <https://www.company-B.com/roleMemberShip/#99-42-42-43> ;
+    rdfs:isDefinedBy company-B: .
+
+<https://www.company-B.com/roleMemberShip/#99-42-42-43> ## REM: Jim's employee-membership
+    a                   org:Membership ;
+    a                   time:Interval ;
+    time:hasBeginning   [ a                       time:Instant ;
+                          time:inXSDDateTimeStamp "2019-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
+    ## REM: 'time:hasEnd' :: seems to be dated
+    time:hasXSDDuration "P7Y"^^xsd:duration ;
+    time:hasEnd         [ a                       time:Instant ;
+                          time:inXSDDateTimeStamp "2026-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
+    org:role            org:Head ;
+    org:hasMember       <https://www.company-B.com/employee/samanta/> ;
+    rdfs:isDefinedBy    company-B: .
+
+<https://www.company-B.com/#member>
+    rdf:type         xsd:anyURI ;
+    rdf:value        "https://www.company-B.com/employee/samanta/"^^xsd:string ;
+    rdfs:isDefinedBy company-B: .
+
+<https://www.company-B.com/member/>
+    rdf:type         foaf:Agent ;
+    rdf:value        <https://www.company-B.com/employee/samanta/> ;
+    rdfs:isDefinedBy company-B: .
+
+## endregion company :: Company-B
+## endregion company
+
+##

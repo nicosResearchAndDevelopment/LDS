@@ -22,5 +22,8 @@ lds:profile
     rdfs:range       lds:Profile ;
     rdfs:isDefinedBy lds: .
 
+lds:lds:ProfileConcepts
+    skos:member lds:Profile .
+
 lds:AllConcepts
     skos:member lds:Profile .
