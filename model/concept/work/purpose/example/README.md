@@ -78,7 +78,7 @@ Alice:
 
 <https://www.company-B.com/#member>
     rdf:type         xsd:anyURI ;
-    rdf:value        <https://www.company-A.com/employee/alice/> ;
+    rdf:value        Alice: ;
     rdfs:isDefinedBy company-A: .
 
 company-B:
@@ -342,7 +342,7 @@ purpose:Purpose
     a                foaf:Person ;
     foaf:firstName   "Bob"^^xsd:string ;
     a                entity:Representative ;
-    entity:represent "https://www.company-A.com/"^^xsd:xsd:string ;
+    entity:represent "https://www.company-A.com/"^^xsd:string ;
     purpose:purpose  "https://www.company-A.com/purpose/hello/"^^xsd:anyURI ;
     purpose:target   "https://www.company-A.com/#member"^^xsd:anyURI ;
     rdfs:isDefinedBy company-A: .
@@ -351,7 +351,7 @@ purpose:Purpose
     a                     <https://www.company-A.com/purpose/hello/> ;
     rdfs:label            "Hello!"^^xsd:string ;
     purpose:profile       "https://www.company-A.com/purpose/hello/"^^xsd:anyURI ;
-    entity:representative <https://www.company-A.com/employee/bob/credential/representative/43-43-43-43> ;
+    entity:representative <https://www.company-A.com/employee/bob/representative/43-43-43-43> ;
     rdfs:comment          """."""@en ;
     rdfs:isDefinedBy      company-A: .
 
@@ -520,7 +520,87 @@ company-A:
 ## Policy
 
 ```turtle
+@prefix dct:                      <http://purl.org/dc/terms/> .
+@prefix foaf:                     <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                     <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:                      <http://www.w3.org/2002/07/owl#> .
+@prefix org:                      <http://www.w3.org/ns/org#> .
+@prefix prof:                     <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:                     <http://www.w3.org/ns/prov#> .
+@prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:                     <http://www.w3.org/ns/dx/prof/role/> .
+@prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix lds:                      <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+@prefix credential:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
+@prefix entity:                   <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+
+@prefix company-A:                <https://www.company-A.com/> .
+@prefix Bob:                      <https://www.company-A.com/employee/bob/> .
+
+## REM: we make 'purpose:Purpose' a 'dct:Standard', too. (See './Purpose.prov.ttl')
+purpose:Purpose
+    a dct:Standard .
+
+company-A:
+    a                entity:Organisation ;
+    a                odrl:Party ;
+    rdfs:isDefinedBy company-A: .
+
+<https://www.company-A.com/purpose/hello/>
+    a                owl:Class ;
+    a                prof:Profile ;
+    rdfs:subClassOf  purpose:Purpose ;
+    rdfs:subClassOf  credential:Credential ;
+    rdfs:subClassOf  odrl:Asset ;                   ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    rdfs:label       "Hello!"^^xsd:string ;
+    prof:isProfileOf <https://www.company-A.com/purpose/hello/> ;
+    ## prof:hasResource company-A:hello-spec-en-md ;
+    rdfs:comment     """It is a **class**!
+'prof:isProfileOf':: it seems to be funny, but it is correct."""@en ;
+    rdfs:isDefinedBy company-A: .
+
+## REM: Bob uses 'hello' (**class**, but it **is** a Profile, too)
+<https://www.company-A.com/employee/bob/party-appointed-representative/47-47-47-47>
+    a                  foaf:Person ;
+    foaf:firstName     "Bob"^^xsd:string ;
+    a                  entity:AppointedRepresentative ;
+    a                  odrl:Party ;                ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    entity:actOnBehalf "https://www.company-A.com/"^^xsd:anyURI ;       ## REM: `legal:Organisation` (sub class of `entity:LegalEntity`)
+    lds:validFrom      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ; ## REM: appointment works for three days...
+    lds:validTo        "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
+    purpose:purpose    "https://www.company-A.com/purpose/hello/"^^xsd:anyURI ;
+    purpose:target     "https://www.company-A.com#member" ; ## REM: [ rdfs:type xsd:anyURI; rdfs:value "", "" ]
+    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an *Appointed Representative*) says "Hello!" on behalf of Company-A to all member..."""@en ;
+    rdfs:isDefinedBy   company-A: .
+
+<https://www.company-A.com/purpose/hello/instance/>
+    a                              <https://www.company-A.com/purpose/hello/> ; ## REM: is is an `odrl:Assertion`...
+    a                              odrl:Assertion ; ## REM: sub class of `odrl:Policy`
+    rdfs:label                     "Hello!"^^xsd:string ;
+    purpose:profile                "https://www.company-A.com/purpose/hello/"^^xsd:anyURI ;
+    entity:appointedRepresentative <https://www.company-A.com/employee/bob/party-appointed-representative/47-47-47-47> ;
+    odrl:assigner                  "https://www.company-A.com/"^^xsd:anyURI ;                 ## REM: `odrl:Party`...
+    odrl:target                    "https://www.company-A.com/purpose/hello/"^^xsd:anyURI ;   ## REM: `odrl:Asset`...
+    odrl:assignee                  <https://www.company-A.com/employee/bob/party-appointed-representative/47-47-47-47> ; ## REM: `odrl:Asset`...
+    odrl:permission                [ a               odrl:Permission ;
+                                     odrl:constraint [ a                 odrl:Constraint ;
+                                                       odrl:leftOperand  odrl:dateTime ;
+                                                       odrl:operator     odrl:gteq ;
+                                                       odrl:rightOperand "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;
+                                                       odrl:dataType     xsd:dateTimeStamp ; ] ;
+                                     odrl:constraint [ a                 odrl:Constraint ;
+                                                       odrl:leftOperand  odrl:dateTime ;
+                                                       odrl:operator     odrl:lt ;
+                                                       odrl:rightOperand "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
+                                                       odrl:dataType     xsd:dateTimeStamp ; ] ;
+                                     odrl:action     odrl:use ; ] ;
+    odrl:duty                      "https://www.company-A.com/purpose/hello/duty-en"^^xsd:anyURI ; ## REM duty is coming from well-defined purpose...
+    odrl:duty                      [ a            odrl:Duty ;
+                                     rdfs:comment """Another rule, build at runtime....""" ] ;
+    rdfs:isDefinedBy               company-A: .
 ```
 
 ---
