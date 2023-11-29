@@ -1,4 +1,3 @@
-@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix owl:               <http://www.w3.org/2002/07/owl#> .
 @prefix prov:              <http://www.w3.org/ns/prov#> .
 @prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -6,38 +5,41 @@
 @prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 
-entity:LegalEntityAppointedRepresentative_SI
+entity:LEAR_SI
     a                owl:Class, skos:Concept ;
     ## TODO : SHACL
     rdfs:subClassOf  entity:LegalEntityAppointedRepresentative ;
     rdfs:subClassOf  entity:ServiceInstance ;
-    skos:notation    "entity:LegalEntityAppointedRepresentative_SI"^^xsd:string ;
+    skos:notation    "entity:LEAR_SI"^^xsd:string ;
     skos:prefLabel   "Service Instance as Appointed Representative of Legal Entity"@en ;
-    skos:prefLabel   "Serviceinstanz als ernannter Repräsentant der legalen Entität"@de ;
+    skos:prefLabel   "Serviceinstanz als ernannter Repräsentant einer legalen Entität"@de ;
     skos:broader     entity:LegalEntityAppointedRepresentative ;
     skos:broader     entity:ServiceInstance ;
+    rdfs:comment     """Spoken: `Lissy`."""@en ;
     rdfs:isDefinedBy lds: .
 
 lds:EntityConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_NP .
+    skos:member entity:LEAR_SI .
 
 lds:LegalConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_NP .
+    skos:member entity:LEAR_SI .
 
 lds:AppointmentConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_NP .
+    skos:member entity:LEAR_SI .
 
 lds:RepresentativeConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_NP .
+    skos:member entity:LEAR_SI .
 
 lds:ServiceConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_SI .
+    skos:member entity:LEAR_SI .
 
 lds:InstanceConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_SI .
+    skos:member entity:LEAR_SI .
 
 lds:AllConcepts
-    skos:member entity:LegalEntityRepresentative .
+    skos:member entity:LEAR_SI .
+
+##

@@ -12,7 +12,7 @@
 @prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix oidref:                   <https://oidref.com/> .
-@prefix xoid:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xoid#> .
+@prefix xoid:                     <https://github.com/nicosResearchAndDevelopment/LDS/eco/xoid#> .
 
 
 xoid:
@@ -22,24 +22,22 @@ xoid:
     rdfs:label                    "The Ontology 'xoid' fetching oids"@en ;
     dct:title                     "Model for XOID"@en ;
     dct:description               """."""@en ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https://jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https://jottomat.solidweb.org/profile/card#me> ;
     dct:created                   "2023-11-02"^^xsd:date ;
     dct:modified                  "2023-11-19"^^xsd:date ; ## {{date.now}}
     owl:versionInfo               "0.0.1" ;
-    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xoid#" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/eco/xoid#" ;
     vann:preferredNamespacePrefix "xoid:" ;
     void:vocabulary               vann:, void:, voaf:, dct: ;
     rdfs:comment                  """"""@en ;
-    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+    rdfs:isDefinedBy              <https://jottomat.solidweb.org/profile/card#me> ; .
 
 ## region property
 
 ## region property :: commonName
 xoid:cn
     a                owl:DatatypeProperty ;
-    a                skos:Concept ;
     owl:sameAs       xoid:commonName ;
     owl:sameAs       xoid:2.5.4.3 ;
     owl:sameAs       oidref:2.5.4.3 ;
@@ -50,7 +48,7 @@ xoid:cn
     skos:related     xoid:2.5.4.3 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
     rdfs:comment     """Naming Attribute."""@en ;
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.3> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.3"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:commonName
@@ -65,7 +63,7 @@ xoid:commonName
     skos:related     xoid:2.5.4.3 ;
     skos:related     oidref:2.5.4.3 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.3> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.3"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.3
@@ -80,7 +78,7 @@ xoid:2.5.4.3
     skos:related     xoid:commonName ;
     skos:related     oidref:2.5.4.3 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.3> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.3"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: commonName
 
@@ -96,7 +94,7 @@ xoid:labeledURI
     skos:related     xoid:1.3.6.1.4.1.250.1.57 ;
     skos:related     oidref:1.3.6.1.4.1.250.1.57 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.4.1.250.1.57> ;
+    rdfs:seeAlso     "http://oid-info.com/get/1.3.6.1.4.1.250.1.57"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:1.3.6.1.4.1.250.1.57
@@ -109,7 +107,7 @@ xoid:1.3.6.1.4.1.250.1.57
     skos:related     xoid:labeledURI ;
     skos:related     oidref:1.3.6.1.4.1.250.1.57 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.4.1.250.1.57> ;
+    rdfs:seeAlso     "http://oid-info.com/get/1.3.6.1.4.1.250.1.57"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: labeledURI
 
@@ -126,7 +124,7 @@ xoid:serialNumber
     skos:related     oidref:2.5.4.5 ;
     ## TODO: TBC: skos:broader     oidref:2.5.4.5 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.5> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.5"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.5
@@ -140,7 +138,7 @@ xoid:2.5.4.5
     skos:related     oidref:2.5.4.5 ;
     ## TODO: TBC: skos:broader     oidref:2.5.4.5 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.5> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.5"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: serialNumber
 
@@ -158,7 +156,7 @@ xoid:description
     rdfs:domain      xoid:NaturalPerson ;
     rdfs:domain      xoid:ArtificialAgent ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.13> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.13"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.13
@@ -171,7 +169,7 @@ xoid:2.5.4.13
     skos:related     xoid:description ;
     skos:related     oidref:2.5.4.13 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.13> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.13"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: description
 ## region  property :: surname (NP)
@@ -190,7 +188,7 @@ xoid:sn
     rdfs:domain      xoid:NaturalPerson ;
     rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
     rdfs:comment     """Naming Attribute."""@en ;
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.4> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.4"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:surname
@@ -207,7 +205,7 @@ xoid:surname
     # REM: used in 'VerifiableNP' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     rdfs:domain      xoid:NaturalPerson ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.4> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.4"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.4
@@ -222,7 +220,7 @@ xoid:2.5.4.4
     skos:related     xoid:surname ;
     skos:related     oidref:2.5.4.4 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.4> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.4"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: surname
 ## region  property :: givenName  (NP)
@@ -236,7 +234,7 @@ xoid:givenName
     skos:related     xoid:2.5.4.42 ;
     skos:related     oidref:2.5.4.42 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.42> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.42"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.42
@@ -250,7 +248,7 @@ xoid:2.5.4.42
     skos:related     xoid:givenName ;
     skos:related     oidref:2.5.4.42 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.42> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.42"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: givenName
 ## region  property :: dateOfBirth  (NP)
@@ -264,7 +262,7 @@ xoid:dateOfBirth
     skos:related     xoid:1.3.6.1.5.5.7.9.1 ;
     skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.5.5.7.9.1> ;
+    rdfs:seeAlso     "http://oid-info.com/get/1.3.6.1.5.5.7.9.1"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:1.3.6.1.5.5.7.9.1
@@ -277,7 +275,7 @@ xoid:1.3.6.1.5.5.7.9.1
     skos:related     xoid:description ;
     skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/1.3.6.1.5.5.7.9.1> ;
+    rdfs:seeAlso     "http://oid-info.com/get/1.3.6.1.5.5.7.9.1"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: dateOfBirth
 ## region  property :: countryName (NP, SI)
@@ -297,7 +295,7 @@ xoid:c
     rdfs:domain      xoid:ArtificialAgent ;
     rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
     rdfs:comment     """Naming Attribute."""@en ;
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.6> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.6"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:countryName
@@ -315,7 +313,7 @@ xoid:countryName
     rdfs:domain      xoid:NaturalPerson ;
     rdfs:domain      xoid:ArtificialAgent ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.6> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.6"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.6
@@ -330,7 +328,7 @@ xoid:2.5.4.6
     skos:related     xoid:countryName ;
     skos:related     oidref:2.5.4.6 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.6> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.6"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: countryName
 ## region  property :: organizationIdentifier (NP, SI)
@@ -355,8 +353,8 @@ ID id-at-organizationIdentifier}
     skos:prefLabel     "organizationIdentifier"^^xsd:string ;
     skos:broader       oidref:2.5.4.97 ;
     skos:related       xoid:2.5.4.97 ;
-    rdfs:seeAlso       <http://oid-info.com/get/2.5.4.97> ;
-    rdfs:seeAlso       <https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.01_60/en_31941201v010401p.pdf#5.1.4> ;
+    rdfs:seeAlso       "http://oid-info.com/get/2.5.4.97"^^xsd:anyURI ;
+    rdfs:seeAlso       "https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.01_60/en_31941201v010401p.pdf#5.1.4"^^xsd:anyURI ;
     rdfs:isDefinedBy   xoid: .
 
 xoid:2.5.4.97
@@ -368,7 +366,7 @@ xoid:2.5.4.97
     skos:prefLabel   "organizationIdentifier"^^xsd:string ;
     skos:broader     oidref:2.5.4.97 ;
     skos:related     xoid:organizationIdentifier ;
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.97> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.97"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: organizationIdentifier
 ## region  property :: organizationName (NP, SI)
@@ -388,7 +386,7 @@ xoid:o
     rdfs:domain      xoid:ArtificialAgent ;
     rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
     rdfs:comment     """Naming Attribute."""@en ;
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.10> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.10"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:organizationName
@@ -405,7 +403,7 @@ xoid:organizationName
     rdfs:domain      xoid:NaturalPerson ;
     rdfs:domain      xoid:ArtificialAgent ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.10> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.10"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.10
@@ -420,7 +418,7 @@ xoid:2.5.4.10
     skos:related     xoid:organizationName ;
     skos:related     oidref:2.5.4.10 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.10> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.10"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: organizationName
 ## region  property :: organizationUnitName (NP, SI)
@@ -438,7 +436,7 @@ xoid:ou
     skos:related     oidref:2.5.4.11 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality [0..1]
     rdfs:comment     """Naming Attribute."""@en ;
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.11> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.11"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:organizationUnitName
@@ -453,7 +451,7 @@ xoid:organizationUnitName
     skos:related     xoid:2.5.4.11 ;
     skos:related     oidref:2.5.4.11 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.11> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.11"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 
 xoid:2.5.4.11
@@ -468,7 +466,7 @@ xoid:2.5.4.11
     skos:related     xoid:organizationUnitName ;
     skos:related     oidref:2.5.4.11 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
-    rdfs:seeAlso     <http://oid-info.com/get/2.5.4.11> ;
+    rdfs:seeAlso     "http://oid-info.com/get/2.5.4.11"^^xsd:anyURI ;
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: organizationUnitName
 ## endregion  property

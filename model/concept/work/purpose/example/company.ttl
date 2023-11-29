@@ -10,53 +10,53 @@
 @prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 @prefix credential:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 
-@prefix company-A:                <https://www.company-A.com/> .
-@prefix Bob:                      <https://www.company-A.com/employee/bob/> .
-@prefix Jim:                      <https://www.company-A.com/employee/jim/> .
+@prefix company-Y:                <https://www.company-Y.com/> .
+@prefix Bob:                      <https://www.company-Y.com/employee/bob/> .
+@prefix Jim:                      <https://www.company-Y.com/employee/jim/> .
 
 @prefix company-B:                <https://www.company-B.com/> .
 @prefix Alice:                    <https://www.company-B.com/employee/alice/> .
 
 ## region company
-## region company :: Company-A
+## region company :: Company-Y
 
-company-A:
+company-Y:
     a                lds:Organization ; ## REM: subClassOf lds:LegalEntity
     a                org:Organization ;
-    org:member       <https://www.company-A.com/#member> ;
+    org:member       <https://www.company-Y.com/#member> ;
     lds:employee     Bob: ;
     lds:employee     Jim: ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 Bob:
     a                foaf:Person ;
     foaf:firstName   "Bob"^^xsd:string ;
     foaf:surname     "Bobness"^^xsd:string ;
     foaf:birthday    "1998-05-09"^^xsd:string ; ## REM: literal by `foaf:`!
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 Jim:
     a                foaf:Person ;
     foaf:firstName   "Jim"^^xsd:string ;
     foaf:surname     "Steinman"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-A.com/#member>
+<https://www.company-Y.com/#member>
     rdf:type         xsd:anyURI ;
-    rdf:value        "https://www.company-A.com/employee/bob/"^^xsd:string,
-                     "https://www.company-A.com/employee/jim/"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    rdf:value        "https://www.company-Y.com/employee/bob/"^^xsd:string,
+                     "https://www.company-Y.com/employee/jim/"^^xsd:string ;
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-A.com/member/>
+<https://www.company-Y.com/member/>
     rdf:type         foaf:Agent ;
-    rdf:value        <https://www.company-A.com/employee/bob/>, <https://www.company-A.com/employee/jim/> ;
-    rdfs:isDefinedBy company-A: .
+    rdf:value        <https://www.company-Y.com/employee/bob/>, <https://www.company-Y.com/employee/jim/> ;
+    rdfs:isDefinedBy company-Y: .
 
-company-A:
+company-Y:
     a                entity:Organisation ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
-## endregion company :: Company-A
+## endregion company :: Company-Y
 
 ## region company :: Company-B
 company-B:
@@ -74,13 +74,13 @@ Alice:
 
 <https://www.company-B.com/#member>
     rdf:type         xsd:anyURI ;
-    rdf:value        "https://www.company-A.com/employee/alice/"^^xsd:string ;
+    rdf:value        "https://www.company-Y.com/employee/alice/"^^xsd:string ;
     rdfs:isDefinedBy company-B: .
 
 <https://www.company-B.com/member/>
     rdf:type         foaf:Agent ;
     rdf:value        <https://www.company-B.com/employee/alice/> ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 company-B:
     a                entity:Organisation ;

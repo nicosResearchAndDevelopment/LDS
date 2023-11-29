@@ -1,0 +1,295 @@
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prof:       <http://www.w3.org/ns/dx/prof/> .
+@prefix role:       <http://www.w3.org/ns/dx/prof/role/> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:       <http://purl.org/vocab/vann/> .
+@prefix voaf:       <http://purl.org/vocommons/voaf#> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix org:        <http://www.w3.org/ns/org#> .
+@prefix lds:        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix identifier: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/identifier/> .
+@prefix entity:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+@prefix provider:   <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/provider/> .
+@prefix trust:      <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/trust/> .
+@prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
+@prefix purpose:    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+
+@prefix dwd:        <https://github.com/nicosResearchAndDevelopment/LDS/eco/DWD/v1/> .
+
+dwd:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "Decentralized Identifier for Method 'web' Directive (DWD), Version 1"^^xsd:string ;
+    rdfs:label                    "Decentralized Identifier for Method 'web' Directive (DWD), Version 1"@en ;
+    dct:title                     "Decentralized Identifier for Method 'web' Directive (DWD), Version 1"@en ;
+    dct:description               """Decentralized Identifier for Method 'web' Directive (DWD), Version 1."""@en ;
+    dct:creator                   <https://github.com/jlangkau> ;
+    dct:creator                   <https://jlangkau.solidweb.org/> ;
+    dct:publisher                 <https://www.nicos-rd.com/> ;
+    dct:created                   "2023-11-28"^^xsd:date ;
+    dct:modified                  "2023-11-24"^^xsd:date ;
+    owl:versionInfo               "1.0.0" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/LDS/eco/DWD/v1/" ;
+    vann:preferredNamespacePrefix "wdw:" ;
+    skos:prefLabel                "DWD"^^xsd:string ;
+    ## TODO: dct:modified                  {{now.date}} ;
+#    rdfs:seeAlso     <> ;
+    rdfs:isDefinedBy              lds: .
+
+dwd:DWSP
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  provider:ServiceProvider ;
+    rdfs:label       "Did Web Service Provider"@en ;
+    rdfs:label       "Did Web Service Provider"@de ;
+    skos:notation    "usd:DWSP"^^xsd:string ;
+    skos:prefLabel   "DWSP"^^xsd:string ;
+    skos:broader     provider:ServiceProvider ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:id-SemanticsId-authorisationNumber
+    a                rdfs:Datatype ;
+    rdfs:subClassOf  rdfs:Literal ;
+    rdfs:label       "Did Web Service semantics identifier Data Type"@en ;
+    a                skos:Concept ;
+    rdfs:comment     """
+## REM: from :: 'dwd:#skos:prefLabel'
+## TODO: - "did" 
+## TODO: - ":" 
+## TODO: - "web" 
+## TODO: - ":" 
+- "DWD" 
+- 2 character country code (NC country)
+- "-"
+- 2-8 character NCA identifier
+- "-"
+- USP identifier - authorisation number
+EXAMPLE: DWDDE-BAFIN-42424242 (<https://www.Company-P.org/>)
+"""@en ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:authorisationNumber
+    a                owl:DatatypeProperty ;
+    rdfs:subClassOf  rdfs:Literal ;
+    rdfs:label       "Did Web Service Identifier"@en ;
+    a                skos:Concept ;
+    rdfs:range       dwd:id-SemanticsId-authorisationNumber ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:dwspEndPoint
+    a                owl:DatatypeProperty ;
+    rdfs:label       "Endpoint URI for Did Web Service Provider (DWSP)"@en ;
+    rdfs:range       xsd:anyURI ;
+    rdfs:isDefinedBy dwd: .
+
+## region NCA
+
+dwd:NCA
+    a                owl:Class ;
+    rdfs:subClassOf  lds:Authority ;    ## REM: abstract
+    rdfs:subClassOf  lds:Party ;        ## REM: abstract
+    rdfs:subClassOf  entity:LegalEntity ;  ## REM: abstract
+    rdfs:label       "National Competent Authority for DWD"@en ;
+    ## TODO: >>> PUBLIC REGISTER
+    rdfs:isDefinedBy dwd: .
+
+dwd:nameNCA
+    a                owl:DatatypeProperty ;
+    rdfs:label       "Name of NCA"@en ;
+    rdfs:domain      dwd:NCA ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:codeNCA
+    a                owl:DatatypeProperty ;
+    rdfs:label       "Code of NCA"@en ;
+    rdfs:domain      dwd:NCA ;
+    rdfs:range       dwd:id-SemanticsId-codeNCA ; ## TODO: semantic?!?
+    rdfs:isDefinedBy dwd: .
+
+dwd:id-SemanticsId-codeNCA ## TODO: etsi
+    a                rdfs:Datatype ;
+    rdfs:subClassOf  rdfs:Literal ;
+    rdfs:label       "NCA code semantics identifier Data Type"@en ;
+    a                skos:Concept ;
+    ## TODO: see comment '?-?'
+    rdfs:comment     """
+## REM: from :: 'dwd:#skos:prefLabel'
+## TODO: - "did"
+## TODO: - ":"
+## TODO: - "web"
+## TODO: - ":"
+- "DWD"
+- 2 character country code (NC country)
+- "-"
+- 2-8 character NCA identifier
+- 2 character country code (NC country)
+- "-"
+- ?-? character NCA code
+"""@en ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:ncaList
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:trustedPartyList ;
+    rdfs:label         "List of National Competent Authorities for Did Web"@en ;
+    dct:description    "List of National Competent Authorities for Did Web under *Did Web Directive*"@en ;
+    rdfs:range         trust:TrustedPartyList ;
+    rdfs:isDefinedBy   dwd: .
+
+dwd:trustedDidWebProvider
+    a                owl:ObjectProperty ;
+    rdfs:domain      dwd:NCA ;
+    rdfs:range       trust:TrustedPartyList ;
+    rdfs:isDefinedBy dwd: .
+
+## region codes
+dwd:ncaEndCharacter
+    rdf:type         xsd:string ;
+    rdf:value        "/"^^xsd:string ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:dwpsEndCharacter
+    rdf:type         xsd:string ;
+    rdf:value        ""^^xsd:string ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:dwspPath
+    rdf:type         xsd:string ;
+    rdf:value        "data/list/dwsp/"^^xsd:string ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:ncaPath
+    rdf:type         xsd:string ;
+    rdf:value        "data/list/nca/"^^xsd:string ;
+    rdfs:isDefinedBy dwd: .
+
+dwd:DWSPdidResolvePath
+    rdf:type         xsd:string ;
+    rdf:value        "did/resolve/"^^xsd:string ;
+    rdfs:isDefinedBy dwd: .
+## endregion codes
+
+## region NCA :: Individuals
+## region NCA :: Individuals :: bafin
+
+<https://www.bafin.de/>
+    a                foaf:Organization ;
+    a                org:Organization ;
+    rdfs:isDefinedBy <https://www.bafin.de/> .
+
+<https://dwd.bafin.de/>
+    a                     foaf:Organization ;
+    a                     org:Organization ;
+    org:subOrganizationOf <https://www.bafin.de/> ;
+    a                     dwd:NCA ;     ## REM: it states bafin is a Did Web Provider
+    rdfs:isDefinedBy      <https://www.bafin.de/> .
+
+<https://dwsp.bafin.de/>
+    a                     foaf:Organization ;
+    a                     org:Organization ;
+    a                     dwd:DWSP ;     ## REM: it states bafin is a Did Web Provider
+    org:subOrganizationOf <https://www.bafin.de/> ;
+    dwd:dwspEndPoint      "https://dwsp.bafin.de/did/resolve/"^^xsd:anyURI ;  ## REM: URL <<<<<<<<<<<<<<<<<<<<<
+    rdfs:seeAlso          <https://dwsp.bafin.de/> ;
+    rdfs:isDefinedBy      <https://www.bafin.de/> .
+
+<did:web:DWDDE-BAFIN>
+    a                         foaf:Organization ;
+    a                         org:Organization ;
+    a                         lds:Organization ;
+    a                         lds:Party ;
+    a                         entity:LegalEntity ;      ## REM: already done by 'lds:Organization'...
+    a                         dwd:NCA ;                 ## REM: National Competent Authority <<<<<<<<<<<<<<<<<<<<<
+    dwd:codeNCA               "DE-BAFIN"^^dwd:id-SemanticsId-codeNCA ;
+    dwd:nameNCA               "Federal Financial Supervisory Authority"^^xsd:string ;
+    identifier:identifier     [ a                      identifier:Identifier ;
+                                identifier:targetClass dwd:NCA ;
+                                identifier:property    [ a                   identifier:PropertyShape ;
+                                                         identifier:path     dwd:codeNCA ;
+                                                         identifier:datatype dwd:id-SemanticsId-codeNCA ;
+                                                         identifier:value    "DE-BAFIN"^^xsd:string ; ] ; ] ;
+    lds:country               country:DE ;
+    dwd:trustedDidWebProvider <did:web:DWDDE-BAFIN/data/list/dwsp/> ;
+    rdfs:seeAlso              "https://dwd.bafin.de/"^^xsd:anyURI ;
+    rdfs:isDefinedBy          <did:web:DWDDE-BAFIN> .
+
+## region NCA :: Individuals :: bafin :: dwd
+
+
+<did:web:DWDDE-BAFIN/data/list/dwsp/>
+    a                trust:TrustedPartyList ;
+    lds:hasMember    <did:web:DWDDE-BAFIN-42424240> ;   ## REM: dwsp.bafin
+    lds:hasMember    <did:web:DWDDE-BAFIN-42424241> ;   ## REM: dwsp.nicos-ag
+    rdfs:isDefinedBy <did:web:DWDDE-BAFIN> .
+
+<did:web:DWDDE-BAFIN-42424240>
+    a                       dwd:DWSP ;
+    dwd:authorisationNumber "DWDDE-BAFIN-42424240"^^dwd:id-SemanticsId-authorisationNumber ;
+    ## TODO: OR
+    ## TODO: dwd:authorisationNumber "did:web:DWDDE-BAFIN-42424240"^^dwd:id-SemanticsId-authorisationNumber ;
+    dwd:dwspEndPoint        "https://dwsp.bafin.de/did/resolve/"^^xsd:anyURI ;  ## REM: URL <<<<<<<<<<<<<<<<<<<<<
+    rdfs:seeAlso            "https://dwsp.bafin.de/"^^xsd:anyURI ;
+    rdfs:isDefinedBy        <did:web:DWDDE-BAFIN> .
+
+<did:web:DWDDE-BAFIN-42424241>
+    a                       dwd:DWSP ;
+    dwd:authorisationNumber "DWDDE-BAFIN-42424241"^^dwd:id-SemanticsId-authorisationNumber ;
+    ## TODO: OR
+    ## TODO: dwd:authorisationNumber "did:web:DWDDE-BAFIN-42424241"^^dwd:id-SemanticsId-authorisationNumber ;
+    dwd:dwspEndPoint        "https://dwsp.nicos-ag.de/did/resolve/"^^xsd:anyURI ;  ## REM: URL <<<<<<<<<<<<<<<<<<<<<
+    rdfs:seeAlso            "https://dwsp.nicos-ag.de/"^^xsd:anyURI ;
+    rdfs:isDefinedBy        <did:web:DWDDE-BAFIN> .
+
+## region WUA
+
+dwd:WUA
+    a                rdfs:Class ;
+    rdfs:subClassOf  lds:Authority ;
+    rdfs:subClassOf  entity:LegalEntity ;
+    rdfs:isDefinedBy dwd: .
+
+<did:web:WUA>
+    a                            dwd:WUA ;           ## REM: lds:LegalEntity, lds:Authority
+    a                            foaf:Organization ;
+    a                            org:Organization ;
+    a                            lds:Organization ;
+    rdfs:label                   "World Authority for Did Web under *Did Web Directives*"@en ;
+    trust:trustedParticipantList <did:wua:WUA/data/trustedParticipantList> ;
+    dwd:ncaList                  <did:web:WUA/data/list/nca/> ;
+    trust:listOfTrustedLists     [ a             trust:ListOfTrustedLists ;
+                                   lds:hasMember <did:web:DWDDE-BAFIN/data/list/dwsp/> ; ] ; ## TODO:
+    rdfs:isDefinedBy             dwd: .
+
+## region WUA :: trustedParticipantList
+
+<did:web:WUA/data/trustedParticipantList>
+    a                trust:TrustedParticipantList ;
+    lds:hasMember    <did:web:DWDDE-BAFIN> ;
+    rdfs:isDefinedBy dwd:WUA .
+
+## endregion WUA :: trustedParticipantList
+
+## region WUA :: ncaList
+
+<did:web:WUA/data/list/nca/>
+    a                trust:TrustedEntityList ;
+    rdfs:isDefinedBy dwd:WUA .
+
+## region WUA :: ncaList entries
+
+## region WUA :: ncaList entries :: DE
+## region WUA :: ncaList entries :: DE :: Finance
+<did:web:WUA/data/list/nca/>
+    lds:hasMember    <did:web:DWDDE-BAFIN> ;
+    rdfs:isDefinedBy dwd:WUA .
+## endregion WUA :: ncaList entries :: DE :: Finance
+## endregion WUA :: ncaList entries :: DE
+## endregion WUA :: ncaList entries
+## endregion WUA :: ncaList
+## endregion WUA

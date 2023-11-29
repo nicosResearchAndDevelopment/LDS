@@ -11,26 +11,26 @@
 @prefix lds:                      <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 
-@prefix company-A:                <https://www.company-A.com/> .
-@prefix Bob:                      <https://www.company-A.com/employee/bob/> .
+@prefix company-Y:                <https://www.company-Y.com/> .
+@prefix Bob:                      <https://www.company-Y.com/employee/bob/> .
 
-<https://www.company-A.com/purpose/hello/>
+<https://www.company-Y.com/purpose/hello/>
     a                owl:Class ;
     rdfs:subClassOf  purpose:Purpose ;
     rdfs:label       "Hello!"^^xsd:string ;
     rdfs:comment     """It is a **class**!"""@en ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 ## REM: Bob uses 'hello' (**class**, but it **is** a Profile, too)
 Bob:
-    purpose:purpose  "https://www.company-A.com/purpose/hello/"^^xsd:anyURI ;
-    rdfs:isDefinedBy company-A: .
+    purpose:purpose  "https://www.company-Y.com/purpose/hello/"^^xsd:anyURI ;
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-A.com/purpose/hello/instance/>
-    a                <https://www.company-A.com/purpose/hello/> ;
+<https://www.company-Y.com/purpose/hello/instance/>
+    a                <https://www.company-Y.com/purpose/hello/> ;
     rdfs:label       "Hello!"^^xsd:string ;
-    purpose:target   "https://www.company-A.com/#member"^^xsd:anyURI ;  ## REM: so... say "Hello!" to all Company-A dudes...
+    purpose:target   "https://www.company-Y.com/#member"^^xsd:anyURI ;  ## REM: so... say "Hello!" to all Company-Y dudes...
     rdfs:comment     """It is an **instance** of 'hello'!"""@en ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 ##

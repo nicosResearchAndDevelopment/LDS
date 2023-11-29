@@ -10,17 +10,17 @@
 @prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 @prefix credential:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 
-@prefix company-A:                <https://www.company-A.com/> .
+@prefix company-Y:                <https://www.company-Y.com/> .
 
 @prefix company-B:                <https://www.company-B.com/> .
 
 ## region company
-## region company :: Company-A
+## region company :: Company-Y
 
-company-A:
+company-Y:
     a                entity:Organisation  ; ## REM: entity:LegalEntity
-    rdfs:isDefinedBy company-A: .
-## endregion company :: Company-A
+    rdfs:isDefinedBy company-Y: .
+## endregion company :: Company-Y
 
 ## region company :: Company-B
 company-B:

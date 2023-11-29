@@ -40,9 +40,9 @@ mapl:
     rdfs:label                    "The MAPL Ontology"@en ;
     dct:title                     "Model for MAPL"@en ;
     dct:description               """."""@en ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https://jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https://jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https://jottomat.solidweb.org/profile/card#me> ;
     dct:created                   "2023-05-31"^^xsd:date ;
     dct:modified                  "2023-05-31"^^xsd:date ;
     owl:versionInfo               "0.0.1" ;
@@ -50,7 +50,7 @@ mapl:
     vann:preferredNamespacePrefix "mapl:" ;
     void:vocabulary               vann:, void:, voaf:, dct: ;
     rdfs:comment                  """"""@en ;
-    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+    rdfs:isDefinedBy              <https://jottomat.solidweb.org/profile/card#me> ; .
 
 mapl:MAPL
     a                    lds:DataSpaceLinker ;

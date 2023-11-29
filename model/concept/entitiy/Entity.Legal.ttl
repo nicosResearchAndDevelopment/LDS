@@ -32,8 +32,15 @@ entity:legalEntityIdentifier
     rdfs:label       "Identifier der legalen Entität"@de ;
     rdfs:domain      entity:LegalEntity ;
     ## rdfs:range       ILO (intentionally left open) ;
-    rdfs:comment     """'rdfs:range' :: follows given authoritative Entity, the Issuer, acting on stringent directives and regulations."""@en ;
+    rdfs:comment     """'rdfs:range' :: follows given authoritative Entity, the Issuer, acting on stringent directives or regulations."""@en ;
     rdfs:isDefinedBy lds: .
+
+entity:actOnBehalf
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf entity:appointedRepresentative ;
+    rdfs:domain        entity:AppointedRepresentative ;
+    rdfs:range         entity:LegalEntity ;               ## REM: very strong, indeed!!! `entity:LegalPerson` or `entity:Organisation`.
+    rdfs:isDefinedBy   lds: .
 
 lds:EntityConcepts
     skos:member entity:LegalEntity .

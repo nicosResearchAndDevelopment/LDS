@@ -265,7 +265,7 @@ Barney:
 ## Legal Entity Appointed Representative (Natural Person)
 
 ```turtle
-
+    ##```turtle
 @prefix foaf:                           <http://xmlns.com/foaf/0.1/> .
 @prefix odrl:                           <http://www.w3.org/ns/odrl/2/> .
 @prefix org:                            <http://www.w3.org/ns/org#> .
@@ -280,18 +280,18 @@ Barney:
 
 @prefix company-A:                      <https://www.company-A.com/> .
 
-<https://www.company-A.com/legal-entity-appointed-representative/99-99-99-98>
-    a                  foaf:Person ;
+<https://www.company-A.com/lear/np-99-99-99-98>
+    a                  entity:LEAR_NP ;
     foaf:firstName     "Bob"^^xsd:string ;
-    a                  entity:LegalEntityAppointedRepresentative_NP ;
     entity:actOnBehalf "https://www.company-A.com/"^^xsd:string ;
     lds:validFrom      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
     lds:validTo        "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
     rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an *Appointed Representative*) on behalf of Company-A."""@en ;
     rdfs:isDefinedBy   company-A: .
+
 ```
 
-## Legal Entity Appointed Representative (Natural Person, Verifiable Credential)
+## Legal Entity Appointed Representative (**LEAR_NP_VC**, Natural Person, Verifiable Credential)
 
 ```turtle
 
@@ -310,7 +310,7 @@ Barney:
 
 @prefix company-A:                      <https://www.company-A.com/> .
 
-<https://www.company-A.com/legal-entity-appointed-representative/VC/lear-np-99-99-98>
+<https://www.company-A.com/lear/vc/np-99-99-98>
     a                  foaf:Person ;
     foaf:firstName     "Bob"^^xsd:string ;
     entity:actOnBehalf "https://www.company-A.com/"^^xsd:string ;
@@ -319,14 +319,17 @@ Barney:
     rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an **Appointed Representative**) on behalf of *Company-A*."""@en ;
     rdfs:isDefinedBy   company-A: .
 
-<https://www.company-A.com/verifiable-credential/vc-88-99-98>
-    a                      cred:VerifiableCredential ;
-    a                      entity:LegalEntityAppointedRepresentative_NP ;
+<https://www.company-A.com/vc/vc-88-99-98>
+    a                      entity:LEAR_NP_VC ;
     ## REM: `cred:issuanceDate` / `cred:expirationDate` :: from`lds:validFrom` and `lds:validTo`
     cred:issuanceDate      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
     cred:expirationDate    "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
-    cred:credentialSubject <https://www.company-A.com/legal-entity-appointed-representative/VC/lear-np-99-99-98> ;
+    cred:credentialSubject <https://www.company-A.com/lear/vc/np-99-99-98> ;
     rdfs:isDefinedBy       company-A: .
 ```
+
+## **LEAR_NP_VC** related to eIDAS
+
+
 
 ---

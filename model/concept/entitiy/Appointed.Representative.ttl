@@ -13,6 +13,7 @@ entity:AppointedRepresentative
     ## TODO : SHACL
     rdfs:subClassOf  entity:Appointment ;
     rdfs:subClassOf  entity:Representative ;
+    rdfs:subClassOf  entity:Authorization ;     ## REM: !!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     skos:notation    "entity:AppointedRepresentative"^^xsd:string ;
     skos:prefLabel   "Appointed Representative"@en ;
     skos:prefLabel   "Ernannter Repräsentant"@de ;
@@ -23,19 +24,13 @@ entity:AppointedRepresentative
 entity:appointedRepresentative
     a                  owl:ObjectProperty ;
     rdfs:subPropertyOf entity:representative ;
-    skos:notation      "entity:appointedRepresentative"^^xsd:string ;
-    skos:prefLabel     "Appointed Representative"^^xsd:string ;
     rdfs:label         "Appointed  Representative"@en ;
     rdfs:label         "Ernannter Repräsentant"@de ;
-    ## ILO: rdfs:domain       (intentionally left open)  ;
+    skos:notation      "entity:appointedRepresentative"^^xsd:string ;
+    skos:prefLabel     "Appointed Representative"^^xsd:string ;
+    ## REM: `rdfs:domain entity:LegalEntity` :: makes it stronger, than to glue it to `entity:Entity` only...
+    rdfs:domain        entity:Entity ; ## REM: so `entity:LegalPerson` and `entity:Organisation`...
     rdfs:range         entity:AppointedRepresentative ;
-    rdfs:isDefinedBy   lds: .
-
-entity:actOnBehalf
-    a                  owl:ObjectProperty ;
-    rdfs:subPropertyOf entity:appointedRepresentative ;
-    rdfs:domain        entity:AppointedRepresentative ;
-    rdfs:range         entity:LegalEntity ;               ## REM: very strong, indeed!!! `entity:LegalPerson` or `entity:Organisation`.
     rdfs:isDefinedBy   lds: .
 
 lds:EntityConcepts

@@ -12,24 +12,23 @@
 @prefix purpose:                        <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 @prefix credential:                     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 
-@prefix company-A:                      <https://www.company-A.com/> .
+@prefix company-Y:                      <https://www.company-Y.com/> .
 
-<https://www.company-A.com/legal-entity-appointed-representative/VC/lear-np-99-99-98>
+<https://www.company-Y.com/lear/vc/np-99-99-98>
     a                  foaf:Person ;
     foaf:firstName     "Bob"^^xsd:string ;
-    entity:actOnBehalf "https://www.company-A.com/"^^xsd:string ;
+    entity:actOnBehalf "https://www.company-Y.com/"^^xsd:string ;
     ## REM: `lds:validFrom` :: moves to `cred:issuanceDate`
     ## REM: `lds:validTo`   :: moves to `cred:expirationDate`
-    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an **Appointed Representative**) on behalf of *Company-A*."""@en ;
-    rdfs:isDefinedBy   company-A: .
+    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an **Appointed Representative**) on behalf of *Company-Y*."""@en ;
+    rdfs:isDefinedBy   company-Y: .
 
-<https://www.company-A.com/verifiable-credential/vc-88-99-98>
-    a                      cred:VerifiableCredential ;
-    a                      entity:LegalEntityAppointedRepresentative_NP ;
+<https://www.company-Y.com/vc/vc-88-99-98>
+    a                      entity:LEAR_NP_VC ;
     ## REM: `cred:issuanceDate` / `cred:expirationDate` :: from`lds:validFrom` and `lds:validTo`
     cred:issuanceDate      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
     cred:expirationDate    "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
-    cred:credentialSubject <https://www.company-A.com/legal-entity-appointed-representative/VC/lear-np-99-99-98> ;
-    rdfs:isDefinedBy       company-A: .
+    cred:credentialSubject <https://www.company-Y.com/lear/vc/np-99-99-98> ;
+    rdfs:isDefinedBy       company-Y: .
 
 ##```

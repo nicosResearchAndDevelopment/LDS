@@ -1,80 +1,151 @@
-@prefix foaf:                     <http://xmlns.com/foaf/0.1/> .
-@prefix odrl:                     <http://www.w3.org/ns/odrl/2/> .
-@prefix org:                      <http://www.w3.org/ns/org#> .
-@prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:                          <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                          <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                           <http://www.w3.org/ns/org#> .
+@prefix owl:                           <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:                           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                          <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                           <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix lds:                      <https://github.com/nicosResearchAndDevelopment/LDS/> .
-@prefix entity:                   <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
-@prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
-@prefix credential:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
+@prefix lds:                           <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:                        <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+@prefix legal:                         <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
+@prefix purpose:                       <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
+@prefix credential:                    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
+@prefix authorization:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/authorization/> .
 
-@prefix company-A:                <https://www.company-A.com/> .
-@prefix Bob:                      <https://www.company-A.com/employee/bob/> .
-@prefix Jim:                      <https://www.company-A.com/employee/jim/> .
+@prefix company-Y:                     <https://www.company-Y.com/> .
+@prefix Arthur:                        <https://www.company-Y.com/employee/arthur/> .
+@prefix Bob:                           <https://www.company-Y.com/employee/bob/> .
+@prefix Jim:                           <https://www.company-Y.com/employee/jim/> .
+@prefix Jonny:                         <https://www.company-Y.com/employee/jonny/> .
 
-@prefix company-B:                <https://www.company-B.com/> .
-@prefix Alice:                    <https://www.company-B.com/employee/alice/> .
+@prefix company-B:                     <https://www.company-B.com/> .
+@prefix Alice:                         <https://www.company-B.com/employee/alice/> .
 
 ## region company
-## region company :: Company-A
+## region company :: Company-Y
 
-company-A:
-    a                entity:Entity ;
-    a                org:Organization ;
-    org:member       <https://www.company-A.com/#member> ;
-    lds:employee     Bob: ;
-    lds:employee     Jim: ;
-    rdfs:isDefinedBy company-A: .
+<https://www.company-Y.com/>
+    a                                         foaf:Organization ;
+    a                                         org:Organization ;
+    org:member                                <https://www.company-Y.com/#member> ;
+    lds:employee                              Arthur: ;
+    lds:employee                              Bob: ;
+    lds:employee                              Jim: ;
+    lds:employee                              Jonny: ;
+    a                                         entity:Entity ;
+    entity:value                              <https://www.company-Y.com/responsibility> ;
+    entity:value                              <https://european-union.europa.eu/principles-countries-history/principles-and-values/aims-and-values_de> ;
+    entity:appointedRepresentative            Arthur: ;
+    entity:appointedRepresentative            Bob: ;
+    entity:appointedRepresentative            Jim: ;
+    a                                         entity:Organisation ;         ## REM: sub class of `entity:LegalEntity`
+    entity:legalEntityIdentifier              "VATDE-12345670"^^xsd:string ;
+    legal:legalBasis                          <https://www.gesetze-im-internet.de/gmbhg/> ;
+    entity:legalRepresentative                Arthur: ;
+    entity:legalEntityAppointedRepresentative Bob: ;
+    ## REM: Jim .-( is not in the house... represents PowerPoints only...
+    rdfs:isDefinedBy                          company-Y: .
+
+Arthur:
+    a                foaf:Person ;
+    a                entity:LegalEntityRepresentative ;
+    foaf:firstName   "Arthur"^^xsd:string ;
+    rdfs:isDefinedBy company-Y: .
 
 Bob:
-    a                foaf:Person ;
-    foaf:firstName   "Bob"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    a                  foaf:Person ;
+    a                  entity:LegalEntityAppointedRepresentative ;
+    entity:actOnBehalf company-Y: ;
+    foaf:firstName     "Bob"^^xsd:string ;
+    rdfs:isDefinedBy   company-Y: .
 
 Jim:
     a                foaf:Person ;
+    a                entity:AppointedRepresentative ;
     foaf:firstName   "Jim"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-A.com/#member>
-    rdf:type         xsd:anyURI ;
-    rdf:value        "https://www.company-A.com/employee/bob/"^^xsd:string,
-                     "https://www.company-A.com/employee/jim/"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
-
-<https://www.company-A.com/member/>
-    rdf:type         foaf:Agent ;
-    rdf:value        <https://www.company-A.com/employee/bob/>, <https://www.company-A.com/employee/jim/> ;
-    rdfs:isDefinedBy company-A: .
-
-## endregion company :: Company-A
-
-## region company :: Company-B
-company-B:
-    a                lds:Entity ; ## REM: subClassOf lds:LegalEntity
-    a                org:Organization ;
-    org:member       Alice: ;
-    lds:employee     Alice: ;
-    rdfs:isDefinedBy company-A: .
-
-Alice:
+Jonny:
     a                foaf:Person ;
-    foaf:firstName   "Alice"^^xsd:string ;
-    rdfs:isDefinedBy company-B: .
+    foaf:firstName   "Jonny"^^xsd:string ;
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-B.com/#member>
+<https://www.company-Y.com/#member>
     rdf:type         xsd:anyURI ;
-    rdf:value        "https://www.company-A.com/employee/alice/"^^xsd:string  ;
-    rdfs:isDefinedBy company-A: .
+    rdf:value        "https://www.company-Y.com/employee/arthur/"^^xsd:string,
+                     "https://www.company-Y.com/employee/bob/"^^xsd:string,
+                     "https://www.company-Y.com/employee/jim/"^^xsd:string,
+                     "https://www.company-Y.com/employee/jonny/"^^xsd:string ;
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-B.com/member/>
+<https://www.company-Y.com/member/>
     rdf:type         foaf:Agent ;
-    rdf:value        Alice: ;
-    rdfs:isDefinedBy company-B: .
+    rdf:value        Arthur: ;
+    rdf:value        Bob: ;
+    rdf:value        Jim: ;
+    rdf:value        Jonny: ;
+    rdfs:isDefinedBy company-Y: .
 
-## endregion company :: Company-B
+## endregion company :: Company-Y
 ## endregion company
+
+## region credential
+## region credential :: Bob
+<https://www.company-Y.com/credential/bob-42-42-42-40>
+    a                            credential:Credential ;
+    a                            foaf:Person ;
+    credential:credentialSubject [ a              credential:Subject ;
+                                   foaf:firstName "Bob"^^xsd:string ; ## REM: from `foaf:Person`
+                                 ] ;
+    rdfs:isDefinedBy             company-Y: .
+
+<https://www.company-Y.com/legal/representer/bob-42-42-42-41>
+    a                  entity:LegalEntityAppointedRepresentative ;
+    foaf:firstName     "Bob"^^xsd:string ;
+    entity:actOnBehalf company-Y: ;
+    rdfs:isDefinedBy   company-Y: .
+
+<https://www.company-Y.com/legal/representer/credential/bob-42-42-42-42>
+    a                            credential:Credential ;
+    a                            foaf:Person ;
+    a                            entity:LegalEntityAppointedRepresentative ;
+    credential:credentialSubject [ a                  credential:Subject ;
+                                   foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+                                   entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+                                 ] ;
+    rdfs:isDefinedBy             company-Y: .
+
+company-Y:AuthorizationByPurpose
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  authorization:Authorization ;
+    skos:broader     authorization:Authorization ;
+    rdfs:isDefinedBy company-Y: .
+
+purpose:target
+    rdfs:domain      company-Y:AuthorizationByPurpose ;
+    rdfs:isDefinedBy company-Y: .
+
+purpose:purpose
+    rdfs:domain      company-Y:AuthorizationByPurpose ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/legal/representer/credential/bob-42-42-42-43>
+    a                            credential:Credential ;
+    a                            foaf:Person ;
+    a                            entity:LegalEntityAppointedRepresentative ;
+    a                            company-Y:AuthorizationByPurpose ;
+    credential:validFrom         "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
+    credential:validTo           "2023-11-11T00:00:00Z"^^xsd:dateTimeStamp ;
+    credential:credentialSubject [ a                  credential:Subject ;
+                                   foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+                                   entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+                                   purpose:target     "https://www.company-B.com/"^^xsd:string ;
+                                   purpose:purpose    "https://www.company-B.com/purpose/onboaring/"^^xsd:string ; ] ;
+    rdfs:isDefinedBy             company-Y: .
+
+## endregion credential :: Bob
+## endregion credential
 
 ##

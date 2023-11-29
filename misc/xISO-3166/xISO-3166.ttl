@@ -23,8 +23,8 @@ xISO-3166:
     rdfs:label                    "The Ontology 'xISO-3166', extension for ISO-3166"@en ;
     dct:title                     "Model for xISO-3166"@en ;
     dct:description               """."""@en ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https://jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https://jottomat.solidweb.org/profile/card#me> ;
     dct:created                   "2023-11-02"^^xsd:date ;
     dct:modified                  "2023-11-19"^^xsd:date ; ## {{date.now}}
     owl:versionInfo               "0.0.1" ;
@@ -34,7 +34,7 @@ xISO-3166:
     rdfs:comment                  """"""@en ;
     rdfs:seeAlso                  <https://de.wikipedia.org/wiki/ISO_3166> ;
 #    xISO-3166-1:ALPHA-codeList
-    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+    rdfs:isDefinedBy              <https://jottomat.solidweb.org/profile/card#me> ; .
 
 ## region xISO-3166-1
 

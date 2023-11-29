@@ -38,11 +38,6 @@ entity:legalRepresentative
     rdfs:range       entity:LegalEntityRepresentative ;
     rdfs:isDefinedBy lds: .
 
-entity:actOnBehalf
-    rdfs:domain      entity:Representative ;
-    rdfs:range       entity:LegalEntity ;
-    rdfs:isDefinedBy lds: .
-
 lds:EntityConcepts
     skos:member entity:LegalEntityRepresentative .
 

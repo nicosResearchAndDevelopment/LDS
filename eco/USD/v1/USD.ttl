@@ -97,8 +97,8 @@ Given Purpose User (**Credential Issuer**) is allowed to put anything (xsd:strin
 Purpose Acceptor (**Purpose Target**) has to understand it:
 this will be based on given 'Credential Issuer/Purpose Target-Negotiation'.
 EXAMPLE:
-- Company-A aims to onboard in Company-B's domain
-- Company-A equip Employee Bob with needed credential
+- Company-Y aims to onboard in Company-B's domain
+- Company-Y equip Employee Bob with needed credential
 - given credential has a purpose
 - purpose: 'usd:purpose "https://www.company-P.com/uds"'"""@en ;
     rdfs:isDefinedBy usd: .

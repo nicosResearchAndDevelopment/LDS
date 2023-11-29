@@ -1,0 +1,155 @@
+@prefix lds:            <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prov:           <http://www.w3.org/ns/prov#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix process:        <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/process/> .
+
+@prefix UserDetection:  <https://github.com/nicosResearchAndDevelopment/LDS/process/detection/user#> .
+
+UserDetection:
+    a                owl:Class ;
+    rdfs:subClassOf  process:Detection ;
+    lds:subProcess   ( [ a UserDetection:CarrierDetection ]
+                       [ a UserDetection:Classification ]
+                       [ a UserDetection:Identification ]
+                       [ a UserDetection:Verification ] ) ;
+    rdfs:isDefinedBy UserDetection: .
+
+## region Input
+UserDetection:Input
+    a                owl:Class ;
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+UserDetection:InputHeader
+    a                rdfs:Resource ;
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+
+UserDetection:header
+    a                owl:ObjectProperty ;
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+## endregion Input
+
+## region CarrierDetection
+UserDetection:CarrierDetection
+    a                owl:Class ;
+    rdfs:subClassOf  process:Process ;
+    lds:subProcessOf UserDetection: ;
+    lds:subProcess   ( [ a UserDetection:CarrierClassification ]
+                       [ a UserDetection:CarrierBodyDetection ]
+                       [ a UserDetection:CarrieRawValueDecodation ] ) ;
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+## region CarrierDetection :: sub
+UserDetection:CarrierClassification
+    a                owl:Class ;
+    rdfs:subClassOf  process:Process ;
+    lds:subProcessOf UserDetection:CarrierDetection ;
+    ## REM: output :: $meta.carrier.property
+    ## REM: output :: $meta.carrier.raw
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+UserDetection:CarrierBodyDetection
+    a                owl:Class ;
+    rdfs:subClassOf  process:Process ;
+    lds:subProcessOf UserDetection:CarrierDetection ;
+    ## REM: output :: $meta.carrier.raw_type
+    ## REM: output :: $meta.carrier.raw_value
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+UserDetection:CarrieRawValueDecodation
+    a                owl:Class ;
+    rdfs:subClassOf  process:Process ;
+    lds:subProcessOf UserDetection:CarrierDetection ;
+    ## REM: output :: $meta.carrier.decoded
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+## endregion CarrierDetection :: sub
+## endregion CarrierDetection
+
+## region Classification
+UserDetection:Classification
+    a                owl:Class ;
+    rdfs:subClassOf  process:Classification ;
+    ## REM: input :: $meta.carrier ... carrier.decoded
+    lds:subProcess   (
+                         ## REM: input :: $meta.carrier ... $meta.carrier.decoded
+                         [ a UserDetection:ClassificationClassDetection ]
+                             ## REM: input  :: $meta.carrier ... $meta.carrier.decoded
+                         [ a UserDetection:ClassificationIdentifierDetection ] ) ;
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+## region Classification :: sub
+UserDetection:ClassificationClassDetection
+    a                owl:Class ;
+    rdfs:subClassOf  process:Detection ;
+    lds:subProcessOf UserDetection:Classification ;
+    ## REM: input  :: $meta.carrier ... $meta.carrier.decoded
+    ## REM: output :: $meta._class_
+    ## REM: output :: $meta.verifiable {true/false} ## REM: <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+UserDetection:ClassificationIdentifierDetection
+    a                owl:Class ;
+    rdfs:subClassOf  process:Detection ;
+    lds:subProcessOf UserDetection:Classification ;
+    ## REM: input  :: $meta.carrier ... $meta.carrier.decoded
+    ## REM: input  :: $meta._class_
+    ## REM: output :: $meta.identifier.property
+    ## REM: output :: $meta.identifier.type
+    ## REM: output :: $meta.identifier._value_
+    rdfs:comment     """."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+## endregion Classification :: sub
+## endregion Classification
+
+UserDetection:Identification
+    a                owl:Class ;
+    rdfs:subClassOf  process:Identification ;
+    ## REM: output :: $meta.identified {true/false}
+    ## REM: output :: $meta.domain_identifier
+    ## REM: output :: $meta.authenticatable {true/false}
+    rdfs:comment     """*Identified* in given domain, processing *User Detection*.
+ and *Authenticated* in given domain, processing *User Detection*."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+## region Verification
+UserDetection:Verification
+    a                owl:Class ;
+    rdfs:subClassOf  process:Verification ;
+    ## REM: input  :: $meta.verifiable
+    ## REM: output :: $meta.authenticatable {true/false} ## REM: <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    lds:subProcess   ( [ ## REM: if :: (`$meta.verifiable` === true)
+                           a UserDetection:VerifiableVerification ]
+                       [ ## REM: if :: (`$meta.authenticatable` === true)
+                           a UserDetection:VerificationAuthentication ] ) ;
+    rdfs:isDefinedBy UserDetection: .
+## region Verification :: sub
+UserDetection:VerifiableVerification
+    a                owl:Class ;
+    rdfs:subClassOf  process:Process ;
+    ## REM: output :: $meta.verified {true/false}
+    rdfs:comment     """Doing so *User Detection* acts as a Verifier."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+
+UserDetection:VerificationAuthentication
+    a                owl:Class ;
+    rdfs:subClassOf  process:Authentication ;
+    ## REM: input  :: $meta.authenticatable {true/false}
+    ## REM: output :: $meta.authenticated {true/false} ## REM: <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    rdfs:comment     """*Authenticated* in given domain, processing *User Detection*."""@en ;
+    rdfs:isDefinedBy UserDetection: .
+## endregion Verification :: sub
+## endregion Verification
+
+##

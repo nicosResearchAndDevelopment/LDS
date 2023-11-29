@@ -19,11 +19,13 @@ entity:LegalEntityAppointedRepresentative
     skos:broader     legal:Legal ;
     skos:broader     entity:LegalEntity ;
     skos:broader     entity:AppointedRepresentative ;
-    skos:narrower    entity:LegalEntityAppointedRepresentative_NP ;
+    skos:narrower    entity:LEAR_NP ;
+    skos:narrower    entity:LEAR_SI ;
+    skos:narrower    entity:LEAR_AI ;
     rdfs:isDefinedBy lds: .
 
 entity:legalEntityAppointedRepresentative
-    a                rdf:Property ;
+    a                owl:ObjectProperty  ;
     skos:notation    "entity:legalEntityAppointedRepresentative"^^xsd:string ;
     skos:prefLabel   "Appointed Representatives"^^xsd:string ;
     rdfs:label       "Appointed  Representatives"@en ;

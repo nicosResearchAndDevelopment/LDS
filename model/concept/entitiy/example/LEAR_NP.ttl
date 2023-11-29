@@ -11,16 +11,15 @@
 @prefix purpose:                        <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 @prefix credential:                     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 
-@prefix company-A:                      <https://www.company-A.com/> .
+@prefix company-Y:                      <https://www.company-Y.com/> .
 
-<https://www.company-A.com/legal-entity-appointed-representative/99-99-99-98>
-    a                  foaf:Person ;
+<https://www.company-Y.com/lear/np-99-99-99-98>
+    a                  entity:LEAR_NP ;
     foaf:firstName     "Bob"^^xsd:string ;
-    a                  entity:LegalEntityAppointedRepresentative_NP ;
-    entity:actOnBehalf "https://www.company-A.com/"^^xsd:string ;
+    entity:actOnBehalf "https://www.company-Y.com/"^^xsd:string ;
     lds:validFrom      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
     lds:validTo        "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
-    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an *Appointed Representative*) on behalf of Company-A."""@en ;
-    rdfs:isDefinedBy   company-A: .
+    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an *Appointed Representative*) on behalf of Company-Y."""@en ;
+    rdfs:isDefinedBy   company-Y: .
 
 ##```

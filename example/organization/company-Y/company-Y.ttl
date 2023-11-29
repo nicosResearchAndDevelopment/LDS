@@ -18,25 +18,25 @@
 @prefix purpose:                <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 @prefix credential:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 
-@prefix company-A:              <https://www.company-A.com/> .
-@prefix employee:               <https://www.company-A.com/employee/> .
-@prefix role:                   <https://www.company-A.com/role/> .
-@prefix roleMembership:         <https://www.company-A.com/roleMemberShip/> .
-@prefix purposeMembership:      <https://www.company-A.com/purposeMembership/> .
+@prefix company-Y:              <https://www.company-Y.com/> .
+@prefix employee:               <https://www.company-Y.com/employee/> .
+@prefix role:                   <https://www.company-Y.com/role/> .
+@prefix roleMembership:         <https://www.company-Y.com/roleMemberShip/> .
+@prefix purposeMembership:      <https://www.company-Y.com/purposeMembership/> .
 
-company-A:
+company-Y:
     a                lds:Organization ; ## REM: subClassOf lds:LegalEntity
     a                org:Organization ;
     org:role         role:Role_EMPLOYEE ;
     ## REM: 'lde:employee' will be provisioned / de-provisioned by 'roleMembership'...
     lds:employee     employee:Bob ;
     lds:employee     employee:Jim ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 ## region role
 role:Role_EMPLOYEE
     a                org:Role ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 ## region role :: memberships
 roleMembership:42424242 ## REM: Bob's employee-membership
@@ -48,7 +48,7 @@ roleMembership:42424242 ## REM: Bob's employee-membership
     org:role          role:Role_EMPLOYEE ;
     org:hasMember     employee:Bob ;
     org:hasMember     employee:Jim ;
-    rdfs:isDefinedBy  company-A: .
+    rdfs:isDefinedBy  company-Y: .
 
 roleMembership:42424243 ## REM: Jim's employee-membership
     a                 org:Membership ;
@@ -60,30 +60,30 @@ roleMembership:42424243 ## REM: Jim's employee-membership
                         time:inXSDDateTimeStamp "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
     org:role          role:Role_EMPLOYEE ;
     org:hasMember     employee:Jim ;
-    rdfs:isDefinedBy  company-A: .
+    rdfs:isDefinedBy  company-Y: .
 ## endregion role :: memberships
 ## endregion role
 
 ## region employee
 
-company-A:Employee
+company-Y:Employee
     a                owl:Class ;
     rdfs:subClassOf  lds:Employee ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 ## region employee :: Individuals
 
 employee:Bob
-    a                company-A:Employee ;
+    a                company-Y:Employee ;
     a                foaf:Person ;
     foaf:firstName   "Bob"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 employee:Jim
-    a                company-A:Employee ;
+    a                company-Y:Employee ;
     a                foaf:Person ;
     foaf:firstName   "Jim"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 ## endregion employee :: Individuals
 
@@ -93,7 +93,7 @@ employee:Jim
 
 purpose:target
     rdfs:domain      purpose:Membership ;
-    rdfs:isDefinedBy <https://www.company-A.com/> .
+    rdfs:isDefinedBy <https://www.company-Y.com/> .
 
 ## region purpose :: from others
 ## region purpose :: from others :: company-B
@@ -131,12 +131,12 @@ purposeMembership:bob_company-B_ONBOARDING
     ## TBC: purpose:purpose   "https://www.company-B.com/purpose/onboarding/"^^xsd:anyURI ;
     purpose:target    "https://www.company-B.com/"^^xsd:anyURI ;
     lds:hasMember     employee:Bob ;
-    rdfs:isDefinedBy  company-A: .
+    rdfs:isDefinedBy  company-Y: .
 
 purposeMembership:bob_company-B_LEAR
     a                 purpose:Membership ;
     a                 time:Interval ;
-    dct:description   """Bob has full power as a "Legal Entity Appointed Representative", he is the "Super Administrator" for Company-A in domain Company-B. 'LEAR' works only, if Company-A is onboarded already. So Company-A is a participant in domain Company-B."""@en ;
+    dct:description   """Bob has full power as a "Legal Entity Appointed Representative", he is the "Super Administrator" for Company-Y in domain Company-B. 'LEAR' works only, if Company-Y is onboarded already. So Company-Y is a participant in domain Company-B."""@en ;
     ## REM: works for seven days...
     time:hasBeginning [ a                       time:Instant ;
                         time:inXSDDateTimeStamp "2023-05-01T00:00:00Z"^^xsd:dateTimeStamp ; ] ;
@@ -146,7 +146,7 @@ purposeMembership:bob_company-B_LEAR
     ## TBC: purpose:purpose   "https://www.company-B.com/purpose/onboarding/"^^xsd:anyURI ;
     purpose:target    "https://www.company-B.com/"^^xsd:anyURI ;
     lds:hasMember     employee:Bob ;
-    rdfs:isDefinedBy  company-A: .
+    rdfs:isDefinedBy  company-Y: .
 
 purposeMembership:bob_company-B_MAINTAINER_CATALOGUE
     a                 purpose:Membership ;
@@ -160,7 +160,7 @@ purposeMembership:bob_company-B_MAINTAINER_CATALOGUE
     ## TBC: purpose:purpose   "https://www.company-B.com/maintainer/catalogue/"^^xsd:anyURI ;
     purpose:target    "https://www.company-B.com/"^^xsd:anyURI ;
     lds:hasMember     employee:Bob ;
-    rdfs:isDefinedBy  company-A: .
+    rdfs:isDefinedBy  company-Y: .
 ## endregion purpose :: memberships :: Bob
 
 ## region purpose :: memberships :: Jim
@@ -178,7 +178,7 @@ purposeMembership:jim_company-B_MAINTAINER_PRODUCT
     ## TBC: purpose:purpose   "https://www.company-B.com/product/maintainer/"^^xsd:anyURI ;
     purpose:target      "https://www.company-B.com/"^^xsd:anyURI ;
     lds:hasMember       employee:Jim ;
-    rdfs:isDefinedBy    company-A: .
+    rdfs:isDefinedBy    company-Y: .
 ## endregion purpose :: memberships :: Jim
 ## endregion purpose :: memberships
 ## endregion purpose
@@ -188,24 +188,24 @@ purposeMembership:jim_company-B_MAINTAINER_PRODUCT
 ## region work :: Credential :: Bob as company-B-Onboarder
 
 ########################################
-## REM: Bob, being constrained to make the onboarding (of its own company-A) to place it in company-B als a participant.
-## REM: Bob makes a Credential-request, so its own company-A will issue some, that facilitates wanted power...
+## REM: Bob, being constrained to make the onboarding (of its own company-Y) to place it in company-B als a participant.
+## REM: Bob makes a Credential-request, so its own company-Y will issue some, that facilitates wanted power...
 ########################################
 
-## REM: 0. Generic Credential for Bob, containing all known (by Company-A) authorisations...
-##      'company-A' makes a look up, if 'company-B' supports a user profile for given purpose 'OnBoarding', hosted by 'company-P'
+## REM: 0. Generic Credential for Bob, containing all known (by Company-Y) authorisations...
+##      'company-Y' makes a look up, if 'company-B' supports a user profile for given purpose 'OnBoarding', hosted by 'company-P'
 ##      >>> http request :: https://www.company-B.com/usd/userprofile/?purpose=https://www.company-P.de/usd/usp/purpose/OnBoarding>
 
 ## REM: 1. Bob sees his currently working set of possible empowerment
 ## REM:    and selects 'purposeMembership:company-B-ONBOARDING', agrees and gets
 
-<https://www.company-A.com/credential/99-99-99-99>
-    a                  credential:Credential ;        ## REM: subClassOf 'purpose:Purpose'
-    lds:issuer         "https://www.company-A.com/"^^xsd:anyURI ;
-    lds:issued         "2023-11-18T07:15:00Z"^^xsd:dateTimeStamp ;
+<https://www.company-Y.com/credential/99-99-99-99>
+    a                            credential:Credential ;        ## REM: subClassOf 'purpose:Purpose'
+    lds:issuer                   "https://www.company-Y.com/"^^xsd:anyURI ;
+    lds:issued                   "2023-11-18T07:15:00Z"^^xsd:dateTimeStamp ;
     ## REM: valid for one day (2023-11-18^^xsd:date)...
-    lds:validFrom      "2023-05-01T00:00:00Z"^^xsd:dateTimeStamp ;
-    lds:validTo        "2023-05-08T00:00:00Z"^^xsd:dateTimeStamp ;
+    lds:validFrom                "2023-05-01T00:00:00Z"^^xsd:dateTimeStamp ;
+    lds:validTo                  "2023-05-08T00:00:00Z"^^xsd:dateTimeStamp ;
     ## REM: or ::
     #    a                 time:Interval ;
     #    time:hasBeginning [ a                       time:Instant ;
@@ -213,13 +213,13 @@ purposeMembership:jim_company-B_MAINTAINER_PRODUCT
     #    time:hasXSDDuration "P1D"^^xsd:duration ;
     #    time:hasEnd       [ a                       time:Instant ;
     #                        time:inXSDDateTimeStamp "2023-11-19T00:00:00Z"^^xsd:dateTimeStamp ; ] ;
-    purpose:purpose    "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
-    purpose:target     "https://www.company-B.com/"^^xsd:anyURI ;
-    credential:subject [ a               credential:Subject ;
-                         foaf:firstName  "Bob"^^xsd:string ;
-                         purpose:purpose "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
-                         purpose:target  "https://www.company-B.com/"^^xsd:anyURI ; ] ;
-    rdfs:isDefinedBy   company-A: .
+    purpose:purpose              "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
+    purpose:target               "https://www.company-B.com/"^^xsd:anyURI ;
+    credential:credentialSubject [ a               credential:Subject ;
+                                   foaf:firstName  "Bob"^^xsd:string ;
+                                   purpose:purpose "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
+                                   purpose:target  "https://www.company-B.com/"^^xsd:anyURI ; ] ;
+    rdfs:isDefinedBy             company-Y: .
 ## endregion work :: Credential :: Bob as company-B-Onboarder
 ## endregion work :: Credential
 ## endregion work

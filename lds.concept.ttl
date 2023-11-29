@@ -67,6 +67,14 @@ lds:ServiceConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:IntelligenceConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:ArtificialConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:ProviderConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .

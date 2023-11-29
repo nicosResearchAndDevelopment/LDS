@@ -20,7 +20,7 @@
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix me:                <https:jottomat.solidweb.org/profile/card#me>.
+@prefix me:                <https://jottomat.solidweb.org/profile/card#me>.
 
 @prefix dspace:            <https://github.com/nicosResearchAndDevelopment/edc/model#> .
 
@@ -31,9 +31,9 @@ dspace:
     rdfs:label                    "The DSPACE Ontology"@en ;
     dct:title                     "Model for v"@en ;
     dct:description               """."""@en ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:creator                   <https:jottomat.solidweb.org/profile/card#me> ;
-    dct:publisher                 <https:jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https://jottomat.solidweb.org/profile/card#me> ;
+    dct:creator                   <https://jottomat.solidweb.org/profile/card#me> ;
+    dct:publisher                 <https://jottomat.solidweb.org/profile/card#me> ;
     dct:created                   "2023-05-21"^^xsd:date ;
     dct:modified                  "2023-06-21"^^xsd:date ;
     owl:versionInfo               "0.0.1" ;
@@ -41,7 +41,7 @@ dspace:
     vann:preferredNamespacePrefix "dspace:" ;
     void:vocabulary               vann:, void:, voaf:, dct: ;
     rdfs:comment                  """"""@en ;
-    rdfs:isDefinedBy              <https:jottomat.solidweb.org/profile/card#me> ; .
+    rdfs:isDefinedBy              <https://jottomat.solidweb.org/profile/card#me> ; .
 
 dspace:callbackAddress
     a                owl:DatatypeProperty ;

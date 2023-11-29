@@ -11,29 +11,29 @@
 @prefix purpose:                       <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/work/purpose/> .
 @prefix credential:                    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 
-@prefix company-A:                     <https://www.company-A.com/> .
-@prefix Arthur:                        <https://www.company-A.com/employee/arthur/> .
+@prefix company-Y:                     <https://www.company-Y.com/> .
+@prefix Arthur:                        <https://www.company-Y.com/employee/arthur/> .
 
 @prefix company-B:                     <https://www.company-B.com/> .
 @prefix Samanta:                       <https://www.company-B.com/employee/samanta/> .
 
 ## region company
-## region company :: Company-A
+## region company :: Company-Y
 
-company-A:
+company-Y:
     a                entity:LegalEntity ;
-    rdfs:isDefinedBy company-A: .
+    rdfs:isDefinedBy company-Y: .
 
 Arthur:
     a                foaf:Person ;
     a                entity:LegalEntityRepresentative ; ## REM: LER
     foaf:firstName   "Arthur"^^xsd:string ;
     foaf:surname     "Smith"^^xsd:string ;
-    org:headOf       company-A: ;
-    org:memberOf     <https://www.company-A.com/roleMemberShip/#42-42-42-43> ;
-    rdfs:isDefinedBy company-A: .
+    org:headOf       company-Y: ;
+    org:memberOf     <https://www.company-Y.com/roleMemberShip/#42-42-42-43> ;
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-A.com/roleMemberShip/#42-42-42-43> ## REM: Jim's employee-membership
+<https://www.company-Y.com/roleMemberShip/#42-42-42-43> ## REM: Jim's employee-membership
     a                   org:Membership ;
     a                   time:Interval ;
     time:hasBeginning   [ a                       time:Instant ;
@@ -43,20 +43,20 @@ Arthur:
     time:hasEnd         [ a                       time:Instant ;
                           time:inXSDDateTimeStamp "2025-01-01T00:00:00Z"^^xsd:dateTimeStamp ] ;
     org:role            org:Head ;
-    org:hasMember       <https://www.company-A.com/employee/arthur/> ;
-    rdfs:isDefinedBy    company-A: .
+    org:hasMember       <https://www.company-Y.com/employee/arthur/> ;
+    rdfs:isDefinedBy    company-Y: .
 
-<https://www.company-A.com/#member>
+<https://www.company-Y.com/#member>
     rdf:type         xsd:anyURI ;
-    rdf:value        "https://www.company-A.com/employee/arthur/"^^xsd:string ;
-    rdfs:isDefinedBy company-A: .
+    rdf:value        "https://www.company-Y.com/employee/arthur/"^^xsd:string ;
+    rdfs:isDefinedBy company-Y: .
 
-<https://www.company-A.com/member/>
+<https://www.company-Y.com/member/>
     rdf:type         foaf:Agent ;
-    rdf:value        <https://www.company-A.com/employee/arthur/> ;
-    rdfs:isDefinedBy company-A: .
+    rdf:value        <https://www.company-Y.com/employee/arthur/> ;
+    rdfs:isDefinedBy company-Y: .
 
-## endregion company :: Company-A
+## endregion company :: Company-Y
 
 ## region company :: Company-B
 company-B:

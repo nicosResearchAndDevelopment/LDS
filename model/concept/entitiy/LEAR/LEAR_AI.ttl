@@ -9,30 +9,36 @@
 @prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 
-entity:LegalEntityAppointedRepresentative_AI
+entity:LEAR_AI
     a                owl:Class, skos:Concept ;
     ## TODO : SHACL
     rdfs:subClassOf  entity:LegalEntityAppointedRepresentative ;
     rdfs:subClassOf  entity:ArtificialIntelligence ;
-    skos:notation    "entity:LegalEntityAppointedRepresentative_AI"^^xsd:string ;
+    skos:notation    "entity:LEAR_AI"^^xsd:string ;
     skos:prefLabel   "Artificial Intelligence as Appointed Representative of Legal Entity"@en ;
     skos:prefLabel   "Künstliche Intelligenz als ernannter Repräsentant der legalen Entität"@de ;
     skos:broader     entity:LegalEntityAppointedRepresentative ;
     skos:broader     entity:ArtificialIntelligence ;
-    rdfs:comment     """Let us see, what **Legal Basis** it has ;-) ..."""@en ;
+    rdfs:comment     """Spoken: `Larry`."""@en ;
     rdfs:isDefinedBy lds: .
 
 lds:EntityConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_AI .
+    skos:member entity:LEAR_AI .
 
 lds:LegalConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_AI .
+    skos:member entity:LEAR_AI .
 
 lds:AppointmentConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_AI .
+    skos:member entity:LEAR_AI .
 
 lds:RepresentativeConcepts
-    skos:member entity:LegalEntityAppointedRepresentative_AI .
+    skos:member entity:LEAR_AI .
+
+lds:IntelligenceConcepts
+    skos:member entity:LEAR_AI .
+
+lds:ArtificialConcepts
+    skos:member entity:LEAR_AI .
 
 lds:AllConcepts
-    skos:member entity:LegalEntityRepresentative .
+    skos:member entity:LEAR_AI .

@@ -21,7 +21,7 @@
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 ## endregion upper concepts
 
-@prefix me:                <https:jottomat.solidweb.org/profile/card#me>.
+@prefix me:                <https://jottomat.solidweb.org/profile/card#me>.
 
 @prefix dspace:            <https://github.com/nicosResearchAndDevelopment/edc/model#> .
 
