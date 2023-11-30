@@ -13,10 +13,11 @@ entity:AppointedRepresentative
     ## TODO : SHACL
     rdfs:subClassOf  entity:Appointment ;
     rdfs:subClassOf  entity:Representative ;
-    rdfs:subClassOf  entity:Authorization ;     ## REM: !!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    rdfs:subClassOf  entity:LegalEntityAuthorization ;     ## REM: !!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     skos:notation    "entity:AppointedRepresentative"^^xsd:string ;
     skos:prefLabel   "Appointed Representative"@en ;
     skos:prefLabel   "Ernannter Repräsentant"@de ;
+    skos:altLabel    "AR"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel AR"^^xsd:string'
     skos:broader     entity:Appointment ;
     skos:broader     entity:Representative ;
     rdfs:isDefinedBy lds: .
@@ -34,16 +35,16 @@ entity:appointedRepresentative
     rdfs:isDefinedBy   lds: .
 
 lds:EntityConcepts
-    skos:member entity:LegalEntityRepresentative .
+    skos:member entity:AppointedRepresentative .
 
 lds:LegalConcepts
-    skos:member entity:LegalEntityRepresentative .
+    skos:member entity:AppointedRepresentative .
 
-lds:AppointmentConcepts
-    skos:member entity:LegalEntityRepresentative .
+lds:AppointConcepts
+    skos:member entity:AppointedRepresentative .
 
 lds:RepresentativeConcepts
-    skos:member entity:LegalEntityRepresentative .
+    skos:member entity:AppointedRepresentative .
 
 lds:AllConcepts
-    skos:member entity:LegalEntityRepresentative .
+    skos:member entity:AppointedRepresentative .

@@ -20,16 +20,15 @@ entity:Entity
     skos:narrower    entity:Person ;
     rdfs:isDefinedBy lds: .
 
-entity:value
+entity:values
     a                rdf:Property ;
-    rdfs:label       "Value"@en ;
-    rdfs:label       "Wert"@de ;
-    skos:notation    "entity:value"^^xsd:string ;
-    skos:prefLabel   "value"^^xsd:string ;
+    rdfs:label       "Values"@en ;
+    rdfs:label       "Werte"@de ;
+    skos:notation    "entity:values"^^xsd:string ;
+    skos:prefLabel   "values"^^xsd:string ;
     skos:narrower    legal:legalBasis ;
     rdfs:domain      entity:Entity ;
     rdfs:range       rdfs:Resource ;
-    rdfs:comment     """."""@en ;
     rdfs:isDefinedBy lds: .
 
 lds:EntityConcepts

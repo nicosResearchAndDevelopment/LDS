@@ -10,12 +10,19 @@
 
 entity:Appointment ## REM: abstract
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  entity:Authorization ;
+    rdfs:subClassOf  entity:LegalEntityAuthorization ;
     skos:notation    "Appointment"^^xsd:string ;
     skos:prefLabel   "Appointment"@en ;
     skos:prefLabel   "Ernennung"@de ;
+    skos:altLabel    "AP"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel AP"^^xsd:string'
     skos:broader     lds:Appointment ;
     rdfs:isDefinedBy lds: .
+
+lds:AppointConcepts
+    skos:member entity:Appointment .
+
+lds:AuthorizationConcepts
+    skos:member entity:Appointment .
 
 lds:AllConcepts
     skos:member entity:Appointment .

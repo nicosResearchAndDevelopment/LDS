@@ -8,11 +8,19 @@
 
 lds:Actor
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds:Entity ;
+    rdfs:subClassOf  lds:Agent ;
     skos:notation    "Actor"^^xsd:string ;
     skos:prefLabel   "Actor"@en ;
     skos:prefLabel   "Aktor"@de ;
+    skos:broader     lds:Agent ;
+    rdfs:comment     """Acting `lds:Agent`, *doing* something."""@en ;
     rdfs:isDefinedBy lds: .
+
+lds:ActorConcepts
+    skos:member lds:Actor .
+
+lds:AgentConcepts
+    skos:member lds:Actor .
 
 lds:AllConcepts
     skos:member lds:Actor .

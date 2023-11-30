@@ -27,7 +27,7 @@ lds:EntityConcepts
 lds:LegalConcepts
     skos:member entity:LEAR_NP .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     skos:member entity:LEAR_NP .
 
 lds:RepresentativeConcepts

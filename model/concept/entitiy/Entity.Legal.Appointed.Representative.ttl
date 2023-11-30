@@ -16,6 +16,7 @@ entity:LegalEntityAppointedRepresentative
     skos:notation    "entity:LegalEntityAppointedRepresentative"^^xsd:string ;
     skos:prefLabel   "Legal Entity Appointed Representative"@en ;
     skos:prefLabel   "Ernannter Repräsentant der legalen Entität"@de ;
+    skos:altLabel    "LEAR"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "LEAR"^^xsd:string'
     skos:broader     legal:Legal ;
     skos:broader     entity:LegalEntity ;
     skos:broader     entity:AppointedRepresentative ;
@@ -25,7 +26,7 @@ entity:LegalEntityAppointedRepresentative
     rdfs:isDefinedBy lds: .
 
 entity:legalEntityAppointedRepresentative
-    a                owl:ObjectProperty  ;
+    a                owl:ObjectProperty ;
     skos:notation    "entity:legalEntityAppointedRepresentative"^^xsd:string ;
     skos:prefLabel   "Appointed Representatives"^^xsd:string ;
     rdfs:label       "Appointed  Representatives"@en ;
@@ -41,7 +42,7 @@ lds:EntityConcepts
 lds:LegalConcepts
     skos:member entity:LegalEntityRepresentative .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     skos:member entity:LegalEntityRepresentative .
 
 lds:RepresentativeConcepts
@@ -49,3 +50,5 @@ lds:RepresentativeConcepts
 
 lds:AllConcepts
     skos:member entity:LegalEntityRepresentative .
+
+###

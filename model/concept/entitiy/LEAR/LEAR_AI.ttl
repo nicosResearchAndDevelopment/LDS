@@ -28,7 +28,7 @@ lds:EntityConcepts
 lds:LegalConcepts
     skos:member entity:LEAR_AI .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     skos:member entity:LEAR_AI .
 
 lds:RepresentativeConcepts

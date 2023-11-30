@@ -6,19 +6,27 @@
 @prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 
-entity:Organisation
+entity:LegalEntityAuthorization ## abstract
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  entity:LegalEntity ;
-    skos:notation    "entity:Organisation"^^xsd:string ;
-    skos:prefLabel   "Organisation"@en ;
-    skos:prefLabel   "Organisation"@de ;
-    skos:broader     entity:LegalEntity ;
+    ## TODO : SHACL
+    rdfs:subClassOf  entity:Authorization ;
+    skos:notation    "entity:LegalEntityAuthorization"^^xsd:string ;
+    skos:prefLabel   "Legal Entity Authorization"@en ;
+    skos:prefLabel   "Autorisierung der legalen Entität"@de ; ;
+    skos:broader     entity:Authorization ;
     rdfs:isDefinedBy lds: .
 
 lds:EntityConcepts
-    skos:member entity:Organisation .
+    skos:member entity:LegalEntityAuthorization .
+
+lds:LegalConcepts
+    skos:member entity:LegalEntityAuthorization .
+
+lds:AuthorizationConcepts
+    skos:member entity:LegalEntityAuthorization .
 
 lds:AllConcepts
-    skos:member entity:Organisation .
+    skos:member entity:LegalEntityAuthorization .

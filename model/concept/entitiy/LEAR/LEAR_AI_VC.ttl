@@ -1,18 +1,20 @@
-@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
-@prefix owl:               <http://www.w3.org/2002/07/owl#> .
-@prefix prov:              <http://www.w3.org/ns/prov#> .
-@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+@prefix cred:                  <https://w3.org/2018/credentials#> .
+@prefix lds:                   <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                   <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                  <http://www.w3.org/ns/prov#> .
+@prefix rdf:                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                  <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
-@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
+@prefix legal:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/legal/> .
+@prefix entity:                <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 
 entity:LEAR_AI_VC
     a                owl:Class, skos:Concept ;
     ## TODO : SHACL
     rdfs:subClassOf  entity:LEAR_AI ;
+    rdfs:subClassOf  cred:VerifiableCredential ;
     skos:notation    "entity:LEAR_AI_VC"^^xsd:string ;
     skos:prefLabel   "Verifiable Credential, Artificial Intelligence as Appointed Representative of Legal Entity"@en ;
     skos:prefLabel   "Verifiable Credential, Künstliche Intelligenz als ernannter Repräsentant der legalen Entität"@de ;
@@ -25,7 +27,7 @@ lds:EntityConcepts
 lds:LegalConcepts
     skos:member entity:LEAR_AI_VC .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     skos:member entity:LEAR_AI_VC .
 
 lds:RepresentativeConcepts

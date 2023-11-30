@@ -12,10 +12,12 @@
 entity:ServiceInstance
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  entity:Entity ;
+    rdfs:subClassOf  entity:Actor ;
     rdfs:subClassOf  service:ServiceInstance ;
     skos:notation    "entity:ServiceInstance"^^xsd:string ;
     skos:prefLabel   "Service Instance"@en ;
     skos:prefLabel   "Serviceinstanz"@de ;
+    skos:altLabel    "SI"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "SI"^^xsd:string'
     skos:broader     service:ServiceInstance ;
     rdfs:isDefinedBy lds: .
 
@@ -27,3 +29,5 @@ lds:InstanceConcepts
 
 lds:AllConcepts
     skos:member entity:ServiceInstance .
+
+###

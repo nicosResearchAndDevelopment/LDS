@@ -8,9 +8,6 @@
 | `legal:Legal`   | `entity:Entity`     |                                             | `entity:Representative`        | **entity:LegalEntityRepresentative**                      | **LER**                |
 |                 |                     | `entity:Appointment`                        | `entity:Representative`        | **entity:AppointedRepresentative**                        |                        |
 | `legal:Legal`   | `entity:Entity`     | `entity:Appointment`                        | `entity:Representative`        | **entity:LegalEntityAppointedAppointedRepresentative**    | **LEAR**, (abstract)   |
-| (`legal:Legal`) | (`entity:Entity`)   | `entity:LegalEntityAppointedRepresentative` | `entity:NaturalPerson`         | **entity:LegalEntityAppointedAppointedRepresentative_NP** | **LEAR_NP**, "*Lenny*" |
-| (`legal:Legal`) | (`entity:Entity`)   | `entity:LegalEntityAppointedRepresentative` | `entity:ServiceInstance`       | **entity:LegalEntityAppointedAppointedRepresentative_SI** | **LEAR_SI**, "*Lissy*" |
-| (`legal:Legal`) | (`entity:Entity`)   | `entity:LegalEntityAppointedRepresentative` | `entity:ArtificialIntelligenz` | **entity:LegalEntityAppointedAppointedRepresentative_AI** | **LEAR_AI**, "*Larry*" |
 
 *Table: Construction of Entity Classes*.
 
@@ -20,26 +17,32 @@
 
 Even some of those are **NOT** abstract classes, they have a more or less *conceptional* spin.
 
-| Subject (Class)                               | Property                                    | Range                                       | Comment                                                        |
-|-----------------------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------------------------------|
-| **legal:Legal**                               |                                             |                                             |                                                                |
-|                                               | `legal:legalBasis`                          | *undefined*                                 | Range ILO (intentionally left open)                            |
-| **entity:LegalEntity**                        |                                             |                                             | **LE**                                                         |
-|                                               | `legal:legalBasis`                          | *undefined*                                 | Range ILO (intentionally left open)                            |
-|                                               | `entity:legalEntityIdentifier`              | *undefined*                                 | Range ILO (intentionally left open)                            |
-|                                               | `entity:legalRepresentative`                | `entity:LegalEntityRepresentative`          | All *Representatives* (Natural Person) of given *Legal Entity* |
-|                                               | `entity:legalEntityAppointedRepresentative` | `entity:LegalEntityAppointedRepresentative` | All *Appointed Representatives* of given *Legal Entity*        |
-| **entity:Representative**                     |                                             |                                             |                                                                |
-|                                               | `entity:actOnBehalf`                        | *undefined*                                 | Range ILO (intentionally left open)                            |
-| **entity:LegalEntityRepresentative**          |                                             |                                             | **LER**                                                        |
-|                                               | `entity:actOnBehalf`                        | `entity:LegalEntity`                        |                                                                |
-| **entity:Appointment**                        |                                             |                                             | Subclass of: `entity:Authorization`, `                         |
-|                                               | `purpose:target`                            | *undefined*                                 | Range ILO (intentionally left open by `purpose:`)              |
-|                                               | `purpose:purpose`                           | *undefined*                                 | Range ILO (intentionally left open by `purpose:`)              |
-| **entity:AppointedRepresentative**            |                                             |                                             |                                                                |
-|                                               | `entity:actOnBehalf`                        | `entity:Entity`                             |                                                                |
-| **entity:LegalEntityAppointedRepresentative** |                                             |                                             | **LEAR**, (**LEAR_NP**, **LEAR_SI**, **LEAR_AI**)              |
-|                                               | `entity:actOnBehalf`                        | `entity:LegalEntity`                        |                                                                |
+| Subject (Class)                               | Property                                    | Range                                       | Comment                                                 |
+|-----------------------------------------------|---------------------------------------------|---------------------------------------------|---------------------------------------------------------|
+| **legal:Legal**                               |                                             |                                             |                                                         |
+|                                               | `legal:legalBasis`                          | *undefined*                                 | Range ILO (intentionally left open)                     |
+| **entity:Actor**                              |                                             |                                             |                                                         |
+|                                               | `legal:actOnBehalf`                         | `entity:Entity`                             |                                                         |
+| **entity:Entity**                             |                                             |                                             |                                                         |
+|                                               | `entity:values`                             | rdfs:Resource                               | Range ILO (intentionally left open)                     |
+| **entity:LegalEntity**                        |                                             |                                             | **LE**                                                  |
+|                                               | `legal:legalBasis`                          | *undefined*                                 | Range ILO (intentionally left open)                     |
+|                                               | `entity:legalEntityIdentifier`              | *undefined*                                 | Range ILO (intentionally left open)                     |
+|                                               | `entity:legalRepresentative`                | `entity:LegalEntityRepresentative`          | All *Representatives* (Natural Person, **LER**)         |
+| **entity:LegalPerson**                        |                                             |                                             | Subclass of `entity:LegalEntity`, **LP**                |
+| **entity:Organization**                       |                                             |                                             | Subclass of `entity:LegalEntity`, **O**                 |
+|                                               | `entity:legalEntityAppointedRepresentative` | `entity:LegalEntityAppointedRepresentative` | All *Appointed Representatives* of given *Legal Entity* |
+| **entity:Representative**                     |                                             |                                             |                                                         |
+|                                               | `entity:represent`                          | `entity:Entity`                             |                                                         |
+| **entity:LegalEntityRepresentative**          |                                             |                                             | Super class of **LER**                                  |
+|                                               | `entity:represent`                          | `entity:(Legal)Entity`                      |                                                         |
+| **entity:Appointment**                        |                                             |                                             | Subclass of `entity:Authorization`                      |
+| TODO: move (Credential)                       | `purpose:target`                            | *undefined*                                 | Range ILO (intentionally left open by `purpose:`)       |
+| TODO: move (Credential)                       | `purpose:purpose`                           | *undefined*                                 | Range ILO (intentionally left open by `purpose:`)       |
+| **entity:AppointedRepresentative**            |                                             |                                             |                                                         |
+| TODO: move                                    | `entity:actOnBehalf`                        | `entity:Entity`                             |                                                         |
+| **entity:LegalEntityAppointedRepresentative** |                                             |                                             | super class of **LEAR_X**                               |
+| TODO: move                                    | `entity:actOnBehalf`                        | `entity:LegalEntity`                        |                                                         |
 
 *Table: Entity Classes, used Properties and Ranges*.
 
@@ -47,24 +50,28 @@ Even some of those are **NOT** abstract classes, they have a more or less *conce
 
 ## LEAR Credentials
 
-These Credentials, derived from `entity:LegalEntityAppointedRepresentative` are more or less ready to be used.
+These Credentials, derived from `entity:LegalEntityAppointedRepresentative` are more or less ready to be used -
+except: **entity:LER**.
+
+Keep it aligned to ["APRE's, Version 1.1](https://github.com/nicosResearchAndDevelopment/APRE/tree/main/v1) **entity:LEARCredential** is mentioned here, too (same as **entity:LEAR_NP_VC**).
 
 If we have a look at [Extending Actor Models in Data Spaces](#extending-actor-models-in-data-spaces) we will see, that
-it might be a good idea to keep an eye on *Service Instances*, too. To separate those from *Natural Persons* it seems **
-natural** to spend a more precise expression to solve the problems related to.
+it might be a good idea to keep an eye on *Service Instances* (**entity:LEAR_SI**), too. To separate those from *Natural Persons* it seems **natural** to spend a more precise expression to solve the problems related to.
 
-It might be spooky to see *Artificial Intelligence* here, but J. Langkau (editor, nicos AG), thinks it is a good idea
-doing so - we are prepared to handle this Problem before academic research comes to a conclusion ;-) ...
+It might be spooky to see *Artificial Intelligence* (**entity:LEAR_AI**) here, but J. Langkau (editor, nicos AG), thinks it is a good idea doing so - we are prepared to handle this problem before academic research comes to a conclusion ;-) ...
 
-| Subject (Class)                               | Comment                                                     | Example                 |
-|-----------------------------------------------|-------------------------------------------------------------|-------------------------|
-| **entity:LegalEntityAppointedRepresentative** | Base Class                                                  |                         |
-| **entity:LEAR_NP**                            | LEAR *Natural Person*, `Lenny`                              |                         |
-| **entity:LEAR_NP_VC**                         | LEAR *Natural Person* as *Verifiable Credential*            | [](./LEAR/example/.ttl) |
-| **entity:LEAR_SI**                            | LEAR *Service Instance*, `Lissy`                            |                         |
-| **entity:LEAR_SI_VC**                         | LEAR *Service Instance* as *Verifiable Credential*          |                         |
-| **entity:LEAR_AI**                            | LEAR *Artificial Intelligence*, `Larry`                     |                         |
-| **entity:LEAR_AI_VC**                         | LEAR *Artificial Intelligence* as *Verifiable Credential*   |                         |
+| Subject (Class)                               | Property              | Subject                    | Comment                                                                               | Example                 |
+|-----------------------------------------------|-----------------------|----------------------------|---------------------------------------------------------------------------------------|-------------------------|
+| **entity:LER**                                |                       | Representative             | *Natural Person* of Legal Entity                                                      |                         |
+|                                               | `entity:actOnBehalf`  |                            |                                                                                       |                         |
+| **entity:LegalEntityAppointedRepresentative** |                       |                            | Super Class of **LEAR_X**                                                             |                         |
+| **entity:LEAR_NP**                            |                       | *Natural Person*           | LEAR *Natural Person*, `Lenny`                                                        |                         |
+| **entity:LEAR_NP_VC**                         |                       | *Natural Person*           | LEAR *Natural Person* as *Verifiable Credential*, same as: **entity:LEARCredential**  | [](./LEAR/example/.ttl) |
+| **entity:LEARCredential**                     |                       | *Natural Person*           | Same as: **entity:LEAR_NP_VC**                                                        | [](./LEAR/example/.ttl) |
+| **entity:LEAR_SI**                            |                       | *Service Instance*         | LEAR *Service Instance*, `Lissy`                                                      |                         |
+| **entity:LEAR_SI_VC**                         |                       | *Service Instance*         | LEAR *Service Instance* as *Verifiable Credential*                                    |                         |
+| **entity:LEAR_AI**                            |                       | *Artificial Intelligence*  | LEAR *Artificial Intelligence*, `Larry`                                               |                         |
+| **entity:LEAR_AI_VC**                         |                       | *Artificial Intelligence*  | LEAR *Artificial Intelligence* as *Verifiable Credential*                             |                         |
 
 *Table: LEAR Credentials*.
 
@@ -82,7 +89,7 @@ To bring the concepts (here: all those **LEAR_X**) to real-world ecosystems.
 
 ## LEAR Credentials with explicit Authorization
 
-Those examples introduce dedicated authorizations, e.g. to very special *purposes* 
+Those examples introduce dedicated authorizations, e.g. to very special *purposes*
 
 | Subject (Class)                  | Comment                                                | Example                                 |
 |----------------------------------|--------------------------------------------------------|-----------------------------------------|

@@ -8,24 +8,29 @@
 
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 
-entity:NaturalPerson
+entity:Actor
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  entity:Person ;
-    rdfs:subClassOf  entity:Actor ;
-    skos:notation    "entity:NaturalPerson"^^xsd:string ;
-    skos:prefLabel   "Natural Person"@en ;
-    skos:prefLabel   "Natürliche Person"@de ;
-    skos:altLabel    "NP"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "NP"^^xsd:string'
-    skos:broader     entity:Person ;
+    rdfs:subClassOf  lds:Actor ;
+    rdfs:subClassOf  entity:Entity ;
+    skos:notation    "entity:Actor"^^xsd:string ;
+    skos:prefLabel   "Actor"@en ;
+    skos:prefLabel   "Aktor"@de ;
+    skos:broader     entity:Entity ;
     rdfs:isDefinedBy lds: .
 
-lds:PersonConcepts
-    skos:member entity:Person .
+## TODO: move :: entity:actOnBehalf
+entity:actOnBehalf
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf entity:appointedRepresentative ;
+    rdfs:domain        entity:Actor ;
+    rdfs:range         entity:Entity ; ## REM: so it can be `entity:LegalEntity`, too...
+    rdfs:isDefinedBy   lds: .
+
+lds:ActorConcepts
+    skos:member entity:Actor .
 
 lds:EntityConcepts
-    skos:member entity:Person .
+    skos:member entity:Actor .
 
 lds:AllConcepts
-    skos:member entity:Person .
-
-###
+    skos:member entity:Actor .

@@ -15,15 +15,16 @@ entity:Authorization
     skos:notation    "entity:Authorization"^^xsd:string ;
     skos:prefLabel   "Authorization"@en ;
     skos:prefLabel   "Authorization"@de ;
+    skos:altLabel    "AT"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel AT"^^xsd:string'
     skos:broader     lds:Authorization ;
     skos:narrower    entity:Appointment ;
     rdfs:isDefinedBy lds: .
 
-purpose:purpose
-    rdfs:domain entity:Authorization .
-
-purpose:target
-    rdfs:domain entity:Authorization .
+#purpose:purpose
+#    rdfs:domain entity:Authorization .
+#
+#purpose:target
+#    rdfs:domain entity:Authorization .
 
 lds:AuthorizationConcepts
     skos:member entity:Authorization .

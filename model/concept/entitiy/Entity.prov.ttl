@@ -12,9 +12,14 @@ entity:Entity
 entity:NaturalPerson
     rdfs:subClassOf prov:Person .
 
+entity:LegalPerson
+    rdfs:subClassOf prov:Person .
+
 entity:Organisation
     rdfs:subClassOf prov:Organization .
 
 entity:ServiceInstance
     rdfs:subClassOf prov:SoftwareAgent .
 
+entity:ArtificialIntelligence
+    rdfs:subClassOf prov:SoftwareAgent .

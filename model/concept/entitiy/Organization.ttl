@@ -8,24 +8,25 @@
 
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/entity/> .
 
-entity:NaturalPerson
+entity:Organization
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  entity:Person ;
-    rdfs:subClassOf  entity:Actor ;
-    skos:notation    "entity:NaturalPerson"^^xsd:string ;
-    skos:prefLabel   "Natural Person"@en ;
-    skos:prefLabel   "Natürliche Person"@de ;
-    skos:altLabel    "NP"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "NP"^^xsd:string'
-    skos:broader     entity:Person ;
+    rdfs:subClassOf  lds:Organization ;
+    rdfs:subClassOf  entity:LegalEntity ;
+    skos:notation    "entity:Organization"^^xsd:string ;
+    skos:prefLabel   "Organization"@en ;
+    skos:prefLabel   "Organisation"@de ;
+    skos:altLabel    "O"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel O"^^xsd:string'
+    skos:broader     lds:Organization ;
+    skos:broader     entity:LegalEntity ;
     rdfs:isDefinedBy lds: .
 
-lds:PersonConcepts
-    skos:member entity:Person .
-
 lds:EntityConcepts
-    skos:member entity:Person .
+    skos:member entity:Organization .
+
+lds:LegalConcepts
+    skos:member entity:Organization .
 
 lds:AllConcepts
-    skos:member entity:Person .
+    skos:member entity:Organization .
 
-###
+##

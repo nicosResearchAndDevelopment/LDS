@@ -17,14 +17,14 @@
 <https://www.company-Y.com/lear/vc/np-99-99-98>
     a                  foaf:Person ;
     foaf:firstName     "Bob"^^xsd:string ;
-    entity:actOnBehalf "https://www.company-Y.com/"^^xsd:string ;
+    entity:actOnBehalf "https://www.company-Y.com/"^^xsd:string ;       ## REM: from `entity:Actor`
     ## REM: `lds:validFrom` :: moves to `cred:issuanceDate`
     ## REM: `lds:validTo`   :: moves to `cred:expirationDate`
     rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an **Appointed Representative**) on behalf of *Company-Y*."""@en ;
     rdfs:isDefinedBy   company-Y: .
 
 <https://www.company-Y.com/vc/vc-88-99-98>
-    a                      entity:LEAR_NP_VC ;
+    a                      entity:LEAR_NP_VC ;                          ## REM: `cred:VerifiableCredential`
     ## REM: `cred:issuanceDate` / `cred:expirationDate` :: from`lds:validFrom` and `lds:validTo`
     cred:issuanceDate      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
     cred:expirationDate    "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
@@ -32,3 +32,5 @@
     rdfs:isDefinedBy       company-Y: .
 
 ##```
+
+###

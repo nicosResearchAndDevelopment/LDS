@@ -47,7 +47,7 @@ lds:NaturalConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
@@ -99,8 +99,6 @@ lds:PresentationConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
-## region Process
-
 lds:WorkConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
@@ -109,5 +107,16 @@ lds:ProcessConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:AgentConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
 
-## endregion Process
+lds:ActorConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+lds:FrameConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
+###

@@ -13,12 +13,16 @@ entity:ArtificialIntelligence
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  entity:Entity ;
     rdfs:subClassOf  intelligence:ArtificialIntelligence ;
+    rdfs:subClassOf  entity:Actor ;
     skos:notation    "entity:ArtificialIntelligence"^^xsd:string ;
     skos:prefLabel   "Artificial Intelligence"@en ;
     skos:prefLabel   "Künstliche Intelligenz"@de ;
+    skos:altLabel    "AI"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel AI"^^xsd:string'
     skos:broader     entity:Entity ;
     skos:broader     intelligence:ArtificialIntelligence ;
     rdfs:isDefinedBy lds: .
 
 lds:AllConcepts
     skos:member entity:ArtificialIntelligence .
+
+###

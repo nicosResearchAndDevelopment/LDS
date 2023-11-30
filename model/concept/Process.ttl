@@ -46,4 +46,4 @@ lds:ProcessConcepts
     skos:member lds:Process .
 
 lds:AllConcepts
-    skos:member lds:Entity .
+    skos:member lds:Process .

@@ -1,3 +1,4 @@
+@prefix cred:                          <https://w3.org/2018/credentials#> .
 @prefix foaf:                          <http://xmlns.com/foaf/0.1/> .
 @prefix odrl:                          <http://www.w3.org/ns/odrl/2/> .
 @prefix org:                           <http://www.w3.org/ns/org#> .
@@ -29,6 +30,7 @@
 <https://www.company-Y.com/>
     a                                         foaf:Organization ;
     a                                         org:Organization ;
+    a                                         odrl:Party ;
     org:member                                <https://www.company-Y.com/#member> ;
     lds:employee                              Arthur: ;
     lds:employee                              Bob: ;
@@ -93,13 +95,13 @@ Jonny:
 
 ## region credential
 ## region credential :: Bob
-<https://www.company-Y.com/credential/bob-42-42-42-40>
-    a                            credential:Credential ;
-    a                            foaf:Person ;
-    credential:credentialSubject [ a              credential:Subject ;
-                                   foaf:firstName "Bob"^^xsd:string ; ## REM: from `foaf:Person`
-                                 ] ;
-    rdfs:isDefinedBy             company-Y: .
+<https://www.company-Y.com/credential/identifier/bob>
+    a                  credential:Credential ;
+    a                  foaf:Person ;
+    credential:subject [ a              credential:Subject ;
+                         foaf:firstName "Bob"^^xsd:string ; ## REM: from `foaf:Person`
+                       ] ;
+    rdfs:isDefinedBy   company-Y: .
 
 <https://www.company-Y.com/legal/representer/bob-42-42-42-41>
     a                  entity:LegalEntityAppointedRepresentative ;
@@ -108,44 +110,140 @@ Jonny:
     rdfs:isDefinedBy   company-Y: .
 
 <https://www.company-Y.com/legal/representer/credential/bob-42-42-42-42>
-    a                            credential:Credential ;
-    a                            foaf:Person ;
-    a                            entity:LegalEntityAppointedRepresentative ;
-    credential:credentialSubject [ a                  credential:Subject ;
-                                   foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
-                                   entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
-                                 ] ;
-    rdfs:isDefinedBy             company-Y: .
+    a                  credential:Credential ;
+    a                  foaf:Person ;
+    a                  entity:Actor ;
+    a                  entity:LegalEntityAppointedRepresentative ;
+    credential:subject [ a                  credential:Subject ;
+                         foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+                         entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+                       ] ;
+    rdfs:isDefinedBy   company-Y: .
 
-company-Y:AuthorizationByPurpose
+company-Y:PurposeAuthorization
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  authorization:Authorization ;
-    skos:broader     authorization:Authorization ;
+    rdfs:subClassOf  purpose:Purpose ;
     rdfs:isDefinedBy company-Y: .
 
-purpose:target
-    rdfs:domain      company-Y:AuthorizationByPurpose ;
-    rdfs:isDefinedBy company-Y: .
-
-purpose:purpose
-    rdfs:domain      company-Y:AuthorizationByPurpose ;
-    rdfs:isDefinedBy company-Y: .
+## REM: this is **NOT** an extension to Bob (as employee)...
+<https://www.company-Y.com/credential/identifier/bob>
+    foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+    entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    purpose:target     "https://www.company-B.com/"^^xsd:string ;
+    purpose:purpose    "https://www.company-B.com/purpose/onboarding/"^^xsd:string ;
+    rdfs:isDefinedBy   company-Y: .
 
 <https://www.company-Y.com/legal/representer/credential/bob-42-42-42-43>
-    a                            credential:Credential ;
-    a                            foaf:Person ;
-    a                            entity:LegalEntityAppointedRepresentative ;
-    a                            company-Y:AuthorizationByPurpose ;
-    credential:validFrom         "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
-    credential:validTo           "2023-11-11T00:00:00Z"^^xsd:dateTimeStamp ;
-    credential:credentialSubject [ a                  credential:Subject ;
-                                   foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
-                                   entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
-                                   purpose:target     "https://www.company-B.com/"^^xsd:string ;
-                                   purpose:purpose    "https://www.company-B.com/purpose/onboaring/"^^xsd:string ; ] ;
-    rdfs:isDefinedBy             company-Y: .
+    a                    credential:Subject ;
+    a                    foaf:Person ;
+    a                    entity:LEAR_NP ; ## REM: `entity:LegalPerson`
+    a                    company-Y:PurposeAuthorization ;
+    credential:validFrom "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
+    credential:validTo   "2023-11-11T00:00:00Z"^^xsd:dateTimeStamp ;
+    credential:subject   <https://www.company-Y.com/credential/identifier/bob> ;
+    rdfs:isDefinedBy     company-Y: .
+
+## REM: >>> Verifiable ID <<< this is **NOT** an extension to Bob (as employee)...
+<https://www.company-Y.com/verifiable/credential/identifier/bob>
+    foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+    entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    rdfs:isDefinedBy   company-Y: .
+
+## REM: as (cred) Verifiable Credential
+<https://www.company-Y.com/legal/representer/verifiable/credential/bob-42-42-42-44>
+    a                      foaf:Person ;
+    a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
+    cred:issuer            "https://www.company-Y.com/"^^xsd:anyURI ;
+    cred:issuanceDate      "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
+    cred:validFrom         "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
+    cred:validTo           "2023-11-11T00:00:00Z"^^xsd:dateTimeStamp ;
+    cred:credentialSubject <https://www.company-Y.com/credential/identifier/bob> ;
+    rdfs:isDefinedBy       company-Y: .
+
+
+#############################################################################################
+## REM: DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE
+## REM: FASTEN SEAT BELTS - FASTEN SEAT BELTS - FASTEN SEAT BELTS - FASTEN SEAT BELTS
+## REM: DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE
+#############################################################################################
+
+## REM: Purpose in Authorization
+
+## REM: >>> Purpose <<< this is **NOT** an extension to Bob (as employee)...
+<https://www.company-Y.com/verifiable/credential/identifier/bob>
+    foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+    entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    purpose:target     "https://www.company-B.com/"^^xsd:string ;
+    purpose:purpose    "https://www.company-B.com/purpose/onboarding/"^^xsd:string ;
+    rdfs:isDefinedBy   company-Y: .
+
+## REM: as LEAR_NP_VC, (cred) Verifiable Credential with Purpose in Authorization only
+<https://www.company-Y.com/legal/representer/verifiable/purpose/credential/bob-42-42-42-45>
+    a                      foaf:Person ;
+    a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
+    a                      company-Y:PurposeAuthorization ;
+    cred:issuer            "https://www.company-Y.com/"^^xsd:anyURI ;
+    cred:issuanceDate      "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validFrom         "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validTo           "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: works for half an hour...
+    cred:credentialSubject <https://www.company-Y.com/credential/identifier/bob> ;
+    rdfs:isDefinedBy       company-Y: .
+
+## REM: Purpose in Authorization **AND** as Verifiable Credential
+<https://www.company-Y.com/>
+    a                odrl:Party ;
+    rdfs:isDefinedBy company-Y: .
+
+company-Y:PurposeAuthorization
+    ## REM: at this point it is already a sub class of `purpose:Purpose`
+    ## TODO: put it to ODRL Profile
+    rdfs:subClassOf  odrl:Assertion ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/verifiable/credential/identifier/bob>
+    foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+    ## REM: `entity:actOnBehalf`:: Actor Authorization
+    entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    ## REM: `purpose:target`, `purpose:purpose`:: Purpose Authorization
+    purpose:target     "https://www.company-B.com/"^^xsd:string ;
+    purpose:purpose    "https://www.company-B.com/purpose/onboarding/"^^xsd:string ;
+    ## REM: and here: an alternative...
+    ## region odrl
+    ## REM: Bob is an Instance of `company-Y:PurposeAuthorization` and it is a sub class of `odrl:Assertion`
+    odrl:permission    [ a               odrl:Permission ;
+                         odrl:assigner   <https://www.company-Y.com/> ; ## REM: it is an `odrl:Party`
+                         odrl:target     <https://www.company-B.com/> ; ## REM: it is an `odrl:Asset`
+                         odrl:assignee   <https://www.company-Y.com/verifiable/credential/identifier/bob> ; ## REM: Bob is an Instance of `odrl:Party`
+                         odrl:constraint [ a                 odrl:Constraint ;
+                                           odrl:leftOperand  odrl:dateTime ;
+                                           odrl:operator     odrl:gteq ;
+                                           odrl:rightOperand "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ; ## REM: from `cred:validFrom`
+                                           odrl:dataType     xsd:dateTimeStamp ; ] ;
+                         odrl:constraint [ a                 odrl:Constraint ;
+                                           odrl:leftOperand  odrl:dateTime ;
+                                           odrl:operator     odrl:lt ;
+                                           odrl:rightOperand "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: from `cred:validTo`
+                                           odrl:dataType     xsd:dateTimeStamp ; ] ;
+                         odrl:action     [ a         odrl:Action ;
+                                           rdf:value "https://www.company-B.com/purpose/onboarding/"^^xsd:string ; ## REM: a class, too - anyway: "This is the Way"!
+                                         ] ;
+                         odrl:duty       [ ] ; ] ;
+    ## endregion odrl
+    rdfs:isDefinedBy   company-Y: .
+
+<https://www.company-Y.com/legal/representer/verifiable/purpose/credential/bob-42-42-42-46-666>
+    a                      foaf:Person ;
+    a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
+    a                      company-Y:PurposeAuthorization ; ## REM: THIS IS an `odrl:Assertion`!!!!!!!   <<<<<<<<
+    a                      odrl:Party ; ## REM: making Bob (`odrl:assignee`) a Party (in `cred:credentialSubject`)
+    cred:issuer            "https://www.company-Y.com/"^^xsd:anyURI ;
+    cred:issuanceDate      "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validFrom         "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validTo           "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: works for half an hour...
+    cred:credentialSubject <https://www.company-Y.com/credential/identifier/bob> ;
+    rdfs:isDefinedBy       company-Y: .
 
 ## endregion credential :: Bob
 ## endregion credential
 
-##
+###

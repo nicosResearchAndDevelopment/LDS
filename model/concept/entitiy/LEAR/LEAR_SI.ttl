@@ -27,7 +27,7 @@ lds:EntityConcepts
 lds:LegalConcepts
     skos:member entity:LEAR_SI .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     skos:member entity:LEAR_SI .
 
 lds:RepresentativeConcepts
@@ -42,4 +42,4 @@ lds:InstanceConcepts
 lds:AllConcepts
     skos:member entity:LEAR_SI .
 
-##
+###

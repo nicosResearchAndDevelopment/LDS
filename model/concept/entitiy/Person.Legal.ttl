@@ -16,6 +16,7 @@ entity:LegalPerson
     skos:notation    "entity:LegalPerson"^^xsd:string ;
     skos:prefLabel   "Legal Person"@en ;
     skos:prefLabel   "Legale Person"@de ;
+    skos:altLabel    "LP"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "LP"^^xsd:string'
     skos:broader     legal:Legal ;
     skos:broader     entity:Person ;
     skos:broader     entity:LegalEntity ;
@@ -32,3 +33,5 @@ lds:EntityConcepts
 
 lds:AllConcepts
     skos:member entity:LegalPerson .
+
+###

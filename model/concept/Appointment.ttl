@@ -14,7 +14,7 @@ lds:Appointment
     skos:prefLabel   "Ernennung"@de ;
     rdfs:isDefinedBy lds: .
 
-lds:AppointmentConcepts
+lds:AppointConcepts
     skos:member lds:Appointment .
 
 lds:AllConcepts

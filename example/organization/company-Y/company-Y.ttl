@@ -215,7 +215,7 @@ purposeMembership:jim_company-B_MAINTAINER_PRODUCT
     #                        time:inXSDDateTimeStamp "2023-11-19T00:00:00Z"^^xsd:dateTimeStamp ; ] ;
     purpose:purpose              "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
     purpose:target               "https://www.company-B.com/"^^xsd:anyURI ;
-    credential:credentialSubject [ a               credential:Subject ;
+    credential:subject [ a               credential:Subject ;
                                    foaf:firstName  "Bob"^^xsd:string ;
                                    purpose:purpose "https://www.company-P.de/usd/usp/purpose/OnBoarding"^^xsd:anyURI ;
                                    purpose:target  "https://www.company-B.com/"^^xsd:anyURI ; ] ;
