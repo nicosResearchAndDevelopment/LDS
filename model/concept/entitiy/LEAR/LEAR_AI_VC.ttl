@@ -41,3 +41,5 @@ lds:ArtificialConcepts
 
 lds:AllConcepts
     skos:member entity:LEAR_AI_VC .
+
+###

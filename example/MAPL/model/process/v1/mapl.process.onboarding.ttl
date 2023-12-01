@@ -44,7 +44,7 @@ mapl-process:OnboardingProfile
 
 @prefix prov:                     <http://www.w3.org/ns/prov#> .
 @prefix elsi:                     <https://hesusruiz.github.io/did-method-elsi/model/> .
-@prefix xeidas:                   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/x-eidas#> .
+@prefix x-eidas:                   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/x-eidas#> .
 
 <did:key:john>
     a                                  prov:Agent ;
@@ -55,7 +55,7 @@ mapl-process:OnboardingProfile
     <http://oid-info.com/get/2.5.4.42> "John"^^xsd:string ;
     foaf:mbox                          <mailto:john.doe@company-y.org> ;
     prov:actedOnBehalfOf               <did:elsi:VATDE-12345> ;                 ## REM: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    <http://oid-info.com/get/2.5.4.97> "VATDE-12345"^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+    <http://oid-info.com/get/2.5.4.97> "VATDE-12345"^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
     mapl:legalRepresentative           <did:elsi:VATDE-12345> ;
 .
 

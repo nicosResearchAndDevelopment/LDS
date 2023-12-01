@@ -8,8 +8,8 @@
 @prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix xISO-3166:  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xISO-3166/> .
-@prefix xISO-3166-1:<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/xISO-3166/1#> .
+@prefix x-ISO-3166:  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/x-ISO-3166/> .
+@prefix x-ISO-3166-1:<https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/x-ISO-3166/1#> .
 @prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
 
 country:DE
@@ -20,7 +20,7 @@ country:DE
     skos:prefLabel   "Bundesrepublik Deutschland"@de ;
     skos:prefLabel   "Federal Republic of Germany"@en ;
     skos:notation    "country:DE"^^xsd:string ;
-    xISO-3166:entry  xISO-3166-1:DE ;
+    x-ISO-3166:entry  x-ISO-3166-1:DE ;
     rdfs:seeAlso     <https://de.wikipedia.org/wiki/Deutschland> ;
     rdfs:seeAlso     <https://en.wikipedia.org/wiki/Germany> ;
     rdfs:isDefinedBy lds: .

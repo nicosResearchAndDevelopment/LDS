@@ -11,7 +11,7 @@
 trust:TrustFramework
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  lds:Trust ;
-    rdfs:subClassOf  lds:Frame ;
+    rdfs:subClassOf  lds:Framework ;
     skos:notation    "trust:TrustFramework"^^xsd:string ;
     skos:prefLabel   "TrustFramework"@en ;
     ## TODO: TBC: skos:prefLabel   "Rahmenkonzept"@de ;
@@ -28,6 +28,12 @@ trust:trustFramework
     rdfs:isDefinedBy lds: .
 
 lds:TrustConcepts
+    skos:member trust:TrustFramework .
+
+lds:FrameConcepts
+    skos:member trust:TrustFramework .
+
+lds:FrameworkConcepts
     skos:member trust:TrustFramework .
 
 lds:FrameConcepts

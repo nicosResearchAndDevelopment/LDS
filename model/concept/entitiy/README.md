@@ -53,12 +53,18 @@ Even some of those are **NOT** abstract classes, they have a more or less *conce
 These Credentials, derived from `entity:LegalEntityAppointedRepresentative` are more or less ready to be used -
 except: **entity:LER**.
 
-Keep it aligned to ["APRE's, Version 1.1](https://github.com/nicosResearchAndDevelopment/APRE/tree/main/v1) **entity:LEARCredential** is mentioned here, too (same as **entity:LEAR_NP_VC**).
+Keep it aligned to ["APRE's, Version 1.1](https://github.com/nicosResearchAndDevelopment/APRE/tree/main/v1) **entity:
+LEARCredential** is mentioned here, too (same as **entity:LEAR_NP_VC**).
 
 If we have a look at [Extending Actor Models in Data Spaces](#extending-actor-models-in-data-spaces) we will see, that
-it might be a good idea to keep an eye on *Service Instances* (**entity:LEAR_SI**), too. To separate those from *Natural Persons* it seems **natural** to spend a more precise expression to solve the problems related to.
+it might be a good idea to keep an eye on *Service Instances* (**entity:LEAR_SI**), too. To separate those from *Natural
+Persons* it seems **natural** to spend a more precise expression to solve the problems related to.
 
-It might be spooky to see *Artificial Intelligence* (**entity:LEAR_AI**) here, but J. Langkau (editor, nicos AG), thinks it is a good idea doing so - we are prepared to handle this problem before academic research comes to a conclusion ;-) ...
+It might be spooky to see *Artificial Intelligence* (**entity:LEAR_AI**) here, but J. Langkau (editor, nicos AG), thinks
+it is a good idea doing so - we are prepared to handle this problem before academic research comes to a conclusion ;-)
+...
+
+## LEAR Credentials
 
 | Subject (Class)                               | Property              | Subject                    | Comment                                                                               | Example                 |
 |-----------------------------------------------|-----------------------|----------------------------|---------------------------------------------------------------------------------------|-------------------------|
@@ -96,6 +102,18 @@ Those examples introduce dedicated authorizations, e.g. to very special *purpose
 | **entity:LEAR_NP_VC_authorized** | Authorized *Natural Person* as *Verifiable Credential* | [](./LEAR/example/.ttl) |
 
 *Table: LEAR Credentials with explicit Authorization*.
+
+---
+
+## Epilogue
+
+### Purpose
+
+- **LDS** Examples
+- **DPV**
+- **USD**
+
+### Polish
 
 ---
 

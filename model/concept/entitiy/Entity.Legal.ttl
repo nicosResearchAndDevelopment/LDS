@@ -53,3 +53,5 @@ lds:LegalConcepts
 
 lds:AllConcepts
     skos:member entity:LegalEntity .
+
+###

@@ -119,4 +119,8 @@ lds:FrameConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:FrameworkConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 ###

@@ -10,11 +10,13 @@
 
 lds:Verifiable
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds:Party  ;
+    ## TODO: TBC: not this way (used by something?!?) :: rdfs:subClassOf  lds:Party  ;
     skos:notation    "Verifiable"^^xsd:string ;
     skos:prefLabel   "Verifiable"@en ;
     skos:prefLabel   "Verifizierbar"@de ;
     rdfs:isDefinedBy lds: .
 
 lds:AllConcepts
-    skos:member lds:Verifizierbar .
+    skos:member lds:Verifiable .
+
+###

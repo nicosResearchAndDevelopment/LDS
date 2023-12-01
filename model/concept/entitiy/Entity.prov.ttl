@@ -23,3 +23,5 @@ entity:ServiceInstance
 
 entity:ArtificialIntelligence
     rdfs:subClassOf prov:SoftwareAgent .
+
+###

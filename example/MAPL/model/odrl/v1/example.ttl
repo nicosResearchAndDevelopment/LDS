@@ -12,7 +12,7 @@
 @prefix cred:                      <https://www.w3.org/2018/credentials#> .
 
 @prefix elsi:                      <http://localhost:8080/elsi/model/> .
-@prefix xeidas:                    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/x-eidas#> .
+@prefix x-eidas:                    <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/x-eidas#> .
 
 @prefix mapl:                      <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/> .
 @prefix vocab:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/MAPL/model/odrl/v1> .
@@ -56,12 +56,12 @@
                                                              odrl:leftOperand vocab:cs_LegalPersonIdentifier ;
                                                              odrl:operator    elsi:conformsTo ;
                                                              odrl:rightOperand
-                                                                              ""^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ; ]
+                                                                              ""^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ; ]
                                                            [ a                odrl:Constraint ;
                                                              odrl:leftOperand vocab:cs_LegalPersonIdentifier ;
                                                              odrl:operator    odrl:eq ;
                                                              odrl:rightOperand
-                                                                              "VATDE-coY"^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ; ]
+                                                                              "VATDE-coY"^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ; ]
                                                            [ a                 odrl:Constraint ;
                                                              odrl:leftOperand  vocab:cs_role ;
                                                              odrl:operator     odrl:isAnyOf ;

@@ -78,7 +78,7 @@ lds:AllConcepts
 #@prefix ex:         <https://www.example.org/> .
 #@prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
 #@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
-#@prefix xeidas:     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
+#@prefix x-eidas:     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
 #@prefix xetsi-esi:  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-etsi#> .
 #@prefix x-psd2:     <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32015L2366/lds-extension/> .
 #
@@ -91,14 +91,14 @@ lds:AllConcepts
 #         identifier:path     odrl:uid ;
 #         identifier:datatype xsd:string ;
 #         identifier:value    "https://www.example.org/"^^xsd:anyURI ; ] ; ] ;
-#    ## REM: 'xeidas:LegalPersonIdentifier' to 'ex:Credential'
+#    ## REM: 'x-eidas:LegalPersonIdentifier' to 'ex:Credential'
 #    identifier:identifier [ a           identifier:Identifier ;
 #      identifier:targetClass ex:Credential ;
 #      identifier:property    [ a        identifier:PropertyShape ;
-#         identifier:path     xeidas:LegalPersonIdentifier ;
-#         identifier:datatype xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+#         identifier:path     x-eidas:LegalPersonIdentifier ;
+#         identifier:datatype x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
 #         identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ; ] ;
-#    ## REM: 'xeidas:LegalPersonIdentifier' to 'ex:Credential'
+#    ## REM: 'x-eidas:LegalPersonIdentifier' to 'ex:Credential'
 #    ## REM: this LegalEntity seems to be an National Banking Authority (NCA, under PSD)
 #    identifier:identifier [ a           identifier:Identifier ;
 #      identifier:targetClass x-psd2:NCA ;

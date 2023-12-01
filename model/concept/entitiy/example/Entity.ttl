@@ -15,6 +15,8 @@
 @prefix credential:                    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/credential/> .
 @prefix authorization:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/authorization/> .
 
+@prefix x-eidas:                       <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
+
 @prefix company-Y:                     <https://www.company-Y.com/> .
 @prefix Arthur:                        <https://www.company-Y.com/employee/arthur/> .
 @prefix Bob:                           <https://www.company-Y.com/employee/bob/> .
@@ -94,8 +96,10 @@ Jonny:
 ## endregion company
 
 ## region credential
+
 ## region credential :: Bob
-<https://www.company-Y.com/credential/identifier/bob>
+
+<https://www.company-Y.com/credential/identifier/bob>           ## REM: Bob REBOOTED CREDENTIAL
     a                  credential:Credential ;
     a                  foaf:Person ;
     credential:subject [ a              credential:Subject ;
@@ -126,11 +130,11 @@ company-Y:PurposeAuthorization
     rdfs:isDefinedBy company-Y: .
 
 ## REM: this is **NOT** an extension to Bob (as employee)...
-<https://www.company-Y.com/credential/identifier/bob>
+<https://www.company-Y.com/credential/identifier/bob>       ## REM: Bob REBOOTED IDENTIFIER
     foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
     entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
     purpose:target     "https://www.company-B.com/"^^xsd:string ;
-    purpose:purpose    "https://www.company-B.com/purpose/onboarding/"^^xsd:string ;
+    purpose:purpose    <https://www.company-B.com/purpose/onboarding/> ;
     rdfs:isDefinedBy   company-Y: .
 
 <https://www.company-Y.com/legal/representer/credential/bob-42-42-42-43>
@@ -144,7 +148,7 @@ company-Y:PurposeAuthorization
     rdfs:isDefinedBy     company-Y: .
 
 ## REM: >>> Verifiable ID <<< this is **NOT** an extension to Bob (as employee)...
-<https://www.company-Y.com/verifiable/credential/identifier/bob>
+<https://www.company-Y.com/verifiable/identifier/bob/>            ## REM: Bob REBOOTED VERIFIABLE IDENTIFIER
     foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
     entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
     rdfs:isDefinedBy   company-Y: .
@@ -157,9 +161,10 @@ company-Y:PurposeAuthorization
     cred:issuanceDate      "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
     cred:validFrom         "2023-11-10T00:00:00Z"^^xsd:dateTimeStamp ;
     cred:validTo           "2023-11-11T00:00:00Z"^^xsd:dateTimeStamp ;
-    cred:credentialSubject <https://www.company-Y.com/credential/identifier/bob> ;
+    cred:credentialSubject <https://www.company-Y.com/verifiable/identifier/bob/> ;
     rdfs:isDefinedBy       company-Y: .
 
+## region DANGER ZONE
 
 #############################################################################################
 ## REM: DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE - DANGER ZONE
@@ -170,15 +175,15 @@ company-Y:PurposeAuthorization
 ## REM: Purpose in Authorization
 
 ## REM: >>> Purpose <<< this is **NOT** an extension to Bob (as employee)...
-<https://www.company-Y.com/verifiable/credential/identifier/bob>
+<https://www.company-Y.com/verifiable/identifier/bob/>            ## REM: Bob REBOOTED VERIFIABLE IDENTIFIER
     foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
     entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
     purpose:target     "https://www.company-B.com/"^^xsd:string ;
-    purpose:purpose    "https://www.company-B.com/purpose/onboarding/"^^xsd:string ;
+    purpose:purpose    <https://www.company-B.com/purpose/onboarding/> ;
     rdfs:isDefinedBy   company-Y: .
 
 ## REM: as LEAR_NP_VC, (cred) Verifiable Credential with Purpose in Authorization only
-<https://www.company-Y.com/legal/representer/verifiable/purpose/credential/bob-42-42-42-45>
+<https://www.company-Y.com/legal/representer/verifiable/credential/purpose/bob-42-42-42-45>
     a                      foaf:Person ;
     a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
     a                      company-Y:PurposeAuthorization ;
@@ -186,10 +191,17 @@ company-Y:PurposeAuthorization
     cred:issuanceDate      "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
     cred:validFrom         "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
     cred:validTo           "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: works for half an hour...
-    cred:credentialSubject <https://www.company-Y.com/credential/identifier/bob> ;
+    cred:credentialSubject <https://www.company-Y.com/verifiable/identifier/bob/> ;
     rdfs:isDefinedBy       company-Y: .
 
-## REM: Purpose in Authorization **AND** as Verifiable Credential
+## region credential :: Bob :: Verifiable Credential, `cred:credentialSubject` as `odrl:Assertion`
+
+## REM: Purpose as `odrl:Assertion`(Policy) in Authorization **AND** as Verifiable Credential
+
+<https://www.company-B.com/>
+    a                odrl:Asset ;
+    rdfs:isDefinedBy company-Y: .
+
 <https://www.company-Y.com/>
     a                odrl:Party ;
     rdfs:isDefinedBy company-Y: .
@@ -200,50 +212,251 @@ company-Y:PurposeAuthorization
     rdfs:subClassOf  odrl:Assertion ;
     rdfs:isDefinedBy company-Y: .
 
-<https://www.company-Y.com/verifiable/credential/identifier/bob>
-    foaf:firstName     "Bob"^^xsd:string ;  ## REM: from `foaf:Person`
+<https://www.company-Y.com/verifiable/identifier/bob/>            ## REM: Bob REBOOTED VERIFIABLE IDENTIFIER
+    a                  odrl:Policy ;    ## REM: because `company-Y:PurposeAuthorization` is an odrl:Assertion **not** needed here...
+    foaf:firstName     "Bob"^^xsd:string ;                    ## REM: from `foaf:Person`
     ## REM: `entity:actOnBehalf`:: Actor Authorization
-    entity:actOnBehalf company-Y: ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    entity:actOnBehalf <https://www.company-Y.com/> ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
     ## REM: `purpose:target`, `purpose:purpose`:: Purpose Authorization
-    purpose:target     "https://www.company-B.com/"^^xsd:string ;
-    purpose:purpose    "https://www.company-B.com/purpose/onboarding/"^^xsd:string ;
+    purpose:target     <https://www.company-B.com/> ;
+    purpose:purpose    <https://www.company-B.com/purpose/onboarding/> ;
     ## REM: and here: an alternative...
-    ## region odrl
+    ## region odrl :: Policy
     ## REM: Bob is an Instance of `company-Y:PurposeAuthorization` and it is a sub class of `odrl:Assertion`
     odrl:permission    [ a               odrl:Permission ;
-                         odrl:assigner   <https://www.company-Y.com/> ; ## REM: it is an `odrl:Party`
-                         odrl:target     <https://www.company-B.com/> ; ## REM: it is an `odrl:Asset`
-                         odrl:assignee   <https://www.company-Y.com/verifiable/credential/identifier/bob> ; ## REM: Bob is an Instance of `odrl:Party`
+                         odrl:assigner   <https://www.company-Y.com/> ; ## REM: it is an `odrl:Party`, same as `entity:actOnBehalf`
+                         odrl:target     <https://www.company-B.com/> ; ## REM: it is an `odrl:Asset`, same as `purpose:target`
+                         odrl:assignee   <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: Bob is an Instance of `odrl:Party`
                          odrl:constraint [ a                 odrl:Constraint ;
                                            odrl:leftOperand  odrl:dateTime ;
                                            odrl:operator     odrl:gteq ;
-                                           odrl:rightOperand "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ; ## REM: from `cred:validFrom`
+                                           odrl:rightOperand "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ; ## REM: same as `cred:validFrom`
                                            odrl:dataType     xsd:dateTimeStamp ; ] ;
                          odrl:constraint [ a                 odrl:Constraint ;
                                            odrl:leftOperand  odrl:dateTime ;
                                            odrl:operator     odrl:lt ;
-                                           odrl:rightOperand "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: from `cred:validTo`
+                                           odrl:rightOperand "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: same as `cred:validTo`
                                            odrl:dataType     xsd:dateTimeStamp ; ] ;
                          odrl:action     [ a         odrl:Action ;
-                                           rdf:value "https://www.company-B.com/purpose/onboarding/"^^xsd:string ; ## REM: a class, too - anyway: "This is the Way"!
+                                           rdf:value <https://www.company-B.com/purpose/onboarding/> ; ## REM: a class, too - anyway: "This is the Way"!
                                          ] ;
                          odrl:duty       [ ] ; ] ;
-    ## endregion odrl
+    ## endregion odrl :: Policy
     rdfs:isDefinedBy   company-Y: .
 
-<https://www.company-Y.com/legal/representer/verifiable/purpose/credential/bob-42-42-42-46-666>
+<https://www.company-Y.com/legal/representer/verifiable/credential/purpose/bob-42-42-42-46-666>
     a                      foaf:Person ;
     a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
     a                      company-Y:PurposeAuthorization ; ## REM: THIS IS an `odrl:Assertion`!!!!!!!   <<<<<<<<
-    a                      odrl:Party ; ## REM: making Bob (`odrl:assignee`) a Party (in `cred:credentialSubject`)
+    a                      odrl:Policy ; ## REM:
     cred:issuer            "https://www.company-Y.com/"^^xsd:anyURI ;
     cred:issuanceDate      "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
     cred:validFrom         "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
     cred:validTo           "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: works for half an hour...
-    cred:credentialSubject <https://www.company-Y.com/credential/identifier/bob> ;
+    cred:credentialSubject <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: ...as `odrl:Assertion`
     rdfs:isDefinedBy       company-Y: .
 
+## endregion credential :: Bob :: Verifiable Credential, `cred:credentialSubject` as `odrl:Assertion`
+
+## region credential :: Bob :: Verifiable Credential, `cred:credentialSubject` as `odrl:Assertion`, compact
+
+## REM: SECOND SERVICE
+## REM: Purpose as `odrl:Assertion`(Policy) in Authorization **AND** as Verifiable Credential
+
+<https://www.company-B.com/>
+    a                odrl:Asset ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/>
+    a                odrl:Party ;
+    rdfs:isDefinedBy company-Y: .
+
+company-Y:PurposeAuthorization
+    ## REM: at this point it is already a sub class of `purpose:Purpose`
+    ## TODO: put it to ODRL Profile
+    rdfs:subClassOf  odrl:Assertion ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/verifiable/identifier/bob/>
+    x-eidas:DateOfBirth "1998-11-11"^^xsd:date ;
+    rdfs:isDefinedBy    company-Y: .
+
+<https://www.company-Y.com/verifiable/identifier/bob/>            ## REM: Bob REBOOTED VERIFIABLE IDENTIFIER
+    a                   odrl:Policy ;    ## REM: because `company-Y:PurposeAuthorization` is an odrl:Assertion **not** needed here...
+    ## region `odrl:Party`
+    a                   odrl:Party ;
+    ## endregion `odrl:Party`
+    foaf:firstName      "Bob"^^xsd:string ;                    ## REM: from `foaf:Person`
+    x-eidas:DateOfBirth "1998-11-11"^^xsd:date ;
+    ## REM: `entity:actOnBehalf`:: Actor Authorization
+    entity:actOnBehalf  <https://www.company-Y.com/> ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    ## REM: `purpose:target`, `purpose:purpose`:: Purpose Authorization
+    purpose:target      <https://www.company-B.com/> ;
+    purpose:purpose     <https://www.company-B.com/purpose/onboarding/> ;
+    ## REM: and here: an alternative...
+    ## region odrl :: Policy
+
+    ## REM: compact Policy, those are targeted in given odrl-rules,,,
+    ## TODO: TBC: who is the assigner?!?
+    odrl:assigner       <https://www.company-Y.com/> ; ## REM: it is an `odrl:Party`, same as `entity:actOnBehalf`
+    odrl:target         <https://www.company-B.com/> ; ## REM: it is an `odrl:Asset`, same as `purpose:target`
+    odrl:assignee       <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: Bob is an Instance of `odrl:Party`, **TOO**!
+    ## region: TURBO In DANGER ZONE
+    odrl:assignee       [ a               odrl:PartyCollection ;
+                          odrl:source     <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: `odrl:Party`
+                          odrl:refinement [ a                 odrl:Constraint ;
+                                            odrl:leftOperand  "entity:actOnBehalf" ;
+                                            odrl:operator     odrl:eq ;
+                                            odrl:rightOperand <https://www.company-Y.com/> ;
+                                            odrl:dataType     xsd:anyURI ; ] ;
+                          odrl:refinement [ a                 odrl:Constraint ;
+                                            odrl:leftOperand  "x-eidas:DateOfBirth" ; ## >>> "1998-11-11"^^xsd:dateTime
+                                            odrl:operator     odrl:lt ;
+                                            odrl:rightOperand "2005-11"^^xsd:gYearMonth ;
+                              ## REM:: **OR** :: >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                            odrl:rightOperand ex:EighteenYearsBeforeNow ;
+                                            odrl:dataType     xsd:dateTimeStamp ; ] ; ] ;
+    ## endregion: TURBO In DANGER ZONE
+    ## REM: Bob is an Instance of `company-Y:PurposeAuthorization` and it is a sub class of `odrl:Assertion`
+    odrl:permission     [ a               odrl:Permission ;
+                          odrl:constraint [ a                 odrl:Constraint ;
+                                            odrl:leftOperand  odrl:dateTime ;
+                                            odrl:operator     odrl:gteq ;
+                                            odrl:rightOperand "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ; ## REM: same as `cred:validFrom`
+                                            odrl:dataType     xsd:dateTimeStamp ; ] ;
+                          odrl:constraint [ a                 odrl:Constraint ;
+                                            odrl:leftOperand  odrl:dateTime ;
+                                            odrl:operator     odrl:lt ;
+                                            odrl:rightOperand "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: same as `cred:validTo`
+                                            odrl:dataType     xsd:dateTimeStamp ; ] ;
+                          odrl:action     [ a         odrl:Action ;
+                                            rdf:value <https://www.company-B.com/purpose/onboarding/> ; ## REM: a `class?  and a `odrl:Action`, too - anyway: "This is the Way"!
+                                            odrl:duty [ ] ; ] ; ] ;
+    ## endregion odrl :: Policy
+    rdfs:isDefinedBy    company-Y: .
+
+<https://www.company-Y.com/legal/representer/verifiable/credential/purpose/bob-42-42-42-46-777>
+    a                      foaf:Person ;
+    a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
+    a                      company-Y:PurposeAuthorization ; ## REM: THIS IS an `odrl:Assertion`!!!!!!!   <<<<<<<<
+    a                      odrl:Policy ; ## REM:
+    a                      odrl:Assertion ; ## REM:
+    cred:issuer            <https://www.company-Y.com/> ;
+    cred:issuanceDate      "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validFrom         "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validTo           "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: works for half an hour...
+    cred:credentialSubject <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: ...as `odrl:Assertion`
+    rdfs:isDefinedBy       company-Y: .
+
+## endregion credential :: Bob :: Verifiable Credential, `cred:credentialSubject` as `odrl:Assertion`, compact
+
+## region credential :: Bob :: Verifiable Credential, `cred:credentialSubject` as `odrl:Permission`-Rule , very compact
+
+## REM: DANGER ZONE **AND** ROCKET SCIENCE :: THIRD SERVICE
+## REM: Purpose as `odrl:Assertion`(Policy) in Authorization **AND** as Verifiable Credential
+## IMPORTANT: the Policy sits on level of `cred:VerifiableCredential` and not (as shown before) on level of
+## IMPORTANT: ...`cred:credentialSubject`!
+## IMPORTANT: ... **AND** Bob becomes a **RULE** `odrl:Rule`, `odrl:Permission`)
+
+<https://www.company-B.com/>
+    a                odrl:Asset ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/>
+    a                odrl:Party ;
+    rdfs:isDefinedBy company-Y: .
+
+company-Y:PurposeAuthorization
+    ## REM: at this point it is already a sub class of `purpose:Purpose`
+    ## TODO: put it to ODRL Profile
+    rdfs:subClassOf  odrl:Assertion ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/verifiable/identifier/bob/>
+    x-eidas:DateOfBirth "1998-11-11"^^xsd:date ;
+    rdfs:isDefinedBy    company-Y: .
+
+<https://www.company-Y.com/legal/representer/verifiable/credential/purpose/bob-42-42-42-46-777>
+    a                      foaf:Person ;
+    a                      entity:LEAR_NP_VC ; ## REM: `entity:LegalPerson` and `cred:VerifiableCredential`
+    a                      company-Y:PurposeAuthorization ; ## REM: THIS IS an `odrl:Assertion`!!!!!!!   <<<<<<<<
+    cred:issuer            <https://www.company-Y.com/> ;
+    cred:issuanceDate      "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validFrom         "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ;
+    cred:validTo           "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: works for half an hour...
+    ## region odrl
+    ## IMPORTANT: as `odrl:Permission`-Rule. This fact has a great impact:
+    ## IMPORTANT: ...we have to define (in an ODRL Profile), that `cred:credentialSubject` is a sub-property of
+    ## IMPORTANT: ...`odrl:permission` **OR** introduce a very new function.. somehow...  ?.-(?
+    a                      odrl:Policy ;
+    a                      odrl:Assertion ;
+    ## REM: compact-policy with `odrl:assigner`, `odrl:target` and `odrl:assignee` on top level...
+    ## TODO: TBC: who is the assigner?!?
+    odrl:assigner          <https://www.company-Y.com/> ; ## REM: it is an `odrl:Party`, same as `entity:actOnBehalf`
+    odrl:target            <https://www.company-B.com/> ; ## REM: it is an `odrl:Asset`, same as `purpose:target`
+    ## HOLD: odrl:assignee          <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: Bob is an Instance of `odrl:Party`, **TOO**!
+    ## region: TURBO and ROCKET SCIENCE in good ol' DANGER ZONE
+    odrl:assignee          [ a               odrl:PartyCollection ;
+                             odrl:source     <https://www.company-Y.com/verifiable/identifier/bob/> ; ## REM: `odrl:Party`
+                             odrl:refinement [ a                 odrl:Constraint ;
+                                               odrl:leftOperand  "entity:actOnBehalf" ;
+                                               odrl:operator     odrl:eq ;
+                                               odrl:rightOperand <https://www.company-Y.com/> ;
+                                               odrl:dataType     xsd:anyURI ; ] ;
+                             odrl:refinement [ a                 odrl:Constraint ;
+                                               odrl:leftOperand  "x-eidas:DateOfBirth" ; ## >>> "1998-11-11"^^xsd:dateTime
+                                               odrl:operator     odrl:lt ;
+                                               odrl:rightOperand "2005-11"^^xsd:gYearMonth ;
+                                 ## REM:: **OR** :: >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                               odrl:rightOperand ex:EighteenYearsBeforeNow ;
+                                               odrl:dataType     xsd:dateTimeStamp ; ] ; ] ;
+    ## endregion: BO and ROCKET SCIENCE in good ol' DANGER ZONE
+    ## endregion odrl
+    ## IMPORTANT: Bob is an `odrl:Rule` (`odrl:Permission`)
+    ## TODO: ODRL-Profile :: odrl:permission        <https://www.company-Y.com/verifiable/identifier/bob/> ;
+    cred:credentialSubject <https://www.company-Y.com/verifiable/identifier/bob/> ;
+    rdfs:isDefinedBy       company-Y: .
+
+<https://www.company-Y.com/verifiable/identifier/bob/>            ## REM: Bob REBOOTED VERIFIABLE IDENTIFIER
+    ## region `odrl:Party`
+    ## endregion `odrl:Party`
+    foaf:firstName      "Bob"^^xsd:string ;                    ## REM: from `foaf:Person`
+    x-eidas:DateOfBirth "1998-11-11"^^xsd:date ;
+    ## REM: `entity:actOnBehalf`:: Actor Authorization
+    entity:actOnBehalf  <https://www.company-Y.com/> ;         ## REM: from `entity:LegalEntityAppointedRepresentative`
+    ## REM: `purpose:target`, `purpose:purpose`:: Purpose Authorization
+    purpose:target      <https://www.company-B.com/> ;
+    purpose:purpose     <https://www.company-B.com/purpose/onboarding/> ;
+    ## REM: and here: an alternative...
+
+    ## region odrl
+    a                   odrl:Party ; ## REM: used still by `odrl:assignee`
+    ## region odrl :: Rule
+    a                   odrl:Permission ;    ## REM: because `company-Y:PurposeAuthorization` is an odrl:Assertion **not** needed here...
+    odrl:constraint     [ a                 odrl:Constraint ;
+                          odrl:leftOperand  odrl:dateTime ;
+                          odrl:operator     odrl:gteq ;
+                          odrl:rightOperand "2023-11-10T00:01:00Z"^^xsd:dateTimeStamp ; ## REM: same as `cred:validFrom`
+                          odrl:dataType     xsd:dateTimeStamp ; ] ;
+    odrl:constraint     [ a                 odrl:Constraint ;
+                          odrl:leftOperand  odrl:dateTime ;
+                          odrl:operator     odrl:lt ;
+                          odrl:rightOperand "2023-11-11T00:31:00Z"^^xsd:dateTimeStamp ; ## REM: same as `cred:validTo`
+                          odrl:dataType     xsd:dateTimeStamp ; ] ;
+    odrl:action         [ a         odrl:Action ;
+                          rdf:value <https://www.company-B.com/purpose/onboarding/> ; ## REM: a `class` **and** a `odrl:Action`, too - anyway: "This is the Way"!
+                          odrl:duty [ ] ; ] ;
+    ## endregion odrl :: Rule
+    ## endregion odrl
+
+    rdfs:isDefinedBy    company-Y: .
+
+## endregion credential :: Bob :: Verifiable Credential, `cred:credentialSubject` as `odrl:Permission`-Rule , very compact
+
+# endregion DANGER ZONE
+
 ## endregion credential :: Bob
+
 ## endregion credential
 
 ###

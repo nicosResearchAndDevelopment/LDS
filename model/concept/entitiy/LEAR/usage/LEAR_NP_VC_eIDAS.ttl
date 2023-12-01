@@ -17,7 +17,7 @@
 
 @prefix xoid:                     <https://github.com/nicosResearchAndDevelopment/LDS/eco/xoid#> .
 
-@prefix xeidas:                   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
+@prefix x-eidas:                   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
 
 @prefix company-Y:                <https://www.company-Y.com/> .
 @prefix Bob:                      <https://www.company-Y.com/employee/bob/> .
@@ -42,12 +42,12 @@ entity:LEAR_NP_VC_eIDAS
     foaf:givenName               "Bob"^^xsd:string ;
     ## REM: `cvp:birthDate` :: equivalent to eIDAS `DateOfBirth`
     cpv:birthDate                "1998-04"^^xsd:gYearMonth ;
-    ## OR: xeidas:DateOfBirth "1998-04"^^xsd:gYearMonth ;
+    ## OR: x-eidas:DateOfBirth "1998-04"^^xsd:gYearMonth ;
 
     ## region Personal Identification Data (PID) :: actOnBehalf :: >>>>>>>>>>>>>>>>>>>>>
 
     ## REM: eXtension of eIADS, **NOT** really defined by eIDAS...
-    xeidas:LegalPersonIdentifier "VATDE-12345678"^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+    x-eidas:LegalPersonIdentifier "VATDE-12345678"^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
     ## OR:
     ## REM: `xoid` :: eXtension (Missing Link) for OID, see under LDS **./eco/xoid/**
     ## REM: `xoid:organizationIdentifier` :: it is a string!
@@ -58,7 +58,7 @@ entity:LEAR_NP_VC_eIDAS
     ## REM: ......see also :: <https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.01_60/en_31941201v010401p.pdf#5.1.6>
     xoid:organizationIdentifier  "VATDE-12345678"^^xsd:string ;
     ## OR: (we make it semantic)
-    ## xoid:organizationIdentifier  "VATDE-12345678"^^xeidas:id-etsi-qcs-SemanticsId-eIDASLegal  ;
+    ## xoid:organizationIdentifier  "VATDE-12345678"^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal  ;
     ## REM: as long we are under `entity:AppointedRepresentative`
     ## REM : (Company-Y is a `entity:LegalEntity`)
     ## TODO: make it **Core Business Vocabulary** <https://github.com/SEMICeu/Core-Business-Vocabulary>)
@@ -82,4 +82,4 @@ entity:LEAR_NP_VC_eIDAS
 
 ## endregion example
 
-##
+###
