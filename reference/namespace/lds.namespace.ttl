@@ -1,0 +1,4 @@
+    ## Time
+@prefix greg: <http://www.w3.org/ns/time/gregorian> .
+@prefix time: <http://www.w3.org/ns/time/gregorian> .
+###
