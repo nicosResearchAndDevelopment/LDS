@@ -11,10 +11,11 @@
 
 identifier:Identifier
     a                owl:Class, skos:Concept ;
+    ## TODO: **NO!!!** it is **NOT** :: rdfs:subClassOf  lds:Trust ;
     rdfs:subClassOf  lds:Trust ;
     skos:notation    "identifier:Identifier"^^xsd:string ;
     skos:prefLabel   "Identifier"@en ;
-    skos:prefLabel   "Identifizierer"@de ;
+    skos:prefLabel   "Identifizierungszeichen"@de ;
     rdfs:isDefinedBy lds: .
 
 identifier:identifier
@@ -75,46 +76,57 @@ lds:IdentifierConcepts
 lds:AllConcepts
     skos:member identifier:Identifier .
 
-#@prefix ex:         <https://www.example.org/> .
-#@prefix country:    <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
-#@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
+#@prefix ex:          <https://www.example.org/> .
+#@prefix country:     <https://github.com/nicosResearchAndDevelopment/LDS/universe/TheSolarSystem/earth/country/> .
+#@prefix odrl:        <http://www.w3.org/ns/odrl/2/> .
 #@prefix x-eidas:     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
-#@prefix xetsi-esi:  <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-etsi#> .
-#@prefix x-psd2:     <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32015L2366/lds-extension/> .
+#@prefix xetsi-esi:   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-etsi#> .
+#@prefix x-psd2:      <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32015L2366/lds-extension/> .
 #
 #ex:
-#    a          lds:LegalEntity ;
+#    a                     lds:LegalEntity ;
 #    ## REM: 'ordl:uid' to 'odrl:Party'
-#    identifier:identifier [ a           identifier:Identifier ;
-#      identifier:targetClass odrl:Party ;
-#      identifier:property    [ a        identifier:PropertyShape ;
-#         identifier:path     odrl:uid ;
-#         identifier:datatype xsd:string ;
-#         identifier:value    "https://www.example.org/"^^xsd:anyURI ; ] ; ] ;
+#    identifier:identifier [ a                      identifier:Identifier ;
+#                            identifier:targetClass odrl:Party ;
+#                            identifier:property    [ a                   identifier:PropertyShape ;
+#                                                     identifier:path     odrl:uid ;
+#                                                     identifier:datatype xsd:string ;
+#                                                     identifier:value    "https://www.example.org/"^^xsd:anyURI ; ] ; ] ;
 #    ## REM: 'x-eidas:LegalPersonIdentifier' to 'ex:Credential'
-#    identifier:identifier [ a           identifier:Identifier ;
-#      identifier:targetClass ex:Credential ;
-#      identifier:property    [ a        identifier:PropertyShape ;
-#         identifier:path     x-eidas:LegalPersonIdentifier ;
-#         identifier:datatype x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
-#         identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ; ] ;
+#    identifier:identifier [ a                      identifier:Identifier ;
+#                            identifier:targetClass ex:Credential ;
+#                            identifier:property    [ a                   identifier:PropertyShape ;
+#                                                     identifier:path     x-eidas:LegalPersonIdentifier ;
+#                                                     identifier:datatype x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+#                                                     identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ; ] ;
 #    ## REM: 'x-eidas:LegalPersonIdentifier' to 'ex:Credential'
 #    ## REM: this LegalEntity seems to be an National Banking Authority (NCA, under PSD)
-#    identifier:identifier [ a           identifier:Identifier ;
-#      identifier:targetClass x-psd2:NCA ;
-#      identifier:property    [ a        identifier:PropertyShape ;
-#         identifier:path     x-psd2:codeNCA ;
-#         identifier:datatype x-psd2:id-SemanticsId-codeNCA ;
-#         identifier:value    "DE-BAFIN"^^xsd:string ; ] ; ] ;
+#    identifier:identifier [ a                      identifier:Identifier ;
+#                            identifier:targetClass x-psd2:NCA ;
+#                            identifier:property    [ a                   identifier:PropertyShape ;
+#                                                     identifier:path     x-psd2:codeNCA ;
+#                                                     identifier:datatype x-psd2:id-SemanticsId-codeNCA ;
+#                                                     identifier:value    "DE-BAFIN"^^xsd:string ; ] ; ] ;
 #    identifier:identifier <https://www.example.org/identifier/CERT> ;
+#    identifier:identifier <https://www.example.org/identifier/verifiable/web/> ;
 #    lds:country           country:DE ;
 #    rdfs:isDefinedBy      ex: .
 #
 #<https://www.example.org/identifier/CERT>
-#    a           identifier:Identifier ;
+#    a                      identifier:Identifier ;
 #    identifier:targetClass ex:Subject ;
-#    identifier:property    [ a        identifier:PropertyShape ;
-#       identifier:path     xetsi-esi:organizationIdentifier ;
-#       identifier:datatype xetsi-esi:id-etsi-qcs-SemanticsId-Legal ;
-#       identifier:value    "VATES-4243444546474849"^^xsd:string ; ] ;
-#.
+#    identifier:property    [ a                   identifier:PropertyShape ;
+#                             identifier:path     xetsi-esi:organizationIdentifier ;
+#                             identifier:datatype xetsi-esi:id-etsi-qcs-SemanticsId-Legal ;
+#                             identifier:value    "VATES-4243444546474849"^^xsd:string ; ] .
+#
+#<https://www.example.org/identifier/verifiable/web/>
+#    a                      identifier:Identifier ;
+#    identifier:targetClass cred:VerifiableCredential ;
+#    identifier:property    [ a                identifier:PropertyShape ;
+#                             identifier:path  cred:credentialSubject ;
+##                             identifier:datatype ??? ;
+#                             identifier:value "did:web:VATES-4243444546474849"^^xsd:string ;
+#                             rdfs:seeAlso     <https://www.w3.org/TR/did-core/#did-syntax> ; ] .
+
+###

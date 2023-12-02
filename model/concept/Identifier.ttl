@@ -12,7 +12,7 @@ lds:Identifier
     a                owl:Class, skos:Concept ;
     skos:notation    "Identifier"^^xsd:string ;
     skos:prefLabel   "Identifier"@en ;
-    skos:prefLabel   "Identifizierer"@de ;
+    skos:prefLabel   "Identifizierungszeichen"@de ;
     rdfs:isDefinedBy lds: .
 
 lds:IdentifierConcepts

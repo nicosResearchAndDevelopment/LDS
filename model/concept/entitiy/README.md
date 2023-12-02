@@ -1,5 +1,23 @@
 # lds Model Concept 'entity'
 
+**This version**:
+[https://github.com/nicosResearchAndDevelopment/LDS/blob/main/model/concept/entitiy/README.md](https://github.com/nicosResearchAndDevelopment/LDS/blob/main/model/concept/entitiy/README.md)
+
+## Table of Content
+
+- [Construction of Entity Classes](#construction-of-entity-classes)
+- [Entity Classes, used Properties and Ranges](#entity-classes-used-properties-and-ranges)
+- [LEAR Credentials](#lear-credentials)
+- [LEAR Credentials](#lear-credentials)<br>
+- [More precise LEAR Credentials](#more-precise-lear-credentials)
+- [LEAR Credentials with explicit Authorization](#lear-credentials-with-explicit-authorization)
+- [Epilogue](#epilogue)
+  - [Purpose](#purpose)
+  - [Polish](#polish)
+- [References](#references)
+
+*Table of Content: lds Model Concept 'entity'*.
+
 ## Construction of Entity Classes
 
 | Legal           | Entity              | Appointed                                   | Representative                 | Result                                                    | Comment                |
@@ -64,7 +82,6 @@ It might be spooky to see *Artificial Intelligence* (**entity:LEAR_AI**) here, b
 it is a good idea doing so - we are prepared to handle this problem before academic research comes to a conclusion ;-)
 ...
 
-## LEAR Credentials
 
 | Subject (Class)                               | Property              | Subject                    | Comment                                                                               | Example                 |
 |-----------------------------------------------|-----------------------|----------------------------|---------------------------------------------------------------------------------------|-------------------------|
@@ -114,6 +131,8 @@ Those examples introduce dedicated authorizations, e.g. to very special *purpose
 - **USD**
 
 ### Polish
+
+### Future of LDS
 
 ---
 
