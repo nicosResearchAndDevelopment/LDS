@@ -20,10 +20,14 @@
 ## endregion upper concepts
 
 @prefix lds:   <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix DSL:   <did:lds:DSLDE-4200000001> .
 
-lds:DataSpaceLinker
+DSL:
     a                lds:DataSpaceLinker ;
-    rdfs:label       "Data Spaces Linker"@en ;
-    rdfs:isDefinedBy lds: .
+    rdfs:label       "Data Space Linker"@en ;
+	foaf:homepage	 "https://dsl.nicos-rd.com/"^^xsd:anyURI ;
+	lds:dataSpaceLinker DSL: ;
+	## lds:dataSpaces <> ;
+    rdfs:isDefinedBy DSL: .
 
 ###
