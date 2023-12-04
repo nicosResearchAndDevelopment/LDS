@@ -8,7 +8,6 @@
 - [Construction of Entity Classes](#construction-of-entity-classes)
 - [Entity Classes, used Properties and Ranges](#entity-classes-used-properties-and-ranges)
 - [LEAR Credentials](#lear-credentials)
-- [LEAR Credentials](#lear-credentials)<br>
 - [More precise LEAR Credentials](#more-precise-lear-credentials)
 - [LEAR Credentials with explicit Authorization](#lear-credentials-with-explicit-authorization)
 - [Epilogue](#epilogue)

@@ -27,6 +27,6 @@
     - [My Boss Lady: the AI (brand eins November 2023)](./ai/README.md#my-boss-lady-the-ai)
 - [**Namespace**](./namespace/README.md)
 
-*Table of Content: lds References*.
+*Table of Content: LDS References*.
 
 ---

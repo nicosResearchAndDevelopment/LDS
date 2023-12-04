@@ -13,7 +13,7 @@
     - [xtime, Related Concepts, Schemas and Models](#xtime-related-concepts-schemas-and-models)
     - [xtime, Version 1](#xtime-version-1)
 
-*Table of Content: lds Time References*.
+*Table of Content: LDS Time References*.
 
 ---
 

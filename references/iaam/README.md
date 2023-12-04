@@ -10,7 +10,7 @@
 - [**DID ETSI Legal person Semantic Identifier Method Specification (did:elsi)**](#did-etsi-legal-person-semantic-identifier-method-specification-didelsi)
 - [**APRE, The ontology for Appointed Representatives, acting on behalf Legal Entities**](#apre-the-ontology-for-appointed-representatives-acting-on-behalf-legal-entities)
 
-*Table of Content: Identifier, Authorization and Actor Model References*.
+*Table of Content: LDS Identifier, Authorization and Actor Model References*.
 
 ---
 

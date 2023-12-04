@@ -6,7 +6,7 @@
 
 - [My Boss Lady: the AI](#my-boss-lady-the-ai)
 
-*Table of Content: lds Artificial Intelligence References*.
+*Table of Content: LDS Artificial Intelligence References*.
 
 ---
 
