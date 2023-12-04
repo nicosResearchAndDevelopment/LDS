@@ -1,0 +1,27 @@
+    ##```turtle
+@prefix foaf:                           <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                           <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                            <http://www.w3.org/ns/org#> .
+@prefix rdf:                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:                            <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                            <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:                         <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix purpose:                        <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+@prefix credential:                     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/credential/> .
+
+@prefix company-Y:                      <https://www.company-Y.com/> .
+
+<https://www.company-Y.com/lear/np-99-99-99-98>
+    a                  entity:LEAR_NP ;
+    foaf:firstName     "Bob"^^xsd:string ;
+    entity:actOnBehalf "https://www.company-Y.com/"^^xsd:string ;
+    lds:validFrom      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
+    lds:validTo        "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
+    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an *Appointed Representative*) on behalf of Company-Y."""@en ;
+    rdfs:isDefinedBy   company-Y: .
+
+##```
+
+###

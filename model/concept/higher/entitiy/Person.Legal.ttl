@@ -1,0 +1,37 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/legal/> .
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+
+entity:LegalPerson
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  entity:Person ;
+    rdfs:subClassOf  entity:LegalEntity ;
+    skos:notation    "entity:LegalPerson"^^xsd:string ;
+    skos:prefLabel   "Legal Person"@en ;
+    skos:prefLabel   "Legale Person"@de ;
+    skos:altLabel    "LP"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel "LP"^^xsd:string'
+    skos:broader     legal:Legal ;
+    skos:broader     entity:Person ;
+    skos:broader     entity:LegalEntity ;
+    rdfs:isDefinedBy lds: .
+
+lds:PersonConcepts
+    skos:member entity:LegalPerson .
+
+lds:LegalConcepts
+    skos:member entity:LegalPerson .
+
+lds:EntityConcepts
+    skos:member entity:LegalPerson .
+
+lds:AllConcepts
+    skos:member entity:LegalPerson .
+
+###

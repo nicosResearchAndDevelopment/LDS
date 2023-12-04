@@ -1,0 +1,45 @@
+@prefix cred:                  <https://w3.org/2018/credentials#> .
+@prefix owl:                   <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                  <http://www.w3.org/ns/prov#> .
+@prefix rdf:                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                  <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix lear:              <https://github.com/nicosResearchAndDevelopment/LDS/model/LEAR/> .
+
+lear:LEAR_NP_VC
+    a                owl:Class, skos:Concept ;
+    ## TODO : SHACL
+    rdfs:subClassOf  lear:LEAR_NP ;
+    rdfs:subClassOf  cred:VerifiableCredential ;
+    skos:notation    "entity:LEAR_NP_VC"^^xsd:string ;
+    skos:prefLabel   "Verifiable Credential, Natural Person as Appointed Representative of Legal Entity"@en ;
+    skos:prefLabel   "Verifiable Credential, Natürliche Person als ernannter Repräsentant einer legalen Entität"@de ;
+    skos:broader     lear:LEAR_NP ;
+    rdfs:isDefinedBy lds: .
+
+lds:EntityConcepts
+    skos:member lear:LEAR_NP_VC .
+
+lds:LegalConcepts
+    skos:member lear:LEAR_NP_VC .
+
+lds:AppointConcepts
+    skos:member lear:LEAR_NP_VC .
+
+lds:RepresentativeConcepts
+    skos:member lear:LEAR_NP_VC .
+
+lds:PersonConcepts
+    skos:member lear:LEAR_NP_VC .
+
+lds:VerifiableConcepts
+    skos:member lear:LEAR_NP_VC .
+
+lds:AllConcepts
+    skos:member lear:LEAR_NP_VC .
+
+###

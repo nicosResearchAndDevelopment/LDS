@@ -25,9 +25,8 @@
 DSL:
     a                lds:DataSpaceLinker ;
     rdfs:label       "Data Space Linker"@en ;
-	foaf:homepage	 "https://dsl.nicos-rd.com/"^^xsd:anyURI ;
-	lds:dataSpaceLinker DSL: ;
-	## lds:dataSpaces <> ;
+    foaf:homepage    "https://dsl.nicos-rd.com/"^^xsd:anyURI ;
+    ## lds:dataSpaces <> ;
     rdfs:isDefinedBy DSL: .
 
 ###

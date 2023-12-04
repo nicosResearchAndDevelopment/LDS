@@ -1,4 +1,4 @@
-# lds Identifier, Authorization and Actor Model References
+# LDS Identifier, Authorization and Actor Model References
 
 [Back to lds References](../README.md).
 

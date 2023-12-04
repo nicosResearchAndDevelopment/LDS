@@ -1,0 +1,40 @@
+@prefix lds:                 <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                 <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                <http://www.w3.org/ns/prov#> .
+@prefix rdf:                 <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                 <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                 <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix trust:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+trust:TrustedProviderList
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  trust:TrustedPartyList ;
+    skos:notation    "trust:TrustedProviderList"^^xsd:string ;
+    skos:prefLabel   "Trusted Providers"@en ;
+    skos:prefLabel   "Vertrauenswürdige Providern"@de ;
+    skos:broader     trust:TrustedPartyList ;
+    skos:broader     lds-cc:Provider ;
+    rdfs:isDefinedBy lds: .
+
+lds:hasMember
+    ## TODO :: rdfs:range       lds:Provider ;
+    ## >>> :: rdfs:range       trust:TrustProvider ;
+    rdfs:isDefinedBy lds: .
+
+trust:trustedProviderList
+    a                owl:ObjectProperty ;
+    rdfs:range       trust:TrustedProviderList ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:TrustedProviderList .
+
+lds:AllConcepts
+    skos:member trust:TrustedProviderList .
+
+###

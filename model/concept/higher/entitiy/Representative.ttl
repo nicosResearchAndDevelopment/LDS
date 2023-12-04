@@ -1,0 +1,48 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+
+entity:Representative
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Representative ;
+    rdfs:subClassOf  entity:Actor ;
+    skos:notation    "Representative"^^xsd:string ;
+    skos:prefLabel   "Representative"@en ;
+    skos:prefLabel   "Repräsentant"@de ;
+    skos:broader     lds:Representative ;
+    skos:broader     entity:Actor ; ## REM: so, ready for `entity:actBehalfOf`
+    rdfs:isDefinedBy lds: .
+
+entity:representative
+    a                owl:ObjectProperty ;
+    skos:notation    "entity:representative"^^xsd:string ;
+    skos:prefLabel   "Representative"^^xsd:string ;
+    rdfs:label       "Representative"@en ;
+    rdfs:label       "Repräsentant"@de ;
+    ## ILO: rdfs:domain       (intentionally left open)  ;
+    rdfs:range       entity:Representative ;
+    rdfs:isDefinedBy lds: .
+
+entity:represent
+    a                owl:ObjectProperty ;
+    skos:notation    "entity:representative"^^xsd:string ;
+    skos:prefLabel   "Representative"^^xsd:string ;
+    rdfs:label       "Representative"@en ;
+    rdfs:label       "Repräsentant"@de ;
+    rdfs:domain      entity:Representative ;
+    rdfs:range       entity:Entity ;
+    rdfs:isDefinedBy lds: .
+
+lds:RepresentativeConcepts
+    skos:member entity:Representative .
+
+lds:AllConcepts
+    skos:member entity:Representative .
+
+###

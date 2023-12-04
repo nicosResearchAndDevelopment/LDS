@@ -1,0 +1,42 @@
+@prefix lds:                 <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                 <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                <http://www.w3.org/ns/prov#> .
+@prefix rdf:                 <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                 <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                 <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix trust:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+## TODO: TBC: trust:TrustedPartyList :: maybe senseless
+trust:TrustedPartyList
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  trust:TrustedEntityList ;
+    skos:notation    "trust:TrustedPartyList"^^xsd:string ;
+    skos:prefLabel   "Trusted Parties"@en ;
+    skos:prefLabel   "Vertrauenswürdige Beteiligte"@de ;
+    skos:broader     lds-cc:Party ;
+    skos:broader     trust:TrustedEntityList ;
+    skos:narrower    trust:TrustedParticipantList ;
+    skos:narrower    trust:TrustedProviderList ;
+    rdfs:isDefinedBy lds: .
+
+lds:hasMember
+    rdfs:range       lds-cc:Party ;
+    rdfs:isDefinedBy lds: .
+
+trust:trustedPartyList
+    a                owl:ObjectProperty ;
+    rdfs:range       trust:TrustedPartyList ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:TrustedPartyList .
+
+lds:AllConcepts
+    skos:member trust:TrustedPartyList .
+
+###

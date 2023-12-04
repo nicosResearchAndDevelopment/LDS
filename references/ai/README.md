@@ -1,4 +1,4 @@
-# lds Artificial Intelligence References
+# LDS Artificial Intelligence References
 
 [Back to lds References](../README.md).
 

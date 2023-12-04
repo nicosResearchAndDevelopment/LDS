@@ -1,0 +1,54 @@
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix prov:           <http://www.w3.org/ns/prov#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:    <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+
+lds-cc:Process ## REM: abstract
+    a                owl:Class, skos:Concept ;
+    skos:notation    "Process"^^xsd:string ;
+    skos:prefLabel   "Process"@en ;
+    skos:prefLabel   "Prozess"@de ;
+    rdfs:isDefinedBy lds: .
+
+## TODO: TBC: property on concept class?
+lds-cc:process
+    a                owl:ObjectProperty ;
+    skos:notation    "process"^^xsd:string ;
+    skos:prefLabel   "Process"^^xsd:string ;
+    rdfs:label       "Process"@en ;
+    rdfs:label       "Prozess"@de ;
+    rdfs:range       lds-cc:Process ;
+    rdfs:isDefinedBy lds: .
+
+lds-cc:subProcess
+    a                owl:ObjectProperty ;
+    skos:notation    "subProcess"^^xsd:string ;
+    skos:prefLabel   "Sub-Process"^^xsd:string ;
+    rdfs:label       "Sub-Process"@en ;
+    rdfs:label       "Unterprozess"@de ;
+    rdfs:domain      lds-cc:Process ;
+    rdfs:range       lds-cc:Process ;
+    rdfs:isDefinedBy lds: .
+
+lds-cc:subProcessOf
+    a                owl:ObjectProperty ;
+    skos:notation    "subProcessOf"^^xsd:string ;
+    skos:prefLabel   "Sub-Process of"^^xsd:string ;
+    rdfs:label       "Sub-Process of"@en ;
+    rdfs:label       "Unterprozess von"@de ;
+    rdfs:domain      lds-cc:Process ;
+    rdfs:range       lds-cc:Process ;
+    rdfs:isDefinedBy lds: .
+
+lds:ProcessConcepts
+    skos:member lds-cc:Process .
+
+lds:AllConcepts
+    skos:member lds-cc:Process .
+
+###

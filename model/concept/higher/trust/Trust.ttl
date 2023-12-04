@@ -1,0 +1,44 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+trust:Trust
+    a                owl:Class, skos:Concept ;
+    ## TODO: TBC: rdfs:subClassOf  lds-cc:Trust ; ::really?!?
+    rdfs:subClassOf  lds-cc:Trust ;
+    skos:notation    "trust:Trust"^^xsd:string ;
+    skos:prefLabel   "Trust"@en ;
+    skos:prefLabel   "Vertrauen"@de ;
+    rdfs:isDefinedBy lds: .
+
+trust:purpose
+    a                  rdf:Property ;
+    rdfs:subPropertyOf purpose:purpose ;
+    skos:notation      "trust:purpose"^^xsd:string ;
+    ## rdfs:domain      trust:Trust ;
+    rdfs:range         xsd:anyURI ;
+    rdfs:range         xsd:string ;
+    ## REM: already defined by 'purpose:purpose' :: rdfs:range         purpose:Purpose ;
+    rdfs:isDefinedBy   lds: .
+
+trust:truster
+    rdfs:domain      trust:Trust ;
+    skos:notation    "trust:truster"^^xsd:string ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:Trust .
+
+lds:AllConcepts
+    skos:member trust:Trust .
+
+###

@@ -1,4 +1,4 @@
-# lds Time References
+# LDS Time References
 
 [Back to lds References](../README.md).
 

@@ -1,0 +1,27 @@
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+
+entity:Entity
+    rdfs:subClassOf prov:Agent .
+
+entity:NaturalPerson
+    rdfs:subClassOf prov:Person .
+
+entity:LegalPerson
+    rdfs:subClassOf prov:Person .
+
+entity:Organisation
+    rdfs:subClassOf prov:Organization .
+
+entity:ServiceInstance
+    rdfs:subClassOf prov:SoftwareAgent .
+
+entity:ArtificialIntelligence
+    rdfs:subClassOf prov:SoftwareAgent .
+
+###

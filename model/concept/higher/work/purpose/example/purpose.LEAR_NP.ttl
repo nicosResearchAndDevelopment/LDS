@@ -1,0 +1,62 @@
+@prefix dct:                      <http://purl.org/dc/terms/> .
+@prefix foaf:                     <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                     <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:                      <http://www.w3.org/2002/07/owl#> .
+@prefix org:                      <http://www.w3.org/ns/org#> .
+@prefix prof:                     <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:                     <http://www.w3.org/ns/prov#> .
+@prefix rdf:                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:                     <http://www.w3.org/ns/dx/prof/role/> .
+@prefix xsd:                      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                      <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix purpose:                  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+@prefix credential:               <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/credential/> .
+@prefix entity:                   <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+
+@prefix company-Y:                <https://www.company-Y.com/> .
+@prefix Bob:                      <https://www.company-Y.com/employee/bob/> .
+
+## REM: we make 'purpose:Purpose' a 'dct:Standard', too. (See './Purpose.prov.ttl')
+purpose:Purpose
+    a dct:Standard .
+
+company-Y:
+    a                entity:Organisation ;
+    rdfs:isDefinedBy company-Y: .
+
+<https://www.company-Y.com/purpose/hello/>
+    a                owl:Class ;
+    a                prof:Profile ;
+    rdfs:subClassOf  purpose:Purpose ;
+    rdfs:subClassOf  credential:Credential ;
+    rdfs:label       "Hello!"^^xsd:string ;
+    prof:isProfileOf <https://www.company-Y.com/purpose/hello/> ;
+    ## prof:hasResource company-Y:hello-spec-en-md ;
+    rdfs:comment     """It is a **class**!
+'prof:isProfileOf':: it seems to be funny, but it is correct."""@en ;
+    rdfs:isDefinedBy company-Y: .
+
+## REM: Bob uses 'hello' (**class**, but it **is** a Profile, too)
+<https://www.company-Y.com/employee/bob/lear/np-46-46-46-46>
+    a                  foaf:Person ;
+    foaf:firstName     "Bob"^^xsd:string ;
+    a                  entity:LEAR_NP ;
+    entity:actOnBehalf "https://www.company-Y.com/"^^xsd:anyURI ;       ## REM: `entity:Organisation` (sub class of `entity:LegalEntity`)
+    lds:validFrom      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ; ## REM: appointment works for three days...
+    lds:validTo        "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
+    purpose:purpose    "https://www.company-Y.com/purpose/hello/"^^xsd:anyURI ;
+    purpose:target     "https://www.company-Y.com/#member"^^xsd:anyURI ;
+    rdfs:comment       """`entity:actOnBehalf`:: interesting - Bob (as an *Legal Entity Appointed Representative* (Natural Person) says "Hello!" on behalf of Company-Y to all member..."""@en ;
+    rdfs:isDefinedBy   company-Y: .
+
+<https://www.company-Y.com/purpose/hello/instance/>
+    a                              <https://www.company-Y.com/purpose/hello/> ;
+    rdfs:label                     "Hello!"^^xsd:string ;
+    purpose:profile                "https://www.company-Y.com/purpose/hello/"^^xsd:anyURI ;
+    entity:appointedRepresentative <https://www.company-Y.com/employee/bob/lear/np-46-46-46-46> ;
+    rdfs:comment                   """."""@en ;
+    rdfs:isDefinedBy               company-Y: .
+
+##

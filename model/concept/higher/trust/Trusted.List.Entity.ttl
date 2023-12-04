@@ -1,0 +1,40 @@
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+trust:TrustedEntityList
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  trust:TrustedList ;
+    skos:notation    "trust:TrustedEntityList"^^xsd:string ;
+    skos:prefLabel   "List of trusted Entities"@en ;
+    skos:prefLabel   "Liste der vertrauenswürdigen Entitäten"@de ;
+    skos:broader     lds-cc:Entity  ;
+    skos:broader     trust:TrustList ;
+#    skos:narrower    trust:TrustedParticipantList ;
+#    skos:narrower    trust:TrustedProviderList ;
+    rdfs:isDefinedBy lds: .
+
+lds:hasMember
+    rdfs:range       entity:Entity ;
+    rdfs:isDefinedBy lds: .
+
+trust:trustedEntityList
+    a                owl:ObjectProperty ;
+    rdfs:range       trust:TrustedEntityList ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:TrustedEntityList .
+
+lds:AllConcepts
+    skos:member trust:TrustedEntityList .
+
+###

@@ -1,0 +1,86 @@
+@prefix cred:                      <https://w3.org/2018/credentials#> .
+@prefix foaf:                      <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                      <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                       <http://www.w3.org/ns/org#> .
+@prefix owl:                       <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:                       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                      <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                       <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                       <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:                    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix lear:                      <https://github.com/nicosResearchAndDevelopment/LDS/model/LEAR/> .
+
+## REM: "Yes!" both the same URI! And this is **VERY BAD**!!!
+@prefix cpv:                       <http://data.europa.eu/m8g/>.
+@prefix cbv:                       <http://data.europa.eu/m8g/>.
+
+@prefix xoid:                      <https://github.com/nicosResearchAndDevelopment/LDS/eco/xoid#> .
+
+@prefix x-eidas:                   <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/credentials/elsi/x-eidas#> .
+
+@prefix company-Y:                 <https://www.company-Y.com/> .
+@prefix Bob:                       <https://www.company-Y.com/employee/bob/> .
+
+x-eidas:LEAR_NP_VC_eIDAS
+    a                owl:Class, skos:Concept ;
+    ## TODO : SHACL
+    rdfs:subClassOf  lear:LEAR_NP_VC ;
+    skos:notation    "entity:LEAR_NP_VC_eIDAS"^^xsd:string ;
+    skos:prefLabel   "eIDAS, Verifiable Credential, Natural Person as Appointed Representative of Legal Entity"@en ;
+    skos:prefLabel   "eIDAS, Verifiable Credential, Natürliche Person als ernannter Repräsentant einer legalen Entität"@de ;
+    skos:broader     lear:LEAR_NP_VC ;
+    rdfs:isDefinedBy lds: .
+
+## region example
+##```turtle
+<https://www.company-Y.com/lear/vc/np-eidas-99-99-98>
+    a                             foaf:Person ;
+    a                             entity:AppointedRepresentative ;
+    a                             <http://www.w3.org/ns/person#Person> ;
+    ## region Personal Identification Data (PID)
+    foaf:givenName                "Bob"^^xsd:string ;
+    ## REM: `cvp:birthDate` :: equivalent to eIDAS `DateOfBirth`
+    cpv:birthDate                 "1998-04"^^xsd:gYearMonth ;
+    ## OR: x-eidas:DateOfBirth "1998-04"^^xsd:gYearMonth ;
+
+    ## region Personal Identification Data (PID) :: actOnBehalf :: >>>>>>>>>>>>>>>>>>>>>
+
+    ## REM: eXtension of eIADS, **NOT** really defined by eIDAS...
+    x-eidas:LegalPersonIdentifier "VATDE-12345678"^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal ;
+    ## OR:
+    ## REM: `xoid` :: eXtension (Missing Link) for OID, see under LDS **./eco/xoid/**
+    ## REM: `xoid:organizationIdentifier` :: it is a string!
+    ## REM: it has the same value as certificates-subject *organizationIdentifier^^xsd:string*
+    ## REM: ...defined by *Rec. ITU-T X.520 [i.10]*
+    ## REM: ......see also :: <http://oid-info.com/cgi-bin/display?oid=2.5.4.97&a=display>
+    ## REM: ...as stated by *ETSI EN 319 412-1 V1.4.1 (2020-06)*
+    ## REM: ......see also :: <https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.01_60/en_31941201v010401p.pdf#5.1.6>
+    xoid:organizationIdentifier   "VATDE-12345678"^^xsd:string ;
+    ## OR: (we make it semantic)
+    ## xoid:organizationIdentifier  "VATDE-12345678"^^x-eidas:id-etsi-qcs-SemanticsId-eIDASLegal  ;
+    ## REM: as long we are under `entity:AppointedRepresentative`
+    ## REM : (Company-Y is a `entity:LegalEntity`)
+    ## TODO: make it **Core Business Vocabulary** <https://github.com/SEMICeu/Core-Business-Vocabulary>)
+    entity:actOnBehalf            "https://www.company-Y.com/"^^xsd:string ;
+
+    ## endregion Personal Identification Data (PID) :: actOnBehalf :: <<<<<<<<<<<<<<<<<<
+
+    ## REM: `lds:validFrom` :: moves to `cred:issuanceDate`
+    ## REM: `lds:validTo`   :: moves to `cred:expirationDate`
+    ## endregion Personal Identification Data (PID)
+    rdfs:comment                  """."""@en ;
+    rdfs:isDefinedBy              company-Y: .
+
+<https://www.company-Y.com/lear/vc/78-78-78-88-99-98>
+    a                      x-eidas:LEAR_NP_VC_eIDAS ;
+    ## REM: `cred:issuanceDate` / `cred:expirationDate` :: from`lds:validFrom` and `lds:validTo`
+    cred:issuanceDate      "2023-11-14T00:00:00Z"^^xsd:dateTimeStamp ;      ## REM: appointment works for three days...
+    cred:expirationDate    "2023-11-17T00:00:00Z"^^xsd:dateTimeStamp ;
+    cred:credentialSubject <https://www.company-Y.com/lear/vc/np-eidas-99-99-98> ;
+    rdfs:isDefinedBy       company-Y: .
+
+## endregion example
+
+###

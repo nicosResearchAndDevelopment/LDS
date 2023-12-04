@@ -1,0 +1,144 @@
+@prefix lds:                    <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                    <http://www.w3.org/2002/07/owl#> .
+@prefix prov:                   <http://www.w3.org/ns/prov#> .
+@prefix rdf:                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:                   <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                    <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                    <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix service:                <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/service/> .
+@prefix replication:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/process/replication/> .
+@prefix process:                <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/process/> .
+
+replication:Replication
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  process:Process ;
+    skos:notation    "replication:Replication"^^xsd:string ;
+    skos:prefLabel   "Replication"@en ;
+    skos:prefLabel   "Replikation"@de ;
+    skos:broader     process:Process ;
+    rdfs:isDefinedBy lds: .
+
+## region Replicator
+
+replication:Replicator ## REM: Agent, Module, **NOT** Application
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  service:ServiceInstance ;
+    skos:notation    "replication:Replicator"^^xsd:string ;
+    skos:prefLabel   "Replicator"@en ;
+    skos:prefLabel   "Replikator"@de ;
+    skos:broader     service:ServiceInstance ;
+    skos:narrower    replication:Source ;
+    skos:narrower    replication:Sink ;
+    rdfs:isDefinedBy lds: .
+
+replication:Task ## REM: Agent
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Task ;
+    skos:notation    "replication:Task"^^xsd:string ;
+    skos:prefLabel   "Replication Task"@en ;
+    skos:prefLabel   "Replikation Auftrag"@de ;
+    skos:broader     lds:Task ;
+    rdfs:isDefinedBy lds: .
+
+## region Role
+
+replication:Role
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Role ;
+    skos:notation    "replication:Role"^^xsd:string ;
+    skos:prefLabel   "Role"@en ;
+    skos:prefLabel   "Rolle"@de ;
+    skos:broader     lds:Role ;
+    rdfs:isDefinedBy lds: .
+
+replication:TaskRole
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  replication:Role ;
+    skos:notation    "replication:TaskRole"^^xsd:string ;
+    skos:prefLabel   "Task Role"@en ;
+    skos:prefLabel   "Auftrag Rolle"@de ;
+    skos:broader     replication:Role ;
+    rdfs:isDefinedBy lds: .
+
+replication:taskRole
+    a                rdf:Property ;
+    rdfs:label       "Task Role"@en ;
+    rdfs:label       "Auftrag Rolle"@de ;
+    skos:notation    "replication:taskRole"^^xsd:string ;
+    ## TODO: TBC: rdfs:domain       ; :: what is the domain?!?
+    rdfs:range       replication:TaskRole ;
+    rdfs:isDefinedBy lds: .
+
+## region Role :: Individuals
+
+replication:Source
+    a                replication:TaskRole, skos:Concept ;
+    skos:notation    "replication:Source"^^xsd:string ;
+    skos:prefLabel   "Source"@en ;
+    skos:prefLabel   "Quelle"@de ;
+    skos:broader     replication:TaskRole ;
+    rdfs:isDefinedBy lds: .
+
+replication:Sink
+    a                replication:TaskRole, skos:Concept ;
+    rdfs:subClassOf  replication:Replicator ;
+    skos:notation    "replication:Sink"^^xsd:string ;
+    skos:prefLabel   "Sink"@en ;
+    skos:prefLabel   "Senke"@de ;
+    skos:broader     replication:TaskRole ;
+    rdfs:isDefinedBy lds: .
+
+## endregion Role :: Individuals
+## endregion Role
+
+## endregion Replicator
+
+## region Bound
+
+replication:Bound
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds:Bound ;
+    skos:notation    "replication:Bound"^^xsd:string ;
+    skos:prefLabel   "Bound"@en ;
+    skos:prefLabel   "Gebunden"@de ;
+    skos:broader     lds:Bound ;
+    rdfs:isDefinedBy lds: .
+
+replication:bound
+    a                owl:ObjectProperty, skos:Concept ;
+    skos:notation    "replication:bound"^^xsd:string ;
+    rdfs:domain      replication:Replicator ;
+    rdfs:range       replication:Bound ; ## CARD: [0..2]
+    rdfs:isDefinedBy lds: .
+
+replication:inbound
+    a                owl:ObjectProperty, skos:Concept ;
+    skos:notation    "replication:inbound"^^xsd:string ;
+    rdfs:domain      replication:Replicator ;
+    rdfs:range       replication:Replicator ; ## CARD: [0..n]
+    rdfs:isDefinedBy lds: .
+
+replication:outbound
+    a                  owl:ObjectProperty, skos:Concept ;
+    rdfs:subPropertyOf replication:bound ;
+    skos:notation      "replication:outbound"^^xsd:string ;
+    rdfs:domain        replication:Replicator ;
+    rdfs:range         replication:Replicator ; ## CARD: [0..n]
+    rdfs:isDefinedBy   lds: .
+
+## region Bound :: Individuals
+
+replication:OUTBOUND                                                    ## TODO: TBC:
+    a                replication:Bound, owl:NamedIndividual ;
+    rdfs:isDefinedBy lds: .
+
+replication:INBOUND                                                     ## TODO: TBC:
+    a                replication:Bound, owl:NamedIndividual ;
+    rdfs:isDefinedBy lds: .
+
+## endregion Bound :: Individuals
+## endregion Bound
+
+###

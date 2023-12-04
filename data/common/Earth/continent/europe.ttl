@@ -1,0 +1,26 @@
+@prefix owl:               <http://www.w3.org/2002/07/owl#> .
+@prefix prof:              <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:              <http://www.w3.org/ns/prov#> .
+@prefix rdf:               <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:              <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:              <http://www.w3.org/ns/dx/prof/role/> .
+@prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:               <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix lds-dc:            <https://github.com/nicosResearchAndDevelopment/LDS/data/common/> .
+
+@prefix earth:             <https://github.com/nicosResearchAndDevelopment/LDS/data/common/Earth/> .
+@prefix continent:         <https://github.com/nicosResearchAndDevelopment/LDS/data/common/Earth/continent/> .
+
+continent:Europe
+    a                owl:NamedIndividual, lds-cc:Continent ;
+    rdfs:label       "Europa"@de ;
+    rdfs:label       "Europe"@en ;
+    rdfs:isDefinedBy lds: .
+
+earth:
+    lds-cc:continent continent:Europe ;
+    rdfs:isDefinedBy lds: .
+
+###

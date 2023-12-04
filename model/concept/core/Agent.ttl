@@ -1,0 +1,31 @@
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:    <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix lds-cc: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+
+lds-cc:Agent
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  entity:Entity ;
+    skos:notation    "Agent"^^xsd:string ;
+    skos:prefLabel   "Agent"@en ;
+    skos:prefLabel   "Agent"@de ;
+    skos:related     foaf:Agent ;
+    rdfs:isDefinedBy lds: .
+
+lds:AgentConcepts
+    skos:member lds-cc:Agent .
+
+lds:EntityConcepts
+    skos:member lds-cc:Agent .
+
+lds:AllConcepts
+    skos:member lds-cc:Agent .
+
+###

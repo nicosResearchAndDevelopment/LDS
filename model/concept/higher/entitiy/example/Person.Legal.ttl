@@ -1,0 +1,35 @@
+    ##```turtle
+@prefix foaf:                       <http://xmlns.com/foaf/0.1/> .
+@prefix odrl:                       <http://www.w3.org/ns/odrl/2/> .
+@prefix org:                        <http://www.w3.org/ns/org#> .
+@prefix rdf:                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:                        <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:                     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix purpose:                    <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+@prefix credential:                 <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/credential/> .
+
+@prefix Fred:                       <https://www.fred-flintstone.com/> .
+@prefix Barney:                     <https://www.rubble.com/barney/> .
+
+Fred:
+    a                entity:LegalPerson ; ## REM: entity:LegalEntity
+    a                foaf:Person ;
+    foaf:firstName   "Fred"^^xsd:string ;
+    foaf:surname     "Flintstone"^^xsd:string ;
+    foaf:knows       Barney: ;
+    rdfs:isDefinedBy Fred: .
+
+Barney:
+    a                entity:NaturalPerson ;
+    a                foaf:Person ;
+    foaf:firstName   "Barney"^^xsd:string ;
+    foaf:surname     "Rubble"^^xsd:string ;
+    foaf:knows       Fred: ;
+    rdfs:isDefinedBy Barney: .
+
+##```
+
+###

@@ -1,0 +1,40 @@
+@prefix lds:             <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:             <http://www.w3.org/2002/07/owl#> .
+@prefix prof:            <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:            <http://www.w3.org/ns/prov#> .
+@prefix rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:            <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:            <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:            <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:             <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix work:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/> .
+@prefix purpose:         <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+
+purpose:PurposeProfile
+    a                owl:Class, skos:Concept ;
+    a                prof:Profile ;
+    rdfs:subClassOf  purpose:Purpose ;
+#    rdfs:subClassOf  prof:Profile ;
+    skos:notation    "purpose:Purpose"^^xsd:string ;
+    skos:prefLabel   "Purpose"@en ;
+    skos:prefLabel   "Ziel"@de ;
+    skos:broader     lds:Purpose ;
+    skos:broader     purpose:Purpose ;
+    rdfs:isDefinedBy lds: .
+
+purpose:purpose
+    a                rdf:Property ;
+    rdfs:range       purpose:PurposeProfile ;
+    rdfs:isDefinedBy lds: .
+
+lds:PurposeConcepts
+    skos:member purpose:PurposeProfile .
+
+lds:lds:ProfileConcepts
+    skos:member purpose:PurposeProfile .
+
+lds:AllConcepts
+    skos:member purpose:PurposeProfile .
+
+##
