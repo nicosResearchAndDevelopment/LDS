@@ -1,4 +1,4 @@
-# lds Example 'Entity'
+# LDS Example 'Entity'
 
 ## Entity
 

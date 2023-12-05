@@ -123,4 +123,8 @@ lds:FrameworkConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:SchemaConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 ###

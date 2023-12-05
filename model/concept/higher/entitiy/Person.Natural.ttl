@@ -11,7 +11,7 @@
 entity:NaturalPerson
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  entity:Person ;
-    rdfs:subClassOf  entity:Actor ;
+    rdfs:subClassOf  entity:AppointedRepresentative ; ## REM: !!!!!!!!!!!!!!!!!!!!!!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     skos:notation    "entity:NaturalPerson"^^xsd:string ;
     skos:prefLabel   "Natural Person"@en ;
     skos:prefLabel   "Natürliche Person"@de ;

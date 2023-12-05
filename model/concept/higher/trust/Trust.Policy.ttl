@@ -1,0 +1,81 @@
+@prefix dct:                <http://purl.org/dc/terms/> .
+@prefix odrl:               <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prof:               <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+trust:Policy # REM: abstract
+    a                owl:Class, skos:Concept ;
+    ## TODO: TBC: rdfs:subClassOf  lds-cc:Trust ; ::really?!?
+    rdfs:subClassOf  trust:Agreement ;
+    rdfs:label       "Policy"@en ;
+    rdfs:label       "Regelwerk"@de ;
+    skos:notation    "trust:Agreement"^^xsd:string ;
+    skos:prefLabel   "Policy"@en ;
+    skos:prefLabel   "Regelwerk"@de ;
+    ## region profile
+    # rdfs:subClassOf  prof:Profile ;
+    ## endregion profile
+    ## region prov
+    ## REM: opening the books for a very nice feature: **traceability**.
+    # rdfs:subClassOf  prov:Entity ;               ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    ## endregion prov
+    ## region odrl
+    # rdfs:subClassOf  odrl:Policy ;
+    ## endregion odrl
+    rdfs:isDefinedBy lds: .
+
+trust:policy
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:agreement ;
+    rdfs:domain        trust:Trust ;
+    rdfs:range         trust:Policy ; ## REM: CARD: [0..1]
+    rdfs:isDefinedBy   lds: .
+
+trust:negotiationPolicy ## REM: history
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:agreement ;
+    dct:description    """All Policies (as products of negotiation process), leading to given Policy of Agreement."""@en ;
+    rdfs:domain        trust:Trust ;
+    rdfs:range         trust:Policy ; ## REM: CARD: [0..n]
+    rdfs:isDefinedBy   lds: .
+
+trust:AgreementPolicy # REM: abstract
+    a                owl:Class, skos:Concept ;
+    ## TODO: TBC: rdfs:subClassOf  lds-cc:Trust ; ::really?!?
+    rdfs:subClassOf  trust:Policy ;
+    rdfs:label       "Agreement Policy"@en ;
+    rdfs:label       "Vereinbarung der Übereinkunft"@de ;
+    skos:notation    "trust:AgreementPolicy"^^xsd:string ;
+    skos:prefLabel   "Agreement Policy"@en ;
+    skos:prefLabel   "Vereinbarung der Übereinkunft"@de ;
+    ## region odrl
+    rdfs:subClassOf  odrl:Agreement ; ## REM: sub class of `odrl:Policy`
+    ## endregion odrl
+    rdfs:isDefinedBy lds: .
+
+trust:agreementPolicy
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:policy ;
+    rdfs:domain        trust:Trust ;
+    rdfs:range         trust:AgreementPolicy ; ## REM: CARD: [0..1]
+    rdfs:comment       """`rdfs:range`: CARD: [0..1] :: it is possible to have The Trust without any Agreement (Policy)."""@en ;
+    rdfs:isDefinedBy   lds: .
+
+lds:TrustConcepts
+    skos:member trust:Policy .
+
+lds:AllConcepts
+    skos:member trust:Policy ;
+    skos:member trust:AgreementPolicy .
+
+###

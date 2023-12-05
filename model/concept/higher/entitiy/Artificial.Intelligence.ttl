@@ -11,9 +11,8 @@
 
 entity:ArtificialIntelligence
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  entity:Entity ;
     rdfs:subClassOf  intelligence:ArtificialIntelligence ;
-    rdfs:subClassOf  entity:Actor ;
+    rdfs:subClassOf  entity:AppointedRepresentative ;
     skos:notation    "entity:ArtificialIntelligence"^^xsd:string ;
     skos:prefLabel   "Artificial Intelligence"@en ;
     skos:prefLabel   "Künstliche Intelligenz"@de ;

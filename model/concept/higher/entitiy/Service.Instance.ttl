@@ -11,9 +11,8 @@
 
 entity:ServiceInstance
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  entity:Entity ;
-    rdfs:subClassOf  entity:Actor ;
     rdfs:subClassOf  service:ServiceInstance ;
+    rdfs:subClassOf  entity:AppointedRepresentative ; ## REM: !!!!!!!!!!!!!!!!!!!!!!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     skos:notation    "entity:ServiceInstance"^^xsd:string ;
     skos:prefLabel   "Service Instance"@en ;
     skos:prefLabel   "Serviceinstanz"@de ;

@@ -20,9 +20,9 @@ entity:LegalEntityAppointedRepresentative
     skos:broader     legal:Legal ;
     skos:broader     entity:LegalEntity ;
     skos:broader     entity:AppointedRepresentative ;
-    skos:narrower    entity:LEAR_NP ;
-    skos:narrower    entity:LEAR_SI ;
-    skos:narrower    entity:LEAR_AI ;
+    ## TODO: skos:narrower    entity:LEAR_NP ;
+    ## TODO: skos:narrower    entity:LEAR_SI ;
+    ## TODO: skos:narrower    entity:LEAR_AI ;
     rdfs:isDefinedBy lds: .
 
 entity:legalEntityAppointedRepresentative

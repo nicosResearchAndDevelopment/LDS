@@ -1,8 +1,5 @@
 # LDS Model Concept 'entity'
 
-**This version**:
-[https://github.com/nicosResearchAndDevelopment/LDS/blob/main/model/concept/entitiy/README.md](https://github.com/nicosResearchAndDevelopment/LDS/blob/main/model/concept/entitiy/README.md)
-
 ## Table of Content
 
 - [Construction of Entity Classes](#construction-of-entity-classes)
@@ -16,6 +13,8 @@
 - [References](#references)
 
 *Table of Content: lds Model Concept 'entity'*.
+
+---
 
 ## Construction of Entity Classes
 
@@ -112,6 +111,8 @@ To bring the concepts (here: all those **LEAR_X**) to real-world ecosystems.
 | **x-eiads:LEAR_NP_VC_eIDAS** | eIDAS *Natural Person* as *Verifiable Credential*  | [LEAR_NP_VC_eIDAS.ttl](../../../LEAR/usage/LEAR_NP_VC_eIDAS.ttl)  |
 
 *Table: More precise LEAR Credentials*.
+
+---
 
 ## LEAR Credentials with explicit Authorization
 

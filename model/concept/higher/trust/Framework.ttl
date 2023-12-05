@@ -1,0 +1,48 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prof:               <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+trust:Framework
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds-cc:Framework ;
+    rdfs:label       "Framework"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    rdfs:label       "Rahmenwerk"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:notation    "trust:Framework"^^xsd:string ;
+    skos:prefLabel   "Framework"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:prefLabel   "Rahmenwerk"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:broader     lds-cc:Framework ;
+    ## region Profile
+    #       a                prof:Profile ;
+    ## endregion Profile
+    rdfs:isDefinedBy lds: .
+
+trust:framework
+    rdfs:range       trust:Framework ;
+    ## rdfs:domain       ;  ## ILO: intentionally left open (ILO)
+    rdfs:isDefinedBy lds: .
+
+trust:knowsDomain
+    rdfs:range       trust:Domain ;
+    rdfs:domain      trust:Framework ;
+    rdfs:comment     """Using this property `trust:knowsDomain` does **NOT** express (by given instance of `trust:Framework`) that all Domains based on given Framework are listed here..."""@en ;
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:Framework .
+
+lds:FrameworkConcepts
+    skos:member trust:Framework .
+
+lds:AllConcepts
+    skos:member trust:Framework .
+
+###

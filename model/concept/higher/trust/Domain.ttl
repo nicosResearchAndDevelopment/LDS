@@ -1,0 +1,66 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+
+trust:Domain
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds-cc:Domain ;
+    rdfs:label       "Domain"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    rdfs:label       "Domäne"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:notation    "trust:Domain"^^xsd:string ;
+    skos:prefLabel   "Domain"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:prefLabel   "Domäne"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:related     trust:SubDomain ;
+    skos:broader     lds-cc:Domain ;
+    rdfs:comment     """Uses `trust:framework` to bind `trust:Framework` to given Domain (instance of `trust:Domain`)."""@en ;
+    ## region prov
+    ## REM: opening the books for a very nice feature: **traceability**.
+    #  rdfs:subClassOf  prov:SoftwareAgent ;               ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    ## endregion prov
+    ## region entity
+    #    ## REM: a very broad approach
+    #    rdfs:subClassOf  entity:Entity ;               ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    #    ## region Entity : ServiceInstance
+    #    ## REM: a very special approach: `entity:ServiceInstance` is a `entity:AppointedRepresentative` too! So it is
+    #    ## REM:     equipped with `entity:actOnBehalf`... a very nice feature, indeed - given Domain (The Domain) is
+    #    ## REM:     working on behalf `entity:LegalEntity`, so `on behalf `entity:legalPerson`or `entity:Organization`.
+    #    rdfs:subClassOf  entity:ServiceInstance ;      ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    #    ## endregion Entity : ServiceInstance
+    ## endregion entity
+    rdfs:isDefinedBy lds: .
+
+trust:hasTrust
+    a                owl:ObjectProperty ;
+    rdfs:domain      trust:Domain ;
+    rdfs:range       trust:Trust ;
+    rdfs:isDefinedBy lds: .
+
+trust:subDomain
+    a                owl:ObjectProperty ;
+    owl:inverseOf    trust:subDomainOf ;
+    rdfs:domain      trust:Domain ;
+    rdfs:range       trust:SubDomain ;
+    rdfs:isDefinedBy lds: .
+
+trust:domain
+    a                owl:ObjectProperty ;
+    rdfs:range       trust:Domain ;
+    ## rdfs:domain      trust:Domain ;  ## ILO: intentionally left open (ILO)
+    rdfs:isDefinedBy lds: .
+
+lds:TrustConcepts
+    skos:member trust:Domain .
+
+lds:AllConcepts
+    skos:member trust:Domain .
+
+###

@@ -1,4 +1,4 @@
-@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix dct:                <http://purl.org/dc/terms/> .
 @prefix owl:                <http://www.w3.org/2002/07/owl#> .
 @prefix prov:               <http://www.w3.org/ns/prov#> .
 @prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,31 +11,43 @@
 @prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
 @prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
 
-trust:Trust
+trust:Agreement
     a                owl:Class, skos:Concept ;
     ## TODO: TBC: rdfs:subClassOf  lds-cc:Trust ; ::really?!?
     rdfs:subClassOf  lds-cc:Trust ;
-    rdfs:label       "Trust"@en ;
-    rdfs:label       "Vertrauen"@de ;
-    skos:notation    "trust:Trust"^^xsd:string ;
-    skos:prefLabel   "Trust"@en ;
-    skos:prefLabel   "Vertrauen"@de ;
+    rdfs:label       "Agreement"@en ;
+    rdfs:label       "Vereinbarung"@de ;
+    skos:notation    "trust:Agreement"^^xsd:string ;
+    skos:prefLabel   "Agreement"@en ;
+    skos:prefLabel   "Vereinbarung"@de ;
     ## region prov
     ## REM: opening the books for a very nice feature: **traceability**.
-    #  rdfs:subClassOf  prov:Entity ;               ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    # rdfs:subClassOf  prov:Entity ;               ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     ## endregion prov
     rdfs:isDefinedBy lds: .
 
-trust:trust
+trust:agreement
     a                owl:ObjectProperty ;
-    rdfs:range       trust:Trust  ;
-    ## rdfs:domain      ; ## ILO:
+    rdfs:domain      trust:Trust ;
+    rdfs:range       trust:Agreement ; ## REM: CARD: [0..1]
+    rdfs:comment     """`rdfs:range`: CARD: [0..1] :: it is possible to have The Trust without any Agreement."""@en ;
     rdfs:isDefinedBy lds: .
 
+trust:negotiationAgreement
+    a                  owl:ObjectProperty ;
+    rdfs:subPropertyOf trust:agreement ;
+    dct:description    """All Agreements (as products of negotiation process), leading to given Agreement."""@en ;
+    rdfs:range         trust:Policy ; ## REM: CARD: [0..n]
+    rdfs:domain        trust:Trust ;
+    rdfs:isDefinedBy   lds: .
+
+trust:trust ## REM: still defined!
+    rdfs:domain trust:Agreement .
+
 lds:TrustConcepts
-    skos:member trust:Trust .
+    skos:member trust:Agreement .
 
 lds:AllConcepts
-    skos:member trust:Trust .
+    skos:member trust:Agreement .
 
 ###
