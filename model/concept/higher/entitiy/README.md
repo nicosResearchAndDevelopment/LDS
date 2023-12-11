@@ -134,7 +134,9 @@ Those examples introduce dedicated authorizations, e.g. to very special *purpose
 - **DPV**
 - **USD**
 
-### Polish
+### Trust
+
+### LDS Polish
 
 ### Future of LDS
 
