@@ -15,7 +15,6 @@
 @prefix x-ISO-3166-1:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/x-ISO-3166/1#> .
 @prefix x-ISO-3166-2:                     <https://github.com/nicosResearchAndDevelopment/LDS/blob/main/misc/x-ISO-3166/2#> .
 
-
 x-ISO-3166:
     a                             voaf:Vocabulary ;
     a                             owl:Ontology ;
@@ -162,5 +161,34 @@ x-ISO-3166:
 
 ## endregion codes :: DE
 
+## region TODO
+#        // Mitgliedstaaten EU
+#        //     Belgien (BE)
+#        //     Bulgarien (BG)
+#//     Dänemark (DK)
+#//     Deutschland (DE)
+#//     Estland (EE)
+#//     Finnland (FI)
+#//     Frankreich (FR)
+#//     Griechenland (GR)
+#//     Irland (IE)
+#//     Italien (IT)
+#//     Kroatien (HR)
+#//     Lettland (LV)
+#//     Litauen (LT)
+#//     Luxemburg (LU)
+#//     Malta (MT)
+#//     Niederlande (NL)
+#//     Österreich (AT)
+#//     Polen (PL)
+#//     Portugal (PT)
+#//     Rumänien (RO)
+#//     Schweden (SE)
+#//     Slowakei (SK)
+#//     Slowenien (SI)
+#//     Spanien (ES)
+## endregion TODO
 
 ## endregion codes
+
+###

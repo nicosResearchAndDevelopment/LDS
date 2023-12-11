@@ -9,7 +9,6 @@
 @prefix entity: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 @prefix lds-cc: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
 
-
 lds-cc:Actor
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  lds-cc:Agent ;

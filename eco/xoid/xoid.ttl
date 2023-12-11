@@ -142,6 +142,39 @@ xoid:2.5.4.5
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: serialNumber
 
+## region  property :: certificateSerialNumber
+## IMPORTANT: this is **NOT** *standard*... something else...
+#xoid:certificateSerialNumber
+#    a                owl:DatatypeProperty ;
+#    owl:sameAs       xoid:1.2.276.0.66.1.0.3.1.4.300 ;
+#    owl:sameAs       oidref:1.2.276.0.66.1.0.3.1.4.300 ;
+#    ## TODO: TBC: subPropertyOf 'oidref:1.2.276.0.66.1.0.3.1.4.300' (if 'xetsi-esi:id-etsi-qcs-SemanticsId-Natural' is chosen?!?)
+#    a                skos:Concept ;
+#    skos:notation    "certificateSerialNumber"^^xsd:string ;
+#    skos:prefLabel   "certificateSerialNumber"^^xsd:string ;
+#    skos:related     xoid:1.2.276.0.66.1.0.3.1.4.300 ;
+#    skos:related     oidref:1.2.276.0.66.1.0.3.1.4.300 ;
+#    ## TODO: TBC: skos:broader     oidref:1.2.276.0.66.1.0.3.1.4.300 ;
+#    rdfs:range       xsd:nonNegativeInteger ;            ## TODO: cardinality []
+#    rdfs:seeAlso     "http://oid-info.com/get/1.2.276.0.66.1.0.3.1.4.300"^^xsd:anyURI ;
+#    rdfs:isDefinedBy xoid: .
+#
+#xoid:1.2.276.0.66.1.0.3.1.4.300
+#    a                owl:DatatypeProperty ;
+#    owl:sameAs       xoid:certificateSerialNumber ;
+#    ## TODO: TBC: subPropertyOf 'oidref:1.2.276.0.66.1.0.3.1.4.300' (if 'xetsi-esi:id-etsi-qcs-SemanticsId-Natural' is chosen?!?)
+#    a                skos:Concept ;
+#    skos:notation    "1.2.276.0.66.1.0.3.1.4.300"^^xsd:string ;
+#    skos:prefLabel   "certificateSerialNumber"^^xsd:string ;
+#    skos:related     xoid:certificateSerialNumber ;
+#    skos:related     oidref:1.2.276.0.66.1.0.3.1.4.300 ;
+#    ## TODO: TBC: skos:broader     oidref:1.2.276.0.66.1.0.3.1.4.300 ;
+#    rdfs:range       xsd:string ;            ## TODO: cardinality []
+#    rdfs:seeAlso     "http://oid-info.com/get/1.2.276.0.66.1.0.3.1.4.300"^^xsd:anyURI ;
+#    rdfs:isDefinedBy xoid: .
+
+## endregion  property :: certificateSerialNumber
+
 ## region  property :: description (NP, SI)
 xoid:description
     a                owl:DatatypeProperty ;
@@ -259,6 +292,21 @@ xoid:dateOfBirth
     a                skos:Concept ;
     skos:notation    "dateOfBirth"^^xsd:string ;
     skos:prefLabel   "dateOfBirth"^^xsd:string ;
+    skos:related     xoid:id-pda-dateOfBirth ;
+    skos:related     xoid:1.3.6.1.5.5.7.9.1 ;
+    skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
+    rdfs:range       xsd:string ;            ## TODO: cardinality []
+    rdfs:seeAlso     "http://oid-info.com/get/1.3.6.1.5.5.7.9.1"^^xsd:anyURI ;
+    rdfs:isDefinedBy xoid: .
+
+xoid:id-pda-dateOfBirth
+    a                owl:DatatypeProperty ;
+    owl:sameAs       xoid:dateOfBirth ;
+    owl:sameAs       xoid:1.3.6.1.5.5.7.9.1 ;
+    a                skos:Concept ;
+    skos:notation    "id-pda-dateOfBirth"^^xsd:string ;
+    skos:prefLabel   "dateOfBirth"^^xsd:string ;
+    skos:related     xoid:dateOfBirth ;
     skos:related     xoid:1.3.6.1.5.5.7.9.1 ;
     skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
@@ -272,7 +320,8 @@ xoid:1.3.6.1.5.5.7.9.1
     a                skos:Concept ;
     skos:notation    "1.3.6.1.5.5.7.9.1"^^xsd:string ;
     skos:prefLabel   "dateOfBirth"^^xsd:string ;
-    skos:related     xoid:description ;
+    skos:related     xoid:id-pda-dateOfBirth ;
+    skos:related     xoid:dateOfBirth ;
     skos:related     oidref:1.3.6.1.5.5.7.9.1 ;
     rdfs:range       xsd:string ;            ## TODO: cardinality []
     rdfs:seeAlso     "http://oid-info.com/get/1.3.6.1.5.5.7.9.1"^^xsd:anyURI ;
@@ -470,5 +519,10 @@ xoid:2.5.4.11
     rdfs:isDefinedBy xoid: .
 ## endregion  property :: organizationUnitName
 ## endregion  property
+
+## region class
+## TODO: ObjectClass 'top'    :: "http://oid-info.com/get/2.5.6.0"
+## TODO: ObjectClass 'person' :: OID: 2.5.6.6
+## endregion class
 
 ###

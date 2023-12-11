@@ -12,7 +12,7 @@
 authorization:Authorization
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  lds-cc:Authorization ;
-    skos:notation    "authorisation:Authorization"^^xsd:string ;
+    skos:notation    "authorization:Authorization"^^xsd:string ;
     skos:prefLabel   "Authorization"@en ;
     skos:prefLabel   "Autorisierung"@de ;
     skos:broader     lds-cc:Authorization ;

@@ -72,7 +72,7 @@ lds:hasMember
 
 purpose:purpose
     rdfs:domain      purpose:Membership ;
-#    rdfs:domain      authorisation:Authorisation ;
+#    rdfs:domain      authorization:Authorization ;
     rdfs:isDefinedBy lds: .
 
 purpose:profile

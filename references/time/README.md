@@ -4,14 +4,16 @@
 
 ## Table of Content
 
-- [Time Ontology in OWL](#time-ontology-in-owl)
+- [**Time Ontology in OWL**](#time-ontology-in-owl)
     - [Time Ontology in OWL, W3C Editor's Draft 11 September 2023](#time-ontology-in-owl-w3c-editors-draft-11-september-2023)
     - [Time Ontology in OWL, W3C Candidate Recommendation Draft 15 November 2022](#time-ontology-in-owl-w3c-candidate-recommendation-draft-15-november-2022)
-- [Date and Time on the Internet: Timestamps](#date-and-time-on-the-internet-timestamps)
-- [The gregorian months](#time-ontology-in-owl)
-- [xtime](#xtime)
+- [**Date and Time on the Internet: Timestamps** (*RFC3339*)](#date-and-time-on-the-internet-timestamps)
+- [**The gregorian months**](#time-ontology-in-owl)
+- [**xtime, ODRL extension for OWL Time Ontology**](#xtime-odrl-extension-for-owl-time-ontology)
     - [xtime, Related Concepts, Schemas and Models](#xtime-related-concepts-schemas-and-models)
     - [xtime, Version 1](#xtime-version-1)
+- **Miscellaneous**
+    - [Date and time expressed according to ISO 8601 (*wiki, en*)](https://en.wikipedia.org/wiki/ISO_8601)
 
 *Table of Content: LDS Time References*.
 
@@ -64,7 +66,7 @@ Model, turtle: <[https://raw.githubusercontent.com/w3c/sdw/gh-pages/time/rdf/tim
 
 ---
 
-## xtime
+## xtime, ODRL extension for OWL Time Ontology
 
 Home: <[https://github.com/nicosResearchAndDevelopment/odrl-extension-xtime/](https://github.com/nicosResearchAndDevelopment/odrl-extension-xtime)>
 

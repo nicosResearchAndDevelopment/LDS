@@ -1,5 +1,10 @@
 # LDS Namespace References
 
-Turtle <[./lds.namespace.ttl](./lds.namespace.ttl)>
+Ontologies used in **Linked Data Space** in alphabetic order:
+
+```turtle
+
+
+```
 
 ---

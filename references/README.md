@@ -1,8 +1,5 @@
 # LDS References
 
-**This version**:
-[https://github.com/nicosResearchAndDevelopment/LDS/blob/main/references/README.md](https://github.com/nicosResearchAndDevelopment/LDS/blob/main/references/README.md)
-
 ## Table of Content
 
 - [**Identifier, Authorization and Actor Model**](./iaam/README.md)
