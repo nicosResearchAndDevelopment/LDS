@@ -12,7 +12,7 @@
     - [Polish](#polish)
 - [References](#references)
 
-*Table of Content: lds Model Concept 'entity'*.
+*Table of Content: LDS Model Concept 'entity'*.
 
 ---
 
@@ -85,18 +85,18 @@ It might be spooky to see *Artificial Intelligence* (**entity:LEAR_AI**) here, b
 it is a good idea doing so - we are prepared to handle this problem before academic research comes to a conclusion ;-)
 ...
 
-| Subject (Class)                                | Property              | Subject                    | Comment                                                                            | Example                 |
-|------------------------------------------------|-----------------------|----------------------------|------------------------------------------------------------------------------------|-------------------------|
-| **entity:LER**                                 |                       | Representative             | *Natural Person* of Legal Entity                                                   |                         |
-|                                                | `entity:actOnBehalf`  |                            |                                                                                    |                         |
-| **entity:LegalEntityAppointedRepresentative**  |                       |                            | Super Class of **lear:LEAR_X**                                                     |                         |
-| **lear:LEAR_NP**                               |                       | *Natural Person*           | LEAR *Natural Person*, `Lenny`                                                     |                         |
-| **lear:LEAR_NP_VC**                            |                       | *Natural Person*           | LEAR *Natural Person* as *Verifiable Credential*, same as: **lear:LEARCredential** | [](./LEAR/example/.ttl) |
-| **lear:LEARCredential**                        |                       | *Natural Person*           | Same as: **lear:LEAR_NP_VC**                                                       | [](./LEAR/example/.ttl) |
-| **lear:LEAR_SI**                               |                       | *Service Instance*         | LEAR *Service Instance*, `Lissy`                                                   |                         |
-| **lear:LEAR_SI_VC**                            |                       | *Service Instance*         | LEAR *Service Instance* as *Verifiable Credential*                                 |                         |
-| **lear:LEAR_AI**                               |                       | *Artificial Intelligence*  | LEAR *Artificial Intelligence*, `Larry`                                            |                         |
-| **lear:LEAR_AI_VC**                            |                       | *Artificial Intelligence*  | LEAR *Artificial Intelligence* as *Verifiable Credential*                          |                         |
+| Subject (Class)                                | Property              | Subject                   | Comment                                                                            | Example                 |
+|------------------------------------------------|-----------------------|---------------------------|------------------------------------------------------------------------------------|-------------------------|
+| **entity:LER**                                 |                       | *Representative*          | *Natural Person* of Legal Entity                                                   |                         |
+|                                                | `entity:actOnBehalf`  |                           |                                                                                    |                         |
+| **entity:LegalEntityAppointedRepresentative**  |                       |                           | Super Class of **lear:LEAR_X**                                                     |                         |
+| **lear:LEAR_NP**                               |                       | *Natural Person*          | LEAR *Natural Person*, `Lenny`                                                     |                         |
+| **lear:LEAR_NP_VC**                            |                       | *Natural Person*          | LEAR *Natural Person* as *Verifiable Credential*, same as: **lear:LEARCredential** | [](./LEAR/example/.ttl) |
+| **lear:LEARCredential**                        |                       | *Natural Person*          | Same as: **lear:LEAR_NP_VC**                                                       | [](./LEAR/example/.ttl) |
+| **lear:LEAR_SI**                               |                       | *Service Instance*        | LEAR *Service Instance*, `Lissy`                                                   |                         |
+| **lear:LEAR_SI_VC**                            |                       | *Service Instance*        | LEAR *Service Instance* as *Verifiable Credential*                                 |                         |
+| **lear:LEAR_AI**                               |                       | *Artificial Intelligence* | LEAR *Artificial Intelligence*, `Larry`                                            |                         |
+| **lear:LEAR_AI_VC**                            |                       | *Artificial Intelligence* | LEAR *Artificial Intelligence* as *Verifiable Credential*                          |                         |
 
 *Table: LEAR Credentials*.
 

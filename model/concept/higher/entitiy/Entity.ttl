@@ -6,16 +6,17 @@
 @prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix lds-cc:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
 @prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/legal/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 
 entity:Entity
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds:Entity ;
+    rdfs:subClassOf  lds-cc:Entity ;
     skos:notation    "entity:Entity"^^xsd:string ;
     skos:prefLabel   "Entity"@en ;
     skos:prefLabel   "Entität"@de ;
-    skos:broader     lds:Entity ;
+    skos:broader     lds-cc:Entity ;
     skos:narrower    entity:LegalEntity ;
     skos:narrower    entity:Person ;
     rdfs:isDefinedBy lds: .

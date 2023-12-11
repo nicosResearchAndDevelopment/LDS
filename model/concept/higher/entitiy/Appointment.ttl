@@ -6,6 +6,7 @@
 @prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix lds-cc: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 
 entity:Appointment ## REM: abstract
@@ -15,7 +16,7 @@ entity:Appointment ## REM: abstract
     skos:prefLabel   "Appointment"@en ;
     skos:prefLabel   "Ernennung"@de ;
     skos:altLabel    "AP"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel AP"^^xsd:string'
-    skos:broader     lds:Appointment ;
+    skos:broader     lds-cc:Appointment ;
     rdfs:isDefinedBy lds: .
 
 lds:AppointConcepts

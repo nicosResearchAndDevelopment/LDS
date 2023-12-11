@@ -16,7 +16,7 @@ entity:Representative
     skos:notation    "Representative"^^xsd:string ;
     skos:prefLabel   "Representative"@en ;
     skos:prefLabel   "Repräsentant"@de ;
-    skos:broader     lds:Representative ;
+    skos:broader     lds-cc:Representative  ;
     skos:broader     entity:Actor ; ## REM: so, ready for `entity:actBehalfOf`
     rdfs:isDefinedBy lds: .
 

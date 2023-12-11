@@ -6,17 +6,18 @@
 @prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix lds-cc:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 
 entity:Organization
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds:Organization ;
+    rdfs:subClassOf  lds-cc:Organization ;
     rdfs:subClassOf  entity:LegalEntity ;
     skos:notation    "entity:Organization"^^xsd:string ;
     skos:prefLabel   "Organization"@en ;
     skos:prefLabel   "Organisation"@de ;
     skos:altLabel    "O"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel O"^^xsd:string'
-    skos:broader     lds:Organization ;
+    skos:broader     lds-cc:Organization ;
     skos:broader     entity:LegalEntity ;
     rdfs:isDefinedBy lds: .
 

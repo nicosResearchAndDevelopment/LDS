@@ -6,6 +6,7 @@
 @prefix skos:              <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix lds-cc: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
 @prefix legal:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/legal/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 
@@ -20,8 +21,8 @@ entity:LegalEntity ## abstract
     skos:altLabel    "LE"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel LE"^^xsd:string'
     skos:broader     legal:Legal ;
     skos:broader     entity:Entity ;
-    skos:narrower    lds:Organization ;
-    skos:narrower    lds:LegalPerson ;
+    skos:narrower    lds-cc:Organization  ;
+    skos:narrower    lds-cc:LegalPerson  ;
     rdfs:isDefinedBy lds: .
 
 entity:legalEntityIdentifier
