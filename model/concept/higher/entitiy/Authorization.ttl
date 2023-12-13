@@ -7,24 +7,19 @@
 @prefix xsd:               <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix lds-cc:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix authorization:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/authorization/> .
 @prefix entity:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 
 entity:Authorization
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds-cc:Authorization ;
+    rdfs:subClassOf  authorization:Authorization ;
     skos:notation    "entity:Authorization"^^xsd:string ;
     skos:prefLabel   "Authorization"@en ;
-    skos:prefLabel   "Authorization"@de ;
+    skos:prefLabel   "Autorisierung"@de ;
     skos:altLabel    "AT"^^xsd:string ; ## TODO: ABBREVIATION@NARR :: 'skos:altLabel AT"^^xsd:string'
-    skos:broader     lds-cc:Authorization ;
+    skos:broader     authorization:Authorization ;
     skos:narrower    entity:Appointment ;
     rdfs:isDefinedBy lds: .
-
-#purpose:purpose
-#    rdfs:domain entity:Authorization .
-#
-#purpose:target
-#    rdfs:domain entity:Authorization .
 
 lds:AuthorizationConcepts
     skos:member entity:Authorization .

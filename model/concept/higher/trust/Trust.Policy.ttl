@@ -15,13 +15,14 @@
 
 trust:Policy # REM: abstract
     a                owl:Class, skos:Concept ;
-    ## TODO: TBC: rdfs:subClassOf  lds-cc:Trust ; ::really?!?
-    rdfs:subClassOf  trust:Agreement ;
+    ## TODO: TBC: rdfs:subClassOf  lds-cc:Agreement ; ::really?!?
+    rdfs:subClassOf  lds-cc:Policy ;
     rdfs:label       "Policy"@en ;
     rdfs:label       "Regelwerk"@de ;
     skos:notation    "trust:Agreement"^^xsd:string ;
     skos:prefLabel   "Policy"@en ;
     skos:prefLabel   "Regelwerk"@de ;
+    skos:broader     lds-cc:Policy ;
     ## region profile
     # rdfs:subClassOf  prof:Profile ;
     ## endregion profile

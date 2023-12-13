@@ -14,12 +14,13 @@
 trust:Agreement
     a                owl:Class, skos:Concept ;
     ## TODO: TBC: rdfs:subClassOf  lds-cc:Trust ; ::really?!?
-    rdfs:subClassOf  lds-cc:Trust ;
+    rdfs:subClassOf  trust:Policy ;
     rdfs:label       "Agreement"@en ;
     rdfs:label       "Vereinbarung"@de ;
     skos:notation    "trust:Agreement"^^xsd:string ;
     skos:prefLabel   "Agreement"@en ;
     skos:prefLabel   "Vereinbarung"@de ;
+    skos:broader     trust:Policy ;
     ## region prov
     ## REM: opening the books for a very nice feature: **traceability**.
     # rdfs:subClassOf  prov:Entity ;               ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -33,10 +34,10 @@ trust:agreement
     rdfs:comment     """`rdfs:range`: CARD: [0..1] :: it is possible to have The Trust without any Agreement."""@en ;
     rdfs:isDefinedBy lds: .
 
-trust:negotiationAgreement
+trust:negotiationPolicy
     a                  owl:ObjectProperty ;
     rdfs:subPropertyOf trust:agreement ;
-    dct:description    """All Agreements (as products of negotiation process), leading to given Agreement."""@en ;
+    dct:description    """All Policies (as products of negotiation process), leading to given Agreement."""@en ;
     rdfs:range         trust:Policy ; ## REM: CARD: [0..n]
     rdfs:domain        trust:Trust ;
     rdfs:isDefinedBy   lds: .

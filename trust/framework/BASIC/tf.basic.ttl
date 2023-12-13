@@ -1,5 +1,6 @@
 @prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prof:               <http://www.w3.org/ns/dx/prof/> .
 @prefix prov:               <http://www.w3.org/ns/prov#> .
 @prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
@@ -9,32 +10,29 @@
 @prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
 @prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
+@prefix basic:              <https://github.com/nicosResearchAndDevelopment/LDS/trust/framework/BASIC/> .
 
-trust:Schema
+basic:Framework
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds-cc:Schema ;
-    skos:prefLabel   "Schema"@en ;
-    skos:prefLabel   "Schema"@de ;
-    skos:notation    "trust:Schema"^^xsd:string ;
-    skos:prefLabel   "Schema"@en ;
-    skos:prefLabel   "Schema"@de ;
-    skos:broader     lds-cc:Schema ;
-    rdfs:isDefinedBy lds: .
-
-lds:schema
-    a                owl:ObjectProperty ;
-    rdfs:range       trust:Schema ; ## CARD: [0..1]
-    rdfs:domain      trust:Domain ;
-    rdfs:domain      trust:Framework ;
+    rdfs:subClassOf  trust:Framework ;
+    rdfs:label       "Trust Framework BASIC"@en ;
+    rdfs:label       "Rahmenwerk des Vertrauens BASIC"@de ;
+    skos:notation    "basic:Framework"^^xsd:string ;
+    skos:prefLabel   "Trust Framework BASIC"@en ;
+    skos:prefLabel   "Rahmenwerk des Vertrauens BASIC"@de ;
+    skos:broader     lds-cc:Framework ;
+    # region Profile
+    a                prof:Profile ;
+    # endregion Profile
     rdfs:isDefinedBy lds: .
 
 lds:TrustConcepts
-    skos:member trust:Schema .
+    skos:member basic:Framework .
 
-lds:SchemaConcepts
-    skos:member trust:Schema .
+lds:FrameworkConcepts
+    skos:member basic:Framework .
 
 lds:AllConcepts
-    skos:member trust:Schema .
+    skos:member basic:Framework .
 
 ###

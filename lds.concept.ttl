@@ -43,6 +43,10 @@ lds:LegalConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .
 
+lds:LevelConcepts
+    a                skos:Collection ;
+    rdfs:isDefinedBy lds: .
+
 lds:NaturalConcepts
     a                skos:Collection ;
     rdfs:isDefinedBy lds: .

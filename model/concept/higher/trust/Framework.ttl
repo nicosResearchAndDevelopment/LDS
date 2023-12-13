@@ -14,11 +14,11 @@
 trust:Framework
     a                owl:Class, skos:Concept ;
     rdfs:subClassOf  lds-cc:Framework ;
-    rdfs:label       "Framework"@en ; ## TODO: TBC: underpin 'Trust'?!?
-    rdfs:label       "Rahmenwerk"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    rdfs:label       "Trust Framework"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    rdfs:label       "Rahmenwerk des Vertrauens"@de ; ## TODO: TBC: underpin 'Trust'?!?
     skos:notation    "trust:Framework"^^xsd:string ;
-    skos:prefLabel   "Framework"@en ; ## TODO: TBC: underpin 'Trust'?!?
-    skos:prefLabel   "Rahmenwerk"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:prefLabel   "Trust Framework"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:prefLabel   "Rahmenwerk des Vertrauens"@de ; ## TODO: TBC: underpin 'Trust'?!?
     skos:broader     lds-cc:Framework ;
     ## region Profile
     #       a                prof:Profile ;
@@ -28,12 +28,20 @@ trust:Framework
 trust:framework
     rdfs:range       trust:Framework ;
     ## rdfs:domain       ;  ## ILO: intentionally left open (ILO)
+    rdfs:comment     """`trust:framework` will be used by instance of `trust:Root`."""@en ;
     rdfs:isDefinedBy lds: .
 
 trust:knowsDomain
     rdfs:range       trust:Domain ;
     rdfs:domain      trust:Framework ;
     rdfs:comment     """Using this property `trust:knowsDomain` does **NOT** express (by given instance of `trust:Framework`) that all Domains based on given Framework are listed here..."""@en ;
+    rdfs:isDefinedBy lds: .
+
+trust:roots
+    a                owl:ObjectProperty ;
+    rdfs:range       trust:Root ; ## CARD: [0..n]
+    rdfs:domain      trust:Framework ;
+    rdfs:comment     """`trust:roots` is **NOT** `trust:root`, see `trust:Root`."""@en ;
     rdfs:isDefinedBy lds: .
 
 lds:TrustConcepts

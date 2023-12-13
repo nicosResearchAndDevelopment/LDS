@@ -13,6 +13,7 @@
 
 trust:Domain
     a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  trust:Anchor ;
     rdfs:subClassOf  lds-cc:Domain ;
     rdfs:label       "Domain"@en ; ## TODO: TBC: underpin 'Trust'?!?
     rdfs:label       "Domäne"@de ; ## TODO: TBC: underpin 'Trust'?!?
@@ -54,7 +55,8 @@ trust:subDomain
 trust:domain
     a                owl:ObjectProperty ;
     rdfs:range       trust:Domain ;
-    ## rdfs:domain      trust:Domain ;  ## ILO: intentionally left open (ILO)
+    rdfs:domain      trust:TopLevelDomain ;
+    rdfs:domain      rdfs:Resource ;
     rdfs:isDefinedBy lds: .
 
 lds:TrustConcepts

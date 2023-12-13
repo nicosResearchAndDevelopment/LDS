@@ -8,33 +8,30 @@
 
 @prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
 @prefix trust:              <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/trust/> .
 
-trust:Schema
+trust:TopLevelDomain
     a                owl:Class, skos:Concept ;
-    rdfs:subClassOf  lds-cc:Schema ;
-    skos:prefLabel   "Schema"@en ;
-    skos:prefLabel   "Schema"@de ;
-    skos:notation    "trust:Schema"^^xsd:string ;
-    skos:prefLabel   "Schema"@en ;
-    skos:prefLabel   "Schema"@de ;
-    skos:broader     lds-cc:Schema ;
+    rdfs:subClassOf  trust:Domain ;
+    rdfs:label       "Top Level Domain"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    rdfs:label       "Domäne der obersten Ebene"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:notation    "trust:TopLevelDomain"^^xsd:string ;
+    skos:prefLabel   "Top Level Domain"@en ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:prefLabel   "DomänDomäne der obersten Ebene"@de ; ## TODO: TBC: underpin 'Trust'?!?
+    skos:broader     trust:Domain ;
     rdfs:isDefinedBy lds: .
 
-lds:schema
+trust:topLevelDomain
     a                owl:ObjectProperty ;
-    rdfs:range       trust:Schema ; ## CARD: [0..1]
     rdfs:domain      trust:Domain ;
-    rdfs:domain      trust:Framework ;
+    rdfs:range       trust:TopLevelDomain ;
     rdfs:isDefinedBy lds: .
 
 lds:TrustConcepts
-    skos:member trust:Schema .
-
-lds:SchemaConcepts
-    skos:member trust:Schema .
+    skos:member trust:TopLevelDomain .
 
 lds:AllConcepts
-    skos:member trust:Schema .
+    skos:member trust:TopLevelDomain .
 
 ###

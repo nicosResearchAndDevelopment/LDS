@@ -1,0 +1,168 @@
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix owl:                <http://www.w3.org/2002/07/owl#> .
+@prefix prov:               <http://www.w3.org/ns/prov#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:                <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:             <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix purpose:            <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/work/purpose/> .
+@prefix uri:                <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/> .
+
+uri:URI
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  lds-cc:Uniform ;
+    rdfs:subClassOf  lds-cc:Resource ;
+    rdfs:subClassOf  lds-cc:Identifier ;
+    rdfs:label       "Uniform Resource Identifier"@en ;
+    rdfs:label       "Uniform Resource Identifier"@de ;
+    skos:notation    "uri:URI"^^xsd:string ;
+    skos:prefLabel   "URI"@en ;
+    skos:prefLabel   "URI"@de ;
+    skos:related     xsd:anyURI ;
+    skos:broader     lds-cc:Uniform ;
+    skos:broader     lds-cc:Resource ;
+    skos:broader     lds-cc:Identifier ;
+    rdfs:seeAlso     <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier> ;
+    rdfs:isDefinedBy lds: .
+
+## region properties
+uri:href
+    a                rdf:Property ;
+    rdfs:label       "href"@en ;
+    rdfs:label       "href"@de ;
+    skos:notation    "uri:href"^^xsd:string ;
+    skos:prefLabel   "href"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [1..1]
+    rdfs:isDefinedBy lds: .
+
+uri:protocol
+    a                rdf:Property ;
+    rdfs:label       "protocol"@en ;
+    rdfs:label       "protocol"@de ;
+    skos:notation    "uri:protocol"^^xsd:string ;
+    skos:prefLabel   "protocol"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [1..1]
+    rdfs:isDefinedBy lds: .
+
+uri:origin
+    a                rdf:Property ;
+    rdfs:label       "origin"@en ;
+    rdfs:label       "origin"@de ;
+    skos:notation    "uri:origin"^^xsd:string ;
+    skos:prefLabel   "origin"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [1..1]
+    rdfs:isDefinedBy lds: .
+
+uri:host
+    a                rdf:Property ;
+    rdfs:label       "host"@en ;
+    rdfs:label       "host"@de ;
+    skos:notation    "uri:host"^^xsd:string ;
+    skos:prefLabel   "host"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [1..1]
+    rdfs:isDefinedBy lds: .
+
+uri:port
+    a                rdf:Property ;
+    rdfs:label       "port"@en ;
+    rdfs:label       "port"@de ;
+    skos:notation    "uri:port"^^xsd:string ;
+    skos:prefLabel   "port"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [0..1]
+    rdfs:isDefinedBy lds: .
+
+uri:pathname
+    a                rdf:Property ;
+    rdfs:label       "pathname"@en ;
+    rdfs:label       "pathname"@de ;
+    skos:notation    "uri:pathname"^^xsd:string ;
+    skos:prefLabel   "pathname"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [0..1]
+    rdfs:isDefinedBy lds: .
+
+uri:search
+    a                rdf:Property ;
+    rdfs:label       "search"@en ;
+    rdfs:label       "search"@de ;
+    skos:notation    "uri:search"^^xsd:string ;
+    skos:prefLabel   "search"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [0..1]
+    rdfs:isDefinedBy lds: .
+
+uri:hash
+    a                rdf:Property ;
+    rdfs:label       "hash"@en ;
+    rdfs:label       "hash"@de ;
+    skos:notation    "uri:hash"^^xsd:string ;
+    skos:prefLabel   "hash"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       xsd:string ; ## CARD: [0..1]
+    rdfs:isDefinedBy lds: .
+
+uri:searchParams
+    a                owl:ObjectProperty ;
+    rdfs:label       "searchParams"@en ;
+    rdfs:label       "searchParams"@de ;
+    skos:notation    "uri:searchParams"^^xsd:string ;
+    skos:prefLabel   "searchParams"^^xsd:string ;
+    rdfs:domain      uri:URI ;
+    rdfs:range       uri:SearchParams ; ## CARD: [0..1]
+    rdfs:isDefinedBy lds: .
+
+## endregion properties
+
+uri:SearchParams
+    a                owl:Class, skos:Concept ;
+    rdfs:label       "Search Parameters"@en ;
+    rdfs:label       "Search Parameters"@de ;
+    skos:notation    "uri:SearchParams"^^xsd:string ;
+    skos:prefLabel   "SearchParams"@en ;
+    skos:prefLabel   "SearchParams"@de ;
+    skos:related     xsd:anyURI ;
+    rdfs:isDefinedBy lds: .
+
+uri:URL
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  uri:URI ;
+    rdfs:subClassOf  lds-cc:Locator ;
+    rdfs:label       "Uniform Resource Locator"@en ;
+    rdfs:label       "Uniform Resource Locator"@de ;
+    skos:notation    "uri:URL"^^xsd:string ;
+    skos:prefLabel   "URL"@en ;
+    skos:prefLabel   "URL"@de ;
+    skos:related     xsd:anyURI ;
+    skos:broader     uri:URI ;
+    skos:broader     lds-cc:Locator ;
+    rdfs:seeAlso     <https://en.wikipedia.org/wiki/URL> ;
+    rdfs:isDefinedBy lds: .
+
+uri:URN
+    a                owl:Class, skos:Concept ;
+    rdfs:subClassOf  uri:URI ;
+    rdfs:label       "Uniform Resource Name"@en ;
+    rdfs:label       "Uniform Resource Name"@de ;
+    skos:notation    "uri:URN"^^xsd:string ;
+    skos:prefLabel   "URN"@en ;
+    skos:prefLabel   "URN"@de ;
+    skos:related     xsd:anyURI ;
+    skos:broader     uri:URI ;
+    skos:broader     lds-cc:Name ;
+    rdfs:seeAlso     <https://en.wikipedia.org/wiki/URL> ;
+    rdfs:isDefinedBy lds: .
+
+lds:AllConcepts
+    skos:member uri:URI ;
+    skos:member uri:URL ;
+    skos:member uri:URN .
+
+###

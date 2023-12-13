@@ -16,49 +16,93 @@
 
 ## Properties related to LDS Identifier
 
-| Family      | Property                  | Range                                | Expression                                                                                                      | Comment                                                                |
-|-------------|---------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-| **foaf**    |                           |                                      |                                                                                                                 |                                                                        |
-|             | `foaf:dnaChecksum`        | `rdfs:Literal`                       | *none* ...but this will come soon ;-)                                                                           | [`foaf:`](#foaf) says, > "A checksum for the DNA of some thing. Joke." |
-| **did**     |                           |                                      |                                                                                                                 |                                                                        |
-|             | *@id*                     |                                      | ```^(?<did>did):(?<methodName>${__methodChar__}+):(?<methodSpecificId>${__idChar__}*)(?<extra>[;\\?#\/]*.*)$``` |                                                                        |
-| **eIDAS**   |                           |                                      |                                                                                                                 |                                                                        |
-|             | `LegalPersonIdentifier`   | `etsi:id-etsi-qcs-SemanticsId-Legal` |                                                                                                                 | Same as *ETSI organizationIdentifier*                                  |
-| **ETSI**    |                           |                                      |                                                                                                                 |                                                                        |
-|             | *organizationIdentifier*  | `etsi:id-etsi-qcs-SemanticsId-Legal` | ```TODO: ^(TODO)?```                                                                                            | Certificate Attribute, `2.5.4.97`                                      |
-| **ITU/ISO** |                           |                                      |                                                                                                                 |                                                                        |
-|             | `organizationIdentifer`   | 'xsd:string`                         | ```TODO: ^(TODO)?```                                                                                            | Certificate Attribute, `2.5.4.97`                                      |
-| **xsd**     |                           |                                      |                                                                                                                 |                                                                        |
-|             |                           | `xsd:anyURI`                         | ```^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?```                                                 |                                                                        |
+| Family      | Property                  | Range                                | Expression                                                                                                      | Comment                                                                                                                                                      |
+|-------------|---------------------------|--------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **foaf**    |                           |                                      |                                                                                                                 |                                                                                                                                                              |
+|             | `foaf:dnaChecksum`        | `rdfs:Literal`                       | *none* ...but this will come soon ;-)                                                                           | [`foaf:`](#foaf) says > "A checksum for the DNA of some thing. [Joke](https://github.com/nicosResearchAndDevelopment/LDS/blob/main/example/foaf/README.md)." |
+| **did**     |                           |                                      |                                                                                                                 |                                                                                                                                                              |
+|             | *@id*                     |                                      | ```^(?<did>did):(?<methodName>${__methodChar__}+):(?<methodSpecificId>${__idChar__}*)(?<extra>[;\\?#\/]*.*)$``` |                                                                                                                                                              |
+| **eIDAS**   |                           |                                      |                                                                                                                 |                                                                                                                                                              |
+|             | `LegalPersonIdentifier`   | `etsi:id-etsi-qcs-SemanticsId-Legal` |                                                                                                                 | Same as *ETSI organizationIdentifier*                                                                                                                        |
+| **ETSI**    |                           |                                      |                                                                                                                 |                                                                                                                                                              |
+|             | *organizationIdentifier*  | `etsi:id-etsi-qcs-SemanticsId-Legal` | ```TODO: ^(TODO)?```                                                                                            | Certificate Attribute, `2.5.4.97`                                                                                                                            |
+| **ITU/ISO** |                           |                                      |                                                                                                                 |                                                                                                                                                              |
+|             | `organizationIdentifer`   | 'xsd:string`                         | ```TODO: ^(TODO)?```                                                                                            | Certificate Attribute, `2.5.4.97`                                                                                                                            |
+| **xsd**     |                           |                                      |                                                                                                                 |                                                                                                                                                              |
+|             |                           | `xsd:anyURI`                         | ```^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?```                                                 |                                                                                                                                                              |
 
-*Table: Construction of Entity Classes*.
+*Table: Properties related to LDS Identifier*.
 
 ## More precise
 
 ### xsd:anyURI
 
 - Expression: `^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?`
-- URI: **https://www.company-Y.com/whats/up?that=this&these=there#allabout**
+- URI: **https://www.company-Y.com/whats/up?that=this&these=those#allabout**
 - Expression Result:
 
 ```text
 [
-  'https://www.company-Y.com/whats/up?that=this&these=there#allabout',       
+  'https://www.company-Y.com/whats/up?that=this&these=those#allabout',       
   'https:',
   'https',
   '//www.company-Y.com',
   'www.company-Y.com',
   '/whats/up',
-  '?that=this&these=there',
-  'that=this&these=there',
+  '?that=this&these=those',
+  'that=this&these=those',
   '#allabout',
   'allabout',
   index: 0,
-  input: 'https://www.company-Y.com/whats/up?that=this&these=there#allabout',
-  groups: undefined
+  input: 'https://www.company-Y.com/whats/up?that=this&these=those#allabout'
 ]
 
 ```
+
+More information, seriazied in `uri:URI`:
+
+```json
+{
+  "@context": {
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "uri": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/",
+    "href": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/href",
+    "protocol": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/protocol",
+    "origin": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/origin",
+    "host": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/host",
+    "hostname": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/hostname",
+    "port": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/port",
+    "pathname": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/pathname",
+    "search": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/search",
+    "searchParams": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/searchParams",
+    "hash": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/hash"
+  },
+  "@type": [
+    "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/URI"
+  ],
+  "@id": "https://www.company-y.com/whats/up?that=this&these=those",
+  "href": "https://www.company-y.com/whats/up?that=this&these=those",
+  "protocol": "https:",
+  "origin": "https://www.company-y.com",
+  "host": "www.company-y.com",
+  "hostname": "www.company-y.com",
+  "port": "",
+  "pathname": "/whats/up",
+  "search": "?that=this&these=those",
+  "hash": "",
+  "searchParams": {
+    "@context": {
+      "SearchParams": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/uri/SearchParams",
+      "that": "urn:searchparam#that",
+      "these": "urn:searchparam#these"
+    },
+    "@type": "SearchParams",
+    "that": "this",
+    "these": "those"
+  }
+}
+```
+---
 
 ### DID
 
@@ -75,7 +119,7 @@
   '/organisationIdentifier',                        
   index: 0,                                         
   input: 'did:lds:company-y/organisationIdentifier',
-  groups: [Object: null prototype] {                
+  groups: {                
     did: 'did',                                     
     methodName: 'lds',
     methodSpecificId: 'company-y',
@@ -128,6 +172,7 @@ See also **oid-info**: <[[http://oid-info.com/get/2.5.4.97)](http://oid-info.com
 
 > **5.1.4 Legal person semantics identifier**
 > > ---------------------------------------->
+
 ```text
 The semantics of id-etsi-qcs-SemanticsId-Legal shall be as follows.
 When the legal person semantics identifier is included, any present organizationIdentifier attribute in the subject
@@ -162,9 +207,20 @@ nameRegistrationAuthorities element of SemanticsInformation (IETF RFC 3739 [1]) 
 shall contain at least a uniformResourceIdentifier generalName. The two letter identity type reference
 following the ":" character shall be unique within the context of the specified uniformResourceIdentifier.
 ```
+
 > > <----------------------------------------
 
 See also: **[ETSI, "Electronic Signatures and Infrastructures (ESI); Certificate Profiles; Part 1: Overview and common data structures"](https://www.etsi.org/deliver/etsi_en/319400_319499/31941201/01.04.01_60/en_31941201v010401p.pdf#5.1.4)**:
+
+---
+
+## foaf dnaChecksum
+
+> "A checksum for the DNA of some thing. Joke."
+
+We can see it hier: <[http://xmlns.com/foaf/0.1/#term_dnaChecksum](http://xmlns.com/foaf/0.1/#term_dnaChecksum)>
+
+...and we can make it serious, here.
 
 ---
 

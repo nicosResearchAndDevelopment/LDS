@@ -1,10 +1,10 @@
-# The Identifier 'foaf:checkSum'
+# The Identifier 'foaf:dnaChecksum'
 
 As we know from <[http://xmlns.com/foaf/0.1/#term_dnaChecksum](http://xmlns.com/foaf/0.1/#term_dnaChecksum)>:
 
 > The foaf:dnaChecksum property is mostly a joke, but also a reminder that there will be lots of different identifying properties for people, some of which we might find disturbing.
 
-...and [here](./foaf_dnaChecksum_builder.js) we get the chance to calculate it!
+...and [here](./foaf_dnaChecksum_builder.js) we get the chance to calculate the **dnaChecksum**!
 
 ```javascript
 const {createHash} = require('node:crypto');
@@ -66,7 +66,7 @@ let Bob = {
 }
 ```
 
-...**NEW!!!**: [make your own](./you.js)!
+...**NEW!!!**: [make your own](./you.js) (after you've installed [node.js](https://nodejs.org/en)!
 
 ```javascript
 const {foaf_dnaChecksum_builder} = require("./foaf_dnaChecksum_builder");
