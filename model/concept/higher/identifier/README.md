@@ -14,6 +14,8 @@
 
 *Table of Content: LDS Model Concept 'identifier'*.
 
+---
+
 ## Properties related to LDS Identifier
 
 | Family      | Property                  | Range                                | Expression                                                                                                      | Comment                                                                                                                                                      |
